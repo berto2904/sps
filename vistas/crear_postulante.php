@@ -29,30 +29,57 @@ include ('header.php');
   							<ul class="nav nav-tabs" role="tablist">
 
   								<li role="presentation" class="active">
-  									<a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Informacion Personal">
   										<span class="round-tab">
-  											<i class="glyphicon glyphicon-search"></i>
+  											<i class="glyphicon glyphicon-user"></i>
   										</span>
   									</a>
   								</li>
 
   								<li role="presentation" class="">
-  									<a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Familiares">
   										<span class="round-tab">
-  											<i class="glyphicon glyphicon-pencil"></i>
+  											<i class="glyphicon glyphicon-leaf"></i>
   										</span>
   									</a>
   								</li>
   								<li role="presentation" class="">
-  									<a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Educación">
   										<span class="round-tab">
-  											<i class="glyphicon glyphicon-picture"></i>
+  											<i class="glyphicon glyphicon-education"></i>
   										</span>
   									</a>
   								</li>
-
   								<li role="presentation" class="">
-  									<a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Hobbies y pasatiempos">
+  										<span class="round-tab">
+  											<i class="glyphicon glyphicon-music"></i>
+  										</span>
+  									</a>
+  								</li>
+                  <li role="presentation" class="">
+  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Informacion Socioambiental">
+  										<span class="round-tab">
+  											<i class="glyphicon glyphicon-home"></i>
+  										</span>
+  									</a>
+  								</li>
+                  <li role="presentation" class="">
+  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Informacion Economica">
+  										<span class="round-tab">
+  											<i class="glyphicon glyphicon-piggy-bank"></i>
+  										</span>
+  									</a>
+  								</li>
+                  <li role="presentation" class="">
+  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Antecedentes Laborales">
+  										<span class="round-tab">
+  											<i class="glyphicon glyphicon-briefcase"></i>
+  										</span>
+  									</a>
+  								</li>
+                  <li role="presentation" class="">
+  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Confirmacion">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-ok"></i>
   										</span>
@@ -63,9 +90,9 @@ include ('header.php');
 
   						<form role="form">
   							<div class="tab-content">
-  								<div class="tab-pane active" role="tabpanel" id="step1">
+  								<div class="tab-pane active" role="tabpanel" id="">
                     <div class="step1">
-                            <div class="row">
+                        <div class="row">
                             <div class="col-md-6">
                                 <label for="exampleInputEmail1">First Name</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="First Name">
@@ -104,7 +131,7 @@ include ('header.php');
                         </div>
                         </div>
   								</div>
-  								<div class="tab-pane" role="tabpanel" id="step2">
+  								<div class="tab-pane" role="tabpanel" id="">
   									<h3>Step 2</h3>
   									<p>This is step 2</p>
   									<ul class="list-inline pull-right">
@@ -112,7 +139,7 @@ include ('header.php');
   										<li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
   									</ul>
   								</div>
-  								<div class="tab-pane" role="tabpanel" id="step3">
+  								<div class="tab-pane" role="tabpanel" id="">
   									<h3>Step 3</h3>
   									<p>This is step 3</p>
   									<ul class="list-inline pull-right">
