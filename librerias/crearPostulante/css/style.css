@@ -31,7 +31,7 @@ body {
 #page .page-inner {
   background: #fff;
   margin: 0 auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .offcanvas #page {
   overflow: hidden;
@@ -443,7 +443,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .gtco-cover {
-  height: 900px;
+  height: 70em;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

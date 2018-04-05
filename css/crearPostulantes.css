@@ -1,6 +1,9 @@
 .contenidoPostulante{
   margin-top: 6em;
 }
+.formularioPostulante{
+  padding: 0em 2em 2em 2em;
+}
 .wizard {
     border-radius: 29px;
     background: #fff;
@@ -21,7 +24,7 @@
     height: 2px;
     background: #a513fd;
     position: absolute;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -68,7 +71,7 @@ span.round-tab:hover {
 }
 
 .wizard .nav-tabs > li {
-    width: 12%;
+    width: 11%;
 }
 
 .wizard li:after {

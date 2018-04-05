@@ -5,22 +5,24 @@
 </div>
 
 <!-- jQuery -->
-<script src="../js/jquery.min.js"></script>
+
+<script src="../librerias/jquery/jquery.min.js"></script>
 <!-- jQuery Easing -->
-<script src="../js/jquery.easing.1.3.js"></script>
+<script src="../librerias/jquery/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
 <!-- Waypoints -->
-<script src="../js/jquery.waypoints.min.js"></script>
+<script src="../librerias/jquery/jquery.waypoints.min.js"></script>
 <!-- Carousel -->
-<script src="../js/owl.carousel.min.js"></script>
+<script src="../librerias/crearPostulante/js/owl.carousel.min.js"></script>
 <!-- countTo -->
-<script src="../js/jquery.countTo.js"></script>
+<script src="../librerias/jquery/jquery.countTo.js"></script>
 <!-- Magnific Popup -->
-<script src="../js/jquery.magnific-popup.min.js"></script>
-<script src="../js/magnific-popup-options.js"></script>
+<script src="../librerias/jquery/jquery.magnific-popup.min.js"></script>
+<script src="../librerias/crearPostulante/js/magnific-popup-options.js"></script>
 <!-- Main -->
 <script src="../js/main.js"></script>
+<script src="../js/crearPostulante.js"></script>
 
 </body>
 </html>

@@ -4,8 +4,9 @@ require ('../clases/UsuarioClass.php');
 
 session_start();
 
-if (isset($_SESSION["usuario"])) {
-  $idUsuario = $_SESSION["usuario"];
+if (isset($_SESSION['usuario'])) {
+  $idUsuario = $_SESSION['usuario'];
+
 }
 else {
   session_destroy();
@@ -27,9 +28,15 @@ include ('header.php');
   						<div class="wizard-inner">
   							<div class="connecting-line"></div>
   							<ul class="nav nav-tabs" role="tablist">
-
-  								<li role="presentation" class="active">
-  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Informacion Personal">
+                  <li role="presentation" class="active">
+                    <a href="#formuInfoEntre" data-toggle="tab" aria-controls="" role="tab" title="Informacion de entrevista">
+                      <span class="round-tab">
+                        <i class="glyphicon glyphicon-play-circle"></i>
+                      </span>
+                    </a>
+                  </li>
+  								<li role="presentation" class="">
+  									<a href="#formuInfoPersonal" data-toggle="tab" aria-controls="" role="tab" title="Informacion Personal">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-user"></i>
   										</span>
@@ -37,49 +44,49 @@ include ('header.php');
   								</li>
 
   								<li role="presentation" class="">
-  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Familiares">
+  									<a href="#formuInfoFamiliar" data-toggle="tab" aria-controls="" role="tab" title="Familiares">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-leaf"></i>
   										</span>
   									</a>
   								</li>
   								<li role="presentation" class="">
-  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Educación">
+  									<a href="#formuInfoEducacion" data-toggle="tab" aria-controls="" role="tab" title="Educación">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-education"></i>
   										</span>
   									</a>
   								</li>
   								<li role="presentation" class="">
-  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Hobbies y pasatiempos">
+  									<a href="#formuInfoHobbPasat" data-toggle="tab" aria-controls="" role="tab" title="Hobbies y pasatiempos">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-music"></i>
   										</span>
   									</a>
   								</li>
                   <li role="presentation" class="">
-  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Informacion Socioambiental">
+  									<a href="#formuInfoSocioambiental" data-toggle="tab" aria-controls="" role="tab" title="Informacion Socioambiental">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-home"></i>
   										</span>
   									</a>
   								</li>
                   <li role="presentation" class="">
-  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Informacion Economica">
+  									<a href="#formuInfoEconomica" data-toggle="tab" aria-controls="" role="tab" title="Informacion Economica">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-piggy-bank"></i>
   										</span>
   									</a>
   								</li>
                   <li role="presentation" class="">
-  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Antecedentes Laborales">
+  									<a href="#formuInfoAntecedenteLaborales" data-toggle="tab" aria-controls="" role="tab" title="Antecedentes Laborales">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-briefcase"></i>
   										</span>
   									</a>
   								</li>
                   <li role="presentation" class="">
-  									<a href="#" data-toggle="tab" aria-controls="" role="tab" title="Confirmacion">
+  									<a href="#formuConfirmacion" data-toggle="tab" aria-controls="" role="tab" title="Confirmacion">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-ok"></i>
   										</span>
@@ -88,70 +95,14 @@ include ('header.php');
   							</ul>
   						</div>
 
-  						<form role="form">
-  							<div class="tab-content">
-  								<div class="tab-pane active" role="tabpanel" id="">
-                    <div class="step1">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="exampleInputEmail1">First Name</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="First Name">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="exampleInputEmail1">Last Name</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Last Name">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="exampleInputEmail1">Confirm Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="exampleInputEmail1">Mobile Number</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                            </div>
-                            <div class="col-md-6">
-                            <label for="exampleInputEmail1">Email address</label>
-                                <div class="row">
-                                    <div class="col-md-3 col-xs-3">
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                                    </div>
-                                    <div class="col-md-9 col-xs-9">
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-  								</div>
-  								<div class="tab-pane" role="tabpanel" id="">
-  									<h3>Step 2</h3>
-  									<p>This is step 2</p>
-  									<ul class="list-inline pull-right">
-  										<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-  										<li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-  									</ul>
-  								</div>
-  								<div class="tab-pane" role="tabpanel" id="">
-  									<h3>Step 3</h3>
-  									<p>This is step 3</p>
-  									<ul class="list-inline pull-right">
-  										<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-  										<li><button type="button" class="btn btn-default next-step">Skip</button></li>
-  										<li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
-  									</ul>
-  								</div>
-  								<div class="tab-pane" role="tabpanel" id="complete">
-  									<h3>Complete</h3>
-  									<p>You have successfully completed all steps.</p>
-  								</div>
+  						<form role="form" method="post" action="../controladores/registrarPostulanteController.php">
+  							<div class="tab-content formularioPostulante">
+  								<?php
+                    include('registracionPostulante/formuInfoEntre.php');
+                    include('registracionPostulante/formuInfoPersonal.php');
+                    include('registracionPostulante/formuInfoFamiliar.php');
+                    include('registracionPostulante/formuConfirmacion.php');
+                   ?>
   								<div class="clearfix"></div>
   							</div>
   						</form>

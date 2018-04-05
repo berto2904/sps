@@ -6,16 +6,16 @@
 	<title>SPS Entrevistas</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 
-	<link rel="stylesheet" href="../css/animate.css">
-	<link rel="stylesheet" href="../css/icomoon.css">
-	<link rel="stylesheet" href="../css/themify-icons.css">
-	<link rel="stylesheet" href="../css/bootstrap.css">
-	<link rel="stylesheet" href="../css/magnific-popup.css">
-	<link rel="stylesheet" href="../css/owl.carousel.min.css">
-	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../librerias/crearPostulante/css/animate.css">
+	<link rel="stylesheet" href="../librerias/crearPostulante/css/icomoon.css">
+	<link rel="stylesheet" href="../librerias/crearPostulante/css/themify-icons.css">
+	<link rel="stylesheet" href="../librerias/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../librerias/crearPostulante/css/magnific-popup.css">
+	<link rel="stylesheet" href="../librerias/crearPostulante/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../librerias/crearPostulante/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="../librerias/crearPostulante/css/style.css">
 	<link rel="stylesheet" href="../css/crearPostulantes.css"/>
-	<script src="../js/modernizr-2.6.2.min.js"></script>
+	<script src="../librerias/crearPostulante/js/modernizr-2.6.2.min.js"></script>
 	</head>
 	<body>
 
@@ -34,7 +34,7 @@
     						<li class="has-dropdown">
     							<a href="#">Entrevistas</a>
     							<ul class="dropdown">
-    								<li><a href="#">Crear Postulante</a></a></li>
+    								<li><a href="crear_postulante.php">Crear Postulante</a></a></li>
     								<li><a href="#">Consultar Postulantes</a></li>
     							</ul>
     						</li>
