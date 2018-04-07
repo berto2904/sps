@@ -11,36 +11,12 @@ $(document).ready(function() {
   //     });
   //     return true;
   // });
+  $('#addfamiliar').click(function(){
+    $("#datosFamiliares").append('<div class="form-group col-md-12" id="infoFam"> <div class="col-md-2"> <select class="tipoFamiliar  form-control" name="infoFamiliar[]"> <option value=""></option> <option value="1">Padre</option> <option value="2">Madre</option> <option value="3">Hijo</option> <option value="4">Hija</option> </select> </div> <div class="col-md-3"> <input type="text" class="form-control"  name="infoFamiliar[]" placeholder="Apellido y Nombre"> </div> <div class="col-md-3"> <input type="text" class="form-control"  name="infoFamiliar[]" placeholder="Domicilio"> </div> <div class="col-md-3"> <input type="text" class="form-control" name="infoFamiliar[]" placeholder="Profesion"> </div> <div class="col-md-1"> <button type="button" name="button" class="btn btn-sm btn-danger deleteFamiliar">-</button> </div> </div>');
+  });
 });
 
-
-
-function mostrarMascotasDelUser(idUsuario) {
-  $.ajax({
-    url:base_url+"/fluffy/controladores/cargarMascotasDelUserController.php",
-    type:"POST",
-    data:{usuario:idUsuario},
-    success: function (result) {
-      var parsed = JSON.parse(result);
-      var jsonString = JSON.stringify(parsed);
-      enviarMascotasAVistaMascotasDelUser(jsonString);
-      }
-  });
-}
-
-function enviarMascotasAVistaMascotasDelUser(mascotasDelUser){
-    $.ajax({
-      url:base_url+"/fluffy/vistas/home.php",
-      type:"POST",
-      data:{mascotas:mascotasDelUser},
-      success: function(data){
-        var result = $('<div />').append(data).find('#mascotasUserSection').html();
-            $('#mascotasUserSection').html(result);
-            $('.dropdown-submenu a.test').on("click", function(e){
-               $(this).next('ul').toggle();
-               e.stopPropagation();
-               e.preventDefault();
-             });
-        }
-    });
-}
+//Borrar familiar
+$(document).on('click', '.deleteFamiliar', function() {
+    $(this).parent().parent().remove();
+});

@@ -31,7 +31,7 @@ include ('header.php');
                   <li role="presentation" class="active">
                     <a href="#formuInfoEntre" data-toggle="tab" aria-controls="" role="tab" title="Informacion de entrevista">
                       <span class="round-tab">
-                        <i class="glyphicon glyphicon-play-circle"></i>
+                        <i class="ti-comment-alt"></i>
                       </span>
                     </a>
                   </li>

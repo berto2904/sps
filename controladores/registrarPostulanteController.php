@@ -1,6 +1,9 @@
 <?php
   require ("../clases/Postulante.php");
   require ("../clases/Entrevista.php");
+  require ("../clases/Familiar.php");
+  require ("../clases/Conyuge.php");
+  require ("../clases/ObservacionConvivencia.php");
 
   session_start();
   //Entrevista
@@ -27,6 +30,18 @@
 
   //Familiares
   $familiares = array_chunk($_POST["infoFamiliar"], 4);
+  // Conyuge
+  $apellido_conyuge = ($_POST["inputApellidoConyuge"] != "" ? $_POST["inputApellidoConyuge"] : Null);
+  $nombres_conyuge = ($_POST["inputNombresConyuge"] != "" ? $_POST["inputNombresConyuge"] : Null);
+  $id_sexo_conyuge = ($_POST["inputSexoConyuge"] != "" ? $_POST["inputSexoConyuge"] : Null);
+  $fecha_de_nacimiento_conyuge = ($_POST["inputFechaNacimmientoConyuge"] != "" ? $_POST["inputFechaNacimmientoConyuge"] : Null);
+  $dni_conyuge = ($_POST["inputDniConyuge"] != "" ? $_POST["inputDniConyuge"] : Null);
+  $ci_numero_conyuge = ($_POST["inputCiNumeroConyuge"] != "" ? $_POST["inputCiNumeroConyuge"] : Null);
+  $lugar_nacimiento_conyuge  = ($_POST["inputLugarNacimientoConyuge"] != "" ? $_POST["inputLugarNacimientoConyuge"] : Null);
+  $nacionalidad_conyuge  = ($_POST["inputNacionalidadConyuge"] != "" ? $_POST["inputNacionalidadConyuge"] : Null);
+  $profesion_conyuge  = ($_POST["inputProfesionConyuge"] != "" ? $_POST["inputProfesionConyuge"] : Null);
+  //Observaciones Convivencia
+  $observacionConvicencia  = ($_POST["inputObservacionesConvivencia"] != "" ? $_POST["inputObservacionesConvivencia"] : Null);
 
   // $id_informacion_economica = $_POST["inputInformacionEconomica"];
   // $id_informacion_socioambiental = $_POST["inputInformacionSocioambiental"];
@@ -36,11 +51,15 @@ try {
   }
   $postulante = new Postulante($nombres, $apellido, $fecha_de_nacimiento, $ci_numero, $expedida_por_A, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $profesion, $id_estado_civil, Null, Null,$id_sexo,$categoria_conducir,$expedida_por_B);
   $idPostulante = $postulante->registrarPostulante();
-  var_dump($idPostulante);
-  die();
 
   if ($idPostulante != 0) {
     crearFamiliares($familiares,$idPostulante);
+
+    $conyuge = new Conyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $ci_numero_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante);
+    $idConyuge =  $conyuge->registrarConyuge();
+
+    $observacionesConvivencia = new ObservacionConvivencia($observacionConvicencia,$idPostulante);
+    $observacionesConvivencia->registarObservacionConvivencia();
     $entrevista= new Entrevista($idPostulante, $organizacion, $puesto, $fechaEntrevista, "", $id_usuario);
     $entrevista->registrarEntrevista();
   }
@@ -54,12 +73,18 @@ header("location: ../vistas/crear_postulante.php");
 
   function crearFamiliares($familiares,$idPostulante){
       foreach ($familiares as $fs => $fam) {
-          $naFamiliar = $fam[0];
-          $dFamiliar = $fam[1];
-          $pFamiliar = $fam[2];
-          $tFamiliar = $fam[3];
-          $familiar = new Familiar($naFamiliar,$dFamiliar,$pFamiliar,$tFamiliar,$idPostulante);
+          if ($fam[0] != "") {
+            $tFamiliar = $fam[0];
+            $naFamiliar = $fam[1];
+            $dFamiliar = $fam[2];
+            $pFamiliar = $fam[3];
+            $familiar = new Familiar($naFamiliar,$dFamiliar,$pFamiliar,$idPostulante,$tFamiliar,Null);
+            $familiar->registrarFamiliar();
+          }
         }
+  }
+  function crearConyuge($familiares,$idPostulante){
+
   }
 
  ?>

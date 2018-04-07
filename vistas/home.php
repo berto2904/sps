@@ -15,7 +15,7 @@ else {
 include ('header.php');
 ?>
 
-    	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url('../librerias/Login/images/bg-01.jpg');">
+    	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url('../librerias/Login/images/bg-01.jpg');height: -webkit-fill-available;">
     		<div class="overlay"></div>
     		<div class="gtco-container">
     			<div class="row">

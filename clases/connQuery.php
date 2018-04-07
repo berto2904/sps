@@ -7,7 +7,6 @@ class ConnQuery{
   private $bd="sps";
   private $conn;
 
-
   function __construct(){
     $this->conn = mysqli_connect($this->servidor, $this->usuario, $this->pass, $this->bd);
 
