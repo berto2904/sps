@@ -31,7 +31,7 @@ include ('header.php');
                   <li role="presentation" class="active">
                     <a href="#formuInfoEntre" data-toggle="tab" aria-controls="" role="tab" title="Informacion de entrevista">
                       <span class="round-tab">
-                        <i class="ti-comment-alt"></i>
+                        <i class="ti-clipboard"></i>
                       </span>
                     </a>
                   </li>
@@ -101,6 +101,7 @@ include ('header.php');
                     include('registracionPostulante/formuInfoEntre.php');
                     include('registracionPostulante/formuInfoPersonal.php');
                     include('registracionPostulante/formuInfoFamiliar.php');
+                    include('registracionPostulante/formuInfoEducacion.php');
                     include('registracionPostulante/formuConfirmacion.php');
                    ?>
   								<div class="clearfix"></div>

@@ -9,16 +9,16 @@
        $this->atributo=$atributo;
 
     }
-    function registrarConyuge(){
+    function registar(){
       $cq = new connQuery();
-      $sql = "INSERT INTO conyuge(apellido) VALUES (?)";
+      $sql = "INSERT INTO tabla(apellido) VALUES (?)";
 
       $ps = $cq->prepare($sql);
       mysqli_stmt_bind_param($ps, "s", $this->atributo);
 
       mysqli_stmt_execute($ps);
-      $id_conyuge = $cq->getUltimoId();
-      return $id_conyuge;
+      $id_atributo = $cq->getUltimoId();
+      return $id_atributo;
     }
 
   }

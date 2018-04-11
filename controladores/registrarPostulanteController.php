@@ -4,6 +4,8 @@
   require ("../clases/Familiar.php");
   require ("../clases/Conyuge.php");
   require ("../clases/ObservacionConvivencia.php");
+  require ("../clases/Estudio.php");
+
 
   session_start();
   //Entrevista
@@ -43,10 +45,19 @@
   //Observaciones Convivencia
   $observacionConvicencia  = ($_POST["inputObservacionesConvivencia"] != "" ? $_POST["inputObservacionesConvivencia"] : Null);
 
+  //Educacion
+  $estudios = array_chunk($_POST["infoEstudios"], 6);
+  //Idiomas
+  $idiomas = $_POST["idioma"];
+  print_r($idiomas);
+  die();
   // $id_informacion_economica = $_POST["inputInformacionEconomica"];
   // $id_informacion_socioambiental = $_POST["inputInformacionSocioambiental"];
 try {
   if(is_float(count($_POST["infoFamiliar"])/4)){
+    throw new Exception('Error Procesamiento');
+  }
+  if(is_float(count($_POST["infoEstudios"])/6)){
     throw new Exception('Error Procesamiento');
   }
   $postulante = new Postulante($nombres, $apellido, $fecha_de_nacimiento, $ci_numero, $expedida_por_A, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $profesion, $id_estado_civil, Null, Null,$id_sexo,$categoria_conducir,$expedida_por_B);
@@ -54,6 +65,7 @@ try {
 
   if ($idPostulante != 0) {
     crearFamiliares($familiares,$idPostulante);
+    crearEstudios($estudios,$idPostulante);
 
     $conyuge = new Conyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $ci_numero_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante);
     $idConyuge =  $conyuge->registrarConyuge();
@@ -83,8 +95,22 @@ header("location: ../vistas/crear_postulante.php");
           }
         }
   }
-  function crearConyuge($familiares,$idPostulante){
+  function crearEstudios($estudios,$idPostulante){
+      foreach ($estudios as $es => $estudio) {
+          if ($estudio[1] != "" && $estudio[2] != "" && $estudio[3] != "" && $estudio[4] != "" && $estudio[5] != "") {
 
+              $id_nivel_estudio = (int)$estudio[0];
+              $organizacion = $estudio[1];
+              $desde = (int)$estudio[2];
+              $hasta = (int)$estudio[3];
+              $situacion = $estudio[4];
+              $titulo = $estudio[5];
+
+            $estudio = new Estudio($idPostulante, $id_nivel_estudio, $organizacion, $titulo, $desde, $hasta, $situacion);
+            $estudio->registrarEstudio();
+
+          }
+        }
   }
 
  ?>
