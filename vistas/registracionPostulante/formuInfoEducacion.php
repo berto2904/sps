@@ -67,8 +67,8 @@
     <hr>
     <h3>Idiomas</h3>
       <div class="formuInfoEducacion row">
-        <div class="col-md-11">
-          <table class="table table-bordered ">
+        <div class="col-md-12">
+          <table class="table table-hover table-bordered">
             <thead>
               <tr>
                 <th rowspan="2">Idioma</th>
@@ -92,7 +92,6 @@
             <tbody>
               <tr>
                 <td>Ingles</td>
-                <input type="hidden" name="idioma[1][0]" value="1">
                 <td>
                   <label class="containerRadio">
                     <input type="radio" name="idioma[1][1]" value="1">
@@ -149,14 +148,13 @@
                 </td>
                 <td>
                   <label class="switch">
-                    <input type="checkbox" class = "activarIdioma"  checked>
+                    <input type="checkbox" class = "activarIdioma" name="idioma[1][0]" checked value="1">
                     <span class="slider round"></span>
                   </label>
                 </td>
               </tr>
               <tr>
                 <td>Portugues</td>
-                <input type="hidden" name="idioma[2][0]" value="2">
                 <td>
                   <label class="containerRadio">
                     <input type="radio" name="idioma[2][1]" value="1">
@@ -213,14 +211,13 @@
                 </td>
                 <td>
                   <label class="switch">
-                    <input type="checkbox" class="activarIdioma"  checked>
+                    <input type="checkbox" class = "activarIdioma" name="idioma[2][0]" checked value="2">
                     <span class="slider round"></span>
                   </label>
                 </td>
               </tr>
               <tr>
                 <td>Frances</td>
-                <input type="hidden" name="idioma[3][0]" value="3">
                 <td>
                   <label class="containerRadio">
                     <input type="radio" name="idioma[3][1]" value="1">
@@ -277,7 +274,7 @@
                 </td>
                 <td>
                   <label class="switch">
-                    <input type="checkbox" class="activarIdioma"  checked>
+                    <input type="checkbox" class = "activarIdioma" name="idioma[3][0]" checked value="3">
                     <span class="slider round"></span>
                   </label>
                 </td>

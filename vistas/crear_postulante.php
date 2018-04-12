@@ -1,4 +1,5 @@
 <?php
+$server = ($_SERVER['DOCUMENT_ROOT']);
 require ('../clases/UsuarioClass.php');
 // require ('../clases/ConnQuery.php');
 
@@ -58,7 +59,7 @@ include ('header.php');
   									</a>
   								</li>
   								<li role="presentation" class="">
-  									<a href="#formuInfoHobbPasat" data-toggle="tab" aria-controls="" role="tab" title="Hobbies y pasatiempos">
+  									<a href="#formuInfoHobby" data-toggle="tab" aria-controls="" role="tab" title="Hobbies y pasatiempos">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-music"></i>
   										</span>
@@ -102,6 +103,7 @@ include ('header.php');
                     include('registracionPostulante/formuInfoPersonal.php');
                     include('registracionPostulante/formuInfoFamiliar.php');
                     include('registracionPostulante/formuInfoEducacion.php');
+                    include('registracionPostulante/formuInfoHobby.php');
                     include('registracionPostulante/formuConfirmacion.php');
                    ?>
   								<div class="clearfix"></div>
