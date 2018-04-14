@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="../librerias/crearPostulante/css/owl.theme.default.min.css">
 	<link rel="stylesheet" href="../librerias/crearPostulante/css/style.css">
 	<link rel="stylesheet" href="../css/crearPostulantes.css"/>
+	<link rel="stylesheet" href="../css/domicilioGMap.css"/>
 	<script src="../librerias/crearPostulante/js/modernizr-2.6.2.min.js"></script>
 	</head>
 	<body>
@@ -26,10 +27,7 @@
     	<nav class="gtco-nav" role="navigation">
     		<div class="gtco-container">
     			<div class="row">
-    				<div class="col-sm-4 col-xs-12">
-    					<div id="gtco-logo"><a href="home.php">SPS <em>.</em></a></div>
-    				</div>
-    				<div class="col-xs-8 text-right menu-1">
+						<div class="col-xs-10 text-left menu-1">
     					<ul>
     						<li class="has-dropdown">
     							<a href="#">Entrevistas</a>
@@ -47,6 +45,9 @@
     							</ul>
     						</li>
     					</ul>
+    				</div>
+    				<div class="col-sm-2 col-xs-12">
+    					<div id="gtco-logo"><a href="home.php">SPS <em>.</em></a></div>
     				</div>
     			</div>
     		</div>

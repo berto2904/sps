@@ -94,11 +94,11 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .gtco-container {
-  max-width: 1100px;
+  max-width: 77em;
   position: relative;
   margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 2em;
+  padding-right: 1em;
 }
 
 .gtco-nav {
