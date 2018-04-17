@@ -1,12 +1,23 @@
+
 var componentForm = {
         street_number: 'short_name',
         route: 'long_name',
-        locality: 'long_name'
-        // administrative_area_level_1: 'short_name',
+        locality: 'long_name',
+        administrative_area_level_2: 'short_name',
         // country: 'long_name',
-        // postal_code: 'short_name'
+         postal_code: 'short_name'
       };
 
+
+
+$(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
 
 function reloadMap(){
 
@@ -66,6 +77,11 @@ function initAutocomplete() {
               }
               for (var i = 0; i < place.address_components.length; i++) {
                 var addressType = place.address_components[i].types[0];
+
+                if (place.address_components[i].types[0] === "sublocality_level_1" && document.getElementById('locality').value === "") {
+                  var val = place.address_components[i][componentForm['locality']];
+                  document.getElementById('locality').value = val;
+                }
                 if (componentForm[addressType]) {
                   var val = place.address_components[i][componentForm[addressType]];
                   document.getElementById(addressType).value = val;
@@ -80,7 +96,8 @@ function initAutocomplete() {
               size: new google.maps.Size(71, 71),
               origin: new google.maps.Point(0, 0),
               anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(25, 25)
+              scaledSize: new google.maps.Size(35, 35)
+              // scaledSize: new google.maps.Size(25, 25)
             };
 
             // Create a marker for each place.
@@ -89,7 +106,7 @@ function initAutocomplete() {
               zoom: 11,
               icon: icon,
               title: place.name,
-              position: place.geometry.location
+              position: place.geometry.location,
             }));
 
             if (place.geometry.viewport) {

@@ -7,6 +7,8 @@
   require ("../clases/Estudio.php");
   require ("../clases/Idioma.php");
   require ("../clases/Hobby.php");
+  require ("../clases/Domicilio.php");
+  require ("../clases/Transporte.php");
 
 
 
@@ -58,6 +60,21 @@
   $hobbies = $_POST["hobbyPreguntas"];
   // $id_informacion_economica = $_POST["inputInformacionEconomica"];
   // $id_informacion_socioambiental = $_POST["inputInformacionSocioambiental"];
+
+  //Socioambiental
+  $calle = ($_POST["calle"] != "" ? $_POST["calle"] :Null);
+  $gmap = ($_POST["latLng"] != "" ? $_POST["latLng"] :Null);
+  $numero = ($_POST["numero"] != "" ? $_POST["numero"] :Null);
+  $localidad = ($_POST["localidad"] != "" ? $_POST["localidad"] :Null);
+  $codigo_postal = ($_POST["cp"] != "" ? $_POST["cp"] :Null);
+  $partido = ($_POST["partido"] != "" ? $_POST["partido"] :Null);
+  $telefono = ($_POST["telefono"] != "" ? $_POST["telefono"] :Null);
+  $piso = ($_POST["piso"] != "" ? $_POST["piso"] :Null);
+  $departamento = ($_POST["depto"] != "" ? $_POST["depto"] :Null);
+  $referencia_util = ($_POST["referenciaUtilDomicilio"] != "" ? $_POST["referenciaUtilDomicilio"] :Null);
+
+  $transportes = ($_POST["trasporte"] != "" ? $_POST["trasporte"] :Null);
+
 try {
   if(is_float(count($_POST["infoFamiliar"])/4)){
     throw new Exception('Error en el formulario infoFamiliar');
@@ -82,6 +99,8 @@ try {
     crearIdiomas($idiomas,$idPostulante);
     crearHobbies($idPostulante,$hobbies);
 
+    $id_domicilio = crearDomicilio($localidad, $calle, $numero, $piso, $departamento, $gmap, $telefono, $referencia_util, $codigo_postal, $partido);
+    crearTransporte($id_domicilio,$transportes);
   }
 
 } catch (Exception $e) {
@@ -170,5 +189,24 @@ function crearHobbies($idPostulante,$hobbies){
     }
   }
 }
+
+  function crearDomicilio($localidad, $calle, $numero, $piso, $departamento, $gmap, $telefono, $referencia_util, $codigo_postal, $partido){
+    if($localidad != Null || $calle != Null || $numero != Null || $piso != Null || $departamento != Null || $gmap != Null || $telefono != Null || $referencia_util != Null || $codigo_postal != Null ||  $partido != Null){
+      $domicilio = new Domicilio($localidad, $calle, $numero, $piso, $departamento, $gmap, $telefono, $referencia_util, $codigo_postal, $partido);
+      $id = $domicilio->registrarDomicilio();
+      return $id;
+    }
+  }
+  function crearTransporte($id_domicilio,$transportes){
+    foreach ($transportes as $indice => $transporte) {
+      if (isset($transporte[1])) {
+        $tipo_transporte = (int)$transporte[1];
+        $cuadras = (int)$transporte[2];
+        $trans = new Transporte($id_domicilio,$tipo_transporte,$cuadras);
+        $trans->registrarTransporte();
+      }
+    }
+  }
+
 
  ?>
