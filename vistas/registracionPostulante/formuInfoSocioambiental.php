@@ -1,7 +1,12 @@
+<?php
+require ($server. "/sps/clases/Transporte.php");
+$transportes = Transporte::consultarTransportes();
+
+?>
 <div class="tab-pane" role="tabpanel" id="formuInfoSocioambiental">
   <div class="formuInfoSocioambiental">
     <div class="row">
-      <h3>Domiclio</h3>
+      <h3>Domicilio</h3>
       <div class="col-md-6" id="googleMapDireccion">
         <input id="autocomplete" class="controls" type="text" placeholder="Ingresar direccion">
         <div id="map"> </div>
@@ -37,7 +42,7 @@
         <div class="row">
           <div class="col-md-6">
             <label for="">Telefono</label>
-            <input type="tel" class="form-control" id="" name="telefono" placeholder="Tel:" value="" style="">
+            <input type="text" class="form-control" id="" name="telefono" placeholder="Tel:" value="" style="">
           </div>
           <div class="col-md-3">
             <label for="">Piso</label>
@@ -50,44 +55,235 @@
         </div>
       </div>
     </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <label>Transporte:</label>
+        <?php foreach ($transportes as $key => $transporte) {?>
+          <div class="row col-md-12">
+            <div class="col-md-1">
+              <label><?php echo $transporte['descripcion']?></label>
+            </div>
+            <div class="col-md-1">
+              <label class="switch">
+                <input type="checkbox" class = "form-control" name="trasporte[<?php echo $transporte['id']?>][1]" checked value="<?php echo $transporte['id']?>">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="col-md-10">
+              <label>Distancia del domicilio: </label>
+              <input class="form-group"type="number" name="trasporte[<?php echo $transporte['id']?>][2]" value="" style="width: 3em;">
+              <label>cuadra/s</label>
+            </div>
+          </div>
+        <?php } ?>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+          <label for="[object Object]">Referencia útil (hospital, escuela, estación, avenida):</label>
+          <textarea name="referenciaUtilDomicilio" class="form-control" rows="2" cols="20" maxlength="100"></textarea>
+        </div>
+    </div>
     <hr>
     <div class="row">
-      <h3>Transporte</h3>
-      <div class="row col-md-12">
-        <div class="col-md-2">
-          <label>Colectivos</label>
-          <label class="switch">
-            <input type="checkbox" class = "form-control" name="trasporte[1][1]" checked value="1">
-            <span class="slider round"></span>
-          </label>
+      <h3>Vivienda</h3>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-9">
+            <label for="tipo_vivienda">Tipo de vivienda</label>
+            <select class="form-control" name="vivienda[tipo_vivienda]" placeholder="">
+              <option value="1">Material</option>
+              <option value="2">Prefabricada</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="tipo_vivienda">Ambientes</label>
+            <input class="form-control" type="number" name="vivienda[ambientes]" value="">
+          </div>
         </div>
-        <div class="col-md-10">
-          <label>Distancia del domicilio: </label>
-          <input class="form-group"type="number" name="trasporte[1][2]" value="" style="width: 3em;">
-          <label>cuadra/s</label>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="aspecto_interior">Aspecto Interior</label>
+            <select class="form-control" name="vivienda[aspecto_interior]" placeholder="">
+              <option value="1">Muy Bueno</option>
+              <option value="2">Bueno</option>
+              <option value="3">Regular</option>
+              <option value="4">Malo</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="aspecto_interior">Aspecto Exterior</label>
+            <select class="form-control" name="vivienda[aspecto_exterior]" placeholder="">
+              <option value="1">Muy Bueno</option>
+              <option value="2">Bueno</option>
+              <option value="3">Regular</option>
+              <option value="4">Malo</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label for="">Propietario</label>
+            <select class="form-control" name="vivienda[propietario]">
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="">Inquilino</label>
+            <select class="form-control" name="vivienda[inquilino]">
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="">Importe de Alquiler</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+              <input class="form-control" type="number" name="vivienda[importe_alquiler]" value="">
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row col-md-12">
-        <div class="col-md-2">
-          <label>Ferrocarril</label>
-          <label class="switch">
-            <input type="checkbox" class = "form-control" name="trasporte[2][1]" checked value="2">
-            <span class="slider round"></span>
-          </label>
+      <div class="col-md-6">
+        <label for="">Servicios:  </label>
+        <div class="row serviciosVivienda">
+          <div class="col-md-6">
+            <label class="containerRadio">Luz
+              <input type="checkbox" name="vivienda[servicio][1]" value="1">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerRadio">Gas
+              <input type="checkbox" name="vivienda[servicio][2]" value="2">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerRadio">Agua Corriente
+              <input type="checkbox" name="vivienda[servicio][3]" value="3">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerRadio">Telefono
+              <input type="checkbox" name="vivienda[servicio][4]" value="4">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="col-md-6">
+            <label class="containerRadio">TV por Cable
+              <input type="checkbox" name="vivienda[servicio][5]" value="5">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerRadio">Cloacas
+              <input type="checkbox" name="vivienda[servicio][6]" value="6">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerRadio">Pavimento
+              <input type="checkbox" name="vivienda[servicio][7]" value="7">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerRadio">Vigilancia Privada
+              <input type="checkbox" name="vivienda[servicio][8]" value="8">
+              <span class="checkmark"></span>
+            </label>
+          </div>
         </div>
-        <div class="col-md-10">
-          <label>Distancia del domicilio: </label>
-          <input class="form-group"type="number" name="trasporte[2][2]" value="" style="width: 3em;">
-          <label>cuadra/s</label>
-        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <label for="[object Object]">Accesibiliad</label>
+        <textarea name="vivienda[accesibilidad]" class="form-control" rows="2" cols="20" maxlength="100"></textarea>
       </div>
     </div>
     <hr>
     <div class="row">
-      <h3>Referencia útil (hospital, escuela, estación, avenida): </h3>
-        <div class="col-md-12">
-          <textarea name="referenciaUtilDomicilio" class="form-control" rows="4" cols="80" maxlength="100"></textarea>
+      <h3>Concepto Vecinal</h3>
+      <div class="col-md-6" style="border-right: 2px dashed;">
+        <h4>Vecino 1:</h4>
+        <div class="col-md-6">
+          <label for="">Nombre Y Apellido</label>
+          <input type="text" class="form-control" id="" name="conceptoVecinal[1][apellido_mombre]" placeholder="Apellido y Nombre" value="">
+
+          <label for="">Concepto del Entrevistado</label>
+          <select class="form-control" name="conceptoVecinal[1][conceptoEntrevistado]">
+            <option value="1">Muy Bueno</option>
+            <option value="2">Bueno</option>
+            <option value="3">Regular</option>
+            <option value="4">Malo</option>
+          </select>
+
+          <label for="">Problemas Policiales</label>
+          <select class="form-control" name="conceptoVecinal[1][problemas_policiales]">
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+          </select>
+
+          <label for="">Afinidad</label>
+          <input type="text" class="form-control" id="" name="conceptoVecinal[1][afinidad]" placeholder="Afinidad" value="">
         </div>
+        <div class="col-md-6">
+          <label for="">Domicilio</label>
+          <input type="text" class="form-control" id="" name="conceptoVecinal[1][domicilio]" placeholder="Domicilio" value="">
+
+          <label for="">Tipo de amistades</label>
+          <select class="form-control" name="conceptoVecinal[1][tipo_de_amistades]">
+            <option value="Buenas">Buenas</option>
+            <option value="Malas">Malas</option>
+          </select>
+
+          <label for="">Problemas Economicos</label>
+          <select class="form-control" name="conceptoVecinal[1][problemas_economicos]">
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+          </select>
+
+          <label for="">Tiempo que lo conoce</label>
+          <input type="text" class="form-control" id="" name="conceptoVecinal[1][tiempo_que_conoce]" placeholder="Tiempo que lo conoce" value="">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h4>Vecino 2:</h4>
+        <div class="col-md-6" >
+          <label for="">Nombre Y Apellido</label>
+          <input type="text" class="form-control" id="" name="conceptoVecinal[2][apellido_mombre]" placeholder="Apellido y Nombre" value="">
+
+          <label for="">Concepto del Entrevistado</label>
+          <select class="form-control" name="conceptoVecinal[2][conceptoEntrevistado]">
+            <option value="1">Muy Bueno</option>
+            <option value="2">Bueno</option>
+            <option value="3">Regular</option>
+            <option value="4">Malo</option>
+          </select>
+
+          <label for="">Problemas Policiales</label>
+          <select class="form-control" name="conceptoVecinal[2][problemas_policiales]">
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+          </select>
+
+          <label for="">Afinidad</label>
+          <input type="text" class="form-control" id="" name="conceptoVecinal[2][afinidad]" placeholder="Afinidad" value="">
+        </div>
+        <div class="col-md-6">
+          <label for="">Domicilio</label>
+          <input type="text" class="form-control" id="" name="conceptoVecinal[2][domicilio]" placeholder="Domicilio" value="">
+
+          <label for="">Tipo de amistades</label>
+          <select class="form-control" name="conceptoVecinal[2][tipo_de_amistades]">
+            <option value="Buenas">Buenas</option>
+            <option value="Malas">Malas</option>
+          </select>
+
+          <label for="">Problemas Economicos</label>
+          <select class="form-control" name="conceptoVecinal[2][problemas_economicos]">
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+          </select>
+
+          <label for="">Tiempo que lo conoce</label>
+          <input type="text" class="form-control" id="" name="conceptoVecinal[2][tiempo_que_conoce]" placeholder="Tiempo que lo conoce" value="">
+        </div>
+      </div>
     </div>
   </div>
 </div>

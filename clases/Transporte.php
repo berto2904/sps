@@ -29,5 +29,22 @@
       return $id_atributo;
     }
 
+    public static function  consultarTransportes(){
+      $cq = new connQuery();
+      $sql = "select * from transporte_tipo;";
+
+	    $filas = $cq->ejecutarConsulta($sql);
+	    $transportes = array();
+
+	    while ($fila =  mysqli_fetch_assoc($filas)) {
+	      $transporte = array( 'id' => $fila['id_transporte_tipo'],
+                            'descripcion'=> $fila['descripcion']
+                          );
+
+				$transportes[] = $transporte;
+				}
+			return $transportes;
+    }
+
   }
 ?>

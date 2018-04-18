@@ -1,3 +1,4 @@
+
 <?php
   require_once('connQuery.php');
 
@@ -9,12 +10,14 @@
        $this->atributo=$atributo;
 
     }
-    function registar(){
+    function registrar(){
       $cq = new connQuery();
       $sql = "INSERT INTO tabla(apellido) VALUES (?)";
 
       $ps = $cq->prepare($sql);
-      mysqli_stmt_bind_param($ps, "s", $this->atributo);
+      mysqli_stmt_bind_param($ps,
+      "s",
+      $this->atributo);
 
       mysqli_stmt_execute($ps);
       $id_atributo = $cq->getUltimoId();

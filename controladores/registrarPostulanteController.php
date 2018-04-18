@@ -9,6 +9,8 @@
   require ("../clases/Hobby.php");
   require ("../clases/Domicilio.php");
   require ("../clases/Transporte.php");
+  require ("../clases/Vivienda.php");
+  require ("../clases/InformacionSocioambiental.php");
 
 
 
@@ -54,8 +56,7 @@
   //Educacion
   $estudios = array_chunk($_POST["infoEstudios"], 6);
   //Idiomas
-  $idiomas= $_POST["idioma"];
-
+  $idiomas=(isset($_POST["idioma"])?$_POST["idioma"] : Null);
   //Hobby Pasatiempos
   $hobbies = $_POST["hobbyPreguntas"];
   // $id_informacion_economica = $_POST["inputInformacionEconomica"];
@@ -72,8 +73,13 @@
   $piso = ($_POST["piso"] != "" ? $_POST["piso"] :Null);
   $departamento = ($_POST["depto"] != "" ? $_POST["depto"] :Null);
   $referencia_util = ($_POST["referenciaUtilDomicilio"] != "" ? $_POST["referenciaUtilDomicilio"] :Null);
-
   $transportes = ($_POST["trasporte"] != "" ? $_POST["trasporte"] :Null);
+
+  //Vivienda
+  $vivienda = (isset($_POST["vivienda"])?$_POST["vivienda"] : Null);
+
+  // Concepto Vecinal
+  $conceptoVecinal = (isset($_POST["conceptoVecinal"])?$_POST["conceptoVecinal"] : Null);
 
 try {
   if(is_float(count($_POST["infoFamiliar"])/4)){
@@ -82,9 +88,11 @@ try {
   if(is_float(count($_POST["infoEstudios"])/6)){
     throw new Exception('Error en el formulario infoEstudios');
   }
-  foreach ($idiomas as $key => $idioma) {
-    if (is_float(count($idioma)/4)) {
-      throw new Exception('Error en el formulario idioma');
+  if (isset($idiomas)) {
+    foreach ($idiomas as $key => $idioma) {
+      if (is_float(count($idioma)/4)) {
+        throw new Exception('Error en el formulario idioma');
+      }
     }
   }
   $postulante = new Postulante($nombres, $apellido, $fecha_de_nacimiento, $ci_numero, $expedida_por_A, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $profesion, $id_estado_civil, Null, Null,$id_sexo,$categoria_conducir,$expedida_por_B);
@@ -101,10 +109,17 @@ try {
 
     $id_domicilio = crearDomicilio($localidad, $calle, $numero, $piso, $departamento, $gmap, $telefono, $referencia_util, $codigo_postal, $partido);
     crearTransporte($id_domicilio,$transportes);
+    $id_vivienda = crearVivienda($vivienda);
+    $idInformeSocioambiental = crearInformeSocioambiental($idPostulante,$id_domicilio,$id_vivienda);
+    crearConceptoVecinal($idInformeSocioambiental,$conceptoVecinal);
   }
 
 } catch (Exception $e) {
   echo 'Excepcion capturada: ', $e->getMessage(),"\n";
+  return;
+
+}catch(ErrorException $e){
+  echo 'ErrorException' . $e->getMessage();
   return;
 }
 
@@ -114,81 +129,47 @@ header("location: ../vistas/crear_postulante.php");
 
 
 /*----------------------------------------------------FUNCIONES------------------------------------------------*/
-
-
-function crearEntrevista($idPostulante, $organizacion, $puesto, $fechaEntrevista, $informacionRelevante, $id_usuario){
-  if ($organizacion != Null || $puesto != Null || $fechaEntrevista != Null || $informacionRelevante != Null) {
-    $entrevista= new Entrevista($idPostulante, $organizacion, $puesto, $fechaEntrevista, $informacionRelevante, $id_usuario);
-    $entrevista->registrarEntrevista();
-  }
+function crearConceptoVecinal($idInformeSocioambiental,$conceptoVecinal){
+  
 }
 
-function crearFamiliares($familiares,$idPostulante){
-  foreach ($familiares as $fs => $fam) {
-    if ($fam[0] != "") {
-      $tFamiliar = $fam[0];
-      $naFamiliar = $fam[1];
-      $dFamiliar = $fam[2];
-      $pFamiliar = $fam[3];
-      $familiar = new Familiar($naFamiliar,$dFamiliar,$pFamiliar,$idPostulante,$tFamiliar,Null);
-      $familiar->registrarFamiliar();
+function crearInformeSocioambiental($idPostulante, $id_domicilio,$id_vivienda){
+  $informeSocioambiental = new InformacionSocioambiental($id_domicilio ,$id_vivienda);
+  $informeSocioambiental->registrarInformacionSocioambiental();
+  $informeSocioambiental->actualizarPostulante($idPostulante);
+}
+
+function crearVivienda($vivienda){
+  $tipoVivienda = (int)$vivienda["tipo_vivienda"];
+  $ambientes = (int)$vivienda["ambientes"];
+  $aspectoInterior = (int)$vivienda["aspecto_interior"];
+  $aspectoExterior = (int)$vivienda["aspecto_exterior"];
+  $propietario = $vivienda["propietario"];
+  $inquilino = $vivienda["inquilino"];
+  $importeAlquiler = (int)$vivienda["importe_alquiler"];
+  $accesibilidad = $vivienda["accesibilidad"];
+
+  $vivie = new Vivienda($tipoVivienda,$aspectoInterior,$propietario,$ambientes,$aspectoExterior,$inquilino,$importeAlquiler,$accesibilidad);
+  $idVivienda = $vivie->registrarVivienda();
+
+  foreach ($vivienda["servicio"] as $indice => $serv) {
+    $serv = (int)$serv;
+    Vivienda::registrarViviendaServicio($idVivienda,$serv);
+  }
+  return $idVivienda;
+}
+
+function crearTransporte($id_domicilio,$transportes){
+  foreach ($transportes as $indice => $transporte) {
+    if (isset($transporte[1])) {
+      $tipo_transporte = (int)$transporte[1];
+      $cuadras = (int)$transporte[2];
+      $trans = new Transporte($id_domicilio,$tipo_transporte,$cuadras);
+      $trans->registrarTransporte();
     }
   }
 }
 
-function crearConyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $ci_numero_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante){
-  if ($apellido_conyuge != Null || $nombres_conyuge != Null || $id_sexo_conyuge != Null || $fecha_de_nacimiento_conyuge != Null || $dni_conyuge != Null || $ci_numero_conyuge != Null || $lugar_nacimiento_conyuge != Null || $nacionalidad_conyuge != Null || $profesion_conyuge != Null) {
-    $conyuge = new Conyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $ci_numero_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante);
-    $idConyuge =  $conyuge->registrarConyuge();
-  }
-}
-
-function crearObservacionesConvivencia($observacionConvivencia,$idPostulante){
-  if ($observacionConvivencia != Null) {
-    $observacionesConvivencia = new ObservacionConvivencia($observacionConvivencia,$idPostulante);
-    $observacionesConvivencia->registarObservacionConvivencia();
-  }
-}
-
-function crearEstudios($estudios,$idPostulante){
-  foreach ($estudios as $es => $estudio) {
-    if ($estudio[1] != "" || $estudio[2] != "" || $estudio[3] != "" || $estudio[4] != "" || $estudio[5] != "") {
-
-      $id_nivel_estudio = (int)$estudio[0];
-      $organizacion = $estudio[1];
-      $desde = (int)$estudio[2];
-      $hasta = (int)$estudio[3];
-      $situacion = $estudio[4];
-      $titulo = $estudio[5];
-
-      $estudio = new Estudio($idPostulante, $id_nivel_estudio, $organizacion, $titulo, $desde, $hasta, $situacion);
-      $estudio->registrarEstudio();
-
-    }
-  }
-}
-
-function crearIdiomas($idiomas,$idPostulante){
-  foreach ($idiomas as $key => $idioma) {
-    if ($idioma[0] != "") {
-      $id_idioma_tipo=(int)$idioma[0];
-      $lee=(int)$idioma[1];
-      $habla=(int)$idioma[2];
-      $escribe=(int)$idioma[3];
-      $idioma = new Idioma($idPostulante,$id_idioma_tipo, $lee, $habla, $escribe);
-      $idioma->registrarIdioma();
-    }
-  }
-}
-
-function crearHobbies($idPostulante,$hobbies){
-  foreach ($hobbies as $id_pregunta => $hobbie) {
-    if ($hobbie != "") {
-      $hobby = new Hobby($idPostulante, $id_pregunta, $hobbie);
-      $hobby->registarHobby();
-    }
-  }
-}
 
   function crearDomicilio($localidad, $calle, $numero, $piso, $departamento, $gmap, $telefono, $referencia_util, $codigo_postal, $partido){
     if($localidad != Null || $calle != Null || $numero != Null || $piso != Null || $departamento != Null || $gmap != Null || $telefono != Null || $referencia_util != Null || $codigo_postal != Null ||  $partido != Null){
@@ -197,16 +178,80 @@ function crearHobbies($idPostulante,$hobbies){
       return $id;
     }
   }
-  function crearTransporte($id_domicilio,$transportes){
-    foreach ($transportes as $indice => $transporte) {
-      if (isset($transporte[1])) {
-        $tipo_transporte = (int)$transporte[1];
-        $cuadras = (int)$transporte[2];
-        $trans = new Transporte($id_domicilio,$tipo_transporte,$cuadras);
-        $trans->registrarTransporte();
+
+  function crearHobbies($idPostulante,$hobbies){
+    foreach ($hobbies as $id_pregunta => $hobbie) {
+      if ($hobbie != "") {
+        $hobby = new Hobby($idPostulante, $id_pregunta, $hobbie);
+        $hobby->registarHobby();
       }
     }
   }
 
+  function crearIdiomas($idiomas,$idPostulante){
+    if (isset($idiomas)) {
+      foreach ($idiomas as $key => $idioma) {
+        if ($idioma[0] != "") {
+          $id_idioma_tipo=(int)$idioma[0];
+          $lee=(int)$idioma[1];
+          $habla=(int)$idioma[2];
+          $escribe=(int)$idioma[3];
+          $idioma = new Idioma($idPostulante,$id_idioma_tipo, $lee, $habla, $escribe);
+          $idioma->registrarIdioma();
+        }
+      }
+    }
+  }
 
+  function crearEstudios($estudios,$idPostulante){
+    foreach ($estudios as $es => $estudio) {
+      if ($estudio[1] != "" || $estudio[2] != "" || $estudio[3] != "" || $estudio[4] != "" || $estudio[5] != "") {
+
+        $id_nivel_estudio = (int)$estudio[0];
+        $organizacion = $estudio[1];
+        $desde = (int)$estudio[2];
+        $hasta = (int)$estudio[3];
+        $situacion = $estudio[4];
+        $titulo = $estudio[5];
+
+        $estudio = new Estudio($idPostulante, $id_nivel_estudio, $organizacion, $titulo, $desde, $hasta, $situacion);
+        $estudio->registrarEstudio();
+
+      }
+    }
+  }
+
+  function crearObservacionesConvivencia($observacionConvivencia,$idPostulante){
+    if ($observacionConvivencia != Null) {
+      $observacionesConvivencia = new ObservacionConvivencia($observacionConvivencia,$idPostulante);
+      $observacionesConvivencia->registarObservacionConvivencia();
+    }
+  }
+
+  function crearConyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $ci_numero_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante){
+    if ($apellido_conyuge != Null || $nombres_conyuge != Null || $id_sexo_conyuge != Null || $fecha_de_nacimiento_conyuge != Null || $dni_conyuge != Null || $ci_numero_conyuge != Null || $lugar_nacimiento_conyuge != Null || $nacionalidad_conyuge != Null || $profesion_conyuge != Null) {
+      $conyuge = new Conyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $ci_numero_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante);
+      $idConyuge =  $conyuge->registrarConyuge();
+    }
+  }
+
+  function crearFamiliares($familiares,$idPostulante){
+    foreach ($familiares as $fs => $fam) {
+      if ($fam[0] != "") {
+        $tFamiliar = $fam[0];
+        $naFamiliar = $fam[1];
+        $dFamiliar = $fam[2];
+        $pFamiliar = $fam[3];
+        $familiar = new Familiar($naFamiliar,$dFamiliar,$pFamiliar,$idPostulante,$tFamiliar,Null);
+        $familiar->registrarFamiliar();
+      }
+    }
+  }
+
+  function crearEntrevista($idPostulante, $organizacion, $puesto, $fechaEntrevista, $informacionRelevante, $id_usuario){
+    if ($organizacion != Null || $puesto != Null || $fechaEntrevista != Null || $informacionRelevante != Null) {
+      $entrevista= new Entrevista($idPostulante, $organizacion, $puesto, $fechaEntrevista, $informacionRelevante, $id_usuario);
+      $entrevista->registrarEntrevista();
+    }
+  }
  ?>
