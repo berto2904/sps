@@ -11,6 +11,7 @@
   require ("../clases/Transporte.php");
   require ("../clases/Vivienda.php");
   require ("../clases/InformacionSocioambiental.php");
+  require ("../clases/ConceptoVecinal.php");
 
 
 
@@ -109,9 +110,12 @@ try {
 
     $id_domicilio = crearDomicilio($localidad, $calle, $numero, $piso, $departamento, $gmap, $telefono, $referencia_util, $codigo_postal, $partido);
     crearTransporte($id_domicilio,$transportes);
+
     $id_vivienda = crearVivienda($vivienda);
     $idInformeSocioambiental = crearInformeSocioambiental($idPostulante,$id_domicilio,$id_vivienda);
+
     crearConceptoVecinal($idInformeSocioambiental,$conceptoVecinal);
+
   }
 
 } catch (Exception $e) {
@@ -126,17 +130,32 @@ try {
 header("location: ../vistas/crear_postulante.php");
 
 
-
-
 /*----------------------------------------------------FUNCIONES------------------------------------------------*/
 function crearConceptoVecinal($idInformeSocioambiental,$conceptoVecinal){
-  
+  foreach ($conceptoVecinal as $indice => $vecino) {
+  if ($vecino["apellido_mombre"] != "" || $vecino["afinidad"] != "" || $vecino["domicilio"] != "" || $vecino["tiempo_que_conoce"] != "") {
+      $apellido_mombre = $vecino["apellido_mombre"];
+      $conceptoEntrevistado = $vecino["conceptoEntrevistado"];
+      $problemas_policiales = $vecino["problemas_policiales"];
+      $afinidad = $vecino["afinidad"];
+      $domicilio = $vecino["domicilio"];
+      $tipo_de_amistades = $vecino["tipo_de_amistades"];
+      $problemas_economicos = $vecino["problemas_economicos"];
+      $tiempo_que_conoce = $vecino["tiempo_que_conoce"];
+
+      $conVecinal = new ConceptoVecinal($idInformeSocioambiental, $apellido_mombre, $conceptoEntrevistado, $afinidad, $tipo_de_amistades, $problemas_policiales, $problemas_economicos, $tiempo_que_conoce, $domicilio);
+      $conVecinal->registrarConceptoVecinal();
+  }
+
+
+  }
 }
 
 function crearInformeSocioambiental($idPostulante, $id_domicilio,$id_vivienda){
   $informeSocioambiental = new InformacionSocioambiental($id_domicilio ,$id_vivienda);
-  $informeSocioambiental->registrarInformacionSocioambiental();
+  $id = $informeSocioambiental->registrarInformacionSocioambiental();
   $informeSocioambiental->actualizarPostulante($idPostulante);
+  return $id;
 }
 
 function crearVivienda($vivienda){
@@ -169,7 +188,6 @@ function crearTransporte($id_domicilio,$transportes){
     }
   }
 }
-
 
   function crearDomicilio($localidad, $calle, $numero, $piso, $departamento, $gmap, $telefono, $referencia_util, $codigo_postal, $partido){
     if($localidad != Null || $calle != Null || $numero != Null || $piso != Null || $departamento != Null || $gmap != Null || $telefono != Null || $referencia_util != Null || $codigo_postal != Null ||  $partido != Null){
