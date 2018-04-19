@@ -8,16 +8,14 @@
           private $profesion;
           private $id_postulante;
           private $id_familiar_tipo;
-          private $id_domicilio;
 
-    function __construct($apellido_nombre, $domicilio, $profesion, $id_postulante, $id_familiar_tipo, $id_domicilio){
+    function __construct($apellido_nombre, $domicilio, $profesion, $id_postulante, $id_familiar_tipo){
        $this->apellido_nombre = $apellido_nombre;
        $this->domicilio = $domicilio;
        $this->profesion = $profesion;
        $this->id_postulante = $id_postulante;
        $this->id_familiar_tipo = $id_familiar_tipo;
-       $this->id_domicilio = $id_domicilio;
-        	}
+      }
 
     function registrarFamiliar(){
       $cq = new connQuery();
@@ -26,18 +24,16 @@
               domicilio,
               profesion,
               id_postulante,
-              id_familiar_tipo,
-              id_domicilio) VALUES(?,?,?,?,?,?)";
+              id_familiar_tipo) VALUES(?,?,?,?,?)";
 
       $ps = $cq->prepare($sql);
       mysqli_stmt_bind_param($ps,
-        "sssiii",
+        "sssii",
         $this->apellido_nombre,
         $this->domicilio,
         $this->profesion,
         $this->id_postulante,
-        $this->id_familiar_tipo,
-        $this->id_domicilio
+        $this->id_familiar_tipo
 				);
 
       mysqli_stmt_execute($ps);

@@ -1,3 +1,12 @@
+.botonEliminar{
+  position: relative;
+  top: 2em;
+}
+
+.tituloLabel{
+  font-style: oblique;
+  text-decoration: underline;
+}
 /*Vivienda */
 .serviciosVivienda{
   border:4px dotted;

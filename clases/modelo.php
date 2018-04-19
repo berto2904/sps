@@ -4,10 +4,10 @@
 
   Class Modelo{
 
-    private $atributo;
+    private $id;
 
-    function __construct($atributo){
-       $this->atributo=$atributo;
+    function __construct(){
+       // $this->atributo=$atributo;
 
     }
     function registrar(){
@@ -17,11 +17,12 @@
       $ps = $cq->prepare($sql);
       mysqli_stmt_bind_param($ps,
       "s",
-      $this->atributo);
+      $this->
+      );
 
       mysqli_stmt_execute($ps);
-      $id_atributo = $cq->getUltimoId();
-      return $id_atributo;
+      $this->id = $cq->getUltimoId();
+      return $this->id;
     }
 
   }

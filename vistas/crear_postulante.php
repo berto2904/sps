@@ -105,6 +105,7 @@ include ('header.php');
                     include('registracionPostulante/formuInfoEducacion.php');
                     include('registracionPostulante/formuInfoHobby.php');
                     include('registracionPostulante/formuInfoSocioambiental.php');
+                    include('registracionPostulante/formuInfoEconomica.php');
                     include('registracionPostulante/formuConfirmacion.php');
                    ?>
   								<div class="clearfix"></div>

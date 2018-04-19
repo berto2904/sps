@@ -15,7 +15,7 @@ $transportes = Transporte::consultarTransportes();
         <div class="row">
           <div class="col-md-9">
             <label for="">Calle</label>
-            <input type="text" class="form-control" id="route" name="calle" placeholder="Calle" value="">
+            <input type="text" class="form-control" id="route" name="calle" placeholder="Calle" value="" maxlength="70">
             <input type="hidden" name="latLng" id="gmap" value="">
           </div>
           <div class="col-md-3">
@@ -26,23 +26,23 @@ $transportes = Transporte::consultarTransportes();
         <div class="row">
           <div class="col-md-9">
             <label for="">Localidad</label>
-            <input type="text" class="form-control" id="locality" name="localidad" placeholder="Localidad" value="">
+            <input type="text" class="form-control" id="locality" name="localidad" placeholder="Localidad" value="" maxlength="70">
           </div>
           <div class="col-md-3">
             <label for="">Codigo Postal</label>
-            <input type="text" class="form-control" id="postal_code" name="cp" placeholder="CP" value="">
+            <input type="text" class="form-control" id="postal_code" name="cp" placeholder="CP" value="" maxlength="70">
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <label for="">Partido</label>
-            <input type="text" class="form-control" id="administrative_area_level_2" name="partido" placeholder="Partido" value="">
+            <input type="text" class="form-control" id="administrative_area_level_2" name="partido" placeholder="Partido" value="" maxlength="70">
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <label for="">Telefono</label>
-            <input type="text" class="form-control" id="" name="telefono" placeholder="Tel:" value="" style="">
+            <input type="text" class="form-control" id="" name="telefono" placeholder="Tel:" value="" style="" maxlength="70">
           </div>
           <div class="col-md-3">
             <label for="">Piso</label>
@@ -50,7 +50,7 @@ $transportes = Transporte::consultarTransportes();
           </div>
           <div class="col-md-3">
             <label for="">Departamento</label>
-            <input type="text" class="form-control" id="" name="depto" placeholder="Depto." value="" style="width: 5em;">
+            <input type="text" class="form-control" id="" name="depto" placeholder="Depto." value="" style="width: 5em;" maxlength="70">
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@ $transportes = Transporte::consultarTransportes();
     <br>
     <div class="row">
       <div class="col-md-12">
-        <label>Transporte:</label>
+        <label class="tituloLabel">Transporte:</label>
         <?php foreach ($transportes as $key => $transporte) {?>
           <div class="row col-md-12">
             <div class="col-md-1">
@@ -83,7 +83,7 @@ $transportes = Transporte::consultarTransportes();
     <div class="row">
         <div class="col-md-12">
           <label for="[object Object]">Referencia útil (hospital, escuela, estación, avenida):</label>
-          <textarea name="referenciaUtilDomicilio" class="form-control" rows="2" cols="20" maxlength="100"></textarea>
+          <textarea name="referenciaUtilDomicilio" class="form-control" rows="2" cols="20" maxlength="250"></textarea>
         </div>
     </div>
     <hr>
@@ -191,18 +191,18 @@ $transportes = Transporte::consultarTransportes();
     </div>
     <div class="row">
       <div class="col-md-12">
-        <label for="[object Object]">Accesibiliad</label>
-        <textarea name="vivienda[accesibilidad]" class="form-control" rows="2" cols="20" maxlength="100"></textarea>
+        <label for="">Accesibiliad</label>
+        <textarea name="vivienda[accesibilidad]" class="form-control" rows="2" cols="20" maxlength="250"></textarea>
       </div>
     </div>
     <hr>
     <div class="row">
       <h3>Concepto Vecinal</h3>
       <div class="col-md-6" style="border-right: 2px dashed;">
-        <h4>Vecino 1:</h4>
+        <h4 class="tituloLabel">Vecino 1:</h4>
         <div class="col-md-6">
           <label for="">Nombre Y Apellido</label>
-          <input type="text" class="form-control" id="" name="conceptoVecinal[1][apellido_mombre]" placeholder="Apellido y Nombre" value="">
+          <input type="text" class="form-control" id="" name="conceptoVecinal[1][apellido_mombre]" placeholder="Apellido y Nombre" value="" maxlength="70">
 
           <label for="">Concepto del Entrevistado</label>
           <select class="form-control" name="conceptoVecinal[1][conceptoEntrevistado]">
@@ -219,11 +219,11 @@ $transportes = Transporte::consultarTransportes();
           </select>
 
           <label for="">Afinidad</label>
-          <input type="text" class="form-control" id="" name="conceptoVecinal[1][afinidad]" placeholder="Afinidad" value="">
+          <input type="text" class="form-control" id="" name="conceptoVecinal[1][afinidad]" placeholder="Afinidad" value="" maxlength="70">
         </div>
         <div class="col-md-6">
           <label for="">Domicilio</label>
-          <input type="text" class="form-control" id="" name="conceptoVecinal[1][domicilio]" placeholder="Domicilio" value="">
+          <input type="text" class="form-control" id="" name="conceptoVecinal[1][domicilio]" placeholder="Domicilio" value="" maxlength="70">
 
           <label for="">Tipo de amistades</label>
           <select class="form-control" name="conceptoVecinal[1][tipo_de_amistades]">
@@ -238,14 +238,14 @@ $transportes = Transporte::consultarTransportes();
           </select>
 
           <label for="">Tiempo que lo conoce</label>
-          <input type="text" class="form-control" id="" name="conceptoVecinal[1][tiempo_que_conoce]" placeholder="Tiempo que lo conoce" value="">
+          <input type="text" class="form-control" id="" name="conceptoVecinal[1][tiempo_que_conoce]" placeholder="Tiempo que lo conoce" value="" maxlength="70">
         </div>
       </div>
       <div class="col-md-6">
-        <h4>Vecino 2:</h4>
+        <h4 class="tituloLabel">Vecino 2:</h4>
         <div class="col-md-6" >
           <label for="">Nombre Y Apellido</label>
-          <input type="text" class="form-control" id="" name="conceptoVecinal[2][apellido_mombre]" placeholder="Apellido y Nombre" value="">
+          <input type="text" class="form-control" id="" name="conceptoVecinal[2][apellido_mombre]" placeholder="Apellido y Nombre" value="" maxlength="70">
 
           <label for="">Concepto del Entrevistado</label>
           <select class="form-control" name="conceptoVecinal[2][conceptoEntrevistado]">
@@ -262,11 +262,11 @@ $transportes = Transporte::consultarTransportes();
           </select>
 
           <label for="">Afinidad</label>
-          <input type="text" class="form-control" id="" name="conceptoVecinal[2][afinidad]" placeholder="Afinidad" value="">
+          <input type="text" class="form-control" id="" name="conceptoVecinal[2][afinidad]" placeholder="Afinidad" value="" maxlength="70">
         </div>
         <div class="col-md-6">
           <label for="">Domicilio</label>
-          <input type="text" class="form-control" id="" name="conceptoVecinal[2][domicilio]" placeholder="Domicilio" value="">
+          <input type="text" class="form-control" id="" name="conceptoVecinal[2][domicilio]" placeholder="Domicilio" value="" maxlength="70">
 
           <label for="">Tipo de amistades</label>
           <select class="form-control" name="conceptoVecinal[2][tipo_de_amistades]">
@@ -281,7 +281,7 @@ $transportes = Transporte::consultarTransportes();
           </select>
 
           <label for="">Tiempo que lo conoce</label>
-          <input type="text" class="form-control" id="" name="conceptoVecinal[2][tiempo_que_conoce]" placeholder="Tiempo que lo conoce" value="">
+          <input type="text" class="form-control" id="" name="conceptoVecinal[2][tiempo_que_conoce]" placeholder="Tiempo que lo conoce" value="" maxlength="70">
         </div>
       </div>
     </div>

@@ -17,70 +17,79 @@
 
   session_start();
   //Entrevista
-  $id_usuario = (int)$_SESSION["usuario"];
-  $organizacion = ($_POST["inputOrganizacion"] != "" ? $_POST["inputOrganizacion"] : Null);
-  $puesto = ($_POST["inputPuesto"] != "" ? $_POST["inputPuesto"] : Null);
-  $fechaEntrevista = ($_POST["inputFechaEntrevista"] != "" ? $_POST["inputFechaEntrevista"] : Null);
-  $informacionRelevante = Null;
+$id_usuario = (int)$_SESSION["usuario"];
 
+$organizacion = ($_POST["inputOrganizacion"] != "" ? $_POST["inputOrganizacion"] : Null);  utf8_decode_deep($organizacion);
+$puesto = ($_POST["inputPuesto"] != "" ? $_POST["inputPuesto"] : Null);  utf8_decode_deep($puesto);
+$fechaEntrevista = ($_POST["inputFechaEntrevista"] != "" ? $_POST["inputFechaEntrevista"] : Null); utf8_decode_deep($fechaEntrevista);
+$informacionRelevante = Null;  utf8_decode_deep($informacionRelevante);
   //Postulante
-  $apellido = ($_POST["inputApellido"] != "" ? $_POST["inputApellido"] : Null);
-  $nombres = ($_POST["inputNombres"] != "" ? $_POST["inputNombres"] : Null);
-  $id_sexo = ($_POST["inputSexo"] != "" ? $_POST["inputSexo"] : Null);
-  $fecha_de_nacimiento = ($_POST["inputFechaNacimmiento"] != "" ? $_POST["inputFechaNacimmiento"] : Null);
-  $dni = ($_POST["inputDni"] != "" ? $_POST["inputDni"] : Null);
-  $ci_numero = ($_POST["inputCiNumero"] != "" ? $_POST["inputCiNumero"] : Null);
-  $expedida_por_A  = ($_POST["inputExpedidaPorA"] != "" ? $_POST["inputExpedidaPorA"] : Null);
-  $expedida_por_B  = ($_POST["inputExpedidaPorB"] != "" ? $_POST["inputExpedidaPorB"] : Null);
-  $licencia_conductor  = ($_POST["inputLicenciaConductor"] != "" ? $_POST["inputLicenciaConductor"] : Null);
-  $lugar_nacimiento  = ($_POST["inputLugarNacimiento"] != "" ? $_POST["inputLugarNacimiento"] : Null);
-  $nacionalidad  = ($_POST["inputNacionalidad"] != "" ? $_POST["inputNacionalidad"] : Null);
-  $profesion  = ($_POST["inputProfesion"] != "" ? $_POST["inputProfesion"] : Null);
-  $id_estado_civil = ($_POST["inputEstadoCivil"] != "" ? $_POST["inputEstadoCivil"] : Null);
-  $categoria_conducir  = ($_POST["inputCategoriaConducir"] != "" ? $_POST["inputCategoriaConducir"] : Null);
+$apellido = ($_POST["inputApellido"] != "" ? $_POST["inputApellido"] : Null);  utf8_decode_deep($apellido);
+$nombres = ($_POST["inputNombres"] != "" ? $_POST["inputNombres"] : Null); utf8_decode_deep($nombres);
+$id_sexo = ($_POST["inputSexo"] != "" ? $_POST["inputSexo"] : Null); utf8_decode_deep($id_sexo);
+$fecha_de_nacimiento = ($_POST["inputFechaNacimmiento"] != "" ? $_POST["inputFechaNacimmiento"] : Null); utf8_decode_deep($fecha_de_nacimiento);
+$dni = ($_POST["inputDni"] != "" ? $_POST["inputDni"] : Null); utf8_decode_deep($dni);
+$ci_numero = ($_POST["inputCiNumero"] != "" ? $_POST["inputCiNumero"] : Null); utf8_decode_deep($ci_numero);
+$expedida_por_A  = ($_POST["inputExpedidaPorA"] != "" ? $_POST["inputExpedidaPorA"] : Null); utf8_decode_deep($expedida_por_A);
+$expedida_por_B  = ($_POST["inputExpedidaPorB"] != "" ? $_POST["inputExpedidaPorB"] : Null); utf8_decode_deep($expedida_por_B);
+$licencia_conductor  = ($_POST["inputLicenciaConductor"] != "" ? $_POST["inputLicenciaConductor"] : Null); utf8_decode_deep($licencia_conductor);
+$lugar_nacimiento  = ($_POST["inputLugarNacimiento"] != "" ? $_POST["inputLugarNacimiento"] : Null); utf8_decode_deep($lugar_nacimiento);
+$nacionalidad  = ($_POST["inputNacionalidad"] != "" ? $_POST["inputNacionalidad"] : Null); utf8_decode_deep($nacionalidad);
+$id_estado_civil = ($_POST["inputEstadoCivil"] != "" ? $_POST["inputEstadoCivil"] : Null); utf8_decode_deep($id_estado_civil);
+$categoria_conducir  = ($_POST["inputCategoriaConducir"] != "" ? $_POST["inputCategoriaConducir"] : Null); utf8_decode_deep($categoria_conducir);
 
   //Familiares
-  $familiares = array_chunk($_POST["infoFamiliar"], 4);
+$familiares = array_chunk($_POST["infoFamiliar"], 4);  utf8_decode_deep($familiares);
   // Conyuge
-  $apellido_conyuge = ($_POST["inputApellidoConyuge"] != "" ? $_POST["inputApellidoConyuge"] : Null);
-  $nombres_conyuge = ($_POST["inputNombresConyuge"] != "" ? $_POST["inputNombresConyuge"] : Null);
-  $id_sexo_conyuge = ($_POST["inputSexoConyuge"] != "" ? $_POST["inputSexoConyuge"] : Null);
-  $fecha_de_nacimiento_conyuge = ($_POST["inputFechaNacimmientoConyuge"] != "" ? $_POST["inputFechaNacimmientoConyuge"] : Null);
-  $dni_conyuge = ($_POST["inputDniConyuge"] != "" ? $_POST["inputDniConyuge"] : Null);
-  $ci_numero_conyuge = ($_POST["inputCiNumeroConyuge"] != "" ? $_POST["inputCiNumeroConyuge"] : Null);
-  $lugar_nacimiento_conyuge  = ($_POST["inputLugarNacimientoConyuge"] != "" ? $_POST["inputLugarNacimientoConyuge"] : Null);
-  $nacionalidad_conyuge  = ($_POST["inputNacionalidadConyuge"] != "" ? $_POST["inputNacionalidadConyuge"] : Null);
-  $profesion_conyuge  = ($_POST["inputProfesionConyuge"] != "" ? $_POST["inputProfesionConyuge"] : Null);
+$apellido_conyuge = ($_POST["inputApellidoConyuge"] != "" ? $_POST["inputApellidoConyuge"] : Null);  utf8_decode_deep($apellido_conyuge);
+$nombres_conyuge = ($_POST["inputNombresConyuge"] != "" ? $_POST["inputNombresConyuge"] : Null); utf8_decode_deep($nombres_conyuge);
+$id_sexo_conyuge = ($_POST["inputSexoConyuge"] != "" ? $_POST["inputSexoConyuge"] : Null); utf8_decode_deep($id_sexo_conyuge);
+$fecha_de_nacimiento_conyuge = ($_POST["inputFechaNacimmientoConyuge"] != "" ? $_POST["inputFechaNacimmientoConyuge"] : Null); utf8_decode_deep($fecha_de_nacimiento_conyuge);
+$dni_conyuge = ($_POST["inputDniConyuge"] != "" ? $_POST["inputDniConyuge"] : Null); utf8_decode_deep($dni_conyuge);
+$ci_numero_conyuge = ($_POST["inputCiNumeroConyuge"] != "" ? $_POST["inputCiNumeroConyuge"] : Null); utf8_decode_deep($ci_numero_conyuge);
+$lugar_nacimiento_conyuge  = ($_POST["inputLugarNacimientoConyuge"] != "" ? $_POST["inputLugarNacimientoConyuge"] : Null); utf8_decode_deep($lugar_nacimiento_conyuge);
+$nacionalidad_conyuge  = ($_POST["inputNacionalidadConyuge"] != "" ? $_POST["inputNacionalidadConyuge"] : Null); utf8_decode_deep($nacionalidad_conyuge);
+$profesion_conyuge  = ($_POST["inputProfesionConyuge"] != "" ? $_POST["inputProfesionConyuge"] : Null);  utf8_decode_deep($profesion_conyuge);
   //Observaciones Convivencia
-  $observacionConvivencia  = ($_POST["inputObservacionesConvivencia"] != "" ? $_POST["inputObservacionesConvivencia"] : Null);
+$observacionConvivencia  = ($_POST["inputObservacionesConvivencia"] != "" ? $_POST["inputObservacionesConvivencia"] : Null); utf8_decode_deep($observacionConvivencia);
 
   //Educacion
-  $estudios = array_chunk($_POST["infoEstudios"], 6);
+$estudios = array_chunk($_POST["infoEstudios"], 6);  utf8_decode_deep($estudios);
   //Idiomas
-  $idiomas=(isset($_POST["idioma"])?$_POST["idioma"] : Null);
+$idiomas=(isset($_POST["idioma"])?$_POST["idioma"] : Null);  utf8_decode_deep($idiomas);
   //Hobby Pasatiempos
-  $hobbies = $_POST["hobbyPreguntas"];
+$hobbies = $_POST["hobbyPreguntas"]; utf8_decode_deep($hobbies);
   // $id_informacion_economica = $_POST["inputInformacionEconomica"];
   // $id_informacion_socioambiental = $_POST["inputInformacionSocioambiental"];
 
   //Socioambiental
-  $calle = ($_POST["calle"] != "" ? $_POST["calle"] :Null);
-  $gmap = ($_POST["latLng"] != "" ? $_POST["latLng"] :Null);
-  $numero = ($_POST["numero"] != "" ? $_POST["numero"] :Null);
-  $localidad = ($_POST["localidad"] != "" ? $_POST["localidad"] :Null);
-  $codigo_postal = ($_POST["cp"] != "" ? $_POST["cp"] :Null);
-  $partido = ($_POST["partido"] != "" ? $_POST["partido"] :Null);
-  $telefono = ($_POST["telefono"] != "" ? $_POST["telefono"] :Null);
-  $piso = ($_POST["piso"] != "" ? $_POST["piso"] :Null);
-  $departamento = ($_POST["depto"] != "" ? $_POST["depto"] :Null);
-  $referencia_util = ($_POST["referenciaUtilDomicilio"] != "" ? $_POST["referenciaUtilDomicilio"] :Null);
-  $transportes = ($_POST["trasporte"] != "" ? $_POST["trasporte"] :Null);
+$calle = ($_POST["calle"] != "" ? $_POST["calle"] :Null);  utf8_decode_deep($calle);
+$gmap = ($_POST["latLng"] != "" ? $_POST["latLng"] :Null); utf8_decode_deep($gmap);
+$numero = ($_POST["numero"] != "" ? $_POST["numero"] :Null); utf8_decode_deep($numero);
+$localidad = ($_POST["localidad"] != "" ? $_POST["localidad"] :Null);  utf8_decode_deep($localidad);
+$codigo_postal = ($_POST["cp"] != "" ? $_POST["cp"] :Null);  utf8_decode_deep($codigo_postal);
+$partido = ($_POST["partido"] != "" ? $_POST["partido"] :Null);  utf8_decode_deep($partido);
+$telefono = ($_POST["telefono"] != "" ? $_POST["telefono"] :Null); utf8_decode_deep($telefono);
+$piso = ($_POST["piso"] != "" ? $_POST["piso"] :Null); utf8_decode_deep($piso);
+$departamento = ($_POST["depto"] != "" ? $_POST["depto"] :Null); utf8_decode_deep($departamento);
+$referencia_util = ($_POST["referenciaUtilDomicilio"] != "" ? $_POST["referenciaUtilDomicilio"] :Null);  utf8_decode_deep($referencia_util);
+$transportes = ($_POST["trasporte"] != "" ? $_POST["trasporte"] :Null);  utf8_decode_deep($transportes);
 
   //Vivienda
-  $vivienda = (isset($_POST["vivienda"])?$_POST["vivienda"] : Null);
-
+$vivienda = (isset($_POST["vivienda"])?$_POST["vivienda"] : Null); utf8_decode_deep($vivienda);
   // Concepto Vecinal
-  $conceptoVecinal = (isset($_POST["conceptoVecinal"])?$_POST["conceptoVecinal"] : Null);
+$conceptoVecinal = (isset($_POST["conceptoVecinal"])?$_POST["conceptoVecinal"] : Null);  utf8_decode_deep($conceptoVecinal);
+
+// Informacion Economica
+  $movilidadPropia = $_POST["movilidadPropia"];
+  $cuentasBancarias = $_POST["cuentasBancarias"];
+  $tCredDeb = $_POST["tCredDeb"];
+
+  print_r($movilidadPropia);
+  print_r($cuentasBancarias);
+  print_r($tCredDeb);
+
+  die();
 
 try {
   if(is_float(count($_POST["infoFamiliar"])/4)){
@@ -96,7 +105,7 @@ try {
       }
     }
   }
-  $postulante = new Postulante($nombres, $apellido, $fecha_de_nacimiento, $ci_numero, $expedida_por_A, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $profesion, $id_estado_civil, Null, Null,$id_sexo,$categoria_conducir,$expedida_por_B);
+  $postulante = new Postulante($nombres, $apellido, $fecha_de_nacimiento, $ci_numero, $expedida_por_A, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $id_estado_civil, Null, Null,$id_sexo,$categoria_conducir,$expedida_por_B);
   $idPostulante = $postulante->registrarPostulante();
 
   if ($idPostulante != 0) {
@@ -115,7 +124,6 @@ try {
     $idInformeSocioambiental = crearInformeSocioambiental($idPostulante,$id_domicilio,$id_vivienda);
 
     crearConceptoVecinal($idInformeSocioambiental,$conceptoVecinal);
-
   }
 
 } catch (Exception $e) {
@@ -145,9 +153,7 @@ function crearConceptoVecinal($idInformeSocioambiental,$conceptoVecinal){
 
       $conVecinal = new ConceptoVecinal($idInformeSocioambiental, $apellido_mombre, $conceptoEntrevistado, $afinidad, $tipo_de_amistades, $problemas_policiales, $problemas_economicos, $tiempo_que_conoce, $domicilio);
       $conVecinal->registrarConceptoVecinal();
-  }
-
-
+    }
   }
 }
 
@@ -235,6 +241,7 @@ function crearTransporte($id_domicilio,$transportes){
         $estudio = new Estudio($idPostulante, $id_nivel_estudio, $organizacion, $titulo, $desde, $hasta, $situacion);
         $estudio->registrarEstudio();
 
+
       }
     }
   }
@@ -260,7 +267,7 @@ function crearTransporte($id_domicilio,$transportes){
         $naFamiliar = $fam[1];
         $dFamiliar = $fam[2];
         $pFamiliar = $fam[3];
-        $familiar = new Familiar($naFamiliar,$dFamiliar,$pFamiliar,$idPostulante,$tFamiliar,Null);
+        $familiar = new Familiar($naFamiliar,$dFamiliar,$pFamiliar,$idPostulante,$tFamiliar);
         $familiar->registrarFamiliar();
       }
     }
@@ -272,4 +279,24 @@ function crearTransporte($id_domicilio,$transportes){
       $entrevista->registrarEntrevista();
     }
   }
+
+
+//-------------------------------------------------------
+function utf8_decode_deep(&$input) {
+    if (is_string($input)) {
+        $input = utf8_decode($input);
+    } else if (is_array($input)) {
+        foreach ($input as &$value) {
+            utf8_decode_deep($value);
+        }
+        unset($value);
+    } else if (is_object($input)) {
+        $vars = array_keys(get_object_vars($input));
+
+        foreach ($vars as $var) {
+            utf8_decode_deep($input->$var);
+        }
+    }
+}
+
  ?>

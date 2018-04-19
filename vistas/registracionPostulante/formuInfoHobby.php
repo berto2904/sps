@@ -12,7 +12,7 @@
           ?>
           <i class="glyphicon glyphicon-chevron-right"></i>
           <label for=""><?php echo $pregunta['pregunta']?></label>
-          <input type="text" name="hobbyPreguntas[<?php echo $pregunta['idPregunta']?>]" class="form-control" value="">
+          <input type="text" name="hobbyPreguntas[<?php echo $pregunta['idPregunta']?>]" class="form-control" value="" maxlength="200">
         <?php } ?>
       </div>
     </div>

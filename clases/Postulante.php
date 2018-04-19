@@ -14,14 +14,13 @@
     private $lugar_nacimiento;
     private $nacionalidad;
     private $dni;
-    private $profesion;
     private $id_estado_civil;
     private $id_informacion_socioambiental;
     private $id_informacion_economica;
     private $id_sexo;
     private $licencia_categoria;
 
-    function __construct($nombres, $apellido, $fecha_de_nacimiento, $ci_numero, $expedida_por_A, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $profesion, $id_estado_civil, $id_informacion_socioambiental, $id_informacion_economica, $id_sexo, $licencia_categoria,$expedida_por_B){
+    function __construct($nombres, $apellido, $fecha_de_nacimiento, $ci_numero, $expedida_por_A, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $id_estado_civil, $id_informacion_socioambiental, $id_informacion_economica, $id_sexo, $licencia_categoria,$expedida_por_B){
     $this->nombres= $nombres;
     $this->apellido=$apellido;
     $this->fecha_de_nacimiento=$fecha_de_nacimiento;
@@ -32,7 +31,6 @@
     $this->lugar_nacimiento=$lugar_nacimiento;
     $this->nacionalidad=$nacionalidad;
     $this->dni=$dni;
-    $this->profesion=$profesion;
     $this->id_estado_civil=$id_estado_civil;
     $this->id_informacion_socioambiental=$id_informacion_socioambiental;
     $this->id_informacion_economica=$id_informacion_economica;
@@ -51,17 +49,16 @@
 						lugar_nacimiento,
 						nacionalidad,
             dni,
-						profesion,
 						id_estado_civil,
 						id_informacion_socioambiental,
             id_informacion_economica,
             id_sexo,
             licencia_categoria,
-            expedida_por_B) VALUES (?,?,?,?   ,?,?,?,?    ,?,?,?,?    ,?,?,?,?  )";
+            expedida_por_B) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
       $ps = $cq->prepare($sql);
       mysqli_stmt_bind_param($ps,
-        "sssisissisiiiiss",
+        "sssisissiiiiiss",
         $this->nombres,
         $this->apellido,
         $this->fecha_de_nacimiento,
@@ -71,7 +68,6 @@
         $this->lugar_nacimiento,
         $this->nacionalidad,
         $this->dni,
-        $this->profesion,
         $this->id_estado_civil,
         $this->id_informacion_socioambiental,
         $this->id_informacion_economica,

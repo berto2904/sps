@@ -4,13 +4,13 @@
       <h3>Datos de entrevista</h3>
       <div class="col-md-10">
           <label for="">Organizacion</label>
-          <input type="text" class="form-control" id="inputOrganizacion" name="inputOrganizacion" placeholder="Organizacion">
+          <input type="text" class="form-control" id="inputOrganizacion" name="inputOrganizacion" placeholder="Organizacion" maxlength="70">
       </div>
     </div>
     <div class="row">
         <div class="col-md-10">
             <label for="">Puesto</label>
-            <input type="text" class="form-control" id="inputPuesto" name="inputPuesto" placeholder="Puesto">
+            <input type="text" class="form-control" id="inputPuesto" name="inputPuesto" placeholder="Puesto" maxlength="70">
         </div>
     </div>
     <div class="row">

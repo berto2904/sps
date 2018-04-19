@@ -40,8 +40,8 @@
       );
 
       mysqli_stmt_execute($ps);
-      $registro = mysqli_stmt_fetch($ps);
-      return $registro;
+      $this->id_estudios = $cq->getUltimoId();
+      return $this->id_estudios;
     }
 
   }
