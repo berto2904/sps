@@ -23,11 +23,12 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" action="controladores/ingresoUsuarioController.php" method="post">
 					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
+						<!-- <i class="zmdi zmdi-landscape"></i> -->
+						<i class="zmdi zmdi-landscap"> <img src="resources/images/sps.jpg" alt=""> </i>
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
-						SPS
+						<!-- SPS -->
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingresar nombre de usuario">

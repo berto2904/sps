@@ -4,7 +4,8 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th rowspan="2">Nivel</th>
+            <th data-field="stargazers_count"
+            data-sortable="true" rowspan="2">Nivel</th>
             <th rowspan="2">Establecimiento</th>
             <th colspan="2">Fecha</th>
             <th rowspan="2">Situacion</th>

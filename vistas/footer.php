@@ -11,6 +11,7 @@
 <script src="../librerias/jquery/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
 <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
+<script src="../librerias/bootstrap-table/src/bootstrap-table.js"></script>
 <!-- Waypoints -->
 <script src="../librerias/jquery/jquery.waypoints.min.js"></script>
 <!-- Carousel -->

@@ -9,7 +9,8 @@
 	<link rel="stylesheet" href="../librerias/crearPostulante/css/animate.css">
 	<link rel="stylesheet" href="../librerias/crearPostulante/css/icomoon.css">
 	<link rel="stylesheet" href="../librerias/crearPostulante/css/themify-icons.css">
-	<link rel="stylesheet" href="../librerias/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../librerias/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../librerias/bootstrap-table/src/bootstrap-table.css">
 	<link rel="stylesheet" href="../librerias/crearPostulante/css/magnific-popup.css">
 	<link rel="stylesheet" href="../librerias/crearPostulante/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="../librerias/crearPostulante/css/owl.theme.default.min.css">
@@ -47,7 +48,7 @@
     					</ul>
     				</div>
     				<div class="col-sm-2 col-xs-12">
-    					<div id="gtco-logo"><a href="home.php">SPS <em>.</em></a></div>
+    					<div id="gtco-logo"><a href="home.php"><img src="../resources/images/sps.jpg" alt="" style=" width: 3em;"><em>.</em></a></div>
     				</div>
     			</div>
     		</div>

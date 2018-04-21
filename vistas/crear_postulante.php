@@ -80,7 +80,7 @@ include ('header.php');
   									</a>
   								</li>
                   <li role="presentation" class="">
-  									<a href="#formuInfoAntecedenteLaborales" data-toggle="tab" aria-controls="" role="tab" title="Antecedentes Laborales">
+  									<a href="#formuInfoReferenciasLaborales" data-toggle="tab" aria-controls="" role="tab" title="Antecedentes Laborales">
   										<span class="round-tab">
   											<i class="glyphicon glyphicon-briefcase"></i>
   										</span>
@@ -106,6 +106,7 @@ include ('header.php');
                     include('registracionPostulante/formuInfoHobby.php');
                     include('registracionPostulante/formuInfoSocioambiental.php');
                     include('registracionPostulante/formuInfoEconomica.php');
+                    include('registracionPostulante/formuInfoReferenciasLaborales.php');
                     include('registracionPostulante/formuConfirmacion.php');
                    ?>
   								<div class="clearfix"></div>

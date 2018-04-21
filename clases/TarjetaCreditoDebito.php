@@ -1,4 +1,3 @@
-
 <?php
   require_once('connQuery.php');
 
@@ -19,7 +18,7 @@
       $this->observaciones = $observaciones;
 
     }
-    function registrar(){
+    function registrarTarjetaCreditoDebito(){
       $cq = new connQuery();
       $sql = "INSERT INTO tarjeta_credito_debito (id_informacion_economica, otras_propiedades, seguro_de_vida, prendas, observaciones) VALUES (?, ?, ?, ?, ?)";
 
