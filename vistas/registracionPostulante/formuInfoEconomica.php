@@ -40,8 +40,8 @@
           <button type="button" class="btn btn-sm btn-danger deleteButton">-</button>
         </div>
         <div class="col-md-5 offset-md-6">
-          <label for="cuentasBancarias[entidad]">Entidad</label>
-          <input type="text" class="form-control" id="" name="cuentasBancarias[entidad][]" placeholder="Entidad" maxlength="70">
+          <label for="cuentasBancarias[entidades]">Entidad</label>
+          <input type="text" class="form-control" id="" name="cuentasBancarias[entidades][]" placeholder="Entidad" maxlength="70">
         </div>
       </div>
     </div>

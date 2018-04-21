@@ -20,11 +20,11 @@
       $this->id_movilidad_propia);
 
       mysqli_stmt_execute($ps);
-      $this->id_informacion_economica= $cq->getUltimoId();
+      $this->id_informacion_economica = $cq->getUltimoId();
       return $this->id_informacion_economica;
     }
 
-    function actualizarPostulante($idPsotulante){
+    function actualizarPostulante($idPostulante){
       $cq = new connQuery();
       $sql = "UPDATE postulante
               SET id_informacion_economica = ?
@@ -33,8 +33,8 @@
       $ps = $cq->prepare($sql);
       mysqli_stmt_bind_param($ps,
       "ii",
-      $this->$id_informacion_economica,
-      $idPsotulante);
+      $this->id_informacion_economica,
+      $idPostulante);
 
       mysqli_stmt_execute($ps);
       $id = $cq->getUltimoId();

@@ -12,6 +12,11 @@
   require ("../clases/Vivienda.php");
   require ("../clases/InformacionSocioambiental.php");
   require ("../clases/ConceptoVecinal.php");
+  require ("../clases/InformacionEconomica.php");
+  require ("../clases/CuentaBancaria.php");
+  require ("../clases/MovilidadPropia.php");
+  require ("../clases/TarjetaCreditoDebito.php");
+  require ("../clases/TarjetaEntidad.php");
 
 
 
@@ -81,15 +86,9 @@ $vivienda = (isset($_POST["vivienda"])?$_POST["vivienda"] : Null); utf8_decode_d
 $conceptoVecinal = (isset($_POST["conceptoVecinal"])?$_POST["conceptoVecinal"] : Null);  utf8_decode_deep($conceptoVecinal);
 
 // Informacion Economica
-  $movilidadPropia = $_POST["movilidadPropia"];
-  $cuentasBancarias = $_POST["cuentasBancarias"];
-  $tCredDeb = $_POST["tCredDeb"];
-
-  print_r($movilidadPropia);
-  print_r($cuentasBancarias);
-  print_r($tCredDeb);
-
-  die();
+$movilidadPropia = $_POST["movilidadPropia"]; utf8_decode_deep($movilidadPropia);
+$cuentasBancarias = $_POST["cuentasBancarias"]["entidades"]; utf8_decode_deep($cuentasBancarias);
+$tCredDeb = $_POST["tCredDeb"]; utf8_decode_deep($tCredDeb);
 
 try {
   if(is_float(count($_POST["infoFamiliar"])/4)){
@@ -124,6 +123,14 @@ try {
     $idInformeSocioambiental = crearInformeSocioambiental($idPostulante,$id_domicilio,$id_vivienda);
 
     crearConceptoVecinal($idInformeSocioambiental,$conceptoVecinal);
+
+    // TODO: FUNCIONES para crear Informacion Economica
+    $idMovilidadPropia = crearMovilidadPropia($movilidadPropia);
+    $idInformacionEconomica = crearInformacionEconomica($idPostulante,$idMovilidadPropia);
+    crearCuentasBancarias($idInformacionEconomica, $cuentasBancarias);
+    crearTarjetaDeCreditoDebito($idInformacionEconomica, $tCredDeb);
+    // crearTarjetaEntidad($idTarjetaCreditoDebito);
+
   }
 
 } catch (Exception $e) {
@@ -139,6 +146,61 @@ header("location: ../vistas/crear_postulante.php");
 
 
 /*----------------------------------------------------FUNCIONES------------------------------------------------*/
+
+function crearMovilidadPropia($movilidadPropia){
+  if ($movilidadPropia["tipo"] != "" || $movilidadPropia["marca"] != ""  || $movilidadPropia["modelo"] != "" || $movilidadPropia["año"] != "" || $movilidadPropia["titular"] != ""  || $movilidadPropia["patente"]) {
+    $movPropia = new MovilidadPropia((int)$movilidadPropia["tipo"], $movilidadPropia["marca"], $movilidadPropia["modelo"], (int)$movilidadPropia["año"], $movilidadPropia["titular"], $movilidadPropia["patente"]);
+    $idMovilidadPropia = $movPropia->registrarMovilidadPropia();
+    return $idMovilidadPropia;
+    }
+  }
+  function crearInformacionEconomica($idPostulante,$idMovilidadPropia){
+    // if ($idMovilidadPropia != "") {0
+      $informacionEconomica = new InformacionEconomica($idMovilidadPropia);
+      $id = $informacionEconomica->registrarInformacionEconomica();
+      $informacionEconomica->actualizarPostulante($idPostulante);
+      return $id;
+    // }
+  }
+
+  function crearCuentasBancarias($idInformacionEconomica, $cuentasBancarias){
+    if (isset($cuentasBancarias)) {
+      foreach ($cuentasBancarias as $indice => $entidad) {
+        $cuentaBancaria = new CuentaBancaria($idInformacionEconomica, $entidad);
+        $cuentaBancaria->registrarCuentaBancaria();
+        }
+      }
+    }
+  function crearTarjetaDeCreditoDebito($idInformacionEconomica,$tCredDeb){
+    $flagTarjetaEntidad = false;
+    $idTarjetaCreditoDebito = "";
+
+    foreach ($tCredDeb as $indice => $tarjEntidad) {
+      if (isset($tarjEntidad["tarjetaEntidad"])) {
+        $flagTarjetaEntidad = true;
+      }
+    }
+
+    if ($flagTarjetaEntidad != false || $tCredDeb["otrasPropiedades"] != "" || $tCredDeb["segVida"] != "" || $tCredDeb["prendas"] != "" || $tCredDeb["observaciones"]) {
+      $tarjetaCreditoDebito = new TarjetaCreditoDebito($idInformacionEconomica, $tCredDeb["otrasPropiedades"], $tCredDeb["segVida"], $tCredDeb["prendas"], $tCredDeb["observaciones"]);
+      $idTarjetaCreditoDebito = $tarjetaCreditoDebito->registrarTarjetaCreditoDebito();
+    }
+    if ($flagTarjetaEntidad == true) {
+      foreach ($tCredDeb as $indice => $tarjEntidad) {
+        if (is_numeric($indice)) {
+          if ( $tarjEntidad["tarjetaEntidad"]["tarjeta"] != "" || $tarjEntidad["tarjetaEntidad"]["entidad"]) {
+            $tarjetaEntidad = new TarjetaEntidad ($idTarjetaCreditoDebito, $tarjEntidad["tarjetaEntidad"]["tarjeta"], $tarjEntidad["tarjetaEntidad"]["entidad"]);
+            $id = $tarjetaEntidad->registrarTarjetaEntidad();
+          }
+        }
+      }
+    }
+  }
+//
+// function crearTarjetaEntidad(){
+//
+//   }
+
 function crearConceptoVecinal($idInformeSocioambiental,$conceptoVecinal){
   foreach ($conceptoVecinal as $indice => $vecino) {
   if ($vecino["apellido_mombre"] != "" || $vecino["afinidad"] != "" || $vecino["domicilio"] != "" || $vecino["tiempo_que_conoce"] != "") {
@@ -177,12 +239,14 @@ function crearVivienda($vivienda){
   $vivie = new Vivienda($tipoVivienda,$aspectoInterior,$propietario,$ambientes,$aspectoExterior,$inquilino,$importeAlquiler,$accesibilidad);
   $idVivienda = $vivie->registrarVivienda();
 
-  foreach ($vivienda["servicio"] as $indice => $serv) {
-    $serv = (int)$serv;
-    Vivienda::registrarViviendaServicio($idVivienda,$serv);
+  if (isset($vivienda["servicio"])) {
+    foreach ($vivienda["servicio"] as $indice => $serv) {
+      $serv = (int)$serv;
+      Vivienda::registrarViviendaServicio($idVivienda,$serv);
+    }
   }
-  return $idVivienda;
-}
+    return $idVivienda;
+  }
 
 function crearTransporte($id_domicilio,$transportes){
   foreach ($transportes as $indice => $transporte) {

@@ -15,9 +15,9 @@
         $this->entidad = $entidad;
 
     }
-    function registrar(){
+    function registrarTarjetaEntidad(){
       $cq = new connQuery();
-      $sql = "INSERT INTO tarjeta_entidad (id_tarjeta_credito_debito, tarjeta, entidad) VALUES (NULL, NULL, NULL);";
+      $sql = "INSERT INTO tarjeta_entidad (id_tarjeta_credito_debito, tarjeta, entidad) VALUES (?,?,?)";
 
       $ps = $cq->prepare($sql);
       mysqli_stmt_bind_param($ps,
@@ -25,6 +25,9 @@
       $this->id_tarjeta_credito_debito,
       $this->tarjeta,
       $this->entidad);
+
+      // var_dump($id_tarjeta_credito_debito);
+      // die();
 
       mysqli_stmt_execute($ps);
       $this->id_tarjeta_entidad = $cq->getUltimoId();
