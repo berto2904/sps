@@ -110,6 +110,8 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
   padding: 20px 0;
   z-index: 1001;
+  background-color: #0000008c;
+  border-radius: 5em;
 }
 @media screen and (max-width: 768px) {
   .gtco-nav {
@@ -289,9 +291,11 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #gtco-header h1 {
   margin-bottom: 0px;
-  font-size: 59px;
+  font-size: 3em;
   line-height: 1;
-  font-weight: 300;
+  font-weight: 200;
+  text-align: start;
+  text-decoration: underline;
 }
 @media screen and (max-width: 768px) {
   #gtco-header h1 {

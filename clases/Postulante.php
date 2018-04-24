@@ -37,6 +37,7 @@
     $this->id_sexo = $id_sexo;
     $this->licencia_categoria = $licencia_categoria;
     }
+    
     function registrarPostulante(){
       $cq = new connQuery();
       $sql = "INSERT INTO postulante(

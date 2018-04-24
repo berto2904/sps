@@ -32,7 +32,7 @@
 
     public static function  consultarPreguntas(){
       $cq = new connQuery();
-      $sql = "select  id_pregunta id, pregunta from pregunta where tipo = 'hp';";
+      $sql = "select  id_pregunta id, pregunta from pregunta where tipo = 'hp'";
 
 	    $filas = $cq->ejecutarConsulta($sql);
 	    $preguntas = array();

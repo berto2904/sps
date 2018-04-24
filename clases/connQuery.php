@@ -34,6 +34,18 @@ class ConnQuery{
     return mysqli_insert_id($this->conn);
   }
 
+  function getFilasById($id,$sql){
+    $cq = new connQuery();
+
+    $ps =  $conexion->prepare($sql);
+    mysqli_stmt_bind_param($ps,
+    "i",
+    $id);
+
+    $filas = $cq->ejecutarConsulta($ps);
+    return $filas;
+  }
+
 }
 
 ?>

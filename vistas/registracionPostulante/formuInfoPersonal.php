@@ -44,8 +44,8 @@
             <label for="inputLicenciaConductor">Lic. de Conducir</label>
             <select class="form-control" name="inputLicenciaConductor" placeholder="Licencia de conducir">
               <option value="">Licencia</option>
-              <option value=1>Si</option>
-              <option value=0>No</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
             </select>
           </div>
           <div class="col-md-3">

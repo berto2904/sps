@@ -34,7 +34,7 @@
     							<a href="#">Entrevistas</a>
     							<ul class="dropdown">
     								<li><a href="crear_postulante.php">Crear Postulante</a></a></li>
-    								<li><a href="#">Consultar Postulantes</a></li>
+    								<li><a href="consultar_postulante.php">Consultar Postulantes</a></li>
     							</ul>
     						</li>
     						<li class="has-dropdown">
@@ -48,7 +48,11 @@
     					</ul>
     				</div>
     				<div class="col-sm-2 col-xs-12">
-    					<div id="gtco-logo"><a href="home.php"><img src="../resources/images/sps.jpg" alt="" style=" width: 3em;"><em>.</em></a></div>
+    					<div id="gtco-logo">
+								<a>
+									<img src="../resources/images/sps.jpg" alt="" style=" width: 3em;">
+								</a>
+							</div>
     				</div>
     			</div>
     		</div>

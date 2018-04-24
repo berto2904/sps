@@ -17,10 +17,7 @@
   require ("../clases/MovilidadPropia.php");
   require ("../clases/TarjetaCreditoDebito.php");
   require ("../clases/TarjetaEntidad.php");
-<<<<<<< HEAD
   require ("../clases/ReferenciaLaboral.php");
-=======
->>>>>>> cf198895dfb5ba8e376c81f58a35c5e575f28079
 
 
 
@@ -93,13 +90,9 @@ $conceptoVecinal = (isset($_POST["conceptoVecinal"])?$_POST["conceptoVecinal"] :
 $movilidadPropia = $_POST["movilidadPropia"]; utf8_decode_deep($movilidadPropia);
 $cuentasBancarias = $_POST["cuentasBancarias"]["entidades"]; utf8_decode_deep($cuentasBancarias);
 $tCredDeb = $_POST["tCredDeb"]; utf8_decode_deep($tCredDeb);
-<<<<<<< HEAD
 
 // Referencia laborales
 $refLaborales = $_POST["referenciasLaborales"]; utf8_decode_deep($refLaborales);
-=======
->>>>>>> cf198895dfb5ba8e376c81f58a35c5e575f28079
-
 try {
   if(is_float(count($_POST["infoFamiliar"])/4)){
     throw new Exception('Error en el formulario infoFamiliar');
@@ -134,20 +127,11 @@ try {
 
     crearConceptoVecinal($idInformeSocioambiental,$conceptoVecinal);
 
-<<<<<<< HEAD
-=======
-    // TODO: FUNCIONES para crear Informacion Economica
->>>>>>> cf198895dfb5ba8e376c81f58a35c5e575f28079
     $idMovilidadPropia = crearMovilidadPropia($movilidadPropia);
     $idInformacionEconomica = crearInformacionEconomica($idPostulante,$idMovilidadPropia);
     crearCuentasBancarias($idInformacionEconomica, $cuentasBancarias);
     crearTarjetaDeCreditoDebito($idInformacionEconomica, $tCredDeb);
-<<<<<<< HEAD
     crearReferenciasLaborales($idPostulante, $refLaborales);
-=======
-    // crearTarjetaEntidad($idTarjetaCreditoDebito);
-
->>>>>>> cf198895dfb5ba8e376c81f58a35c5e575f28079
   }
 
 } catch (Exception $e) {
@@ -163,7 +147,6 @@ header("location: ../vistas/crear_postulante.php");
 
 
 /*----------------------------------------------------FUNCIONES------------------------------------------------*/
-<<<<<<< HEAD
 function crearReferenciasLaborales($id_postulante, $refLaborales){
   foreach ($refLaborales as $indice => $refLaboral) {
     if ($refLaboral["empresa"] != "" || $refLaboral["domicilio"] != "" || $refLaboral["desde"] != "" || $refLaboral["hasta"]) {
@@ -172,8 +155,6 @@ function crearReferenciasLaborales($id_postulante, $refLaborales){
     }
   }
 }
-=======
->>>>>>> cf198895dfb5ba8e376c81f58a35c5e575f28079
 
 function crearMovilidadPropia($movilidadPropia){
   if ($movilidadPropia["tipo"] != "" || $movilidadPropia["marca"] != ""  || $movilidadPropia["modelo"] != "" || $movilidadPropia["año"] != "" || $movilidadPropia["titular"] != ""  || $movilidadPropia["patente"]) {
@@ -224,13 +205,6 @@ function crearMovilidadPropia($movilidadPropia){
       }
     }
   }
-<<<<<<< HEAD
-=======
-//
-// function crearTarjetaEntidad(){
-//
-//   }
->>>>>>> cf198895dfb5ba8e376c81f58a35c5e575f28079
 
 function crearConceptoVecinal($idInformeSocioambiental,$conceptoVecinal){
   foreach ($conceptoVecinal as $indice => $vecino) {
@@ -325,7 +299,6 @@ function crearTransporte($id_domicilio,$transportes){
   function crearEstudios($estudios,$idPostulante){
     foreach ($estudios as $es => $estudio) {
       if ($estudio[1] != "" || $estudio[2] != "" || $estudio[3] != "" || $estudio[4] != "" || $estudio[5] != "") {
-
         $id_nivel_estudio = (int)$estudio[0];
         $organizacion = $estudio[1];
         $desde = (int)$estudio[2];

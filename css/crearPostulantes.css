@@ -150,7 +150,8 @@ input:checked + .slider:before {
 .wizard {
     border-radius: 29px;
     background: #fff;
-}
+    margin: 2em 0em;
+  }
 
 .wizard .nav-tabs {
     position: relative;
