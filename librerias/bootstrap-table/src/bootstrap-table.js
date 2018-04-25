@@ -21,10 +21,14 @@
             icons: {
                 paginationSwitchDown: 'glyphicon-collapse-down icon-chevron-down',
                 paginationSwitchUp: 'glyphicon-collapse-up icon-chevron-up',
-                refresh: 'glyphicon-refresh icon-refresh',
-                toggleOff: 'glyphicon-list-alt icon-list-alt',
-                toggleOn: 'glyphicon-list-alt icon-list-alt',
-                columns: 'glyphicon-th icon-th',
+                refresh: 'glyphicon-refresh',
+                // refresh: 'glyphicon-refresh icon-refresh',
+                toggleOff: 'glyphicon-list-alt',
+                // toggleOff: 'glyphicon-list-alt icon-list-alt',
+                toggleOn: 'glyphicon-list-alt',
+                // toggleOn: 'glyphicon-list-alt icon-list-alt',
+                // columns: 'glyphicon-th icon-th',
+                columns: 'glyphicon-th',
                 detailOpen: 'glyphicon-plus icon-plus',
                 detailClose: 'glyphicon-minus icon-minus',
                 fullscreen: 'glyphicon-fullscreen'

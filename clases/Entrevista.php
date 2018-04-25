@@ -46,6 +46,7 @@
 
     public static function consultarEntrevistas(){
       $cq = new connQuery();
+
       $sql = "SELECT 	en.id_entrevista                id_entrevista,
                   		en.organizacion                 organizacion,
                   		en.puesto                       puesto,
@@ -97,7 +98,7 @@
                              'sexo'=> $fila['sexo'],
                              'estadoCivil'=> $fila['estadoCivil'],
                              'expedidaLicConducir'=> $fila['expedidaLicConducir']);
-                             
+
 				$entrevistas[] = $entrevista;
 				}
 			return $entrevistas;

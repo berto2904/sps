@@ -21,11 +21,11 @@
 <!-- Magnific Popup -->
 <script src="../librerias/jquery/jquery.magnific-popup.min.js"></script>
 <script src="../librerias/crearPostulante/js/magnific-popup-options.js"></script>
+<script src="../librerias/bootstrap-table/dist/locale/bootstrap-table-es-AR.js"></script>
 <!-- Main -->
 <script src="../js/main.js"></script>
 <script src="../js/crearPostulante.js"></script>
 <script src="../js/domicilioGMap.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete" async defer></script>
-
 </body>
 </html>
