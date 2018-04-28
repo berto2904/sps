@@ -1,5 +1,6 @@
 <?php
   require_once('connQuery.php');
+  include ('../helper/consultaGenerica.php');
 
   class Entrevista{
           private $id_entrevista;
@@ -45,8 +46,6 @@
     }
 
     public static function consultarEntrevistas(){
-      $cq = new connQuery();
-
       $sql = "SELECT 	en.id_entrevista                id_entrevista,
                   		en.organizacion                 organizacion,
                   		en.puesto                       puesto,
@@ -73,35 +72,7 @@
                   left join sexo s on s.id_sexo = p.id_sexo
                   left join estado_civil ec on ec.id_estado_civil = p.id_estado_civil;";
 
-	    $filas = $cq->ejecutarConsulta($sql);
-	    $entrevistas = array();
-
-	    while ($fila =  mysqli_fetch_assoc($filas)) {
-	      $entrevista = array( 'id_entrevista'=> $fila['id_entrevista'],
-                             'organizacion'=> $fila['organizacion'],
-                             'puesto'=> $fila['puesto'],
-                             'fechaHoraEntrevista'=> $fila['fechaHoraEntrevista'],
-                             'infoRelevante'=> $fila['infoRelevante'],
-                             'idPostulante'=> $fila['idPostulante'],
-                             'nombres'=> $fila['nombres'] ,
-                             'apellido'=> $fila['apellido'],
-                             'fNacPostulante'=> $fila['fNacPostulante'],
-                             'ciNumero'=> $fila['ciNumero'],
-                             'expedidaCi'=> $fila['expedidaCi'],
-                             'licenciaConductor'=> $fila['licenciaConductor'],
-                             'lugarNacimiento'=> $fila['lugarNacimiento'],
-                             'nacionalidad'=> $fila['nacionalidad'],
-                             'dni'=> $fila['dni'],
-                             'profesion'=> $fila['profesion'],
-                             'licenciaCategoria'=> $fila['licenciaCategoria'],
-                             'informeSocioambiental'=> $fila['informeSocioambiental'],
-                             'sexo'=> $fila['sexo'],
-                             'estadoCivil'=> $fila['estadoCivil'],
-                             'expedidaLicConducir'=> $fila['expedidaLicConducir']);
-
-				$entrevistas[] = $entrevista;
-				}
-			return $entrevistas;
+    return consultaGenerica($sql);
     }
 
   }

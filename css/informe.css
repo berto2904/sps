@@ -1,0 +1,51 @@
+/* estilos para el footer y el numero de pagina */
+@page { margin: 4em 50px 3em 30px; }
+body{
+  background-url: http://api.thumbr.it/whitenoise-361x370.png?;
+}
+.header {
+  border-bottom: 8px solid;
+  border-bottom-color: cornflowerblue;
+  border-bottom-style: double;
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  top: -4em;
+  right: 0px;
+  height: auto;
+  margin: 0px;
+  }
+
+.margin0 *{
+  margin: 0px;
+}
+
+.content{
+  padding: 0em 5%;
+}
+.footer .page:after {
+    content: counter(page, upper-roman);
+    height: 5em;
+    background-color: black;
+    top: -8em;
+}
+
+/* .content .titulo{
+  text-align: center;
+} */
+.servicios ul{
+  border-style: dashed;
+}
+.both{
+  clear: both;
+  margin-bottom: 1em;
+}
+.dosColumnas{
+  float: left;
+  width: 50%;
+}
+
+.borderer{
+  border-style: dotted;
+  margin: 0% 1%;
+}

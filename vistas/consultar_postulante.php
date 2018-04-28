@@ -39,7 +39,8 @@ include ('header.php');
                        data-show-refresh="true"
                        data-show-toggle="true"
                        data-show-columns="true"
-                       data-height="600">
+                       data-height="600"
+                       data-pagination="true">
                   <thead>
                     <tr>
                       <th data-field="fechaHoraEntrevista">Fecha y Hora</th>

@@ -69,7 +69,8 @@ function initAutocomplete() {
           places.forEach(function(place) {
 
             $('#gmap').val(place.geometry.location);
-            $('#gmap').val('{"'+$('#gmap').val().replace('(','lat":').replace(',',',"lng":').replace(')','')+'}');
+            $('#gmap').val($('#gmap').val().replace('(','').replace(')','').replace(' ',''));
+            // $('#gmap').val('{"'+$('#gmap').val().replace('(','lat":').replace(',',',"lng":').replace(')','')+'}');
 
             for (var component in componentForm) {
                 document.getElementById(component).value = '';

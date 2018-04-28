@@ -1,0 +1,118 @@
+--------------------------------------------------------------------------------
+SELECT  p.id_postulante,
+        p.nombres,
+        p.apellido,
+        p.fecha_de_nacimiento,
+        p.ci_numero,
+        p.expedida_por_A,
+        p.licencia_conductor,
+        p.lugar_nacimiento,
+        p.nacionalidad,
+        p.dni,
+        p.profesion,
+        p.licencia_categoria,
+        p.id_informacion_socioambiental,
+        p.id_informacion_economica,
+        p.id_sexo,
+        p.id_estado_civil,
+        p.expedida_por_B
+FROM postulante p;
+--------------------------------------------------------------------------------
+SELECT informacion_socioambiental.id_informacion_socioambiental,
+        informacion_socioambiental.id_domicilio,
+        informacion_socioambiental.id_vivienda
+FROM informacion_socioambiental;
+--------------------------------------------------------------------------------
+SELECT  sexo.id_sexo,
+        sexo.descripcion
+FROM sexo s;
+--------------------------------------------------------------------------------
+SELECT  estado_civil.id_estado_civil,
+        estado_civil.descripcion,
+        estado_civil.tipo
+FROM estado_civil;
+--------------------------------------------------------------------------------
+SELECT concepto_vecinal.id_concepto_vecinal,
+        concepto_vecinal.id_informacion_socioambiental,
+        concepto_vecinal.nombre_apellido,
+        concepto_vecinal.concepto_del_entrevistado,
+        concepto_vecinal.afinidad,
+        concepto_vecinal.tipo_de_amistades,
+        concepto_vecinal.problemas_policiales,
+        concepto_vecinal.problemas_economicos,
+        concepto_vecinal.tiempo_que_conoce,
+        concepto_vecinal.domicilio
+FROM concepto_vecinal;
+--------------------------------------------------------------------------------
+SELECT domicilio.id_domicilio,
+        domicilio.localidad,
+        domicilio.calle,
+        domicilio.numero,
+        domicilio.piso,
+        domicilio.departamento,
+        domicilio.gmap,
+        domicilio.telefono,
+        domicilio.referencia_util,
+        domicilio.codigo_postal,
+        domicilio.partido
+FROM domicilio;
+--------------------------------------------------------------------------------
+SELECT entrevista.id_entrevista,
+        entrevista.organizacion,
+        entrevista.puesto,
+        entrevista.fecha_hora,
+        entrevista.informacion_relevante,
+        entrevista.id_usuario,
+        entrevista.id_postulante
+FROM entrevista;
+--------------------------------------------------------------------------------
+SELECT movilidad_propia.id_movilidad_propia,
+        movilidad_propia.id_vehiculo_tipo,
+        movilidad_propia.marca,
+        movilidad_propia.modelo,
+        movilidad_propia.anio,
+        movilidad_propia.titular,
+        movilidad_propia.patente
+FROM movilidad_propia;
+--------------------------------------------------------------------------------
+SELECT servicio.id_servicio,
+        servicio.descripcion
+FROM servicio;
+--------------------------------------------------------------------------------
+SELECT tipo_vivienda.id_tipo_vivienda,
+        tipo_vivienda.descripcion
+FROM tipo_vivienda;
+--------------------------------------------------------------------------------
+SELECT transporte.id_transporte,
+        transporte.id_transporte_tipo,
+        transporte.cuadras,
+        transporte.id_domicilio
+FROM transporte;
+--------------------------------------------------------------------------------
+SELECT transporte_tipo.id_transporte_tipo,
+        transporte_tipo.descripcion
+FROM transporte_tipo;
+--------------------------------------------------------------------------------
+SELECT vehiculo_tipo.id_vehiculo_tipo,
+        vehiculo_tipo.descripcion
+FROM vehiculo_tipo;
+--------------------------------------------------------------------------------
+SELECT vivienda.id_vivienda,
+        vivienda.id_tipo_vivienda,
+        vivienda.aspecto_interior,
+        vivienda.propietario,
+        vivienda.ambientes,
+        vivienda.aspecto_exterior,
+        vivienda.inquilino,
+        vivienda.importe_alquiler,
+        vivienda.accesibilidad
+FROM vivienda;
+--------------------------------------------------------------------------------
+SELECT  clasificacion.id_clasificacion,
+        clasificacion.descripcion
+FROM clasificacion;
+--------------------------------------------------------------------------------
+SELECT vivienda_servicio.id_vivienda,
+        vivienda_servicio.id_servicio
+FROM vivienda_servicio;
+--------------------------------------------------------------------------------
