@@ -13,7 +13,8 @@ else {
   session_destroy();
   header("location: ../index.php");
 }
-include ('header.php');
+include ('headerLibrerias.php');
+include ('headerEnd.php');
 ?>
 <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url('../librerias/Login/images/bg-01.jpg');">
   <div class="overlay"></div>
@@ -22,13 +23,13 @@ include ('header.php');
       <div class="col-md-12 col-md-offset-0 text-left">
         <div class="row contenidoPostulante">
           <section>
-            <h1>Crear Postulante</h1>
+            <h1>Cargar Informacion Entrevistadora</h1>
           </section>
           <section>
   					<div class="wizard">
   						<div class="wizard-inner">
   							<div class="connecting-line"></div>
-  							<ul class="nav nav-tabs" role="tablist">
+  							<ul class="nav nav-tabs tab-selection" role="tablist">
                   <li role="presentation" class="active">
                     <a href="#formuInfoEntre" data-toggle="tab" aria-controls="" role="tab" title="Informacion de entrevista">
                       <span class="round-tab">
@@ -120,5 +121,11 @@ include ('header.php');
   </div>
 </header>
 <?php
-include ('footer.php');
+include ('footerLibrerias.php');
+?>
+<script src="../js/crearPostulante.js"></script>
+<script src="../js/domicilioGMap.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete" async defer></script>
+<?php
+include ('footerEnd.php');
 ?>

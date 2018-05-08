@@ -36,8 +36,8 @@ $nombres = ($_POST["inputNombres"] != "" ? $_POST["inputNombres"] : Null); utf8_
 $id_sexo = ($_POST["inputSexo"] != "" ? $_POST["inputSexo"] : Null); utf8_decode_deep($id_sexo);
 $fecha_de_nacimiento = ($_POST["inputFechaNacimmiento"] != "" ? $_POST["inputFechaNacimmiento"] : Null); utf8_decode_deep($fecha_de_nacimiento);
 $dni = ($_POST["inputDni"] != "" ? $_POST["inputDni"] : Null); utf8_decode_deep($dni);
-$ci_numero = ($_POST["inputCiNumero"] != "" ? $_POST["inputCiNumero"] : Null); utf8_decode_deep($ci_numero);
-$expedida_por_A  = ($_POST["inputExpedidaPorA"] != "" ? $_POST["inputExpedidaPorA"] : Null); utf8_decode_deep($expedida_por_A);
+// $ci_numero = ($_POST["inputCiNumero"] != "" ? $_POST["inputCiNumero"] : Null); utf8_decode_deep($ci_numero);
+// $expedida_por_A  = ($_POST["inputExpedidaPorA"] != "" ? $_POST["inputExpedidaPorA"] : Null); utf8_decode_deep($expedida_por_A);
 $expedida_por_B  = ($_POST["inputExpedidaPorB"] != "" ? $_POST["inputExpedidaPorB"] : Null); utf8_decode_deep($expedida_por_B);
 $licencia_conductor  = ($_POST["inputLicenciaConductor"] != "" ? $_POST["inputLicenciaConductor"] : Null); utf8_decode_deep($licencia_conductor);
 $lugar_nacimiento  = ($_POST["inputLugarNacimiento"] != "" ? $_POST["inputLugarNacimiento"] : Null); utf8_decode_deep($lugar_nacimiento);
@@ -53,7 +53,7 @@ $nombres_conyuge = ($_POST["inputNombresConyuge"] != "" ? $_POST["inputNombresCo
 $id_sexo_conyuge = ($_POST["inputSexoConyuge"] != "" ? $_POST["inputSexoConyuge"] : Null); utf8_decode_deep($id_sexo_conyuge);
 $fecha_de_nacimiento_conyuge = ($_POST["inputFechaNacimmientoConyuge"] != "" ? $_POST["inputFechaNacimmientoConyuge"] : Null); utf8_decode_deep($fecha_de_nacimiento_conyuge);
 $dni_conyuge = ($_POST["inputDniConyuge"] != "" ? $_POST["inputDniConyuge"] : Null); utf8_decode_deep($dni_conyuge);
-$ci_numero_conyuge = ($_POST["inputCiNumeroConyuge"] != "" ? $_POST["inputCiNumeroConyuge"] : Null); utf8_decode_deep($ci_numero_conyuge);
+// $ci_numero_conyuge = ($_POST["inputCiNumeroConyuge"] != "" ? $_POST["inputCiNumeroConyuge"] : Null); utf8_decode_deep($ci_numero_conyuge);
 $lugar_nacimiento_conyuge  = ($_POST["inputLugarNacimientoConyuge"] != "" ? $_POST["inputLugarNacimientoConyuge"] : Null); utf8_decode_deep($lugar_nacimiento_conyuge);
 $nacionalidad_conyuge  = ($_POST["inputNacionalidadConyuge"] != "" ? $_POST["inputNacionalidadConyuge"] : Null); utf8_decode_deep($nacionalidad_conyuge);
 $profesion_conyuge  = ($_POST["inputProfesionConyuge"] != "" ? $_POST["inputProfesionConyuge"] : Null);  utf8_decode_deep($profesion_conyuge);
@@ -109,13 +109,13 @@ try {
       }
     }
   }
-  $postulante = new Postulante($nombres, $apellido, $fecha_de_nacimiento, $ci_numero, $expedida_por_A, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $id_estado_civil, Null, Null,$id_sexo,$categoria_conducir,$expedida_por_B);
+  $postulante = new Postulante($nombres, $apellido, $fecha_de_nacimiento, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $id_estado_civil, Null, Null,$id_sexo,$categoria_conducir,$expedida_por_B);
   $idPostulante = $postulante->registrarPostulante();
 
   if ($idPostulante != 0) {
     crearEntrevista($idPostulante, $organizacion, $puesto, $fechaEntrevista, $informacionRelevante, $id_usuario);
     crearFamiliares($familiares,$idPostulante);
-    crearConyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $ci_numero_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante);
+    crearConyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante);
     crearObservacionesConvivencia($observacionConvivencia,$idPostulante);
     crearEstudios($estudios,$idPostulante);
     crearIdiomas($idiomas,$idPostulante);
@@ -323,9 +323,9 @@ function crearTransporte($id_domicilio,$transportes){
     }
   }
 
-  function crearConyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $ci_numero_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante){
-    if ($apellido_conyuge != Null || $nombres_conyuge != Null || $id_sexo_conyuge != Null || $fecha_de_nacimiento_conyuge != Null || $dni_conyuge != Null || $ci_numero_conyuge != Null || $lugar_nacimiento_conyuge != Null || $nacionalidad_conyuge != Null || $profesion_conyuge != Null) {
-      $conyuge = new Conyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $ci_numero_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante);
+  function crearConyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante){
+    if ($apellido_conyuge != Null || $nombres_conyuge != Null || $id_sexo_conyuge != Null || $fecha_de_nacimiento_conyuge != Null || $dni_conyuge != Null || $lugar_nacimiento_conyuge != Null || $nacionalidad_conyuge != Null || $profesion_conyuge != Null) {
+      $conyuge = new Conyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante);
       $idConyuge =  $conyuge->registrarConyuge();
     }
   }

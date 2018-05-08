@@ -13,7 +13,13 @@ else {
   session_destroy();
   header("location: ../index.php");
 }
-include ('header.php');
+include ('headerLibrerias.php');
+?>
+<link rel="stylesheet" href="../librerias/bootstrap-table/src/bootstrap-table.css">
+<link rel="stylesheet" href="../librerias/bootstrap-table/dist/bootstrap-table.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<?php
+include ('headerEnd.php');
 ?>
 <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url('../librerias/Login/images/bg-02.jpg');">
   <div class="overlay"></div>
@@ -25,44 +31,44 @@ include ('header.php');
             <h1>Consultar Postulante</h1>
           </section>
           <section>
-  					<div class="wizard">
+  					<div class="wizard" style="margin: 2em 0em; ">
               <div class="wizard-inner" style=" padding: 3% 2%;">
+                <h3>Entrevistas</h3>
                 <!-- <div id="toolbar">
                   <button id="remove" class="btn btn-danger" disabled>
                     <i class="glyphicon glyphicon-remove"></i> Delete
                   </button>
                 </div> -->
-                <h3>Entrevistas</h3>
-                <table data-toggle="table"
+                <table id="tablaEntrevistas"
+                       data-toggle="table"
                        data-url="../controladores/consultarEntrevistas.php"
                        data-search="true"
                        data-show-refresh="true"
                        data-show-toggle="true"
                        data-show-columns="true"
-                       data-height="600"
-                       data-pagination="true">
+                       data-pagination="true"
+                       data-page-size="5"
+                       data-page-list="[5,8,10,20]">
                   <thead>
                     <tr>
+                      <th data-field="id_entrevista" data-visible="false">#</th>
                       <th data-field="fechaHoraEntrevista">Fecha y Hora</th>
                       <th data-field="organizacion">Organizacion</th>
                       <th data-field="puesto">Puesto</th>
                       <th data-field="nombres">Nombres</th>
                       <th data-field="apellido">Apellido</th>
                       <th data-field="dni">DNI</th>
-                      <th data-field="sexo">Sexo</th>
-                      <th data-field="lugarNacimiento">Lugar de Nacimiento</th>
-                      <th data-field="nacionalidad">Nacionalidad</th>
-                      <th data-field="estadoCivil">Estado Civil</th>
-                      <th data-field="informeSocioambiental">Informe Socio-Ambiental</th>
-                      <th data-field="fNacPostulante">Fecha de Nacimiento</th>
-                      <!-- <th data-field="licenciaCategoria">Categoria licencia</th> -->
-                      <!-- <th data-field="ciNumero">Nº CI</th> -->
-                      <!-- <th data-field="expedidaCi">Expedida Por(CI)</th> -->
-                      <!-- <th data-field="licenciaConductor">Licencia de conducir</th> -->
-                      <!-- <th data-field="expedidaLicConducir">Expedida Por(Lic. Conducir)</th> -->
-                      <!-- <th data-field="id_entrevista">id_entrevista</th> -->
-                      <!-- <th data-field="idPostulante">idPostulante</th> -->
-                      <!-- <th data-field="infoRelevante">Informacion Relevante</th> -->
+                      <th data-field="sexo" data-visible="false">Sexo</th>
+                      <th data-field="lugarNacimiento" data-visible="false">Lugar de Nacimiento</th>
+                      <th data-field="nacionalidad" data-visible="false">Nacionalidad</th>
+                      <th data-field="estadoCivil" data-visible="false">Estado Civil</th>
+                      <th data-field="informeSocioambiental" data-visible="false">Informe Socio-Ambiental</th>
+                      <th data-field="fNacPostulante" data-visible="false">Fecha de Nacimiento</th>
+                      <th data-field="licenciaCategoria" data-visible="false">Categoria licencia</th>
+                      <th data-field="licenciaConductor" data-visible="false">Licencia de conducir</th>
+                      <th data-field="expedidaLicConducir" data-visible="false">Expedida Por(Lic. Conducir)</th>
+                      <th data-field="idPostulante" data-visible="false">idPostulante</th>
+                      <th data-field="infoRelevante" data-visible="false">Informacion Relevante</th>
                     </tr>
                   </thead>
                 </table>
@@ -75,5 +81,13 @@ include ('header.php');
   </div>
 </header>
 <?php
-include ('footer.php');
+include ('footerLibrerias.php');
+?>
+<script src="../librerias/bootstrap-table/src/bootstrap-table.js"></script>
+<script src="../librerias/bootstrap-table/dist/locale/bootstrap-table-es-AR.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+<script src="../js/consultarPostulantes.js"></script>
+
+<?php
+include ('footerEnd.php');
 ?>

@@ -5,7 +5,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-8">
         <div class="row">
           <div class="col-md-6">
             <label for="inputNombres">Nombres</label>
@@ -28,18 +28,6 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <label for="inputCiNumero">CI Nº</label>
-            <input type="number" class="form-control" id="inputCiNumero" name="inputCiNumero" placeholder="CI Nº">
-          </div>
-          <div class="col-md-6">
-            <label for="inputExpedidaPorA">Expedida Por:</label>
-            <input type="text" class="form-control" id="inputExpedidaPorA" name="inputExpedidaPorA" placeholder="Expedida Por:" maxlength="70">
-          </div>
-
-        </div>
-
-        <div class="row">
           <div class="col-md-3">
             <label for="inputLicenciaConductor">Lic. de Conducir</label>
             <select class="form-control" name="inputLicenciaConductor" placeholder="Licencia de conducir">
@@ -59,21 +47,23 @@
         </div>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="inputSexo">Sexo</label>
         <select class="form-control" name="inputSexo" placeholder="Sexo">
           <option value="">Sexo</option>
           <option value=1>Masculino</option>
           <option value=2>Femenino</option>
         </select>
-
-        <label for="inputDni">DNI</label>
-        <input type="number" class="form-control" id="inputDni" name="inputDni" placeholder="DNI">
-
-
-
-        <label for="inputNacionalidad">Nacionalidad</label>
-        <input type="text" class="form-control" id="inputNacionalidad" name="inputNacionalidad" placeholder="Nacionalidad" maxlength="70">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="inputDni">DNI</label>
+            <input type="number" class="form-control" id="inputDni" name="inputDni" placeholder="DNI">
+          </div>
+          <div class="col-md-6">
+            <label for="inputNacionalidad">Nacionalidad</label>
+            <input type="text" class="form-control" id="inputNacionalidad" name="inputNacionalidad" placeholder="Nacionalidad" maxlength="70">
+          </div>
+        </div>
 
         <label for="inputEstadoCivil">Estado Civil</label>
         <select class="form-control" name="inputEstadoCivil" placeholder="Estado Civil">

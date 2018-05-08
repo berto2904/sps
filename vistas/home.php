@@ -12,7 +12,8 @@ else {
   session_destroy();
   header("location: ../index.php");
 }
-include ('header.php');
+include ('headerLibrerias.php');
+include ('headerEnd.php');
 ?>
 
     	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url('../librerias/Login/images/bg-01.jpg');height: -webkit-fill-available;">
@@ -28,5 +29,6 @@ include ('header.php');
       </header>
 
 <?php
-include ('footer.php');
+include ('footerLibrerias.php');
+include ('footerEnd.php');
 ?>

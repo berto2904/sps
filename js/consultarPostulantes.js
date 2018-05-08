@@ -1,0 +1,61 @@
+var base_url = window.location.origin;
+/*-------------------------------------Document Ready------------------------------------------------*/
+
+var $table = $('#tablaEntrevistas');
+
+$(document).ready(function() {
+  $table.bootstrapTable('hideColumn', 'id_entrevista');
+});
+
+$table.on('dbl-click-row.bs.table', function (e, row, $element) {
+        console.log(row);
+        $.confirm({
+          title: function(){
+                var self = this;
+                return $.ajax({
+                    url: 'consultarPostulante/headerConsulta.php',
+                    method: 'POST'
+                }).done(function(response) {
+                    var parentTitle = self.parentElement;
+                    if (parentTitle != null) {
+                     parentTitle.innerHTML = response;
+                     $('.tituloWizard').html('<h1>Entrevista Nº: '+row.id_entrevista+'</h1>');
+                     // $('.tituloWizard').append('<h2>Postulante: '+row.nombres+' '+row.apellido+'</h2>');
+                    }
+                }).fail(function(){
+                   self.parentElement.innerHTML = "FAIL"
+                });
+            },
+        		icon: 'fa fa-spinner fa-spin',
+        		theme:'material',
+            type:'dark',
+        		columnClass: 'xlarge',
+        		buttons:{
+              Eliminar: function(){
+        				$.alert('Proximamente!!');
+        			},
+              Editar: function(){
+                $.alert('Proximamente!!');
+        			},
+        			Cerrar: function(){
+        			},
+        		},
+        		content: function(){
+        	        var self = this;
+        	        return $.ajax({
+        	            url: 'experimento.php',
+        	            method: 'POST'
+        	        }).done(function (response) {
+        	            self.setContentAppend(response);
+        	        }).fail(function(){
+        	            self.setContentAppend('<div>Fail!</div>');
+        	        });
+        	    }
+        	});
+
+    });
+
+/*-------------------------------------Funciones------------------------------------------------*/
+
+// $(document).on('click', '.deleteButton', function() {
+// });

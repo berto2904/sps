@@ -1,6 +1,14 @@
+$(document).ready(function() {
+	$("#gtco-logo a").click(function(){
+		$(".contenidoPostulante").toggle();
+	});
+});
+
 ;(function () {
-	
+
 	'use strict';
+
+
 
 	var mobileMenuOutsideClick = function() {
 
@@ -13,10 +21,8 @@
 
     			$('body').removeClass('offcanvas');
     			$('.js-gtco-nav-toggle').removeClass('active');
-				
+
 	    	}
-	    
-	    	
 	    }
 		});
 
@@ -61,14 +67,14 @@
 			$this
 				.addClass('active')
 				.find('ul')
-				.slideDown(500, 'easeOutExpo');				
+				.slideDown(500, 'easeOutExpo');
 		}).mouseleave(function(){
 
 			var $this = $(this);
 			$this
 				.removeClass('active')
 				.find('ul')
-				.slideUp(500, 'easeOutExpo');				
+				.slideUp(500, 'easeOutExpo');
 		});
 
 
@@ -78,7 +84,7 @@
 
     			$('body').removeClass('offcanvas');
     			$('.js-gtco-nav-toggle').removeClass('active');
-				
+
 	    	}
 		});
 	};
@@ -112,7 +118,7 @@
 			$('.animate-box').waypoint( function( direction ) {
 
 				if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
-					
+
 					i++;
 
 					$(this.element).addClass('item-animate');
@@ -135,9 +141,9 @@
 								el.removeClass('item-animate');
 							},  k * 200, 'easeInOutExpo' );
 						});
-						
+
 					}, 100);
-					
+
 				}
 
 			} , { offset: '85%' } );
@@ -168,7 +174,7 @@
 
 
 	var owlCarousel = function(){
-		
+
 		var owl = $('.owl-carousel-carousel');
 		owl.owlCarousel({
 			items: 3,
@@ -212,22 +218,22 @@
 		});
 
 
-		
+
 
 	};
 
-	
+
 
 	var goToTop = function() {
 
 		$('.js-gotop').on('click', function(event){
-			
+
 			event.preventDefault();
 
 			$('html, body').animate({
 				scrollTop: $('html').offset().top
 			}, 500, 'easeInOutExpo');
-			
+
 			return false;
 		});
 
@@ -241,7 +247,7 @@
 			}
 
 		});
-	
+
 	};
 
 
@@ -261,16 +267,16 @@
 	var counterWayPoint = function() {
 		if ($('#gtco-counter').length > 0 ) {
 			$('#gtco-counter').waypoint( function( direction ) {
-										
+
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-					setTimeout( counter , 400);					
+					setTimeout( counter , 400);
 					$(this.element).addClass('animated');
 				}
 			} , { offset: '90%' } );
 		}
 	};
 
-	
+
 	$(function(){
 		mobileMenuOutsideClick();
 		formTab();
