@@ -1,6 +1,5 @@
 <?php
   require_once('connQuery.php');
-  include ('../helper/consultaGenerica.php');
 
   Class Postulante{
 

@@ -1,7 +1,10 @@
 <?php
 $server = ($_SERVER['DOCUMENT_ROOT']);
 include ($server.'/sps/helper/sessionValidation.php');
+// include ($server.'/sps/controladores/consultarPostulante.php');
+ $idEntrevista = $_POST["id_entrevista"];
  ?>
+ <input type="hidden" id="idEntrevista" name="" value="<?= $idEntrevista?>">
 	<header>
     <div class="col-md-12 col-md-offset-0 text-left">
       <div class="row">
@@ -30,3 +33,5 @@ include ($server.'/sps/helper/sessionValidation.php');
 </header>
 <script src="../js/domicilioGMap.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete" async defer></script>
+<script src="../js/crearPostulante.js"></script>
+<script src="../js/consultarEditarPostulante.js"></script>

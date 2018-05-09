@@ -1,9 +1,10 @@
 <?php
 $server = ($_SERVER['DOCUMENT_ROOT']);
-require ('../clases/Postulante.php');
-require ('../clases/ConceptoVecinal.php');
-// include ('../helper/sessionValidation.php');
-include ('../helper/consultaJsonHelper.php');
+require ($server.'/sps/clases/Postulante.php');
+require ($server.'/sps/clases/ConceptoVecinal.php');
+// include ($server.'/sps/helper/sessionValidation.php');
+include ($server.'/sps/helper/consultaJsonHelper.php');
+
 $idEntrevista = $_POST["id_entrevista"];
 
 echo '{';
