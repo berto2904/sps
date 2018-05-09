@@ -38,5 +38,10 @@
         <div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <textarea name="referenciasLaborales[]" class="form-control" rows="4" cols="80" maxlength="250"></textarea>
+      </div>
+    </div>
   </div>
 </div>

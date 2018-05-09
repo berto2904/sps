@@ -58,8 +58,6 @@
 
         <label for="inputProfesion">Profesion</label>
         <input type="text" class="form-control" id="inputProfesionConyuge" name="inputProfesionConyuge" placeholder="Profesion" maxlength="70">
-        <label for="inputNacionalidad">Nacionalidad</label>
-        <input type="text" class="form-control" id="inputNacionalidadConyuge" name="inputNacionalidadConyuge" placeholder="Nacionalidad" maxlength="70">
       </div>
       <div class="col-md-6">
         <label for="inputSexo">Sexo</label>
@@ -72,8 +70,8 @@
         <label for="inputDni">DNI</label>
         <input type="number" class="form-control" id="inputDniConyuge" name="inputDniConyuge" placeholder="DNI">
 
-        <label for="inputCiNumero">CI Nº</label>
-        <input type="number" class="form-control" id="inputCiNumeroConyuge" name="inputCiNumeroConyuge" placeholder="CI Nº">
+        <label for="inputNacionalidad">Nacionalidad</label>
+        <input type="text" class="form-control" id="inputNacionalidadConyuge" name="inputNacionalidadConyuge" placeholder="Nacionalidad" maxlength="70">
 
       </div>
     </div>

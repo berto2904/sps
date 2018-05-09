@@ -55,8 +55,6 @@
                   		p.nombres                       nombres ,
                   		p.apellido                      apellido,
                   		p.fecha_de_nacimiento           fNacPostulante,
-                  		p.ci_numero                     ciNumero,
-                  		p.expedida_por_A                expedidaCi,
                   		p.licencia_conductor            licenciaConductor,
                   		p.lugar_nacimiento              lugarNacimiento,
                   		p.nacionalidad                  nacionalidad,
@@ -70,7 +68,8 @@
                   FROM entrevista en
                   join postulante p on en.id_postulante = p.id_postulante
                   left join sexo s on s.id_sexo = p.id_sexo
-                  left join estado_civil ec on ec.id_estado_civil = p.id_estado_civil;";
+                  left join estado_civil ec on ec.id_estado_civil = p.id_estado_civil
+                  order by id_entrevista";
 
     return consultaGenerica($sql);
     }

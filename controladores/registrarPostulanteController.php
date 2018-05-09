@@ -159,7 +159,7 @@ function crearReferenciasLaborales($id_postulante, $refLaborales){
 }
 
 function crearMovilidadPropia($movilidadPropia){
-  if ($movilidadPropia["tipo"] != "" || $movilidadPropia["marca"] != ""  || $movilidadPropia["modelo"] != "" || $movilidadPropia["año"] != "" || $movilidadPropia["titular"] != ""  || $movilidadPropia["patente"]) {
+  if ($movilidadPropia["tipo"] != "" || $movilidadPropia["marca"] != ""  || $movilidadPropia["modelo"] != "" || $movilidadPropia["año"] != "" || $movilidadPropia["titular"] != ""  || $movilidadPropia["patente"] != "") {
     $movPropia = new MovilidadPropia((int)$movilidadPropia["tipo"], $movilidadPropia["marca"], $movilidadPropia["modelo"], (int)$movilidadPropia["año"], $movilidadPropia["titular"], $movilidadPropia["patente"]);
     $idMovilidadPropia = $movPropia->registrarMovilidadPropia();
     return $idMovilidadPropia;

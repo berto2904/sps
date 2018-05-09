@@ -1,20 +1,9 @@
 <?php
 $server = ($_SERVER['DOCUMENT_ROOT']);
 require ('../clases/UsuarioClass.php');
-// require ('../clases/ConnQuery.php');
-
-session_start();
-
-if (isset($_SESSION['usuario'])) {
-  $idUsuario = $_SESSION['usuario'];
-
-}
-else {
-  session_destroy();
-  header("location: ../index.php");
-}
-include ('headerLibrerias.php');
-include ('headerEnd.php');
+include ('../helper/sessionValidation.php');
+include ('headersFooters/headerLibrerias.php');
+include ('headersFooters/headerEnd.php');
 ?>
 <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url('../librerias/Login/images/bg-01.jpg');">
   <div class="overlay"></div>
@@ -121,11 +110,11 @@ include ('headerEnd.php');
   </div>
 </header>
 <?php
-include ('footerLibrerias.php');
+include ('headersFooters/footerLibrerias.php');
 ?>
 <script src="../js/crearPostulante.js"></script>
 <script src="../js/domicilioGMap.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete" async defer></script>
 <?php
-include ('footerEnd.php');
+include ('headersFooters/footerEnd.php');
 ?>

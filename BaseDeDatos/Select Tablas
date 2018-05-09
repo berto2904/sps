@@ -1,10 +1,17 @@
 --------------------------------------------------------------------------------
+SELECT entrevista.id_entrevista,
+        entrevista.organizacion,
+        entrevista.puesto,
+        entrevista.fecha_hora,
+        entrevista.informacion_relevante,
+        entrevista.id_usuario,
+        entrevista.id_postulante
+FROM entrevista;
+--------------------------------------------------------------------------------
 SELECT postulante.id_postulante,
         postulante.nombres,
         postulante.apellido,
         postulante.fecha_de_nacimiento,
-        postulante.ci_numero,
-        postulante.expedida_por_A,
         postulante.licencia_conductor,
         postulante.lugar_nacimiento,
         postulante.nacionalidad,
@@ -27,43 +34,26 @@ SELECT estado_civil.id_estado_civil,
         estado_civil.tipo
 FROM estado_civil;
 --------------------------------------------------------------------------------
-SELECT clasificacion.id_clasificacion,
-        clasificacion.descripcion
-FROM clasificacion;
---------------------------------------------------------------------------------
-SELECT clasificacion_idioma.id_clasificacion_idioma,
-        clasificacion_idioma.descripcion
-FROM clasificacion_idioma;
---------------------------------------------------------------------------------
-SELECT concepto_vecinal.id_concepto_vecinal,
-        concepto_vecinal.id_informacion_socioambiental,
-        concepto_vecinal.nombre_apellido,
-        concepto_vecinal.concepto_del_entrevistado,
-        concepto_vecinal.afinidad,
-        concepto_vecinal.tipo_de_amistades,
-        concepto_vecinal.problemas_policiales,
-        concepto_vecinal.problemas_economicos,
-        concepto_vecinal.tiempo_que_conoce,
-        concepto_vecinal.domicilio
-FROM concepto_vecinal;
---------------------------------------------------------------------------------
 SELECT conyuge.id_conyuge,
-        conyuge.nombres,
-        conyuge.apellido,
-        conyuge.fecha_nacimiento,
-        conyuge.lugar_nacimiento,
-        conyuge.nacionalidad,
-        conyuge.profesion,
-        conyuge.ci_numero,
-        conyuge.dni,
-        conyuge.id_postulante,
-        conyuge.id_sexo
+      conyuge.nombres,
+      conyuge.apellido,
+      conyuge.fecha_nacimiento,
+      conyuge.lugar_nacimiento,
+      conyuge.nacionalidad,
+      conyuge.profesion,
+      conyuge.dni,
+      conyuge.id_postulante,
+      conyuge.id_sexo
 FROM conyuge;
 --------------------------------------------------------------------------------
-SELECT cuenta_bancaria.id_cuenta_bancaria,
-        cuenta_bancaria.id_informacion_economica,
-        cuenta_bancaria.entidad
-FROM cuenta_bancaria;
+SELECT informacion_economica.id_informacion_economica,
+        informacion_economica.id_movilidad_propia
+FROM informacion_economica;
+--------------------------------------------------------------------------------
+SELECT informacion_socioambiental.id_informacion_socioambiental,
+        informacion_socioambiental.id_domicilio,
+        informacion_socioambiental.id_vivienda
+FROM informacion_socioambiental;
 --------------------------------------------------------------------------------
 SELECT domicilio.id_domicilio,
         domicilio.localidad,
@@ -78,15 +68,79 @@ SELECT domicilio.id_domicilio,
         domicilio.partido
 FROM domicilio;
 --------------------------------------------------------------------------------
-SELECT entrevista.id_entrevista,
-        entrevista.organizacion,
-        entrevista.puesto,
-        entrevista.fecha_hora,
-        entrevista.informacion_relevante,
-        entrevista.id_usuario,
-        entrevista.id_postulante
-FROM entrevista;
+SELECT movilidad_propia.id_movilidad_propia,
+        movilidad_propia.id_vehiculo_tipo,
+        movilidad_propia.marca,
+        movilidad_propia.modelo,
+        movilidad_propia.anio,
+        movilidad_propia.titular,
+        movilidad_propia.patente
+FROM movilidad_propia;
 --------------------------------------------------------------------------------
+SELECT vehiculo_tipo.id_vehiculo_tipo,
+        vehiculo_tipo.descripcion
+FROM vehiculo_tipo;
+--------------------------------------------------------------------------------
+SELECT tarjeta_credito_debito.id_tarjeta_credito_debito,
+        tarjeta_credito_debito.id_informacion_economica,
+        tarjeta_credito_debito.otras_propiedades,
+        tarjeta_credito_debito.seguro_de_vida,
+        tarjeta_credito_debito.prendas,
+        tarjeta_credito_debito.observaciones
+FROM tarjeta_credito_debito;
+--------------------------------------------------------------------------------
+SELECT vivienda.id_vivienda,
+        vivienda.id_tipo_vivienda,
+        vivienda.aspecto_interior,
+        vivienda.propietario,
+        vivienda.ambientes,
+        vivienda.aspecto_exterior,
+        vivienda.inquilino,
+        vivienda.importe_alquiler,
+        vivienda.accesibilidad
+FROM vivienda;
+--------------------------------------------------------------------------------
+SELECT tipo_vivienda.id_tipo_vivienda,
+        tipo_vivienda.descripcion
+FROM tipo_vivienda;
+--------------------------------------------------------------------------------
+SELECT clasificacion.id_clasificacion,
+clasificacion.descripcion
+FROM clasificacion;
+--------------------------------------------------------------------------------
+SELECT observaciones_convivencia.id_observaciones_convivencia,
+        observaciones_convivencia.observacion,
+        observaciones_convivencia.id_postulante
+FROM observaciones_convivencia;
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+(Muchos)
+SELECT concepto_vecinal.id_concepto_vecinal,
+        concepto_vecinal.id_informacion_socioambiental,
+        concepto_vecinal.nombre_apellido,
+        concepto_vecinal.concepto_del_entrevistado,
+        concepto_vecinal.afinidad,
+        concepto_vecinal.tipo_de_amistades,
+        concepto_vecinal.problemas_policiales,
+        concepto_vecinal.problemas_economicos,
+        concepto_vecinal.tiempo_que_conoce,
+        concepto_vecinal.domicilio
+FROM concepto_vecinal;
+--------------------------------------------------------------------------------
+SELECT clasificacion.id_clasificacion,
+clasificacion.descripcion
+FROM clasificacion;
+
+--------------------------------------------------------------------------------
+(Muchos)
+SELECT cuenta_bancaria.id_cuenta_bancaria,
+        cuenta_bancaria.id_informacion_economica,
+        cuenta_bancaria.entidad
+FROM cuenta_bancaria;
+--------------------------------------------------------------------------------
+(Muchos)
 SELECT estudios.id_estudios,
         estudios.id_postulante,
         estudios.organizacion,
@@ -97,6 +151,11 @@ SELECT estudios.id_estudios,
         estudios.id_nivel_estudio
 FROM estudios;
 --------------------------------------------------------------------------------
+SELECT nivel_estudio.id_nivel_estudio,
+        nivel_estudio.descripcion
+FROM nivel_estudio;
+--------------------------------------------------------------------------------
+(Muchos)
 SELECT familiar_postulante.id_familiar_postulante,
         familiar_postulante.apellido_nombre,
         familiar_postulante.domicilio,
@@ -109,11 +168,13 @@ SELECT familiar_tipo.id_familiar_tipo,
         familiar_tipo.descripcion
 FROM familiar_tipo;
 --------------------------------------------------------------------------------
+(Muchos)
 SELECT hobbies_pasatiempos.id_postulante,
         hobbies_pasatiempos.id_pregunta,
         hobbies_pasatiempos.respuesta
 FROM hobbies_pasatiempos;
 --------------------------------------------------------------------------------
+(Muchos)
 SELECT idioma.id_idioma,
         idioma.id_postulante,
         idioma.id_idioma_tipo,
@@ -122,18 +183,62 @@ SELECT idioma.id_idioma,
         idioma.escribe
 FROM idioma;
 --------------------------------------------------------------------------------
+SELECT clasificacion_idioma.id_clasificacion_idioma,
+      clasificacion_idioma.descripcion
+FROM clasificacion_idioma;
+--------------------------------------------------------------------------------
 SELECT idioma_tipo.id_idioma_tipo,
         idioma_tipo.descripcion
 FROM idioma_tipo;
 --------------------------------------------------------------------------------
-SELECT informacion_economica.id_informacion_economica,
-        informacion_economica.id_movilidad_propia
-FROM informacion_economica;
+SELECT pregunta.id_pregunta,
+        pregunta.pregunta,
+        pregunta.tipo
+FROM pregunta;
 --------------------------------------------------------------------------------
-SELECT informacion_socioambiental.id_informacion_socioambiental,
-        informacion_socioambiental.id_domicilio,
-        informacion_socioambiental.id_vivienda
-FROM informacion_socioambiental;
+
+SELECT tarjeta_entidad.id_tarjeta_entidad,
+        tarjeta_entidad.id_tarjeta_credito_debito,
+        tarjeta_entidad.tarjeta,
+        tarjeta_entidad.entidad
+FROM tarjeta_entidad;
+--------------------------------------------------------------------------------
+(Muchos)
+SELECT transporte.id_transporte,
+        transporte.id_transporte_tipo,
+        transporte.cuadras,
+        transporte.id_domicilio
+FROM transporte;
+--------------------------------------------------------------------------------
+SELECT transporte_tipo.id_transporte_tipo,
+        transporte_tipo.descripcion
+FROM transporte_tipo;
+--------------------------------------------------------------------------------
+# SELECT usuario.id_usuario,
+#         usuario.nombre,
+#         usuario.apellido,
+#         usuario.nombre_usuario,
+#         usuario.contrasenia,
+#         usuario.id_sexo
+# FROM usuario;
+
+--------------------------------------------------------------------------------
+SELECT vivienda_servicio.id_vivienda,
+        vivienda_servicio.id_servicio
+FROM vivienda_servicio;
+--------------------------------------------------------------------------------
+SELECT servicio.id_servicio,
+        servicio.descripcion
+FROM servicio;
+--------------------------------------------------------------------------------
+(Muchos)
+SELECT referencias_laborales.id_referencias_laborales,
+        referencias_laborales.empresa,
+        referencias_laborales.domicilio,
+        referencias_laborales.desde,
+        referencias_laborales.hasta,
+        referencias_laborales.id_postulante
+FROM referencias_laborales;
 --------------------------------------------------------------------------------
 SELECT informe_laboral.id_informe_laboral,
         informe_laboral.id_referencias_laborales,
@@ -148,305 +253,12 @@ SELECT informe_laboral.id_informe_laboral,
 FROM informe_laboral;
 --------------------------------------------------------------------------------
 SELECT informe_laboral_pregunta.id_informe_laboral,
-        informe_laboral_pregunta.id_pregunta_laboral,
-        informe_laboral_pregunta.respuesta
+      informe_laboral_pregunta.id_pregunta_laboral,
+      informe_laboral_pregunta.respuesta
 FROM informe_laboral_pregunta;
 --------------------------------------------------------------------------------
-SELECT movilidad_propia.id_movilidad_propia,
-        movilidad_propia.id_vehiculo_tipo,
-        movilidad_propia.marca,
-        movilidad_propia.modelo,
-        movilidad_propia.anio,
-        movilidad_propia.titular,
-        movilidad_propia.patente
-FROM movilidad_propia;
---------------------------------------------------------------------------------
-SELECT nivel_estudio.id_nivel_estudio,
-        nivel_estudio.descripcion
-FROM nivel_estudio;
---------------------------------------------------------------------------------
-SELECT observaciones_convivencia.id_observaciones_convivencia,
-        observaciones_convivencia.observacion,
-        observaciones_convivencia.id_postulante
-FROM observaciones_convivencia;
---------------------------------------------------------------------------------
-SELECT pregunta.id_pregunta,
-        pregunta.pregunta,
-        pregunta.tipo
-FROM pregunta;
---------------------------------------------------------------------------------
-SELECT referencias_laborales.id_referencias_laborales,
-        referencias_laborales.empresa,
-        referencias_laborales.domicilio,
-        referencias_laborales.desde,
-        referencias_laborales.hasta,
-        referencias_laborales.id_postulante
-FROM referencias_laborales;
---------------------------------------------------------------------------------
-SELECT servicio.id_servicio,
-        servicio.descripcion
-FROM servicio;
---------------------------------------------------------------------------------
-SELECT tarjeta_credito_debito.id_tarjeta_credito_debito,
-        tarjeta_credito_debito.id_informacion_economica,
-        tarjeta_credito_debito.otras_propiedades,
-        tarjeta_credito_debito.seguro_de_vida,
-        tarjeta_credito_debito.prendas,
-        tarjeta_credito_debito.observaciones
-FROM tarjeta_credito_debito;
---------------------------------------------------------------------------------
-SELECT tarjeta_entidad.id_tarjeta_entidad,
-        tarjeta_entidad.id_tarjeta_credito_debito,
-        tarjeta_entidad.tarjeta,
-        tarjeta_entidad.entidad
-FROM tarjeta_entidad;
---------------------------------------------------------------------------------
-SELECT tipo_vivienda.id_tipo_vivienda,
-        tipo_vivienda.descripcion
-FROM tipo_vivienda;
---------------------------------------------------------------------------------
-SELECT transporte.id_transporte,
-        transporte.id_transporte_tipo,
-        transporte.cuadras,
-        transporte.id_domicilio
-FROM transporte;
---------------------------------------------------------------------------------
-SELECT transporte_tipo.id_transporte_tipo,
-        transporte_tipo.descripcion
-FROM transporte_tipo;
---------------------------------------------------------------------------------
-SELECT usuario.id_usuario,
-        usuario.nombre,
-        usuario.apellido,
-        usuario.nombre_usuario,
-        usuario.contrasenia,
-        usuario.id_sexo
-FROM usuario;
---------------------------------------------------------------------------------
-SELECT vehiculo_tipo.id_vehiculo_tipo,
-        vehiculo_tipo.descripcion
-FROM vehiculo_tipo;
---------------------------------------------------------------------------------
-SELECT vivienda.id_vivienda,
-        vivienda.id_tipo_vivienda,
-        vivienda.aspecto_interior,
-        vivienda.propietario,
-        vivienda.ambientes,
-        vivienda.aspecto_exterior,
-        vivienda.inquilino,
-        vivienda.importe_alquiler,
-        vivienda.accesibilidad
-FROM vivienda;
---------------------------------------------------------------------------------
-SELECT vivienda_servicio.id_vivienda,
-        vivienda_servicio.id_servicio
-FROM vivienda_servicio;
---------------------------------------------------------------------------------
-
-id_postulante
-nombres
-apellido
-fecha_de_nacimiento
-ci_numero
-expedida_por_A
-licencia_conductor
-lugar_nacimiento
-nacionalidad
-dni
-profesion
-licencia_categoria
-id_informacion_socioambiental
-id_informacion_economica
-id_sexo
-id_estado_civil
-expedida_por_B
-
-id_sexo
-descripcion
-
-id_estado_civil
-descripcion
-tipo
-
-id_clasificacion
-descripcion
-
-id_clasificacion_idioma
-descripcion
-
-id_concepto_vecinal
-id_informacion_socioambiental
-nombre_apellido
-concepto_del_entrevistado
-afinidad
-tipo_de_amistades
-problemas_policiales
-problemas_economicos
-tiempo_que_conoce
-domicilio
-
-id_conyuge
-nombres
-apellido
-fecha_nacimiento
-lugar_nacimiento
-nacionalidad
-profesion
-ci_numero
-dni
-id_postulante
-id_sexo
-
-id_cuenta_bancaria
-id_informacion_economica
-entidad
-
-id_domicilio
-localidad
-calle
-numero
-piso
-departamento
-gmap
-telefono
-referencia_util
-codigo_postal
-partido
-
-id_entrevista
-organizacion
-puesto
-fecha_hora
-informacion_relevante
-id_usuario
-id_postulante
-
-id_estudios
-id_postulante
-organizacion
-titulo
-desde
-hasta
-situacion
-id_nivel_estudio
-
-id_familiar_postulante
-apellido_nombre
-domicilio
-profesion
-id_postulante
-id_familiar_tipo
-
-id_familiar_tipo
-descripcion
-
-id_postulante
-id_pregunta
-respuesta
-
-id_idioma
-id_postulante
-id_idioma_tipo
-lee
-habla
-escribe
-
-id_idioma_tipo
-descripcion
-
-id_informacion_economica
-id_movilidad_propia
-
-id_informacion_socioambiental
-id_domicilio
-id_vivienda
-
-id_informe_laboral
-id_referencias_laborales
-fecha_ingreso
-fecha_egreso
-puesto_al_ingresar
-ultimo_puesto_ocupado
-causa_de_egreso
-asistencia
-puntualidad
-concepto_general
-
-id_informe_laboral
-id_pregunta_laboral
-respuesta
-
-id_movilidad_propia
-id_vehiculo_tipo
-marca
-modelo
-anio
-titular
-patente
-
-id_nivel_estudio
-descripcion
-
-id_observaciones_convivencia
-observacion
-id_postulante
-
-id_pregunta
-pregunta
-tipo
-
-id_referencias_laborales
-empresa
-domicilio
-desde
-hasta
-id_postulante
-
-id_servicio
-descripcion
-
-id_tarjeta_credito_debito
-id_informacion_economica
-otras_propiedades
-seguro_de_vida
-prendas
-observaciones
-
-id_tarjeta_entidad
-id_tarjeta_credito_debito
-tarjeta
-entidad
-
-id_tipo_vivienda
-descripcion
-
-id_transporte
-id_transporte_tipo
-cuadras
-id_domicilio
-
-id_transporte_tipo
-descripcion
-
-id_usuario
-nombre
-apellido
-nombre_usuario
-contrasenia
-id_sexo
-
-id_vehiculo_tipo
-descripcion
-
-id_vivienda
-id_tipo_vivienda
-aspecto_interior
-propietario
-ambientes
-aspecto_exterior
-inquilino
-importe_alquiler
-accesibilidad
-
-id_vivienda
-id_servicio
+  SELECT pregunta.id_pregunta,
+          pregunta.pregunta,
+          pregunta.tipo
+  FROM pregunta;
+  --------------------------------------------------------------------------------

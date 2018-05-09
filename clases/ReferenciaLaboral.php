@@ -25,7 +25,7 @@
 
       $ps = $cq->prepare($sql);
       mysqli_stmt_bind_param($ps,
-      "issii",
+      "issss",
       $this->id_postulante,
       $this->empresa,
       $this->domicilio,

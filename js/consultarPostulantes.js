@@ -43,7 +43,7 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
         		content: function(){
         	        var self = this;
         	        return $.ajax({
-        	            url: 'experimento.php',
+        	            url: 'consultarPostulante/consultarEditarPostulante.php',
         	            method: 'POST'
         	        }).done(function (response) {
         	            self.setContentAppend(response);

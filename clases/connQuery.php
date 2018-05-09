@@ -9,7 +9,6 @@ class ConnQuery{
 
   function __construct(){
     $this->conn = mysqli_connect($this->servidor, $this->usuario, $this->pass, $this->bd);
-
   }
 
   function ejecutarConsultaIsTrue($sql){
@@ -35,15 +34,20 @@ class ConnQuery{
   }
 
   function getFilasById($id,$sql){
-    $cq = new connQuery();
+    $stmt =  $this->conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    // $stmt = mysqli_stmt_bind_param($ps, "i", $id);
+    $stmt->execute();
+    $filas = $stmt->get_result();
+    while ($fila = $filas->fetch_assoc()) {
+      $listaPeque = array();
+      foreach ($fila as $indice => $value) {
+        $listaPeque[$indice] = $value;
+      }
 
-    $ps =  $conexion->prepare($sql);
-    mysqli_stmt_bind_param($ps,
-    "i",
-    $id);
-
-    $filas = $cq->ejecutarConsulta($ps);
-    return $filas;
+      $listaGrande[] = $listaPeque;
+     }
+    return $listaGrande;
   }
 
 }

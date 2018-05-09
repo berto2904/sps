@@ -1,19 +1,9 @@
 <?php
 require ('../clases/UsuarioClass.php');
 // require ('../clases/ConnQuery.php');
-
-session_start();
-
-if (isset($_SESSION['usuario'])) {
-  $idUsuario = $_SESSION['usuario'];
-
-}
-else {
-  session_destroy();
-  header("location: ../index.php");
-}
-include ('headerLibrerias.php');
-include ('headerEnd.php');
+include ('../helper/sessionValidation.php');
+include ('headersFooters/headerLibrerias.php');
+include ('headersFooters/headerEnd.php');
 ?>
 
     	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url('../librerias/Login/images/bg-01.jpg');height: -webkit-fill-available;">
@@ -29,6 +19,6 @@ include ('headerEnd.php');
       </header>
 
 <?php
-include ('footerLibrerias.php');
-include ('footerEnd.php');
+include ('headersFooters/footerLibrerias.php');
+include ('headersFooters/footerEnd.php');
 ?>

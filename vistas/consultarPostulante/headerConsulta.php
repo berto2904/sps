@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="../css/domicilioGMap.css"/>
 <div class="tituloWizard"> </div>
 <div class="wizard">
-  <div class="wizard-inner">
+  <div class="wizard-inner wizardConsultaEdicion">
     <div class="connecting-line"></div>
     <ul class="nav nav-tabs tab-selection" role="tablist">
       <li role="presentation" class="active">
@@ -62,13 +62,13 @@
           </span>
         </a>
       </li>
-      <li role="presentation" class="">
+      <!-- <li role="presentation" class="">
         <a href="#formuConfirmacion" data-toggle="tab" aria-controls="" role="tab" title="Confirmacion">
           <span class="round-tab">
             <i class="glyphicon glyphicon-ok"></i>
           </span>
         </a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </div>

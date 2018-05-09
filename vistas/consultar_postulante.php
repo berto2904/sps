@@ -2,24 +2,14 @@
 $server = ($_SERVER['DOCUMENT_ROOT']);
 require ('../clases/UsuarioClass.php');
 // require ('../clases/ConnQuery.php');
-
-session_start();
-
-if (isset($_SESSION['usuario'])) {
-  $idUsuario = $_SESSION['usuario'];
-
-}
-else {
-  session_destroy();
-  header("location: ../index.php");
-}
-include ('headerLibrerias.php');
+include ($server.'/sps/helper/sessionValidation.php');
+include ('headersFooters/headerLibrerias.php');
 ?>
 <link rel="stylesheet" href="../librerias/bootstrap-table/src/bootstrap-table.css">
 <link rel="stylesheet" href="../librerias/bootstrap-table/dist/bootstrap-table.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 <?php
-include ('headerEnd.php');
+include ('headersFooters/headerEnd.php');
 ?>
 <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url('../librerias/Login/images/bg-02.jpg');">
   <div class="overlay"></div>
@@ -81,7 +71,7 @@ include ('headerEnd.php');
   </div>
 </header>
 <?php
-include ('footerLibrerias.php');
+include ('headersFooters/footerLibrerias.php');
 ?>
 <script src="../librerias/bootstrap-table/src/bootstrap-table.js"></script>
 <script src="../librerias/bootstrap-table/dist/locale/bootstrap-table-es-AR.js"></script>
@@ -89,5 +79,5 @@ include ('footerLibrerias.php');
 <script src="../js/consultarPostulantes.js"></script>
 
 <?php
-include ('footerEnd.php');
+include ('headersFooters/footerEnd.php');
 ?>

@@ -48,6 +48,25 @@
       $this->id_concepto_vecinal = $cq->getUltimoId();
       return $this->id_concepto_vecinal;
     }
+    
+    // TODO: Hay que emprolijarlo
+    public static function consultarConceptoVecinalByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT  concepto_vecinal.id_concepto_vecinal,
+                      concepto_vecinal.id_informacion_socioambiental,
+                      concepto_vecinal.nombre_apellido,
+                      concepto_vecinal.concepto_del_entrevistado,
+                      concepto_vecinal.afinidad,
+                      concepto_vecinal.tipo_de_amistades,
+                      concepto_vecinal.problemas_policiales,
+                      concepto_vecinal.problemas_economicos,
+                      concepto_vecinal.tiempo_que_conoce,
+                      concepto_vecinal.domicilio
+              FROM concepto_vecinal where id_informacion_socioambiental = ?";
+
+      $conceptoVecinal = $cq->getFilasById($idEntrevista,$sql);
+    return $conceptoVecinal;
+    }
 
   }
 ?>
