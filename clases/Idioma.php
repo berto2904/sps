@@ -34,6 +34,29 @@
       $id_atributo = $cq->getUltimoId();
       return $id_atributo;
     }
+    public static function consultarIdiomasByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+      			idioma.id_idioma										id_idioma,
+      			idioma.lee													id_lee,
+      			idioma.habla												id_habla,
+      			idioma.escribe											id_escribe,
+      			lee.descripcion											lee,
+      			habla.descripcion										habla,
+      			escribe.descripcion									escribe,
+      			idioma.id_idioma_tipo								id_idioma_tipo,
+      			idioma_tipo.descripcion							descripcion
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join idioma on idioma.id_postulante = postulante.id_postulante
+      left join clasificacion_idioma lee on lee.id_clasificacion_idioma = idioma.lee
+      left join clasificacion_idioma habla on habla.id_clasificacion_idioma = idioma.habla
+      left join clasificacion_idioma escribe on escribe.id_clasificacion_idioma = idioma.escribe
+      left join idioma_tipo on idioma_tipo.id_idioma_tipo = idioma.id_idioma_tipo
+      where entrevista.id_entrevista = ?";
+
+      return $cq->getFilasById($idEntrevista,$sql);
+    }
 
   }
 ?>

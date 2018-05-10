@@ -37,5 +37,21 @@
       return $this->id_referencias_laborales;
     }
 
+    public static function consultarReferenciasLaboralesByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+      			referencias_laborales.id_referencias_laborales		id_referencias_laborales,
+      			referencias_laborales.empresa											empresa,
+      			referencias_laborales.domicilio										domicilio,
+      			referencias_laborales.desde												desde,
+      			referencias_laborales.hasta												hasta
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join referencias_laborales on referencias_laborales.id_postulante = postulante.id_postulante
+      where entrevista.id_entrevista = ?";
+
+      return $cq->getFilasById($idEntrevista,$sql);
+    }
+
   }
 ?>

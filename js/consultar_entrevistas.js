@@ -8,7 +8,6 @@ $(document).ready(function() {
 });
 
 $table.on('dbl-click-row.bs.table', function (e, row, $element) {
-        console.log(row);
         $.confirm({
           title: function(){
                 var self = this;
@@ -37,7 +36,7 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
               Editar: function(){
                 $.alert('Proximamente!!');
         			},
-        			Cerrar: function(){
+        			Cancelar: function(){
         			},
         		},
         		content: function(){
@@ -57,22 +56,3 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
         	});
 
     });
-    // $.ajax({
-    //         url: "/bbtw1/agregarCombo",
-    //         type:"POST",
-    //         data: {
-    //         	pan:idPan,
-    //         	carne:idCarne,
-    //         	aderezo:idAderezos,
-    //         	vegetales:idVegetales
-    //         },
-    //         success: function(e) {
-    //         	$.alert($(e).filter('.mensaje').val());
-    //         	$('.combosCreados').html($(e).find('.combosCreados'));
-    //         	sumarCombos();
-    //         }
-    // 	});
-/*-------------------------------------Funciones------------------------------------------------*/
-
-// $(document).on('click', '.deleteButton', function() {
-// });

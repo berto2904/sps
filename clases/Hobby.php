@@ -46,6 +46,22 @@
 				}
 			return $preguntas;
     }
+    
+    public static function consultarHobbiesYPasatiemposByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+           hobbies_pasatiempos.id_pregunta			id_pregunta,
+           hobbies_pasatiempos.respuesta				respuesta,
+           pregunta.pregunta										pregunta,
+           pregunta.tipo												tipo
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join hobbies_pasatiempos on hobbies_pasatiempos.id_postulante = postulante.id_postulante
+      left join pregunta on pregunta.id_pregunta = hobbies_pasatiempos.id_pregunta
+      where entrevista.id_entrevista = ?";
+
+      return $cq->getFilasById($idEntrevista,$sql);
+    }
 
   }
 ?>

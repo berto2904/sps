@@ -48,24 +48,28 @@
       $this->id_concepto_vecinal = $cq->getUltimoId();
       return $this->id_concepto_vecinal;
     }
-    
-    // TODO: Hay que emprolijarlo
-    public static function consultarConceptoVecinalByIdEntrevista($idEntrevista){
-      $cq = new connQuery();
-      $sql = "SELECT  concepto_vecinal.id_concepto_vecinal,
-                      concepto_vecinal.id_informacion_socioambiental,
-                      concepto_vecinal.nombre_apellido,
-                      concepto_vecinal.concepto_del_entrevistado,
-                      concepto_vecinal.afinidad,
-                      concepto_vecinal.tipo_de_amistades,
-                      concepto_vecinal.problemas_policiales,
-                      concepto_vecinal.problemas_economicos,
-                      concepto_vecinal.tiempo_que_conoce,
-                      concepto_vecinal.domicilio
-              FROM concepto_vecinal where id_informacion_socioambiental = ?";
 
-      $conceptoVecinal = $cq->getFilasById($idEntrevista,$sql);
-    return $conceptoVecinal;
+
+    public static function consultarConceptosVecinalesByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+       			concepto_vecinal.id_concepto_vecinal							id_concepto_vecinal,
+       			concepto_vecinal.nombre_apellido									vecino_nombre_apellido,
+       			concepto_vecinal.afinidad													afinidad,
+       			concepto_vecinal.tipo_de_amistades								tipo_de_amistades,
+       			concepto_vecinal.problemas_policiales							problemas_policiales,
+       			concepto_vecinal.problemas_economicos							problemas_economicos,
+       			concepto_vecinal.tiempo_que_conoce								tiempo_que_conoce,
+       			concepto_vecinal.domicilio												vecino_domicilio,
+       			concepto_vecinal.concepto_del_entrevistado				id_concepto_del_entrevistado,
+       			concepto_del_entrevistado.descripcion							concepto_del_entrevistado
+       FROM entrevista
+       left join postulante on entrevista.id_postulante  = postulante.id_postulante
+       left join concepto_vecinal on concepto_vecinal.id_informacion_socioambiental = postulante.id_informacion_socioambiental
+       left join clasificacion concepto_del_entrevistado on concepto_del_entrevistado.id_clasificacion = concepto_vecinal.concepto_del_entrevistado
+       where entrevista.id_entrevista = ?";
+
+      return $cq->getFilasById($idEntrevista,$sql);
     }
 
   }

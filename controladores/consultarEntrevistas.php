@@ -5,5 +5,5 @@ require ('../clases/Entrevista.php');
 include ('../helper/consultaJsonHelper.php');
 
 // echoJson(Entrevista::consultarEntrevistas());
-echo jsonConverterArray(Entrevista::consultarEntrevistas());
+echo jsonConverterArray("",Entrevista::consultarEntrevistas());
 ?>

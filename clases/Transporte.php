@@ -46,5 +46,24 @@
 			return $transportes;
     }
 
+    public static function consultarTransportesByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+           transporte.id_transporte								id_transporte,
+           transporte.id_transporte_tipo						id_transporte_tipo,
+           transporte.id_domicilio									id_domicilio,
+           transporte.cuadras											cuadras,
+           transporte_tipo.descripcion							transporte_tipo
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join informacion_socioambiental on informacion_socioambiental.id_informacion_socioambiental = postulante.id_informacion_socioambiental
+      left join domicilio on domicilio.id_domicilio = informacion_socioambiental.id_domicilio
+      left join transporte on transporte.id_domicilio = informacion_socioambiental.id_domicilio
+      left join transporte_tipo on transporte_tipo.id_transporte_tipo = transporte.id_transporte_tipo
+      where entrevista.id_entrevista = ?";
+
+      return $cq->getFilasById($idEntrevista,$sql);
+    }
+
   }
 ?>

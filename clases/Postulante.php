@@ -72,7 +72,7 @@
       return $this->id_postulante;
     }
 
-    public static function consultarPostulante($idEntrevista){
+    public static function consultarPostulanteByIdEntrevista($idEntrevista){
       $cq = new connQuery();
       $sql = "SELECT
             entrevista.id_entrevista                                id_entrevista,
@@ -166,7 +166,7 @@
       left join observaciones_convivencia on observaciones_convivencia.id_postulante = postulante.id_postulante
       where entrevista.id_entrevista = ?";
 
-      $postulante["Postulante 1"] = $cq->getFilasById($idEntrevista,$sql);
+      $postulante[] = $cq->getFilasById($idEntrevista,$sql);
     return $postulante;
     }
 

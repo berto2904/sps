@@ -42,5 +42,21 @@
       $id_atributo = $cq->getUltimoId();
       return $id_atributo;
     }
+
+    public static function consultarServiciosByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+      			vivienda_servicio.id_vivienda				id_vivienda,
+      			vivienda_servicio.id_servicio				id_servicio,
+      			servicio.descripcion								servicio
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join informacion_socioambiental on informacion_socioambiental.id_informacion_socioambiental = postulante.id_informacion_socioambiental
+      left join vivienda_servicio on vivienda_servicio.id_vivienda = informacion_socioambiental.id_vivienda
+      left join servicio on servicio.id_servicio = vivienda_servicio.id_servicio
+      where entrevista.id_entrevista = ?";
+
+      return $cq->getFilasById($idEntrevista,$sql);
+    }
   }
 ?>

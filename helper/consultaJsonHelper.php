@@ -16,17 +16,17 @@ function jsonConverter($key,$consultaDecoded){
     // $string.= "}";
     return $key.$string;
 }
-function jsonConverterArray($consultaDecoded){
+function jsonConverterArray($key,$consultaDecoded){
   $string = "";
     $string .= "[";
-    foreach ($consultaDecoded as $key => $value) {
+    foreach ($consultaDecoded as $indice => $value) {
         utf8_encode_deep($value);
         $string.= json_encode($value);
-        if ($key != count($consultaDecoded)-1) {
+        if ($indice != count($consultaDecoded)-1) {
           $string.= ",";
       }
     }
     $string.= "]";
-    return $string;
+    return $key.$string;
 }
  ?>

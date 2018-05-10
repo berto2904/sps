@@ -34,5 +34,20 @@
       return $this->id_tarjeta_entidad;
     }
 
+    public static function consultarTarjetasEntidadesByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+           tarjeta_entidad.id_tarjeta_entidad					id_tarjeta_entidad,
+           tarjeta_entidad.tarjeta											tarjeta,
+           tarjeta_entidad.entidad											entidad
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join tarjeta_credito_debito on tarjeta_credito_debito.id_informacion_economica = postulante.id_informacion_economica
+      left join tarjeta_entidad on tarjeta_entidad.id_tarjeta_credito_debito = tarjeta_credito_debito.id_tarjeta_credito_debito
+      where entrevista.id_entrevista = ?";
+
+      return $cq->getFilasById($idEntrevista,$sql);
+    }
+
   }
 ?>

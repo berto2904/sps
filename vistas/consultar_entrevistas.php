@@ -18,7 +18,7 @@ include ('headersFooters/headerEnd.php');
       <div class="col-md-12 col-md-offset-0 text-left">
         <div class="row contenidoPostulante">
           <section>
-            <h1>Consultar Postulante</h1>
+            <h1>Consultar informacion entrevistadora</h1>
           </section>
           <section>
   					<div class="wizard" style="margin: 2em 0em; ">
@@ -76,7 +76,7 @@ include ('headersFooters/footerLibrerias.php');
 <script src="../librerias/bootstrap-table/src/bootstrap-table.js"></script>
 <script src="../librerias/bootstrap-table/dist/locale/bootstrap-table-es-AR.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
-<script src="../js/consultarPostulantes.js"></script>
+<script src="../js/consultar_entrevistas.js"></script>
 
 <?php
 include ('headersFooters/footerEnd.php');

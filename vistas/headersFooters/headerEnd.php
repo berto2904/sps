@@ -12,8 +12,8 @@
 							<li class="has-dropdown">
 								<a href="#">Entrevistas</a>
 								<ul class="dropdown">
-									<li><a href="crear_postulante.php">Crear Postulante</a></a></li>
-									<li><a href="consultar_postulante.php">Consultar Postulantes</a></li>
+									<li><a href="crear_postulante.php">Crear Entrevista</a></a></li>
+									<li><a href="consultar_entrevistas.php">Consultar Entrevistas</a></li>
 								</ul>
 							</li>
 							<li class="has-dropdown">

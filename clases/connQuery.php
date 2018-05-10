@@ -14,15 +14,18 @@ class ConnQuery{
   function ejecutarConsultaIsTrue($sql){
     $query = mysqli_query($this->conn,$sql);
     $resultado = mysqli_num_rows($query);
+    mysqli_close($this->conn);
     return $resultado;
   }
   function ejecutarConsulta($sql){
     $query = mysqli_query($this->conn,$sql);
+    mysqli_close($this->conn);
     return $query;
   }
   function getFila($sql){
     $query = mysqli_query($this->conn,$sql);
     $fila =  mysqli_fetch_assoc($query);
+    mysqli_close($this->conn);
     return $fila;
   }
   function prepare($sql){
@@ -34,19 +37,22 @@ class ConnQuery{
   }
 
   function getFilasById($id,$sql){
+    $listaGrande = [];
     $stmt =  $this->conn->prepare($sql);
     $stmt->bind_param("i", $id);
     // $stmt = mysqli_stmt_bind_param($ps, "i", $id);
     $stmt->execute();
     $filas = $stmt->get_result();
-    while ($fila = $filas->fetch_assoc()) {
-      $listaPeque = array();
-      foreach ($fila as $indice => $value) {
-        $listaPeque[$indice] = $value;
-      }
 
-      $listaGrande[] = $listaPeque;
-     }
+      while ($fila = $filas->fetch_assoc()) {
+        $listaPeque = array();
+        foreach ($fila as $indice => $value) {
+          $listaPeque[$indice] = $value;
+        }
+
+        $listaGrande[] = $listaPeque;
+      }
+    mysqli_close($this->conn);
     return $listaGrande;
   }
 

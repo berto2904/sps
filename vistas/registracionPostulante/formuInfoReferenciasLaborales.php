@@ -18,20 +18,20 @@
             <tr>
               <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[1][empresa]"></td>
               <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[1][domicilio]"></td>
-              <td><input type="number" class="form-control desdeHasta"  maxlength="70" name="referenciasLaborales[1][desde]"onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
-              <td><input type="number" class="form-control desdeHasta"  maxlength="70" name="referenciasLaborales[1][hasta]"onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
+              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[1][desde]"></td>
+              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[1][hasta]"></td>
             </tr>
             <tr>
               <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[2][empresa]"></td>
               <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[2][domicilio]"></td>
-              <td><input type="number" class="form-control desdeHasta"  maxlength="70" name="referenciasLaborales[2][desde]"onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
-              <td><input type="number" class="form-control desdeHasta"  maxlength="70" name="referenciasLaborales[2][hasta]"onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
+              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[2][desde]"></td>
+              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[2][hasta]"></td>
             </tr>
             <tr>
               <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[3][empresa]"></td>
               <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[3][domicilio]"></td>
-              <td><input type="number" class="form-control desdeHasta"  maxlength="70" name="referenciasLaborales[3][desde]"onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
-              <td><input type="number" class="form-control desdeHasta"  maxlength="70" name="referenciasLaborales[3][hasta]"onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
+              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[3][desde]"></td>
+              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[3][hasta]"></td>
             </tr>
           </tbody>
         </table>

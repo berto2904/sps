@@ -69,7 +69,7 @@
                   join postulante p on en.id_postulante = p.id_postulante
                   left join sexo s on s.id_sexo = p.id_sexo
                   left join estado_civil ec on ec.id_estado_civil = p.id_estado_civil
-                  order by id_entrevista";
+                  order by id_entrevista desc";
 
     return consultaGenerica($sql);
     }
