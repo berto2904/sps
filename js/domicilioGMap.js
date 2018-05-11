@@ -65,6 +65,15 @@ function initAutocomplete() {
             marker.setMap(null);
           });
           markers = [];
+          //
+          // if (!$('#gmap').val() == '') {
+          //   markers.push(new google.maps.Marker({
+          //     map: map,
+          //     zoom: 11,
+          //     icon: icon,
+          //     position: $('#gmap').val(),
+          //   }));
+          // }
 
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();

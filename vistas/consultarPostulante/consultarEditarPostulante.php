@@ -13,14 +13,14 @@ include ($server.'/sps/helper/sessionValidation.php');
 						<form role="form" method="post" action="../controladores/registrarPostulanteController.php">
 							<div class="tab-content formularioPostulante">
 								<?php
-                  include('../registracionPostulante/formuInfoEntre.php');
-                  include('../registracionPostulante/formuInfoPersonal.php');
-                  include('../registracionPostulante/formuInfoFamiliar.php');
-                  include('../registracionPostulante/formuInfoEducacion.php');
-                  include('../registracionPostulante/formuInfoHobby.php');
-                  include('../registracionPostulante/formuInfoSocioambiental.php');
-                  include('../registracionPostulante/formuInfoEconomica.php');
-                  include('../registracionPostulante/formuInfoReferenciasLaborales.php');
+                  include('consultarEditarPostulante/1_formuInfoEntre.php');
+                  include('consultarEditarPostulante/2_formuInfoPersonal.php');
+                  include('consultarEditarPostulante/3_formuInfoFamiliar.php');
+                  include('consultarEditarPostulante/4_formuInfoEducacion.php');
+                  include('consultarEditarPostulante/5_formuInfoHobby.php');
+                  include('consultarEditarPostulante/6_formuInfoSocioambiental.php');
+                  include('consultarEditarPostulante/7_formuInfoEconomica.php');
+                  include('consultarEditarPostulante/8_formuInfoReferenciasLaborales.php');
                   // include('../registracionPostulante/formuConfirmacion.php');
                  ?>
 								<div class="clearfix"></div>

@@ -53,7 +53,7 @@
 
       $ps = $cq->prepare($sql);
       mysqli_stmt_bind_param($ps,
-        "sssissiiiiiss",
+        "ssssssiiiiiss",
         $this->nombres,
         $this->apellido,
         $this->fecha_de_nacimiento,

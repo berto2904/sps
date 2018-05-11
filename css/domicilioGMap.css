@@ -32,6 +32,11 @@
 
 .pac-container {
   font-family: Roboto;
+  z-index: 99999999999 !important;
+}
+
+.gm-fullscreen-control{
+  max-width: none!important;
 }
 
 #type-selector {

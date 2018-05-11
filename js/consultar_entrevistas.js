@@ -13,7 +13,8 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
                 var self = this;
                 return $.ajax({
                     url: 'consultarPostulante/headerConsulta.php',
-                    method: 'POST'
+                    method: 'POST',
+                    async: true
                 }).done(function(response) {
                     var parentTitle = self.parentElement;
                     if (parentTitle != null) {
@@ -44,6 +45,7 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
         	        return $.ajax({
         	            url: 'consultarPostulante/consultarEditarPostulante.php',
         	            method: 'POST',
+                      async: true,
                       data: {
                       	id_entrevista:row.id_entrevista
                       }
