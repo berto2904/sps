@@ -73,6 +73,23 @@
 
     return consultaGenerica($sql);
     }
+    public static function consultarPostulanteByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+            entrevista.id_usuario                                   id_usuario,
+            postulante.id_postulante                                id_postulante,
+            entrevista.id_entrevista                                id_entrevista,
+            entrevista.organizacion                                 organizacion,
+            entrevista.fecha_hora                                   entrevista_fechaHora,
+            entrevista.puesto                                       puesto,
+            entrevista.informacion_relevante                        informacion_relevante
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      where entrevista.id_entrevista = ?";
+
+      $info[] = $cq->getFilasById($idEntrevista,$sql);
+    return $info;
+    }
 
   }
 ?>

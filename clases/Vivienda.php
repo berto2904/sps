@@ -57,5 +57,32 @@
       mysqli_stmt_execute($ps);
     }
 
+    public static function consultarPostulanteByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+            vivienda.id_tipo_vivienda                               id_tipo_vivienda,
+            vivienda.aspecto_interior                               id_aspecto_interior,
+            vivienda.aspecto_exterior                               id_aspecto_exterior,
+            tipo_vivienda.descripcion                               tipo_vivienda,
+            caspint.descripcion                                     aspecto_interior,
+            caspext.descripcion                                     aspecto_exterior,
+            vivienda.propietario                                    vivienda_propietario,
+            vivienda.ambientes                                      vivienda_ambientes,
+            vivienda.inquilino                                      vivienda_inquilino,
+            vivienda.importe_alquiler                               vivienda_importe_alquiler,
+            vivienda.accesibilidad                                  vivienda_accesibilidad
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join informacion_socioambiental on informacion_socioambiental.id_informacion_socioambiental = postulante.id_informacion_socioambiental
+      left join vivienda on vivienda.id_vivienda = informacion_socioambiental.id_vivienda
+      left join tipo_vivienda on tipo_vivienda.id_tipo_vivienda = vivienda.id_tipo_vivienda
+      left join clasificacion caspint on caspint.id_clasificacion = vivienda.aspecto_interior
+      left join clasificacion caspext on caspext.id_clasificacion = vivienda.aspecto_exterior
+      where entrevista.id_entrevista = ?";
+
+      $info[] = $cq->getFilasById($idEntrevista,$sql);
+    return $info;
+    }
+
   }
 ?>

@@ -46,7 +46,6 @@
     public static function consultarServiciosByIdEntrevista($idEntrevista){
       $cq = new connQuery();
       $sql = "SELECT
-      			vivienda_servicio.id_vivienda				id_vivienda,
       			vivienda_servicio.id_servicio				id_servicio,
       			servicio.descripcion								servicio
       FROM entrevista
@@ -57,6 +56,32 @@
       where entrevista.id_entrevista = ?";
 
       return $cq->getFilasById($idEntrevista,$sql);
+    }
+
+    public static function consultarPostulanteByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+            postulante.id_informacion_socioambiental                id_informacion_socioambiental,
+            informacion_socioambiental.id_domicilio                 id_domicilio,
+            informacion_socioambiental.id_vivienda                  id_vivienda,
+            domicilio.localidad                                     localidad,
+            domicilio.calle                                         calle,
+            domicilio.numero                                        numero,
+            domicilio.codigo_postal                                 codigo_postal,
+            domicilio.partido                                       partido,
+            domicilio.gmap                                          gmap,
+            domicilio.piso                                          piso,
+            domicilio.departamento                                  departamento,
+            domicilio.telefono                                      telefono,
+            domicilio.referencia_util                               referencia_util
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join informacion_socioambiental on informacion_socioambiental.id_informacion_socioambiental = postulante.id_informacion_socioambiental
+      left join domicilio on domicilio.id_domicilio = informacion_socioambiental.id_domicilio
+      where entrevista.id_entrevista = ?";
+
+      $info[] = $cq->getFilasById($idEntrevista,$sql);
+    return $info;
     }
   }
 ?>

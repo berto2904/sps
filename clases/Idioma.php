@@ -45,7 +45,7 @@
       			habla.descripcion										habla,
       			escribe.descripcion									escribe,
       			idioma.id_idioma_tipo								id_idioma_tipo,
-      			idioma_tipo.descripcion							descripcion
+      			idioma_tipo.descripcion							idioma_tipo
       FROM entrevista
       left join postulante on entrevista.id_postulante  = postulante.id_postulante
       left join idioma on idioma.id_postulante = postulante.id_postulante

@@ -55,6 +55,31 @@
       $id_conyuge = $cq->getUltimoId();
       return $id_conyuge;
     }
+    public static function consultarPostulanteByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+            conyuge.id_conyuge                                      id_conyuge,
+            conyuge.id_sexo                                         id_sexo_conyuge,
+            observaciones_convivencia.id_observaciones_convivencia  id_observaciones_convivencia,
+            conyuge.nombres                                         conyuge_nombres,
+            conyuge.apellido                                        conyuge_apellido,
+            conyuge.fecha_nacimiento                                conyuge_fecha_nacimiento,
+            conyuge.lugar_nacimiento                                conyuge_lugar_nacimiento,
+            conyuge.nacionalidad                                    conyuge_nacionalidad,
+            conyuge.profesion                                       conyuge_profesion,
+            conyuge.dni                                             conyuge_dni,
+            observaciones_convivencia.observacion                   observaciones_convivencia,
+            sc.descripcion                                          conyuge_sexo
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join conyuge on conyuge.id_postulante = postulante.id_postulante
+      left join sexo sc on sc.id_sexo = conyuge.id_sexo
+      left join observaciones_convivencia on observaciones_convivencia.id_postulante = postulante.id_postulante
+      where entrevista.id_entrevista = ?";
+
+      $info[] = $cq->getFilasById($idEntrevista,$sql);
+    return $info;
+    }
 
   }
 ?>

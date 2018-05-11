@@ -1,5 +1,7 @@
 <?php
 include ('utf8EncodeDecodeDeep.php');
+
+
 function jsonConverter($key,$consultaDecoded){
   $string = "";
 
@@ -29,4 +31,8 @@ function jsonConverterArray($key,$consultaDecoded){
     $string.= "]";
     return $key.$string;
 }
+
+function jsonConverterTrimed($key,$consultaDecoded){
+  return  trim(jsonConverter($key,$consultaDecoded),"{}");
+  }
  ?>
