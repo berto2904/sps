@@ -25,7 +25,6 @@ var id = $('#idEntrevista').val();
                 if (id2 == 'entrevista_fechaHora') {
                   $('#'+id2).val(new Date(item2).toISOString().split('.')[0]);
                 } else if ($("#"+id2).exists()) {
-                  console.log(id2);
                   $('#'+id2).val(item2);
                 }
               }
@@ -36,7 +35,6 @@ var id = $('#idEntrevista').val();
             +'placeholder="Profesion" maxlength="70"> </div> </div>');
             $.each(item,function(id2,item2){
               if ($("#"+id2+"_"+id).exists()) {
-                console.log(id2);
                 $("#"+id2+"_"+id).val(item2);
               }
               });
@@ -44,13 +42,27 @@ var id = $('#idEntrevista').val();
           $.each(postulanteInfo.Postulante.EstudiosIdiomas.Estudios, function(indice, estudios) {
           	$.each(estudios, function(key,valor){
               if ($("#"+key+"_"+estudios.id_estudios).exists()) {
-                console.log(valor);
                 $("#"+key+"_"+estudios.id_estudios).val(valor);
               }
         	   });
-          })
+          });
+          $.each(postulanteInfo.Postulante.EstudiosIdiomas.Idiomas, function(indice, estudios) {
+             if ($("#id_idioma_"+estudios.id_idioma+"_1_"+estudios.id_lee).exists()) {
+               $("#id_idioma_"+estudios.id_idioma+"_1_"+estudios.id_lee).prop('checked', true);
+              }
+              if ($("#id_idioma_"+estudios.id_idioma+"_2_"+estudios.id_habla).exists()) {
+                $("#id_idioma_"+estudios.id_idioma+"_2_"+estudios.id_habla).prop('checked', true);
+               }
+               if ($("#id_idioma_"+estudios.id_idioma+"_3_"+estudios.id_escribe).exists()) {
+                 $("#id_idioma_"+estudios.id_idioma+"_3_"+estudios.id_escribe).prop('checked', true);
+                }
+          });
 
-
+          $.each(postulanteInfo.Postulante.HobbiesYPasatiempos, function(indice, hobby) {
+            if ($('#hobby_'+hobby.id_pregunta).exists()) {
+               $('#hobby_'+hobby.id_pregunta).val(hobby.respuesta);
+            }
+            });
         }
      });
 });

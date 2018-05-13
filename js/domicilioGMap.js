@@ -24,16 +24,29 @@ $(document).ready(function() {
 function reloadMap(){
 
   $('#latLng').val('');
+  $('#gmap').val('');
   $('#googleMapDireccion').append('<input id="autocomplete" class="controls" type="text" placeholder="Ingresar direccion">');
   initAutocomplete();
 }
+var myLatLng = {lat: -34.615872, lng: -58.433298};
+var markers = [];
 
 function initAutocomplete() {
+
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.615872, lng: -58.433298},
+          center: myLatLng,
           zoom: 11,
           mapTypeId: 'roadmap'
         });
+
+        if ($('#gmap').val() !== "") {
+          alert("no está vacio");
+          myLatlng = new google.maps.LatLng(parseFloat($('#gmap').val().split(",")[0]),parseFloat($('#gmap').val().split(",")[1]));
+
+          addMarker(myLatlng, map);
+
+        }
+
 
         var centerControlDiv = document.createElement('div');
         var centerControl = new CenterControl(centerControlDiv, map);
@@ -50,7 +63,6 @@ function initAutocomplete() {
           searchBox.setBounds(map.getBounds());
         });
 
-        var markers = [];
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
@@ -130,8 +142,8 @@ function initAutocomplete() {
           });
           map.fitBounds(bounds);
         });
-      }
 
+      }
 
       function CenterControl(controlDiv, map) {
 
@@ -165,3 +177,24 @@ function initAutocomplete() {
             });
 
           }
+
+      function addMarker(location, map) {
+        // markers.push(new google.maps.Marker({
+        //   map: map,
+        //   zoom: 15,
+        //   icon: icon,
+        //   position: location,
+        // }));
+        markers.push(new google.maps.Marker({
+          map: map,
+          position: location
+        }));
+        map.setCenter(markers[0].getPosition());
+        map.setZoom(15);
+      }
+
+      function latLngCreator(latLng){
+        lat = parseFloat(latLng.split(",")[0]);
+        lng = parseFloat(latLng.split(",")[1]);
+        return lat
+      }
