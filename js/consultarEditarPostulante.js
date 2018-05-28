@@ -1,13 +1,41 @@
 var base_url = window.location.origin;
 var indice = 1;
+var flagGmap = false;
 /*-------------------------------------Document Ready------------------------------------------------*/
 var postulanteInfo;
 
-$.fn.exists = function () {
-    return this.length !== 0;
-}
+
 
 $(document).ready(function() {
+  var scripts = document.getElementsByTagName("script");
+
+   
+
+    // $.each(scripts, function(id,item){
+    // 	if(scripts[id].src.match("maps.googleapis") != null){
+    //     flagGmap = true;
+    // 	}
+    //
+    // });
+
+      var s2 = document.createElement("script");
+      s2.type = "text/javascript";
+      s2.src="../js/domicilioGMap.js";
+      s2.id="scriptDomicilio";
+      $("head").append(s2);
+
+      var s1= document.createElement("script");
+      s1.type = "text/javascript";
+      s1.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete";
+      s1.id = "scriptGmap";
+      $("head").append(s1);
+      //
+      // if (flagGmap == false) {
+      //
+      //   flagGmap = true;
+      // }
+
+
 var id = $('#idEntrevista').val();
  $.ajax({
         url: "../controladores/consultarPostulante.php",

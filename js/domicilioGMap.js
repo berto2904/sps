@@ -40,11 +40,8 @@ function initAutocomplete() {
         });
 
         if ($('#gmap').val() !== "") {
-          alert("no está vacio");
           myLatlng = new google.maps.LatLng(parseFloat($('#gmap').val().split(",")[0]),parseFloat($('#gmap').val().split(",")[1]));
-
           addMarker(myLatlng, map);
-
         }
 
 
@@ -179,22 +176,10 @@ function initAutocomplete() {
           }
 
       function addMarker(location, map) {
-        // markers.push(new google.maps.Marker({
-        //   map: map,
-        //   zoom: 15,
-        //   icon: icon,
-        //   position: location,
-        // }));
         markers.push(new google.maps.Marker({
           map: map,
           position: location
         }));
         map.setCenter(markers[0].getPosition());
         map.setZoom(15);
-      }
-
-      function latLngCreator(latLng){
-        lat = parseFloat(latLng.split(",")[0]);
-        lng = parseFloat(latLng.split(",")[1]);
-        return lat
       }

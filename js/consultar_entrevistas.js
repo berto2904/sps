@@ -38,6 +38,8 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
                 $.alert('Proximamente!!');
         			},
         			Cancelar: function(){
+                $('#scriptDomicilio').remove();
+                $('#scriptGmap').remove();
         			},
         		},
         		content: function(){

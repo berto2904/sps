@@ -31,7 +31,7 @@ include ($server.'/sps/helper/sessionValidation.php');
       </div>
     </div>
 </header>
-<script src="../js/domicilioGMap.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete" async defer></script>
-<script src="../js/crearPostulante.js"></script>
+<script src="../js/crearPostulante.js" target="_top"></script>
 <script src="../js/consultarEditarPostulante.js"></script>
+<script src="../js/domicilioGMap.js"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete" async defer></script> -->

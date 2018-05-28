@@ -3,7 +3,9 @@ $(document).ready(function() {
 		$(".contenidoPostulante").toggle();
 	});
 });
-
+$.fn.exists = function () {
+    return this.length !== 0;
+}
 ;(function () {
 
 	'use strict';
