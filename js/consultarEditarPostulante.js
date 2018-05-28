@@ -9,7 +9,7 @@ var postulanteInfo;
 $(document).ready(function() {
   var scripts = document.getElementsByTagName("script");
 
-   
+
 
     // $.each(scripts, function(id,item){
     // 	if(scripts[id].src.match("maps.googleapis") != null){
@@ -85,11 +85,30 @@ var id = $('#idEntrevista').val();
                  $("#id_idioma_"+estudios.id_idioma+"_3_"+estudios.id_escribe).prop('checked', true);
                 }
           });
+          $.each(postulanteInfo.Postulante.InformacionSocioambiental.Transportes,function(indice, transporte){
+            if ($("#transporte_"+transporte.id_transporte_tipo+"_1").exists()) {
+              $("#transporte_"+transporte.id_transporte_tipo+"_1").prop('checked', true);
+              $("#transporte_"+transporte.id_transporte_tipo+"_2").val(transporte.cuadras);
+            }
+           });
+
+           $.each(postulanteInfo.Postulante.InformacionSocioambiental.Servicios,function(indice, servicio){
+             if ($("#id_servicio_"+servicio.id_servicio).exists()){
+               $("#id_servicio_"+servicio.id_servicio).prop('checked', true);
+             }
+            });
 
           $.each(postulanteInfo.Postulante.HobbiesYPasatiempos, function(indice, hobby) {
             if ($('#hobby_'+hobby.id_pregunta).exists()) {
                $('#hobby_'+hobby.id_pregunta).val(hobby.respuesta);
             }
+            });
+          $.each(postulanteInfo.Postulante.InformacionSocioambiental.ConceptosVecinales,function(indice, vecino){
+            $.each(vecino,function(indice2, value){
+                if ($('#vecino_'+indice+' #'+indice2).exists()) {
+                  $('#vecino_'+indice+' #'+indice2).val(value);
+                }
+			        });
             });
         }
      });
