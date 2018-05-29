@@ -15,33 +15,32 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[1][empresa]"></td>
-              <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[1][domicilio]"></td>
-              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[1][desde]"></td>
-              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[1][hasta]"></td>
+            <tr id="empresa_0">
+              <td><input type="text" id="empresa" class="form-control"  maxlength="70" name="referenciasLaborales[1][empresa]"></td>
+              <td><input type="text" id="domicilio" class="form-control"  maxlength="70" name="referenciasLaborales[1][domicilio]"></td>
+              <td><input type="date" id="desde" class="form-control desdeHasta"  name="referenciasLaborales[1][desde]"></td>
+              <td><input type="date" id="hasta" class="form-control desdeHasta"  name="referenciasLaborales[1][hasta]"></td>
             </tr>
-            <tr>
-              <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[2][empresa]"></td>
-              <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[2][domicilio]"></td>
-              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[2][desde]"></td>
-              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[2][hasta]"></td>
+            <tr id="empresa_1">
+              <td><input type="text" id="empresa" class="form-control"  maxlength="70" name="referenciasLaborales[2][empresa]"></td>
+              <td><input type="text" id="domicilio" class="form-control"  maxlength="70" name="referenciasLaborales[2][domicilio]"></td>
+              <td><input type="date" id="desde" class="form-control desdeHasta"  name="referenciasLaborales[2][desde]"></td>
+              <td><input type="date" id="hasta" class="form-control desdeHasta"  name="referenciasLaborales[2][hasta]"></td>
             </tr>
-            <tr>
-              <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[3][empresa]"></td>
-              <td><input type="text" class="form-control"  maxlength="70" name="referenciasLaborales[3][domicilio]"></td>
-              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[3][desde]"></td>
-              <td><input type="date" class="form-control desdeHasta"  name="referenciasLaborales[3][hasta]"></td>
+            <tr id="empresa_2">
+              <td><input type="text" id="empresa" class="form-control"  maxlength="70" name="referenciasLaborales[3][empresa]"></td>
+              <td><input type="text" id="domicilio" class="form-control"  maxlength="70" name="referenciasLaborales[3][domicilio]"></td>
+              <td><input type="date" id="desde" class="form-control desdeHasta"  name="referenciasLaborales[3][desde]"></td>
+              <td><input type="date" id="hasta" class="form-control desdeHasta"  name="referenciasLaborales[3][hasta]"></td>
             </tr>
           </tbody>
         </table>
         <div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <textarea name="referenciasLaborales[]" class="form-control" rows="4" cols="80" maxlength="250"></textarea>
-      </div>
+    <div class="col-md-12">
+      <h3>Observaciones</h3>
+      <textarea id="observacionReferencialaboral" name="observacionesReferenciasLaborales" class="form-control" rows="4" cols="80" maxlength="250"></textarea>
     </div>
   </div>
 </div>
