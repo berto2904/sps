@@ -110,6 +110,30 @@ var id = $('#idEntrevista').val();
                 }
 			        });
             });
+          $.each(postulanteInfo.Postulante.InformacionEconomica.CuentasBancarias,function(id1, banco){
+            $("#addCuentaBancaria").trigger( "click" );
+           $.each(banco,function(id2, value){
+              if ($('#'+id2+'_'+indice).exists()){
+                $('#'+id2+'_'+indice).val(value);
+                }
+             });
+           });
+           $.each(postulanteInfo.Postulante.InformacionEconomica.TarjetasEntidades,function(id1, tarjeta){
+             $("#addTarjetaEntidad").trigger( "click" );
+            $.each(tarjeta,function(id2, value){
+               if ($('#'+id2+'_'+indice).exists()){
+                 $('#'+id2+'_'+indice).val(value);
+                 }
+              });
+            });
+            $.each(postulanteInfo.Postulante.ReferenciasLaborales,function(id1, empresa){
+             $.each(empresa,function(id2, value){
+               if ($('#empresa_'+id1+' #'+id2).exists()) {
+                 $('#empresa_'+id1+' #'+id2).val(value);
+               }
+              });
+            });
+
         }
      });
 });

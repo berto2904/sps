@@ -9,12 +9,13 @@ $(document).ready(function() {
   });
 
   $('#addCuentaBancaria').click(function(){
-    $("#entidadesBancarias").append('<div class="entidadBancaria row"> <div class="col-md-1 botonEliminar"> <button type="button" class="btn btn-sm btn-danger deleteButton">-</button> </div> <div class="col-md-5 offset-md-6"> <label for="cuentasBancarias[entidades][]">Entidad</label> <input type="text" class="form-control" id="" name="cuentasBancarias[entidades][]" placeholder="Entidad" maxlength="70"> </div> </div>');
+    indice++;
+    $("#entidadesBancarias").append('<div class="entidadBancaria row"> <div class="col-md-1 botonEliminar"> <button type="button" class="btn btn-sm btn-danger deleteButton">-</button> </div> <div class="col-md-5 offset-md-6"> <label for="cuentasBancarias[entidades][]">Entidad</label> <input type="text" class="form-control" id="entidad_bancaria_'+indice+'" name="cuentasBancarias[entidades][]" placeholder="Entidad" maxlength="70"> </div> </div>');
   });
 
   $('#addTarjetaEntidad').click(function(){
     indice++;
-    $("#tarjetasEntidades").append('<div class="row tarjetaEntidad"> <div class="col-md-2 botonEliminar"> <button type="button" class="btn btn-sm btn-danger deleteButton">-</button> </div> <div class="col-md-5"> <label for="">Tarjeta</label> <input type="text" class="form-control" id="" name="tCredDeb['+indice+'][tarjetaEntidad][tarjeta]" placeholder="Tarjeta" maxlength="70"> </div> <div class="col-md-5"> <label for="">Entidad</label> <input type="text" class="form-control" id="" name="tCredDeb['+indice+'][tarjetaEntidad][entidad]" placeholder="Entidad" maxlength="70"> </div> </div>');
+    $("#tarjetasEntidades").append('<div class="row tarjetaEntidad"> <div class="col-md-2 botonEliminar"> <button type="button" class="btn btn-sm btn-danger deleteButton">-</button> </div> <div class="col-md-5"> <label for="">Tarjeta</label> <input type="text" class="form-control" id="tarjeta_'+indice+'" name="tCredDeb['+indice+'][tarjetaEntidad][tarjeta]" placeholder="Tarjeta" maxlength="70"> </div> <div class="col-md-5"> <label for="">Entidad</label> <input type="text" class="form-control" id="entidad_'+indice+'" name="tCredDeb['+indice+'][tarjetaEntidad][entidad]" placeholder="Entidad" maxlength="70"> </div> </div>');
   });
 
   //Educacion

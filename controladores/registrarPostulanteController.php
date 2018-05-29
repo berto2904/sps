@@ -18,6 +18,7 @@
   require ("../clases/TarjetaCreditoDebito.php");
   require ("../clases/TarjetaEntidad.php");
   require ("../clases/ReferenciaLaboral.php");
+  require ("../clases/ObservacionReferenciasLaborales.php");
   include ('../helper/utf8EncodeDecodeDeep.php');
 
 
@@ -66,8 +67,6 @@ $estudios = array_chunk($_POST["infoEstudios"], 6);  utf8_decode_deep($estudios)
 $idiomas=(isset($_POST["idioma"])?$_POST["idioma"] : Null);  utf8_decode_deep($idiomas);
   //Hobby Pasatiempos
 $hobbies = $_POST["hobbyPreguntas"]; utf8_decode_deep($hobbies);
-  // $id_informacion_economica = $_POST["inputInformacionEconomica"];
-  // $id_informacion_socioambiental = $_POST["inputInformacionSocioambiental"];
 
   //Socioambiental
 $calle = ($_POST["calle"] != "" ? $_POST["calle"] :Null);  utf8_decode_deep($calle);
@@ -94,6 +93,7 @@ $tCredDeb = $_POST["tCredDeb"]; utf8_decode_deep($tCredDeb);
 
 // Referencia laborales
 $refLaborales = $_POST["referenciasLaborales"]; utf8_decode_deep($refLaborales);
+$observacionesRefLaborales = $_POST["observacionesReferenciasLaborales"]; utf8_decode_deep($observacionesRefLaborales);
 
 try {
   if(is_float(count($_POST["infoFamiliar"])/4)){
@@ -134,6 +134,7 @@ try {
     crearCuentasBancarias($idInformacionEconomica, $cuentasBancarias);
     crearTarjetaDeCreditoDebito($idInformacionEconomica, $tCredDeb);
     crearReferenciasLaborales($idPostulante, $refLaborales);
+    crearObservacionesRefLaborales($observacionesRefLaborales,$idPostulante);
   }
 
 } catch (Exception $e) {
@@ -149,6 +150,12 @@ header("location: ../vistas/crear_postulante.php");
 
 
 /*----------------------------------------------------FUNCIONES------------------------------------------------*/
+function crearObservacionesRefLaborales($observacionesRefLaborales,$idPostulante){
+  if ($observacionesRefLaborales != Null) {
+    $observacion = new ObservacionReferenciasLaborales($observacionesRefLaborales,$idPostulante);
+    $observacion->registarObservacionInfoLaboral();
+  }
+}
 function crearReferenciasLaborales($id_postulante, $refLaborales){
   foreach ($refLaborales as $indice => $refLaboral) {
     if ($refLaboral["empresa"] != "" || $refLaboral["domicilio"] != "" || $refLaboral["desde"] != "" || $refLaboral["hasta"]) {

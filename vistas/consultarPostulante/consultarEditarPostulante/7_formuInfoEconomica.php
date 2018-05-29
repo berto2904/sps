@@ -35,15 +35,6 @@
       <button type="button" class="btn btn-sm btn-primary" id="addCuentaBancaria">Agregar Cuenta Bancaria</button>
     </div>
     <div id="entidadesBancarias">
-      <div class="entidadBancaria row">
-        <div class="col-md-1 botonEliminar">
-          <button type="button" class="btn btn-sm btn-danger deleteButton">-</button>
-        </div>
-        <div class="col-md-5 offset-md-6">
-          <label for="cuentasBancarias[entidades]">Entidad</label>
-          <input type="text" class="form-control" id="" name="cuentasBancarias[entidades][]" placeholder="Entidad" maxlength="70">
-        </div>
-      </div>
     </div>
     <br>
     <div class="addDamiliarPanel">
@@ -52,19 +43,6 @@
     </div>
     <div class="row">
       <div class="col-md-6" id="tarjetasEntidades">
-        <div class="row tarjetaEntidad">
-          <div class="col-md-2 botonEliminar">
-            <button type="button" class="btn btn-sm btn-danger deleteButton">-</button>
-          </div>
-          <div class="col-md-5">
-            <label for="">Tarjeta</label>
-            <input type="text" class="form-control" id="" name="tCredDeb[1][tarjetaEntidad][tarjeta]" placeholder="Tarjeta" maxlength="70">
-          </div>
-          <div class="col-md-5">
-            <label for="">Entidad</label>
-            <input type="text" class="form-control" id="" name="tCredDeb[1][tarjetaEntidad][entidad]" placeholder="Entidad" maxlength="70">
-          </div>
-        </div>
       </div>
       <div class="col-md-6">
         <label for="tCredDeb[otrasPropiedades]">Otras Propiedades</label>
