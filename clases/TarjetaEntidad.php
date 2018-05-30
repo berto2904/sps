@@ -26,9 +26,6 @@
       $this->tarjeta,
       $this->entidad);
 
-      // var_dump($id_tarjeta_credito_debito);
-      // die();
-
       mysqli_stmt_execute($ps);
       $this->id_tarjeta_entidad = $cq->getUltimoId();
       return $this->id_tarjeta_entidad;

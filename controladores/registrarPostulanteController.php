@@ -88,6 +88,7 @@ $conceptoVecinal = (isset($_POST["conceptoVecinal"])?$_POST["conceptoVecinal"] :
 
 // Informacion Economica
 $movilidadPropia = $_POST["movilidadPropia"]; utf8_decode_deep($movilidadPropia);
+
 $cuentasBancarias = $_POST["cuentasBancarias"]["entidades"]; utf8_decode_deep($cuentasBancarias);
 $tCredDeb = $_POST["tCredDeb"]; utf8_decode_deep($tCredDeb);
 
@@ -136,6 +137,9 @@ try {
     crearReferenciasLaborales($idPostulante, $refLaborales);
     crearObservacionesRefLaborales($observacionesRefLaborales,$idPostulante);
   }
+  else {
+    throw new Exception('Error en la creacion del postulante');
+  }
 
 } catch (Exception $e) {
   echo 'Excepcion capturada: ', $e->getMessage(),"\n";
@@ -167,8 +171,11 @@ function crearReferenciasLaborales($id_postulante, $refLaborales){
 
 function crearMovilidadPropia($movilidadPropia){
   if ($movilidadPropia["tipo"] != "" || $movilidadPropia["marca"] != ""  || $movilidadPropia["modelo"] != "" || $movilidadPropia["año"] != "" || $movilidadPropia["titular"] != ""  || $movilidadPropia["patente"] != "") {
-    $movPropia = new MovilidadPropia((int)$movilidadPropia["tipo"], $movilidadPropia["marca"], $movilidadPropia["modelo"], (int)$movilidadPropia["año"], $movilidadPropia["titular"], $movilidadPropia["patente"]);
+    $movilidadPropia["tipo"] == "" ? $movilidadPropia["tipo"] = Null : $movilidadPropia["tipo"];
+    $movPropia = new MovilidadPropia($movilidadPropia["tipo"], $movilidadPropia["marca"], $movilidadPropia["modelo"], (int)$movilidadPropia["año"], $movilidadPropia["titular"], $movilidadPropia["patente"]);
     $idMovilidadPropia = $movPropia->registrarMovilidadPropia();
+    // print_r($idMovilidadPropia);
+    // die();
     return $idMovilidadPropia;
     }
   }

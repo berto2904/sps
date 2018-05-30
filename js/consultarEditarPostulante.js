@@ -69,20 +69,20 @@ var id = $('#idEntrevista').val();
           });
           $.each(postulanteInfo.Postulante.EstudiosIdiomas.Estudios, function(indice, estudios) {
           	$.each(estudios, function(key,valor){
-              if ($("#"+key+"_"+estudios.id_estudios).exists()) {
-                $("#"+key+"_"+estudios.id_estudios).val(valor);
+              if ($("#"+key+"_"+estudios.id_nivel_estudio).exists()) {
+                $("#"+key+"_"+estudios.id_nivel_estudio).val(valor);
               }
         	   });
           });
           $.each(postulanteInfo.Postulante.EstudiosIdiomas.Idiomas, function(indice, estudios) {
-             if ($("#id_idioma_"+estudios.id_idioma+"_1_"+estudios.id_lee).exists()) {
-               $("#id_idioma_"+estudios.id_idioma+"_1_"+estudios.id_lee).prop('checked', true);
+             if ($("#id_idioma_"+estudios.id_idioma_tipo+"_1_"+estudios.id_lee).exists()) {
+               $("#id_idioma_"+estudios.id_idioma_tipo+"_1_"+estudios.id_lee).prop('checked', true);
               }
-              if ($("#id_idioma_"+estudios.id_idioma+"_2_"+estudios.id_habla).exists()) {
-                $("#id_idioma_"+estudios.id_idioma+"_2_"+estudios.id_habla).prop('checked', true);
+              if ($("#id_idioma_"+estudios.id_idioma_tipo+"_2_"+estudios.id_habla).exists()) {
+                $("#id_idioma_"+estudios.id_idioma_tipo+"_2_"+estudios.id_habla).prop('checked', true);
                }
-               if ($("#id_idioma_"+estudios.id_idioma+"_3_"+estudios.id_escribe).exists()) {
-                 $("#id_idioma_"+estudios.id_idioma+"_3_"+estudios.id_escribe).prop('checked', true);
+               if ($("#id_idioma_"+estudios.id_idioma_tipo+"_3_"+estudios.id_escribe).exists()) {
+                 $("#id_idioma_"+estudios.id_idioma_tipo+"_3_"+estudios.id_escribe).prop('checked', true);
                 }
           });
           $.each(postulanteInfo.Postulante.InformacionSocioambiental.Transportes,function(indice, transporte){
@@ -126,7 +126,7 @@ var id = $('#idEntrevista').val();
                  }
               });
             });
-            $.each(postulanteInfo.Postulante.ReferenciasLaborales,function(id1, empresa){
+            $.each(postulanteInfo.Postulante.ReferenciasLaborales.Empresas,function(id1, empresa){
              $.each(empresa,function(id2, value){
                if ($('#empresa_'+id1+' #'+id2).exists()) {
                  $('#empresa_'+id1+' #'+id2).val(value);

@@ -45,7 +45,10 @@ echo '{';
       echo jsonConverterArray('"CuentasBancarias":',CuentaBancaria::consultarCuentasBancariasByIdEntrevista($idEntrevista)).',';
       echo jsonConverterArray('"TarjetasEntidades":',TarjetaEntidad::consultarTarjetasEntidadesByIdEntrevista($idEntrevista));
       echo '},';
-    echo jsonConverterArray('"ReferenciasLaborales":',ReferenciaLaboral::consultarReferenciasLaboralesByIdEntrevista($idEntrevista));
+      echo '"ReferenciasLaborales":{';
+        echo jsonConverterArray('"Empresas":',ReferenciaLaboral::consultarReferenciasLaboralesByIdEntrevista($idEntrevista)).',';
+        echo jsonConverterTrimed('',ReferenciaLaboral::consultarObservacionesReferenciasLaboralesByIdEntrevista($idEntrevista));
+      echo '}';
     echo '}';
 echo'}';
 ?>

@@ -148,3 +148,11 @@ FROM entrevista
 left join postulante on entrevista.id_postulante  = postulante.id_postulante
 left join referencias_laborales on referencias_laborales.id_postulante = postulante.id_postulante
 where entrevista.id_entrevista = ?;
+---------------------------------------------------------------------------------------------------------
+
+SELECT  observaciones_infolaboral.id_observaciones_infolaboral              id_observaciones_infolaboral, 
+        observaciones_infolaboral.observacion                               observacion
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join observaciones_infolaboral on observaciones_infolaboral.id_postulante = postulante.id_postulante
+      where entrevista.id_entrevista = ?
