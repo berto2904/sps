@@ -109,11 +109,11 @@ try {
       }
     }
   }
-  $postulante = new Postulante($nombres, $apellido, $fecha_de_nacimiento, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $id_estado_civil, Null, Null,$id_sexo,$categoria_conducir,$expedida_por_B);
-  $idPostulante = $postulante->registrarPostulante();
+
+  $idPostulante = crearPostulante($nombres, $apellido, $fecha_de_nacimiento, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $id_estado_civil,$id_sexo,$categoria_conducir,$expedida_por_B);
+  crearEntrevista($idPostulante, $organizacion, $puesto, $fechaEntrevista, $informacionRelevante, $id_usuario);
 
   if ($idPostulante != 0) {
-    crearEntrevista($idPostulante, $organizacion, $puesto, $fechaEntrevista, $informacionRelevante, $id_usuario);
     crearFamiliares($familiares,$idPostulante);
     crearConyuge($apellido_conyuge, $nombres_conyuge, $id_sexo_conyuge, $fecha_de_nacimiento_conyuge, $dni_conyuge, $lugar_nacimiento_conyuge, $nacionalidad_conyuge, $profesion_conyuge,$idPostulante);
     crearObservacionesConvivencia($observacionConvivencia,$idPostulante);
@@ -351,9 +351,17 @@ function crearTransporte($id_domicilio,$transportes){
   }
 
   function crearEntrevista($idPostulante, $organizacion, $puesto, $fechaEntrevista, $informacionRelevante, $id_usuario){
-    if ($organizacion != Null || $puesto != Null || $fechaEntrevista != Null || $informacionRelevante != Null) {
+    if ($organizacion != Null) {
       $entrevista= new Entrevista($idPostulante, $organizacion, $puesto, $fechaEntrevista, $informacionRelevante, $id_usuario);
       $entrevista->registrarEntrevista();
+    }
+  }
+
+  function crearPostulante($nombres, $apellido, $fecha_de_nacimiento, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $id_estado_civil,$id_sexo,$categoria_conducir,$expedida_por_B){
+    if ($nombres != Null && $apellido != Null && $fecha_de_nacimiento != Null && $dni != Null){
+      $postulante = new Postulante($nombres, $apellido, $fecha_de_nacimiento, $licencia_conductor, $lugar_nacimiento, $nacionalidad, $dni, $id_estado_civil, Null, Null,$id_sexo,$categoria_conducir,$expedida_por_B);
+      $idPostulante = $postulante->registrarPostulante();
+      return $idPostulante;
     }
   }
 

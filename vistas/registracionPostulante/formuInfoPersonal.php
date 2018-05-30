@@ -9,18 +9,18 @@
         <div class="row">
           <div class="col-md-6">
             <label for="inputNombres">Nombres</label>
-            <input type="text" class="form-control" id="inputNombres" name="inputNombres" placeholder="Nombres" maxlength="70">
+            <input type="text" required class="form-control" id="inputNombres" name="inputNombres" placeholder="Nombres" maxlength="70">
           </div>
           <div class="col-md-6">
             <label for="">Apellido</label>
-            <input type="text" class="form-control" id="inputApellido" name="inputApellido" placeholder="Apellido" maxlength="70">
+            <input type="text" required class="form-control" id="inputApellido" name="inputApellido" placeholder="Apellido" maxlength="70">
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-6">
             <label for="inputFechaNacimmiento">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" id="postulante_fecha_de_nacimiento" name="inputFechaNacimmiento" placeholder="Fecha de Nacimmiento">
+            <input type="date" required class="form-control" id="postulante_fecha_de_nacimiento" name="inputFechaNacimmiento" placeholder="Fecha de Nacimmiento">
           </div>
           <div class="col-md-6">
             <label for="inputLugarNacimiento">Lugar de Nacimiento</label>
@@ -57,7 +57,7 @@
         <div class="row">
           <div class="col-md-6">
             <label for="inputDni">DNI</label>
-            <input type="number" class="form-control" id="inputDni" name="inputDni" placeholder="DNI">
+            <input type="number" required class="form-control" id="inputDni" name="inputDni" placeholder="DNI">
           </div>
           <div class="col-md-6">
             <label for="inputNacionalidad">Nacionalidad</label>

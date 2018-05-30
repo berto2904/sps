@@ -4,7 +4,7 @@
       <h3>Datos de entrevista</h3>
       <div class="col-md-10">
           <label for="">Organizacion</label>
-          <input type="text" class="form-control" id="organizacion" name="inputOrganizacion" placeholder="Organizacion" maxlength="70">
+          <input type="text" required class="form-control" id="organizacion" name="inputOrganizacion" placeholder="Organizacion" maxlength="70">
       </div>
     </div>
     <div class="row">
