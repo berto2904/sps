@@ -1,3 +1,5 @@
+var inputSearchBox;
+var searchBox
 
 var componentForm = {
         street_number: 'short_name',
@@ -32,7 +34,7 @@ var myLatLng = {lat: -34.615872, lng: -58.433298};
 var markers = [];
 
 function initAutocomplete() {
-
+        console.log('Google Maps API version: ' + google.maps.version);
         var map = new google.maps.Map(document.getElementById('map'), {
           center: myLatLng,
           zoom: 11,
@@ -51,9 +53,9 @@ function initAutocomplete() {
         map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(centerControlDiv);
 
         // Create the search box and link it to the UI element.
-        var input = document.getElementById('autocomplete');
-        var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        inputSearchBox = document.getElementById('autocomplete');
+        searchBox = new google.maps.places.SearchBox(inputSearchBox);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(inputSearchBox);
 
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
@@ -87,7 +89,10 @@ function initAutocomplete() {
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
-
+            if (!place.geometry) {
+              console.log("Devuelve lugar sin geometria");
+              return;
+            }
             $('#gmap').val(place.geometry.location);
             $('#gmap').val($('#gmap').val().replace('(','').replace(')','').replace(' ',''));
             // $('#gmap').val('{"'+$('#gmap').val().replace('(','lat":').replace(',',',"lng":').replace(')','')+'}');
@@ -108,10 +113,6 @@ function initAutocomplete() {
                   document.getElementById(addressType).value = val;
                 }
               }
-            if (!place.geometry) {
-              console.log("Returned place contains no geometry");
-              return;
-            }
             var icon = {
               url: place.icon,
               size: new google.maps.Size(71, 71),
@@ -127,8 +128,31 @@ function initAutocomplete() {
               zoom: 11,
               icon: icon,
               title: place.name,
+              draggable: true,
+              animation: google.maps.Animation.DROP,
               position: place.geometry.location,
             }));
+
+            google.maps.event.addListener(markers[0], 'dragend', function() {
+              $('#gmap').val(markers[0].getPosition());
+              $('#gmap').val($('#gmap').val().replace('(','').replace(')','').replace(' ',''));
+              // for (var component in componentForm) {
+              //     document.getElementById(component).value = '';
+              //     document.getElementById(component).disabled = false;
+              //   }
+              //   for (var i = 0; i < place.address_components.length; i++) {
+              //     var addressType = place.address_components[i].types[0];
+              //
+              //     if (place.address_components[i].types[0] === "sublocality_level_1" && document.getElementById('locality').value === "") {
+              //       var val = place.address_components[i][componentForm['locality']];
+              //       document.getElementById('locality').value = val;
+              //     }
+              //     if (componentForm[addressType]) {
+              //       var val = place.address_components[i][componentForm[addressType]];
+              //       document.getElementById(addressType).value = val;
+              //     }
+              //   }
+            });
 
             if (place.geometry.viewport) {
               // Only geocodes have viewport.

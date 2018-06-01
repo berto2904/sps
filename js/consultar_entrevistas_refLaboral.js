@@ -4,7 +4,7 @@ var base_url = window.location.origin;
 var $table = $('#tablaEntrevistas');
 
 $(document).ready(function() {
-  $table.bootstrapTable('hideColumn', 'id_entrevista');
+  // $table.bootstrapTable('hideColumn', 'id_entrevista');
 });
 
 $table.on('dbl-click-row.bs.table', function (e, row, $element) {

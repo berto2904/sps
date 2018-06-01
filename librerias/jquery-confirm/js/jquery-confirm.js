@@ -1242,7 +1242,7 @@ var jconfirm, Jconfirm;
          */
         alignMiddle: true,
         smoothContent: true,
-        content: 'Are you sure to continue?',
+        content: '',
         buttons: {},
         defaultButtons: {
             ok: {

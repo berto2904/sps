@@ -62,13 +62,13 @@
           </span>
         </a>
       </li>
-      <!-- <li role="presentation" class="">
+      <li role="presentation" class="">
         <a href="#formuConfirmacion" data-toggle="tab" aria-controls="" role="tab" title="Confirmacion">
           <span class="round-tab">
             <i class="glyphicon glyphicon-ok"></i>
           </span>
         </a>
-      </li> -->
+      </li>
     </ul>
   </div>
 </div>

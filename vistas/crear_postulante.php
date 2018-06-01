@@ -113,8 +113,8 @@ include ('headersFooters/headerEnd.php');
 include ('headersFooters/footerLibrerias.php');
 ?>
 <script src="../js/crearPostulante.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete" async defer></script>
 <script src="../js/domicilioGMap.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete" async defer></script>
 <?php
 include ('headersFooters/footerEnd.php');
 ?>

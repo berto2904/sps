@@ -110,7 +110,7 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
   padding: 20px 0;
   z-index: 1001;
-  background-color: #0000008c;
+  background-color: #000000e8;
   border-radius: 5em;
 }
 @media screen and (max-width: 768px) {
@@ -195,6 +195,20 @@ h1, h2, h3, h4, h5, h6, figure {
   border-bottom-color: #fff;
   border-width: 8px;
   margin-left: -8px;
+}
+.gtco-nav ul li.has-dropright .dropright:before {
+  bottom: 49%;
+  right: 13.6em;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #fff;
+  border-width: 8px;
+  margin-left: -8px;
+  transform: rotateZ(267deg);
 }
 .gtco-nav ul li.has-dropdown .dropdown li {
   display: block;
