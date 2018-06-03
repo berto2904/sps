@@ -18,12 +18,12 @@ include ('headersFooters/headerEnd.php');
       <div class="col-md-12 col-md-offset-0 text-left">
         <div class="row contenidoPostulante">
           <section>
-            <h1>Referencias Laborales</h1>
+            <h1>Informacion de Referencias Laborales</h1>
           </section>
           <section>
   					<div class="wizard" style="margin: 2em 0em; ">
               <div class="wizard-inner" style=" padding: 3% 2%;">
-                <h3>Postulante</h3>
+                <h3>Tabla de Postulantes</h3>
                 <!-- <div id="toolbar">
                   <button id="remove" class="btn btn-danger" disabled>
                     <i class="glyphicon glyphicon-remove"></i> Delete
@@ -70,7 +70,7 @@ include ('headersFooters/footerLibrerias.php');
 <script src="../librerias/bootstrap-table/dist/locale/bootstrap-table-es-AR.js"></script>
 <script src="../librerias/jquery-confirm/dist/jquery-confirm.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script> -->
-<script src="../js/consultar_entrevistas_refLaboral.js"></script>
+<script src="../js/referenciasLaborales/consultar_entrevistas_refLaboral.js"></script>
 
 <?php
 include ('headersFooters/footerEnd.php');

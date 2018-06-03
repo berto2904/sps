@@ -21,7 +21,7 @@ include ($server.'/sps/helper/sessionValidation.php');
                   include('consultarEditarPostulante/6_formuInfoSocioambiental.php');
                   include('consultarEditarPostulante/7_formuInfoEconomica.php');
                   include('consultarEditarPostulante/8_formuInfoReferenciasLaborales.php');
-                  // include('../registracionPostulante/formuConfirmacion.php');
+                  include('../registracionPostulante/formuConfirmacion.php');
                  ?>
 								<div class="clearfix"></div>
 							</div>
@@ -32,6 +32,6 @@ include ($server.'/sps/helper/sessionValidation.php');
     </div>
 </header>
 <script src="../js/crearPostulante.js" target="_top"></script>
-<script src="../js/consultarEditarPostulante.js"></script>
+<script src="../js/consultarEntrevistas/consultarEditarPostulante.js"></script>
 <script src="../js/domicilioGMap.js"></script>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete" async defer></script> -->

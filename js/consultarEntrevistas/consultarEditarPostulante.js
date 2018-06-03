@@ -133,7 +133,6 @@ var id = $('#idEntrevista').val();
                }
               });
             });
-
         }
      });
 });

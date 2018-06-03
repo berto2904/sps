@@ -77,7 +77,7 @@ include ('headersFooters/footerLibrerias.php');
 <script src="../librerias/bootstrap-table/dist/locale/bootstrap-table-es-AR.js"></script>
 <script src="../librerias/jquery-confirm/dist/jquery-confirm.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script> -->
-<script src="../js/consultar_entrevistas.js"></script>
+<script src="../js/consultarEntrevistas/consultar_entrevistas.js"></script>
 
 <?php
 include ('headersFooters/footerEnd.php');
