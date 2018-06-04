@@ -5,13 +5,11 @@
   // print_r($refLaborales);
   // die();
 ?>
-<div class="tab-pane active" role="tabpanel" id="formuInfoReferenciasLaborales" class="container">
-  </div>
-  <h3>Informes Laborales</h3>
+<?php if ($refLaborales[0]['id_referencias_laborales'] != ""  ) { ?>
+  <h3>Administracion de Informes Laborales</h3>
     <div class="formuInfoReferenciasLaborales row ">
       <div class="col-md-12" style=" display: flex; flex-direction: row; justify-content: space-around;">
         <?php
-        if ($refLaborales[0]['id_referencias_laborales'] != ""  ) {
           foreach ($refLaborales as $key => $ref) {
           ?>
          <div id="empresa_<?php echo $key ?>" class="card col-md-4">

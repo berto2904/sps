@@ -9,23 +9,7 @@ $(document).ready(function() {
 
 $table.on('dbl-click-row.bs.table', function (e, row, $element) {
         $.confirm({
-          title: function(){
-                var self = this;
-                return $.ajax({
-                    url: 'consultarAntecedentesLAborales/headerConsultaAntecedentesLaborales.php',
-                    method: 'POST',
-                }).done(function(response) {
-                    var parentTitle = self.parentElement;
-                    if (parentTitle != null) {
-                     parentTitle.innerHTML = response;
-                     $('.tituloWizard').html('<h1>Postulante: '+row.nombres+' '+row.apellido+'</h1>');
-                     // $('.tituloWizard').append('<h2>Postulante: '+row.nombres+' '+row.apellido+'</h2>');
-                    }
-                }).fail(function(){
-                   self.parentElement.innerHTML = "FAIL"
-                });
-            },
-        		icon: 'fa fa-spinner fa-spin',
+            title: 'Antecedentes laborales de '+row.nombres+' '+row.apellido,
         		theme:'material',
             type:'dark',
         		columnClass: 'xlarge',

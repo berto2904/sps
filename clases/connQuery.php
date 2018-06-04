@@ -28,6 +28,16 @@ class ConnQuery{
     mysqli_close($this->conn);
     return $fila;
   }
+  function getFilaById($id,$sql){
+    $stmt =  $this->conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $fila = $stmt->get_result();
+
+    mysqli_close($this->conn);
+    return $fila->fetch_assoc();
+  }
+
   function prepare($sql){
     $stmt = mysqli_prepare($this->conn, $sql);
     return $stmt;

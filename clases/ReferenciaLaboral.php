@@ -66,5 +66,20 @@
       return $info;
     }
 
+    public static function consultarReferenciaLaboralByIdReferenciaLaboral($idRef){
+      $cq = new connQuery();
+      $sql = "SELECT
+      			referencias_laborales.id_referencias_laborales		id_referencias_laborales,
+      			referencias_laborales.empresa											empresa,
+      			referencias_laborales.domicilio										domicilio,
+      			referencias_laborales.desde												desde,
+      			referencias_laborales.hasta												hasta
+      FROM referencias_laborales
+      where referencias_laborales.id_referencias_laborales = ?";
+
+      $info = $cq->getFilaById($idRef,$sql);
+
+      return $info;
+    }
   }
 ?>
