@@ -42,6 +42,10 @@ function crearInformeLaboral(idRefLaboral){
       columnClass: 'xlarge',
       containerFluid: false,
       buttons:{
+        formSubmit: {
+           text: 'Registrar',
+           btnClass: 'btn-green'
+        },
         Cerrar: function(){
         },
       },
@@ -55,6 +59,12 @@ function crearInformeLaboral(idRefLaboral){
                 }
             }).done(function (response) {
                 self.setContentAppend(response);
+                console.log("hola");
+                // self.$content.find('form').on('submit', function (e) {
+                //     // if the user submits the form by pressing enter in the field.
+                //   e.preventDefault();
+                //   self.$$formSubmit.trigger('click'); // reference the button and click it
+                //   });
             }).fail(function(){
                 self.setContentAppend('<div>Fail!</div>');
             });

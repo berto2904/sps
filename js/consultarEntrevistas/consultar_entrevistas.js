@@ -29,6 +29,7 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
         		theme:'material',
             type:'dark',
         		columnClass: 'xlarge',
+            containerFluid:false,
         		buttons:{
               Eliminar: function(){
         				$.alert('Proximamente!!');

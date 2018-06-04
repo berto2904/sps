@@ -1,37 +1,36 @@
 <?php
-  require ("../clases/Postulante.php");
-  require ("../clases/Entrevista.php");
-  require ("../clases/Familiar.php");
-  require ("../clases/Conyuge.php");
-  require ("../clases/ObservacionConvivencia.php");
-  require ("../clases/Estudio.php");
-  require ("../clases/Idioma.php");
-  require ("../clases/Hobby.php");
-  require ("../clases/Domicilio.php");
-  require ("../clases/Transporte.php");
-  require ("../clases/Vivienda.php");
-  require ("../clases/InformacionSocioambiental.php");
-  require ("../clases/ConceptoVecinal.php");
-  require ("../clases/InformacionEconomica.php");
-  require ("../clases/CuentaBancaria.php");
-  require ("../clases/MovilidadPropia.php");
-  require ("../clases/TarjetaCreditoDebito.php");
-  require ("../clases/TarjetaEntidad.php");
-  require ("../clases/ReferenciaLaboral.php");
-  require ("../clases/ObservacionReferenciasLaborales.php");
-  include ('../helper/utf8EncodeDecodeDeep.php');
+require ("../clases/Postulante.php");
+require ("../clases/Entrevista.php");
+require ("../clases/Familiar.php");
+require ("../clases/Conyuge.php");
+require ("../clases/ObservacionConvivencia.php");
+require ("../clases/Estudio.php");
+require ("../clases/Idioma.php");
+require ("../clases/Hobby.php");
+require ("../clases/Domicilio.php");
+require ("../clases/Transporte.php");
+require ("../clases/Vivienda.php");
+require ("../clases/InformacionSocioambiental.php");
+require ("../clases/ConceptoVecinal.php");
+require ("../clases/InformacionEconomica.php");
+require ("../clases/CuentaBancaria.php");
+require ("../clases/MovilidadPropia.php");
+require ("../clases/TarjetaCreditoDebito.php");
+require ("../clases/TarjetaEntidad.php");
+require ("../clases/ReferenciaLaboral.php");
+require ("../clases/ObservacionReferenciasLaborales.php");
+include ('../helper/utf8EncodeDecodeDeep.php');
+include ('../helper/sessionValidation.php');
 
 
-
-  session_start();
-  //Entrevista
+ //Entrevista
 $id_usuario = (int)$_SESSION["usuario"];
 
 $organizacion = ($_POST["inputOrganizacion"] != "" ? $_POST["inputOrganizacion"] : Null);  utf8_decode_deep($organizacion);
 $puesto = ($_POST["inputPuesto"] != "" ? $_POST["inputPuesto"] : Null);  utf8_decode_deep($puesto);
 $fechaEntrevista = ($_POST["inputFechaEntrevista"] != "" ? $_POST["inputFechaEntrevista"] : Null); utf8_decode_deep($fechaEntrevista);
 $informacionRelevante = Null;  utf8_decode_deep($informacionRelevante);
-  //Postulante
+//Postulante
 $apellido = ($_POST["inputApellido"] != "" ? $_POST["inputApellido"] : Null);  utf8_decode_deep($apellido);
 $nombres = ($_POST["inputNombres"] != "" ? $_POST["inputNombres"] : Null); utf8_decode_deep($nombres);
 $id_sexo = ($_POST["inputSexo"] != "" ? $_POST["inputSexo"] : Null); utf8_decode_deep($id_sexo);
