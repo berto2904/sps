@@ -2,10 +2,10 @@
 $server = ($_SERVER['DOCUMENT_ROOT']);
 include ($server.'/sps/helper/sessionValidation.php');
 // include ($server.'/sps/controladores/consultarPostulante.php');
- $idEntrevista = $_POST["id_entrevista"];
+ $idEntrevista = $_GET["id_entrevista"];
  ?>
- <input type="hidden" id="idEntrevista" name="" value="<?= $idEntrevista?>">
-	<header>
+	<header id="headerConsultaRef">
+    <input type="hidden" id="idEntrevista" name="" value="<?= $idEntrevista?>">
     <div class="col-md-12 col-md-offset-0 text-left">
       <div class="row">
         <section>

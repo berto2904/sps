@@ -42,6 +42,28 @@
       return $this->id_informe_laboral;
     }
 
+    function actualizarInformeLaboral(){
+      $cq = new connQuery();
+      $sql = "UPDATE informe_laboral
+              SET puesto_al_ingresar = ?, ultimo_puesto_ocupado = ?, causa_de_egreso = ?, asistencia = ?, puntualidad = ?, concepto_general = ?
+              WHERE id_referencias_laborales = ? ";
+      $ps = $cq->prepare($sql);
+      mysqli_stmt_bind_param($ps,
+      "ssssssi",
+      $this->puesto_al_ingresar,
+      $this->ultimo_puesto_ocupado,
+      $this->causa_de_egreso,
+      $this->asistencia,
+      $this->puntualidad,
+      $this->concepto_general,
+      $this->id_referencias_laborales
+      );
+
+      mysqli_stmt_execute($ps);
+      $this->id_informe_laboral = $cq->getUltimoId();
+      return $this->id_informe_laboral;
+    }
+
     public static function  consultarPreguntas(){
       $cq = new connQuery();
       $sql = "select  id_pregunta id, pregunta from pregunta where tipo = 'pl'";
@@ -58,6 +80,28 @@
 				}
 			return $preguntas;
     }
+
+    public static function  consultarInformeLaboralByIdReferenciaLaboral($idReferenciaLaboral){
+      $cq = new connQuery();
+      $sql = "select * from informe_laboral where id_referencias_laborales = ?";
+
+      return $cq->getFilaById($idReferenciaLaboral,$sql);
+    }
+
+    public static function  existeInformeLaboral($idReferenciaLaboral){
+  		$cq = new connQuery();
+  		$sql = "select * from informe_laboral where id_referencias_laborales = ?";
+  		$ps = $cq->prepare($sql);
+
+  		mysqli_stmt_bind_param($ps,
+  		"i",
+  		$idReferenciaLaboral);
+
+  		mysqli_stmt_execute($ps);
+  		$consultaIsTrue = mysqli_stmt_fetch($ps);
+
+  		return $consultaIsTrue;
+  	}
 
   }
 ?>

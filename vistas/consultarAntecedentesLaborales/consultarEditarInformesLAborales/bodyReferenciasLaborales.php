@@ -1,6 +1,7 @@
 <?php
   $server = ($_SERVER['DOCUMENT_ROOT']);
   require ($server.'/sps/clases/ReferenciaLaboral.php');
+  require ($server.'/sps/clases/InformeLaboral.php');
   $refLaborales = ReferenciaLaboral::consultarReferenciasLaboralesByIdEntrevista($idEntrevista);
   // print_r($refLaborales);
   // die();
@@ -26,9 +27,15 @@
             <b>Fecha de Egreso:</b> <p id="hasta" class="desdeHasta"></p>
           </div>
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-primary" onclick="imprimirInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-print"></i> Imprimir </button>
-            <button type="button" class="btn btn-sm btn-success" onclick="crearInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-pencil"></i> Crear/Editar </button>
-            <button type="button" class="btn btn-sm btn-danger"  onclick="eliminarInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-trash"></i> Eliminar </button>
+            <?php $existeInforme = InformeLaboral::existeInformeLaboral($ref['id_referencias_laborales']);
+            if($existeInforme) {
+              ?>
+              <button type="button" class="btn btn-sm btn-primary" onclick="imprimirInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-print"></i> Imprimir </button>
+              <button type="button" class="btn btn-sm btn-warning" onclick="crearInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-edit"></i> Editar </button>
+              <button type="button" class="btn btn-sm btn-danger"  onclick="eliminarInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-trash"></i> Eliminar </button>
+            <?php } else{ ?>
+              <button type="button" class="btn btn-sm btn-success" onclick="crearInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-plus"></i> Crear Informe Laboral </button>
+            <?php } ?>
           </div>
         </div>
         <?php }

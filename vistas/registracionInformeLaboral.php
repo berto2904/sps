@@ -2,12 +2,16 @@
 $server = ($_SERVER['DOCUMENT_ROOT']);
 $idReferenciaLaboral = $_POST['id_ref'];
 require ($server. "/sps/clases/InformeLaboral.php");
+require ($server. "/sps/clases/InformeLaboralPregunta.php");
 require ($server. "/sps/clases/ReferenciaLaboral.php");
+
 $preguntas = InformeLaboral::consultarPreguntas();
 $referenciaLaboral=ReferenciaLaboral::consultarReferenciaLaboralByIdReferenciaLaboral($idReferenciaLaboral);
 
+$informeLaboral = InformeLaboral::consultarInformeLaboralByIdReferenciaLaboral($idReferenciaLaboral);
+$informeLaboralPreguntas = InformeLaboralPregunta::consultarInformeLaboralPreguntaByIdReferenciaLaboral($idReferenciaLaboral);
 ?>
-<form class="" method="post" action="../controladores/registrarInformeLaboralController.php">
+<form class="" id="registroInformeLaboral" method="post" action="../controladores/registrarInformeLaboralController.php">
   <input type="hidden" name="informeLaboral[idRefLaboral]" value="<?php echo $referenciaLaboral['id_referencias_laborales'] ?>">
   <div class="tab-content formularioPostulante">
     <div class="tab-pane active" role="tabpanel" id="">
@@ -26,31 +30,31 @@ $referenciaLaboral=ReferenciaLaboral::consultarReferenciaLaboralByIdReferenciaLa
         </div>
         <div class="col-md-6">
           <label for="">Puesto al ingresar</label>
-          <input type="text" name="informeLaboral[puestoIngresar]" class="form-control" value="" maxlength="65">
+          <input type="text" name="informeLaboral[puestoIngresar]" class="form-control" value="<?php echo $informeLaboral['puesto_al_ingresar'] ?>" maxlength="65">
           <label for="">Ultimo Puesto ocupado</label>
-          <input type="text" name="informeLaboral[puestoOcupado]" class="form-control" value="" maxlength="65">
+          <input type="text" name="informeLaboral[puestoOcupado]" class="form-control" value="<?php echo $informeLaboral['ultimo_puesto_ocupado'] ?>" maxlength="65">
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <label for="">Causas de Egreso</label>
-          <input type="text" name="informeLaboral[causasEgreso]" class="form-control" value="" maxlength="140">
+          <input type="text" name="informeLaboral[causasEgreso]" class="form-control" value="<?php echo $informeLaboral['causa_de_egreso'] ?>" maxlength="140">
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
           <label for="">Asistencia</label>
-          <input type="text" name="informeLaboral[asistencia]" class="form-control" value="" maxlength="65">
+          <input type="text" name="informeLaboral[asistencia]" class="form-control" value="<?php echo $informeLaboral['asistencia'] ?>" maxlength="65">
         </div>
         <div class="col-md-6">
           <label for="">Puntualidad</label>
-          <input type="text" name="informeLaboral[puntualidad]" class="form-control" value="" maxlength="65">
+          <input type="text" name="informeLaboral[puntualidad]" class="form-control" value="<?php echo $informeLaboral['puntualidad'] ?>" maxlength="65">
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <label for="">Concepto general</label>
-          <input type="text" name="informeLaboral[conceptoGeneral]" class="form-control" value="" maxlength="140">
+          <input type="text" name="informeLaboral[conceptoGeneral]" class="form-control" value="<?php echo $informeLaboral['concepto_general'] ?>" maxlength="140">
         </div>
       </div>
       <div class="row">
@@ -59,11 +63,11 @@ $referenciaLaboral=ReferenciaLaboral::consultarReferenciaLaboralByIdReferenciaLa
             ?>
             <!-- <i class="glyphicon glyphicon-chevron-down"></i> -->
             <label for=""><?php echo $pregunta['pregunta']?></label>
-            <input type="text" id="<?php echo $pregunta['idPregunta']?>" name="informeLaboral[pregunta][<?php echo $pregunta['idPregunta']?>]" class="form-control" value="" maxlength="200">
+            <input type="text" id="<?php echo $pregunta['idPregunta']?>" name="informeLaboral[pregunta][<?php echo $pregunta['idPregunta']?>]" class="form-control" value="<?php echo empty($informeLaboralPreguntas)?"":$informeLaboralPreguntas[$key]['respuesta']; ?>" maxlength="200">
           <?php } ?>
         </div>
       </div>
-      <input type="submit" name="" value="Registar Informe">
+      <!-- <input type="submit" name="" value="Registar Informe"> -->
     </div>
   </div>
 </form>

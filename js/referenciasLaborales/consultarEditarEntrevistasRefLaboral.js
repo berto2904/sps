@@ -35,7 +35,7 @@ function traerInfoDeEntrevista(){
 
 function crearInformeLaboral(idRefLaboral){
   $.confirm({
-    title:"Informe Laboral",
+      title:"Informe Laboral",
       icon: 'fa fa-spinner fa-spin',
       theme:'material',
       type:'dark',
@@ -44,12 +44,23 @@ function crearInformeLaboral(idRefLaboral){
       buttons:{
         formSubmit: {
            text: 'Registrar',
-           btnClass: 'btn-green'
+           btnClass: 'btn-green',
+           action: function(){
+             $.ajax({
+               url:'../controladores/registrarInformeLaboralController.php',
+               method:'POST',
+               data: $('#registroInformeLaboral').serialize()+ "&id_entrevista="+$('#idEntrevista').val(),
+               success: function(result){
+                 $('#headerConsultaRef').html(result);
+                 traerInfoDeEntrevista();
+               }
+             });
+           }
         },
         Cerrar: function(){
         },
       },
-      onContentReady: function(){
+      content:function(){
             var self = this;
             return $.ajax({
                 url: 'registracionInformeLaboral.php',
@@ -59,15 +70,17 @@ function crearInformeLaboral(idRefLaboral){
                 }
             }).done(function (response) {
                 self.setContentAppend(response);
-                console.log("hola");
-                // self.$content.find('form').on('submit', function (e) {
-                //     // if the user submits the form by pressing enter in the field.
-                //   e.preventDefault();
-                //   self.$$formSubmit.trigger('click'); // reference the button and click it
-                //   });
-            }).fail(function(){
+              }).fail(function(){
                 self.setContentAppend('<div>Fail!</div>');
             });
-        }
-    });
+        },
+      onContentReady: function(){
+            var jc = this;
+            jc.$content.find('form').on('submit', function (e) {
+                    // if the user submits the form by pressing enter in the field.
+                    e.preventDefault();
+                  jc.$$formSubmit.trigger('click'); // reference the button and click it
+                  });
+                }
+        });
 }

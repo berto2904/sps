@@ -26,6 +26,28 @@
 
       mysqli_stmt_execute($ps);
     }
+    function actualizarPreguntaRespuestaInfoLaboral($id_referencias_laborales){
+      $cq = new connQuery();
+      $sql = "UPDATE informe_laboral_pregunta
+              SET respuesta = ?
+              WHERE id_pregunta_laboral = ? AND id_informe_laboral = (select id_informe_laboral from informe_laboral where id_referencias_laborales = ?)";
+      $ps = $cq->prepare($sql);
+      mysqli_stmt_bind_param($ps,
+      "sii",
+      $this->respuesta,
+      $this->id_pregunta_laboral,
+      $id_referencias_laborales);
+
+      mysqli_stmt_execute($ps);
+    }
+
+    public static function  consultarInformeLaboralPreguntaByIdReferenciaLaboral($idReferenciaLaboral){
+      $cq = new connQuery();
+      $sql = "SELECT * FROM informe_laboral_pregunta
+              WHERE id_informe_laboral = (SELECT id_informe_laboral FROM informe_laboral WHERE id_referencias_laborales = ?)";
+
+      return $cq->getFilasById($idReferenciaLaboral,$sql);
+    }
 
   }
 ?>

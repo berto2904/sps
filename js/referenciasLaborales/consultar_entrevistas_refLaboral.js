@@ -21,10 +21,11 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
         	        var self = this;
                   return $.ajax({
         	            url: 'consultarAntecedentesLaborales/consultaAntecedentesLaborales.php',
-        	            method: 'POST',
-                      data: {
-                      	id_entrevista:row.id_entrevista
-                      }
+        	            method: 'GET',
+                      data:"id_entrevista="+row.id_entrevista
+                      // data: {
+                      // 	id_entrevista:row.id_entrevista
+                      // }
         	        }).done(function (response) {
         	            self.setContentAppend(response);
         	        }).fail(function(){
