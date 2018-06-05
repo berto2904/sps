@@ -84,3 +84,34 @@ function crearInformeLaboral(idRefLaboral){
                 }
         });
 }
+
+function eliminarInformeLaboral(idRefLaboral){
+  $.confirm({
+    title: '¿Estás Seguro de eliminar el Informe Laboral?',
+    content: 'Está funcion se cancelara en 8 segundos si no es ejecutada',
+    autoClose: 'Cancelar|8000',
+    theme:'material',
+    type:'dark',
+    buttons: {
+        Eliminar: {
+            text: 'Aceptar',
+            action: function () {
+              $.ajax({
+                  url: '../controladores/eliminarInformeLaboralController.php',
+                  method: 'POST',
+                  data:{
+                    id_ref:idRefLaboral,
+                    id_entrevista : $('#idEntrevista').val()
+                  },
+                  success: function(result){
+                    $('#headerConsultaRef').html(result);
+                    traerInfoDeEntrevista();
+                  }
+              });
+            }
+        },
+        Cancelar: function () {
+        }
+    }
+});
+}

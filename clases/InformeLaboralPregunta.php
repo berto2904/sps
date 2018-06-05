@@ -49,5 +49,13 @@
       return $cq->getFilasById($idReferenciaLaboral,$sql);
     }
 
+    public static function  eliminarInformeLaboralPreguntaByIdReferenciaLaboral($idReferenciaLaboral){
+      $cq = new connQuery();
+      $sql = "DELETE FROM informe_laboral_pregunta
+              WHERE id_informe_laboral = (SELECT id_informe_laboral FROM informe_laboral WHERE id_referencias_laborales = ?)";
+
+      $cq->ejecutarConsultaById($idReferenciaLaboral,$sql);
+    }
+
   }
 ?>

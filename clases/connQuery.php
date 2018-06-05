@@ -22,6 +22,13 @@ class ConnQuery{
     mysqli_close($this->conn);
     return $query;
   }
+  function ejecutarConsultaById($id,$sql){
+    $stmt =  $this->conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    mysqli_close($this->conn);
+  }
   function getFila($sql){
     $query = mysqli_query($this->conn,$sql);
     $fila =  mysqli_fetch_assoc($query);
