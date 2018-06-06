@@ -12,9 +12,16 @@ session_start();
 
 if ($resultadoConUserName == true) {
   $query = 'select * from usuario where nombre_usuario ="'.$usuarioIngreso.'"';
-  $idUsuario = $connQuery->getFila($query)['id_usuario'];
+
+  $usuario = $connQuery->getFila($query);
+  $idUsuario = $usuario['id_usuario'];
+  $usuarioNombre = $usuario['nombre'];
+  $usuarioApellido = $usuario['apellido'];
 
   $_SESSION['usuario'] = $idUsuario;
+  $_SESSION['usuarioNombre'] = $usuarioNombre;
+  $_SESSION['usuarioApellido'] = $usuarioApellido;
+
   header("location: ../vistas/home.php");
 
 } else {

@@ -95,6 +95,7 @@ function eliminarInformeLaboral(idRefLaboral){
     buttons: {
         Eliminar: {
             text: 'Aceptar',
+            btnClass: 'btn-success',
             action: function () {
               $.ajax({
                   url: '../controladores/eliminarInformeLaboralController.php',
@@ -110,7 +111,10 @@ function eliminarInformeLaboral(idRefLaboral){
               });
             }
         },
-        Cancelar: function () {
+        Cancelar:{
+          btnClass: 'btn-dark',
+          action:function () {
+          }
         }
     }
 });

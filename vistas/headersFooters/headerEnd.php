@@ -7,7 +7,7 @@
 		<nav class="gtco-nav" role="navigation">
 			<div class="gtco-container">
 				<div class="row">
-					<div class="col-xs-10 text-left menu-1">
+					<div class="col-xs-9 text-left menu-1">
 						<ul>
 							<li class="has-dropdown">
 								<a href="#">Entrevistas</a>
@@ -26,11 +26,19 @@
 							</li>
 						</ul>
 					</div>
-					<div class="col-sm-2 col-xs-12">
+					<div class="col-sm-3 col-xs-6" style=" display: flex; flex-direction: row; justify-content: flex-end; ">
 						<div id="gtco-logo">
 							<a>
 								<img src="../resources/images/sps.jpg" alt="" style=" width: 3em;">
 							</a>
+						</div>
+						<div id="usuarioSesion" style="color: #b5ab89;display: flex;flex-direction: column;justify-content: flex-end;height: 3em;">
+							<div id="usuario" style="display: flex;justify-content: center;">
+								<?php echo $_SESSION['usuarioNombre'].' '.$_SESSION['usuarioApellido']?>
+							</div>
+							<div style="display: flex;justify-content: flex-end;">
+								<a href="logout.php" style=" ">Cerrar Sesion</a>
+							</div>
 						</div>
 					</div>
 				</div>
