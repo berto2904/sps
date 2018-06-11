@@ -20,7 +20,7 @@
 								<a href="#">Informes</a>
 								<ul class="dropdown">
 									<li><a href="#">Socio-ambiental</a></li>
-									<li><a href="#">Informe Confidencial</a></li>
+									<li><a href="consultar_entrevistas_infConfidencial.php">Informe Confidencial</a></li>
 									<li><a href="consultar_entrevistas_refLaboral.php">Referencias Laborales</a></li>
 								</ul>
 							</li>
