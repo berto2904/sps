@@ -58,6 +58,23 @@
 
       return $cq->getFilasById($idEntrevista,$sql);
     }
+    
+    public static function consultarPadresByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "SELECT
+                		familiar_tipo.descripcion									familiar_tipo,
+                		familiar_postulante.apellido_nombre				familiar_apellido_nombre,
+                    familiar_postulante.id_familiar_tipo			id_familiar_tipo
+      FROM entrevista
+      left join postulante on entrevista.id_postulante  = postulante.id_postulante
+      left join familiar_postulante on familiar_postulante.id_postulante = postulante.id_postulante
+      left join familiar_tipo on familiar_tipo.id_familiar_tipo = familiar_postulante.id_familiar_tipo
+      where entrevista.id_entrevista = ?
+      and familiar_postulante.id_familiar_tipo in (1,2)
+      order by id_familiar_tipo";
+
+      return $cq->getFilasById($idEntrevista,$sql);
+    }
 
   }
 ?>

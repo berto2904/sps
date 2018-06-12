@@ -303,3 +303,8 @@ span.round-tab:hover {
     display: flex;
     justify-content: space-between;
 }
+
+.descripcionFidedigna {
+    position: relative;
+    top: 17px;
+}

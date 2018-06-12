@@ -7,7 +7,7 @@
   // die();
 ?>
 <?php if ($refLaborales[0]['id_referencias_laborales'] != ""  ) { ?>
-  <h3>Administracion de Informes Laborales</h3>
+  <!-- <h3>Administracion de Informes Laborales</h3> -->
     <div class="formuInfoReferenciasLaborales row ">
       <div class="col-md-12" style=" display: flex; flex-direction: row; justify-content: space-around;">
         <?php

@@ -8,34 +8,14 @@ var id = $('#idEntrevista').val();
 
 
 $(document).ready(function() {
-  traerInfoDeEntrevista();
+
 });
 
-function traerInfoDeEntrevista(){
-  $.ajax({
-    url: "../controladores/consultarPostulante.php",
-    type:"POST",
-    async:true,
-    data: {
-      id_entrevista:id,
-    },
-    success: function(response) {
-      postulanteInfo = JSON.parse(response);
-      $.each(postulanteInfo.Postulante.ReferenciasLaborales.Empresas,function(id1, empresa){
-        $.each(empresa,function(id2, value){
-          if ($('#empresa_'+id1+' #'+id2).exists()) {
-            $('#empresa_'+id1+' #'+id2).text(value);
-          }
-        });
-      });
-    }
-  });
-}
 
 
-function crearInformeLaboral(idRefLaboral){
+function crearInformeConfidencial(idPostulante){
   $.confirm({
-      title:"Informe Laboral",
+      title:"Consultadas fuentes fidedignas arrojaron que:",
       icon: 'fa fa-spinner fa-spin',
       theme:'material',
       type:'dark',
@@ -47,12 +27,11 @@ function crearInformeLaboral(idRefLaboral){
            btnClass: 'btn-green',
            action: function(){
              $.ajax({
-               url:'../controladores/registrarInformeLaboralController.php',
+               url:'../controladores/registrarInformeConfidencialController.php',
                method:'POST',
-               data: $('#registroInformeLaboral').serialize()+ "&id_entrevista="+$('#idEntrevista').val(),
+               data: $('#registroInformeConfidencial').serialize()+ "&id_entrevista="+$('#idEntrevista').val(),
                success: function(result){
-                 $('#headerConsultaRef').html(result);
-                 traerInfoDeEntrevista();
+                 $('#headerConsultaInfConfidencial').html(result);
                }
              });
            }
@@ -63,10 +42,10 @@ function crearInformeLaboral(idRefLaboral){
       content:function(){
             var self = this;
             return $.ajax({
-                url: 'registracionInformeLaboral.php',
+                url: 'registracionInformeConfidencial.php',
                 method: 'POST',
                 data:{
-                  id_ref:idRefLaboral
+                  id_postulante:idPostulante
                 }
             }).done(function (response) {
                 self.setContentAppend(response);
@@ -84,9 +63,9 @@ function crearInformeLaboral(idRefLaboral){
         });
 }
 
-function eliminarInformeLaboral(idRefLaboral){
+function eliminarInformeConfidencial(idPostulante){
   $.confirm({
-    title: '¿Estás Seguro de eliminar el Informe Laboral?',
+    title: '¿Estás Seguro de eliminar el Informe Confidencial?',
     content: 'Está funcion se cancelara en 8 segundos si no es ejecutada',
     autoClose: 'Cancelar|8000',
     theme:'material',
@@ -97,15 +76,14 @@ function eliminarInformeLaboral(idRefLaboral){
             btnClass: 'btn-success',
             action: function () {
               $.ajax({
-                  url: '../controladores/eliminarInformeLaboralController.php',
+                  url: '../controladores/eliminarInformeConfidencialController.php',
                   method: 'POST',
                   data:{
-                    id_ref:idRefLaboral,
+                    id_postulante:idPostulante,
                     id_entrevista : $('#idEntrevista').val()
                   },
                   success: function(result){
-                    $('#headerConsultaRef').html(result);
-                    traerInfoDeEntrevista();
+                    $('#headerConsultaInfConfidencial').html(result);
                   }
               });
             }

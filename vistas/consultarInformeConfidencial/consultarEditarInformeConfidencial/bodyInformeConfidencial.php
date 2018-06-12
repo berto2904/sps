@@ -1,54 +1,63 @@
 <?php
   $server = ($_SERVER['DOCUMENT_ROOT']);
-  require ($server.'/sps/clases/ReferenciaLaboral.php');
-  require ($server.'/sps/clases/InformeLaboral.php');
-  $refLaborales = ReferenciaLaboral::consultarReferenciasLaboralesByIdEntrevista($idEntrevista);
-  // print_r($refLaborales);
-  // die();
+  require ($server.'/sps/clases/Postulante.php');
+  require ($server.'/sps/clases/Familiar.php');
+  require ($server.'/sps/clases/InformeConfidencial.php');
+
+  $postulante = Postulante::consultarPostulanteByIdEntrevista($idEntrevista)[0][0];
+  $familiares = Familiar::consultarPadresByIdEntrevista($idEntrevista);
+  $informeConf = InformeConfidencial::consultarInformeConfidencialByIdPostulante($postulante['id_postulante']);
+  $existeInforme = InformeConfidencial::existeInformeConfidencial($postulante['id_postulante']);
 ?>
-<?php if ($refLaborales[0]['id_referencias_laborales'] != ""  ) { ?>
-  <h3>Administracion de Informes Laborales</h3>
-    <div class="formuInfoReferenciasLaborales row ">
+  <!-- <h3>Administracion de Informes Laborales</h3> -->
+    <div class="formuInfoConfidencial row ">
       <div class="col-md-12" style=" display: flex; flex-direction: row; justify-content: space-around;">
-        <?php
-          foreach ($refLaborales as $key => $ref) {
-          ?>
-         <div id="empresa_<?php echo $key ?>" class="card col-md-4">
+         <div class="card col-md-6">
           <div class="empresaDescripcion">
-            <b>Empresa:</b> <p id="empresa"></p>
+            <b>Apellido:</b> <p><?php echo $postulante['postulante_apellido'] ?></p>
           </div>
           <div class="empresaDescripcion">
-            <b>Domicilio:</b> <p id="domicilio"></p>
+            <b>Nombres:</b> <p> <?php echo $postulante['postulante_nombres'] ?></p>
           </div>
           <div class="empresaDescripcion">
-            <b>Fecha de Ingreso:</b> <p id="desde" class="desdeHasta"></p>
+            <b>Nacionalidad:</b> <p> <?php echo $postulante['postulante_nacionalidad'] ?></p>
           </div>
           <div class="empresaDescripcion">
-            <b>Fecha de Egreso:</b> <p id="hasta" class="desdeHasta"></p>
+            <b>Documento:</b> <p> <?php echo $postulante['postulante_dni'] ?></p>
           </div>
-          <div class="btn-group">
-            <?php $existeInforme = InformeLaboral::existeInformeLaboral($ref['id_referencias_laborales']);
-            if($existeInforme) {
+          <?php
+          if (!empty($familiares)) {
+            foreach ($familiares as $familiar => $value) {
               ?>
-              <button type="button" class="btn btn-sm btn-primary" onclick="imprimirInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-print"></i> Imprimir </button>
-              <button type="button" class="btn btn-sm btn-warning" onclick="crearInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-edit"></i> Editar </button>
-              <button type="button" class="btn btn-sm btn-danger"  onclick="eliminarInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-trash"></i> Eliminar </button>
-            <?php } else{ ?>
-              <button type="button" class="btn btn-sm btn-success" onclick="crearInformeLaboral(<?php echo $ref['id_referencias_laborales'] ?>)"><i class="glyphicon glyphicon-plus"></i> Crear Informe Laboral </button>
-            <?php } ?>
+              <div class="empresaDescripcion">
+                <b><?php echo $value['familiar_tipo'] ?>:</b> <p> <?php echo $value['familiar_apellido_nombre'] ?></p>
+              </div>
+            <?php
+            }
+          }
+           ?>
+        </div>
+        <?php if ($existeInforme) { ?>
+          <div class="card col-md-6">
+            <label>Consultadas fuentes fidedignas arrojaron que:</label>
+            <div class="descripcionFidedigna">
+              <p><?php echo $informeConf['respuesta'] ?></p>
+            </div>
           </div>
-        </div>
-        <?php }
-      }else {
-        ?>
-        <div class="alert alert-danger" role="alert">
-          <i class="glyphicon glyphicon-exclamation-sign"></i>
-          El postulante no dispone de referencias laborales
-        </div>
-        <?php
-      }
-        ?>
+        <?php } ?>
       </div>
+      <?php
+        if (!$existeInforme) { ?>
+          <div class="btn-group col-md-6 col-md-offset-4">
+            <button type="button" class="btn btn-sm btn-success" onclick="crearInformeConfidencial(<?php echo $postulante['id_postulante'] ?>)"><i class="glyphicon glyphicon-plus"></i> Crear Informe Confidencial </button>
+          </div>
+        <?php }else{ ?>
+          <div class="btn-group col-md-8 col-md-offset-4">
+            <button type="button" class="btn btn-sm btn-primary" onclick="imprimirInformeConfidencial(<?php echo $postulante['id_postulante'] ?>)"><i class="glyphicon glyphicon-print"></i> Imprimir </button>
+            <button type="button" class="btn btn-sm btn-warning" onclick="crearInformeConfidencial(<?php echo $postulante['id_postulante'] ?>)"><i class="glyphicon glyphicon-edit"></i> Editar </button>
+            <button type="button" class="btn btn-sm btn-danger"  onclick="eliminarInformeConfidencial(<?php echo $postulante['id_postulante'] ?>)"><i class="glyphicon glyphicon-trash"></i> Eliminar </button>
+          </div>
+          <?php } ?>
     </div>
   </div>
 </div>

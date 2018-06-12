@@ -9,10 +9,10 @@ $(document).ready(function() {
 
 $table.on('dbl-click-row.bs.table', function (e, row, $element) {
         $.confirm({
-            title: 'Informe Confidencial'
+            title: 'Informe Confidencial',
         		theme:'material',
             type:'dark',
-        		columnClass: 'xlarge',
+        		columnClass: 'large',
         		buttons:{
               Cerrar: function(){
         			},

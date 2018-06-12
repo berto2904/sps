@@ -175,6 +175,7 @@
       $sql = "SELECT
             postulante.id_sexo                                      id_sexo_postulante,
             postulante.id_estado_civil                              id_estado_civil,
+            postulante.id_postulante                                id_postulante,
             postulante.nombres                                      postulante_nombres,
             postulante.apellido                                     postulante_apellido,
             postulante.fecha_de_nacimiento                          postulante_fecha_de_nacimiento,
