@@ -308,3 +308,7 @@ span.round-tab:hover {
     position: relative;
     top: 17px;
 }
+.btnCenterGroup  {
+    display: flex !important;
+    justify-content: center;
+}

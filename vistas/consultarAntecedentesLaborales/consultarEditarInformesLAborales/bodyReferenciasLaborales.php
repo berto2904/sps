@@ -26,7 +26,7 @@
           <div class="empresaDescripcion">
             <b>Fecha de Egreso:</b> <p id="hasta" class="desdeHasta"></p>
           </div>
-          <div class="btn-group">
+          <div class="btn-group btnCenterGroup">
             <?php $existeInforme = InformeLaboral::existeInformeLaboral($ref['id_referencias_laborales']);
             if($existeInforme) {
               ?>

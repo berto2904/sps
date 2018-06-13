@@ -18,8 +18,8 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
                     var parentTitle = self.parentElement;
                     if (parentTitle != null) {
                      parentTitle.innerHTML = response;
-                     $('.tituloWizard').html('<h1>Entrevista Nº: '+row.id_entrevista+'</h1>');
-                     // $('.tituloWizard').append('<h2>Postulante: '+row.nombres+' '+row.apellido+'</h2>');
+                     // $('.tituloWizard').html('<p>'+row.organizacion+'</p>');
+                     $('.tituloWizard').append('<p>'+row.nombres+' '+row.apellido+'</p>');
                     }
                 }).fail(function(){
                    self.parentElement.innerHTML = "FAIL"

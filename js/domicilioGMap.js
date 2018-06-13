@@ -34,7 +34,6 @@ var myLatLng = {lat: -34.615872, lng: -58.433298};
 var markers = [];
 
 function initAutocomplete() {
-        console.log('Google Maps API version: ' + google.maps.version);
         var map = new google.maps.Map(document.getElementById('map'), {
           center: myLatLng,
           zoom: 11,

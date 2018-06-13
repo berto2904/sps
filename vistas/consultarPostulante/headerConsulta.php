@@ -4,7 +4,7 @@
 <div class="wizard">
   <div class="wizard-inner wizardConsultaEdicion">
     <div class="connecting-line"></div>
-    <ul class="nav nav-tabs tab-selection" role="tablist">
+    <ul class="nav nav-tabs tab-selection" role="tablist" style=" margin: 0px auto !important; ">
       <li role="presentation" class="active">
         <a href="#formuInfoEntre" data-toggle="tab" aria-controls="" role="tab" title="Informacion de entrevista">
           <span class="round-tab">

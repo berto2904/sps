@@ -4,12 +4,18 @@ $idReferenciaLaboral = $_POST['id_ref'];
 require ($server. "/sps/clases/InformeLaboral.php");
 require ($server. "/sps/clases/InformeLaboralPregunta.php");
 require ($server. "/sps/clases/ReferenciaLaboral.php");
+include ($server. "/sps/helper/utf8EncodeDecodeDeep.php");
 
 $preguntas = InformeLaboral::consultarPreguntas();
 $referenciaLaboral=ReferenciaLaboral::consultarReferenciaLaboralByIdReferenciaLaboral($idReferenciaLaboral);
 
 $informeLaboral = InformeLaboral::consultarInformeLaboralByIdReferenciaLaboral($idReferenciaLaboral);
 $informeLaboralPreguntas = InformeLaboralPregunta::consultarInformeLaboralPreguntaByIdReferenciaLaboral($idReferenciaLaboral);
+
+utf8_encode_deep($referenciaLaboral);
+utf8_encode_deep($informeLaboral);
+utf8_encode_deep($informeLaboralPreguntas);
+
 ?>
 <form class="" id="registroInformeLaboral" method="post" action="../controladores/registrarInformeLaboralController.php">
   <input type="hidden" name="informeLaboral[idRefLaboral]" value="<?php echo $referenciaLaboral['id_referencias_laborales'] ?>">

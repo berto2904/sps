@@ -2,10 +2,11 @@
 $server = ($_SERVER['DOCUMENT_ROOT']);
 $idPostulante = $_POST['id_postulante'];
 require ($server. "/sps/clases/InformeConfidencial.php");
+include ($server. "/sps/helper/utf8EncodeDecodeDeep.php");
 
 $preguntas = InformeConfidencial::consultarPreguntasInfConfidencial();
 $infoConfidencial = InformeConfidencial::consultarInformeConfidencialByIdPostulante($idPostulante);
-
+// utf8_encode_deep($infoConfidencial);
 ?>
 <form class="" id="registroInformeConfidencial" method="post" action="../controladores/registrarInformeConfidencialController.php">
   <div class="tab-content formularioPostulante">
