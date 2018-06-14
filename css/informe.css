@@ -3,6 +3,9 @@
 body{
   background-url: http://api.thumbr.it/whitenoise-361x370.png?;
 }
+p{
+  word-wrap: break-word;
+}
 .header {
   border-bottom: 8px solid;
   border-bottom-color: cornflowerblue;
@@ -44,8 +47,28 @@ body{
   float: left;
   width: 50%;
 }
-
+.ladoIzquierdo{
+  float:left!important;
+}
+.ladoDerecho{
+  float:right!important;
+}
 .borderer{
   border-style: dotted;
   margin: 0% 1%;
+}
+.bordererSolid{
+  border-style: solid;
+  margin: 0%;
+}
+
+.titulo{
+  text-align: center;
+  }
+
+.informeLecturaRapida{
+  padding: 0% 5%;
+}
+.refLaboral{
+  padding: 2% 5%;
 }
