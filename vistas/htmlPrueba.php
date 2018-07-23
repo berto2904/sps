@@ -74,43 +74,54 @@ $referenciasLaborales = $entrevista['Postulante']['ReferenciasLaborales'];
           </div>
           <br>
           <div class="estudios both margin0">
-            <p><strong><u>Estudios:</u></strong></p>
-            <br>
-            <p>Titulo: <strong><?php echo $estudiosIdiomas['telefono']; ?></strong> </p>
-            <p>Organizacion: <strong>textoPlano</strong> </p>
-            <p>Fecha: <strong>textoPlano</strong> </p>
+            <?php
+            $key = array_search(4, array_column($estudiosIdiomas['Estudios'], 'id_nivel_estudio'));
+            if (empty(!$key)) {?>
+              <p><strong><u>Estudios:</u></strong></p>
+              <br>
+              <p>Titulo: <strong><?php echo $estudiosIdiomas['Estudios'][$key]['estudio_titulo_obtenido']; ?></strong> </p>
+              <p>Organizacion: <strong><?php echo $estudiosIdiomas['Estudios'][$key]['estudio_establecimiento']; ?></strong> </p>
+              <p>Año: <strong><?php echo $estudiosIdiomas['Estudios'][$key]['estudio_hasta']!==0 ? $estudiosIdiomas['Estudios'][$key]['estudio_hasta'] : "(Actual)"; ?></strong> </p>
+              <?php
+
+            }else {
+              ?>
+              <p><strong><u>Estudios:</u></strong></p>
+              <br>
+              <p>Titulo: <strong><?php echo $estudiosIdiomas['Estudios'][sizeof($estudiosIdiomas['Estudios'])-1]['estudio_titulo_obtenido']; ?></strong> </p>
+              <p>Organizacion: <strong><?php echo $estudiosIdiomas['Estudios'][sizeof($estudiosIdiomas['Estudios'])-1]['estudio_establecimiento']; ?></strong> </p>
+              <p>Año: <strong><?php echo $estudiosIdiomas['Estudios'][sizeof($estudiosIdiomas['Estudios'])-1]['estudio_hasta']!==0 ? $estudiosIdiomas['Estudios'][$key]['estudio_hasta'] : "(Actual)"; ?></strong> </p>
+              <?php
+            }
+            ?>
           </div>
+          <?php
+
+           ?>
           <div class="referenciasLaborales both margin0">
             <p><strong><u>Referencias Laborales:</u></strong></p>
-            <div class="refLaboral">
-              <div class="dosColumnas">
-                <p>- EMPRESA</p>
+            <?php
+            foreach ($referenciasLaborales['Empresas'] as $indice => $empresa) {
+              ?>
+              <div class="refLaboral">
+                <div class="dosColumnas">
+                  <p>- <?php echo $empresa['empresa'] ?></p>
+                </div>
+                <div class="dosColumnas">
+                  <?php
+                    setlocale(LC_TIME, 'es_ES', 'esp_esp');
+                    $desde = strftime("%B %G", strtotime($empresa['desde']));
+                    $hasta = strftime("%B %G", strtotime($empresa['hasta']));
+                   ?>
+                  <p><?php echo $desde ?>   -   <?php echo $hasta ?></p>
+                </div>
               </div>
-              <div class="dosColumnas">
-                <p>1995 - 1998</p>
-              </div>
-            </div>
-            <br>
-            <div class="refLaboral">
-              <div class="dosColumnas">
-                <p>- EMPRESA</p>
-              </div>
-              <div class="dosColumnas">
-                <p>1995 - 1998</p>
-              </div>
-            </div>
-            <br>
-            <div class="refLaboral">
-              <div class="dosColumnas">
-                <p>- EMPRESA</p>
-              </div>
-              <div class="dosColumnas">
-                <p>1995 - 1998</p>
-              </div>
-            </div>
-            <br>
+              <br>
+              <?php
+            }
+             ?>
             <div class="refLaboral observacion" style="margin-top:1em;">
-              <p><strong>Observacion: </strong> hasta30caracteressepuedeingres</p>
+              <p><strong>Observacion: </strong> <?php echo $referenciasLaborales['observacion_ref_laboral'] ?></p>
             </div>
           </div>
           <div class="infoRelevante both margin0">
