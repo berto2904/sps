@@ -9,8 +9,7 @@
   include("../librerias/domPdf/autoload.inc.php");
 
   $idEntrevista = $_GET['entrevista'];
-  $fileUrl = $server."/sps/vistas/htmlPrueba.php?entrevista=".$idEntrevista;
-
+  $fileUrl = $server."/sps/vistas/consultarInformeSocioambiental/htmlPrueba.php?entrevista=".$idEntrevista;
   $fileContent = curl_get_contents($fileUrl);
 
   // print_r($fileContent);

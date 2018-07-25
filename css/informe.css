@@ -70,5 +70,8 @@ p{
   padding: 0% 5%;
 }
 .refLaboral{
-  padding: 2% 5%;
+  /* padding: 2% 5%; */
+}
+.domicilio{
+  height: 13em!important;
 }
