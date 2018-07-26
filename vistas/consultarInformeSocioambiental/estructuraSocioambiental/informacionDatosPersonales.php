@@ -1,6 +1,7 @@
 <div class="titulo">
-  <h1>Informacion Personal</h1>
+  <!-- <h1>Informacion Personal</h1> -->
 </div>
+<h2><strong><em><u>Informacion Personal</u></em></strong></h2>
 <div class="datosPersonales margin0 both">
   <p>Apellido: <strong><?php echo $datosPersonales['postulante_apellido']?></strong> </p>
   <p>Nombres: <strong><?php echo $datosPersonales['postulante_nombres'] ?></strong> </p>

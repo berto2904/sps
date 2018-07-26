@@ -55,21 +55,26 @@ $referenciasLaborales = $entrevista['Postulante']['ReferenciasLaborales'];
         <br>
         <br>
         <br>
+        <br>
         <div id="informacionPersonal">
           <?php
             include ('estructuraSocioambiental/informacionDatosPersonales.php');
            ?>
         </div>
-        <div id="informacionFamiliares">
+        <div id="informacionFamiliares" style="height: 600px; ">
+          <?php
+            include ('estructuraSocioambiental/informacionFamiliares.php');
+          ?>
+        </div>
+        <div id="informacionEducacion" style="height: 300px;">
+        <?php
+          include ('estructuraSocioambiental/informacionEducacion.php');
+         ?>
+        </div>
+        <div id="informacionHobbies" style="height: 300px;">
 
         </div>
-        <div id="informacionEducacion">
-
-        </div>
-        <div id="informacionHobbies">
-
-        </div>
-        <div id="informacionSocioambiental">
+        <div id="informacionSocioambiental"style="height: 600px;">
           <?php
           // include ('estructuraSocioambiental/informacionSocioambiental.php');
           ?>
