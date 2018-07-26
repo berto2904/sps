@@ -6,7 +6,7 @@
   // print_r($datosFamiliares['Familiares']);
   // die();
    ?>
-  <table>
+  <table class="informe">
     <thead>
       <tr>
         <th>Familiar</th>

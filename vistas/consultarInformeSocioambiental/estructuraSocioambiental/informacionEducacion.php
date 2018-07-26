@@ -1,8 +1,14 @@
+<?php
+  $niveles = array("Primario","Secundario","Terciario","Universitario","Otros");
+  $postulanteNivel = array_column($estudiosIdiomas['Estudios'], 'nivel_estudio');
+  array_unshift($postulanteNivel,'valor0');
+ ?>
+
 <div class="titulo">
 </div>
 <h2><strong><em><u>Educacion</u></em></strong></h2>
 <div class="datosFamiliares margin0 both"style="height: 45%; ">
-  <table>
+  <table class="informe">
     <thead>
       <tr>
         <th data-field="stargazers_count" data-sortable="true" rowspan="2">Nivel</th>
@@ -17,46 +23,36 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="tipoFamilia">Primario</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td class="tipoFamilia">Secundario</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td class="tipoFamilia">Terciario</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td class="tipoFamilia">Universitario</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td class="tipoFamilia">Otros</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
+      <?php
+        foreach ($niveles as $nivel) {
+          if ($key = array_search($nivel, $postulanteNivel)) {
+          ?>
+          <tr>
+            <td class="tipoFamilia"><?php echo $estudiosIdiomas['Estudios'][$key-1]['nivel_estudio'] ?></td>
+            <td><?php echo $estudiosIdiomas['Estudios'][$key-1]['estudio_establecimiento'] ?></td>
+            <td><?php echo $estudiosIdiomas['Estudios'][$key-1]['estudio_desde'] ?></td>
+            <td><?php echo $estudiosIdiomas['Estudios'][$key-1]['estudio_hasta'] ?></td>
+            <td><?php echo $estudiosIdiomas['Estudios'][$key-1]['estudio_situacion'] ?></td>
+            <td><?php echo $estudiosIdiomas['Estudios'][$key-1]['estudio_titulo_obtenido'] ?></td>
+          </tr>
+          <?php
+        } else {
+          ?>
+          <tr>
+            <td class="tipoFamilia"><?php echo $nivel ?></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <?php
+          }
+        }
+        die();
+       ?>
+
+
     </tbody>
   </table>
 </div>
