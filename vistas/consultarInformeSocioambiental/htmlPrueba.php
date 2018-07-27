@@ -1,23 +1,5 @@
 <?php
-$serverDocument = ($_SERVER['DOCUMENT_ROOT']);
-$referer = (isset($_SERVER['HTTPS']) ? "https" : "http");
-$serverPort = (isset($_SERVER['SERVER_PORT']) ? ":".$_SERVER['SERVER_PORT'] :'');
-$server = $referer.'://'.$_SERVER['SERVER_NAME'].$serverPort;
-
-include ($serverDocument.'/sps/helper/sessionValidation.php');
-include ($serverDocument.'/sps/helper/request_no_curl.php');
-
-$idEntrevista = $_GET['entrevista'];
-$entrevista = json_decode(postFunction($server.'/sps/controladores/consultarPostulante.php',array('id_entrevista' => $idEntrevista)),true);
-
-$datosDeEntrevista = $entrevista['Postulante']['DatosDeEntrevistas'];
-$datosPersonales = $entrevista['Postulante']['DatosPersonales'];
-$datosFamiliares = $entrevista['Postulante']['DatosFamiliares'];
-$estudiosIdiomas = $entrevista['Postulante']['EstudiosIdiomas'];
-$hobbiesYPasatiempos = $entrevista['Postulante']['HobbiesYPasatiempos'];
-$informacionSocioambiental = $entrevista['Postulante']['InformacionSocioambiental'];
-$informacionEconomica = $entrevista['Postulante']['InformacionEconomica'];
-$referenciasLaborales = $entrevista['Postulante']['ReferenciasLaborales'];
+  include ('estructuraSocioambiental/inicializador.php');
 ?>
 <html>
    <head>
@@ -47,12 +29,11 @@ $referenciasLaborales = $entrevista['Postulante']['ReferenciasLaborales'];
           <p>Fecha y hora de entrevista: <strong><?php echo $datosDeEntrevista['entrevista_fechaHora']?>hs</strong> </p>
         </div>
         <br>
-        <div id="informeLecturaRapida" class="informeLecturaRapida bordererSolid both">
+        <div id="informeLecturaRapida" class="informeLecturaRapida bordererSolid both" style="height: 600px;">
           <?php
             include ('estructuraSocioambiental/lecturaRapida.php');
            ?>
         </div>
-        <br>
         <br>
         <br>
         <br>
@@ -66,17 +47,26 @@ $referenciasLaborales = $entrevista['Postulante']['ReferenciasLaborales'];
             include ('estructuraSocioambiental/informacionFamiliares.php');
           ?>
         </div>
-        <div id="informacionEducacion" style="height: 300px;">
-        <?php
-          include ('estructuraSocioambiental/informacionEducacion.php');
-         ?>
-        </div>
-        <div id="informacionHobbies" style="height: 300px;">
-
-        </div>
-        <div id="informacionSocioambiental"style="height: 600px;">
+        <div id="informacionEducacion" style="height: 600px;">
+         <?php
+            include ('estructuraSocioambiental/informacionEducacion.php');
+          ?>
+          <br>
+          <br>
           <?php
-          // include ('estructuraSocioambiental/informacionSocioambiental.php');
+            include ('estructuraSocioambiental/informacionIdiomas.php');
+          ?>
+        </div>
+        <br>
+        <br>
+        <div id="informacionHobbies" style="height: 250px;">
+          <?php
+            include ('estructuraSocioambiental/informacionHobbies.php');
+           ?>
+        </div>
+        <div id="informacionSocioambiental"style="height: 300px;">
+          <?php
+            include ('estructuraSocioambiental/informacionSocioambiental.php');
           ?>
         </div>
         <div id="informacionEconomica">

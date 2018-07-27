@@ -48,6 +48,7 @@
   <p><strong><u>Referencias Laborales:</u></strong></p>
   <?php
   foreach ($referenciasLaborales['Empresas'] as $indice => $empresa) {
+    if ($empresa['empresa']!= Null) {
     ?>
     <div class="refLaboral">
       <div class="dosColumnas">
@@ -64,10 +65,28 @@
     </div>
     <br>
     <?php
+  }else {
+    ?>
+    <div class="refLaboral">
+      <div class="dosColumnas">
+        <p>- (No presenta referencia laborales)</p>
+      </div>
+    </div>
+    <br>
+    <?php
+  }
   }
    ?>
   <div class="refLaboral observacion" style="margin-top:1em;">
-    <p><strong>Observacion: </strong> <?php echo $referenciasLaborales['observacion_ref_laboral'] ?></p>
+    <?php if ($referenciasLaborales['observacion_ref_laboral'] != Null) {
+      ?>
+        <p><strong>Observacion: </strong> <?php echo $referenciasLaborales['observacion_ref_laboral'] ?></p>
+      <?php
+    }else {
+      ?>
+        <p><strong>Observacion: </strong> Sin comentarios </p>
+      <?php
+    } ?>
   </div>
 </div>
 <div class="infoRelevante both margin0">
