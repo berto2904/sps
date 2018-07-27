@@ -9,115 +9,143 @@
       </a>
   </div>
   <div class="infoDomicilio dosColumnas margin0" style=" line-height: 2em;">
-    <p><strong>Calle</strong> : '."Hola amigos".' </p>
-    <p><strong>Numero:</strong> sta30caracteressepuedeingres</p>
-    <p><strong>Localidad:</strong> ta30caracteressepuedeingres</p>
-    <p><strong>Codigo Postal:</strong> hasta30caracteressepuedeingres</p>
-    <p><strong>Partido:</strong> hasta30caracteressepuedeingres</p>
-    <p> <strong>Dpto: </strong> hasta30caracteressepuedeingres</p>
-    <p><strong>Telefono: </strong> </p>
+    <p><strong>Calle: </strong><?php echo $informacionSocioambiental['route']; ?></p>
+    <p><strong>Numero: </strong> <?php echo $informacionSocioambiental['street_number']; ?></p>
+    <p><strong>Localidad: </strong> <?php echo $informacionSocioambiental['locality']; ?></p>
+    <p><strong>Codigo Postal: </strong> <?php echo $informacionSocioambiental['postal_code']; ?></p>
+    <p><strong>Partido: </strong> <?php echo $informacionSocioambiental['administrative_area_level_2']; ?></p>
+    <p><strong>Piso:</strong> <?php echo $informacionSocioambiental['piso']; ?></p>
+    <p> <strong>Dpto: </strong> <?php echo $informacionSocioambiental['depto']; ?></p>
+    <p><strong>Telefono: </strong><?php echo $informacionSocioambiental['telefono']; ?> </p>
   </div>
 </div>
 <br>
 <div class="transportes margin0 both">
-  <p><strong>Transporte:</strong> </p>
-  <p>Colectivos: Distancia del domicilio: 2 cuadras </p>
-  <p>Ferrocarril: Distancia del domicilio: 2 cuadras </p>
+  <?php
+    if ($informacionSocioambiental['Transportes'][0]['id_transporte'] != Null) {
+     ?>
+     <p><strong>Transporte:</strong> </p>
+     <?php
+      foreach ($informacionSocioambiental['Transportes'] as $key => $transporte) {
+        ?>
+        <p><?php echo $transporte['transporte_tipo']?>: Distancia del domicilio: <?php echo $transporte['cuadras']  ?> cuadra <?php if ($transporte['cuadras'] > 1) {
+          echo 's';
+          } ?>
+        </p>
+        <?php
+       }
+    }
+   ?>
 </div>
 <br>
 <div class="referenciaUtil margin0 both">
   <p><strong>Referencia útil (hospital, escuela, estación, avenida): </strong> </p>
-  <p >ReferenciaUtiReferenciaUtiReferenciaUtiReferenciaUtiReferenciaUtiReferenciaUtiRefe </p>
+  <?php
+    if ($informacionSocioambiental['referencia_util'] != Null) {
+      ?>
+      <p><?php echo $informacionSocioambiental['referencia_util'] ?></p>
+      <?php
+    }else {
+      ?>
+      <p>Sin Comentarios</p>
+      <?php
+    }
+   ?>
 </div>
 <br>
-<div class="viviendaServicios both">
+<div class="viviendaServicios both" style="height: 300px;">
   <h2><strong><em><u>Vivienda</u>:</em></strong></h2>
   <div class="vivienda dosColumnas">
-    <p><strong>Tipo de vivienda: </strong> Prefabricada</p>
-    <p><strong>Ambientes: </strong>Cantidad</p>
-    <p><strong>Aspecto Interior: </strong> Muy Bueno </p>
-    <p><strong>Aspecto exterior: </strong> Muy Bueno</p>
-    <p><strong>Propietario: </strong> No</p>
-    <p><strong>Inquilino: </strong> Si</p>
-    <p><strong>Importe de Alquiler: </strong> $1000000</p>
+    <p><strong>Tipo de vivienda:</strong> <?php echo $informacionSocioambiental['tipo_vivienda']?></p>
+    <p><strong>Ambientes: </strong><?php echo $informacionSocioambiental['vivienda_ambientes'] ?></p>
+    <p><strong>Aspecto Interior: </strong><?php echo $informacionSocioambiental['aspecto_interior']  ?></p>
+    <p><strong>Aspecto exterior: </strong><?php echo $informacionSocioambiental['aspecto_exterior'] ?></p>
+    <p><strong>Propietario: </strong> <?php echo $informacionSocioambiental['vivienda_propietario'] ?></p>
+    <p><strong>Inquilino: </strong> <?php echo $informacionSocioambiental['vivienda_inquilino'] ?></p>
+    <p><strong>Importe de Alquiler: </strong> <?php echo $informacionSocioambiental['vivienda_importe_alquiler'] ?></p>
   </div>
   <div class="servicios dosColumnas" >
     <p> <strong>Servicios:</strong> </p>
-    <ul>
-        <li>Luz</li>
-        <li>TV por cable</li>
-        <li>Gas</li>
-        <li>Cloacas</li>
-        <li>Agua</li>
-        <li>Corriente</li>
-        <li>Pavimento</li>
-        <li>Teléfono</li>
-        <li>Vigilancia Privada</li>
-    </ul>
+    <?php
+      if ($informacionSocioambiental['Servicios'][0]['id_servicio'] != Null) {
+        ?>
+        <ul>
+          <?php
+          foreach ($informacionSocioambiental['Servicios'] as $key => $servicio) {
+            ?>
+            <li><?php echo $servicio['servicio'] ?></li>
+            <?php
+          }
+          ?>
+        </ul>
+        <?php
+      }else {
+        ?>
+        <p>No hay informacion sobre servicios</p>
+        <?php
+      }
+     ?>
   </div>
 </div>
 <div class="Accesibilidad both margin0">
   <p>
     <strong>Accesibilidad:</strong>
   </p>
-  <p>
-    ReferenciaUtiReferenciaUtiReferenciaUtiReferenciaUtiReferenciaUtiReferenciaUtiRefe
-    ReferenciaUtiReferenciaUtiReferenciaUtiReferenciaUtiReferenciaUtiReferenciaUtiRefe
-  </p>
+  <?php
+    if ($informacionSocioambiental['vivienda_accesibilidad'] != Null) {
+      ?>
+        <p><?php echo $informacionSocioambiental['vivienda_accesibilidad'] ?></p>
+      <?php
+    }else {
+      ?>
+        <p>Sin Comentarios</p>
+      <?php
+    }
+   ?>
 </div>
 <br/>
 <div class="conceptoVecinal">
   <h2><strong><em><u>Concepto Vecinal</u>:</em></strong></h2>
- <div class="both">
-    <div class="dosColumnas">
-      <p><strong><u>Vecino 1</u></strong></p>
-      <div class="borderer margin0">
-        <p> <strong> Nombre y Apellido:</strong></p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Domicilio:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Concepto del entrevistado:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Afinidad:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Tipo de amistades:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Peleas o Riñas:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Problemas policiales:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Problemas económicos:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Problemas con otros vecinos:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Tiempo que lo conoce:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-      </div>
-    </div>
-    <div class="dosColumnas">
-      <p><strong><u>Vecino 2</u></strong></p>
-      <div class="borderer margin0">
-        <p> <strong> Nombre y Apellido:</strong></p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Domicilio:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Concepto del entrevistado:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Afinidad:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Tipo de amistades:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Peleas o Riñas:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Problemas policiales:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Problemas económicos:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Problemas con otros vecinos:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-        <p> <strong> Tiempo que lo conoce:</strong> </p>
-        <p>70caracteres70caracteres70caracteres</p>
-      </div>
-    </div>
+  <div class="both">
+  <?php
+  if ($informacionSocioambiental['ConceptosVecinales'][0]['id_concepto_vecinal'] != Null) {
+     foreach ($informacionSocioambiental['ConceptosVecinales'] as $key => $vecino) {
+       ?>
+       <div class="dosColumnas">
+         <p><strong><u>Vecino <?php echo $key + 1 ?></u></strong></p>
+         <div class="borderer margin0">
+           <p> <strong> Nombre y Apellido:</strong></p>
+           <p><?php echo $vecino['vecino_nombre_apellido'] ?></p>
+           <br>
+           <p> <strong> Domicilio:</strong> </p>
+           <p><?php echo $vecino['vecino_domicilio'] ?></p>
+           <br>
+           <p> <strong> Concepto del entrevistado:</strong> </p>
+           <p><?php echo $vecino['concepto_del_entrevistado'] ?></p>
+           <br>
+           <p> <strong> Afinidad:</strong> </p>
+           <p><?php echo $vecino['afinidad'] ?></p>
+           <br>
+           <p> <strong> Tipo de amistades:</strong> </p>
+           <p><?php echo $vecino['tipo_de_amistades'] ?></p>
+           <br>
+           <p> <strong> Problemas policiales:</strong> </p>
+           <p><?php echo $vecino['problemas_policiales'] ?></p>
+           <br>
+           <p> <strong> Problemas económicos:</strong> </p>
+           <p><?php echo $vecino['problemas_economicos'] ?></p>
+           <br>
+           <p> <strong> Tiempo que lo conoce:</strong> </p>
+           <p><?php echo $vecino['tiempo_que_conoce'] ?></p>
+         </div>
+       </div>
+       <?php
+     }
+   } else {
+     ?>
+      <p>No hay informacion sobre vecinos del postulante</p>
+     <?php
+   }
+   ?>
   </div>
 </div>

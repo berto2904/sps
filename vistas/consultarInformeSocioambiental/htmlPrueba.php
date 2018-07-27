@@ -64,7 +64,7 @@
             include ('estructuraSocioambiental/informacionHobbies.php');
            ?>
         </div>
-        <div id="informacionSocioambiental"style="height: 300px;">
+        <div id="informacionSocioambiental"style="height: 600px;">
           <?php
             include ('estructuraSocioambiental/informacionSocioambiental.php');
           ?>
