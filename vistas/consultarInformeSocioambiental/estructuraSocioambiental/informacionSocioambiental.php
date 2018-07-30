@@ -28,7 +28,7 @@
      <?php
       foreach ($informacionSocioambiental['Transportes'] as $key => $transporte) {
         ?>
-        <p><?php echo $transporte['transporte_tipo']?>: Distancia del domicilio: <?php echo $transporte['cuadras']  ?> cuadra <?php if ($transporte['cuadras'] > 1) {
+        <p><?php echo $transporte['transporte_tipo']?>: Distancia del domicilio: <?php echo $transporte['cuadras']  ?> cuadra<?php if ($transporte['cuadras'] > 1) {
           echo 's';
           } ?>
         </p>
@@ -104,11 +104,13 @@
    ?>
 </div>
 <br/>
-<div class="conceptoVecinal">
+<?php
+  if ($informacionSocioambiental['ConceptosVecinales'][0]['id_concepto_vecinal'] != Null) {
+ ?>
+<div class="conceptoVecinal" style=" height: 42%;">
   <h2><strong><em><u>Concepto Vecinal</u>:</em></strong></h2>
   <div class="both">
   <?php
-  if ($informacionSocioambiental['ConceptosVecinales'][0]['id_concepto_vecinal'] != Null) {
      foreach ($informacionSocioambiental['ConceptosVecinales'] as $key => $vecino) {
        ?>
        <div class="dosColumnas">
@@ -116,25 +118,18 @@
          <div class="borderer margin0">
            <p> <strong> Nombre y Apellido:</strong></p>
            <p><?php echo $vecino['vecino_nombre_apellido'] ?></p>
-           <br>
            <p> <strong> Domicilio:</strong> </p>
            <p><?php echo $vecino['vecino_domicilio'] ?></p>
-           <br>
            <p> <strong> Concepto del entrevistado:</strong> </p>
            <p><?php echo $vecino['concepto_del_entrevistado'] ?></p>
-           <br>
            <p> <strong> Afinidad:</strong> </p>
            <p><?php echo $vecino['afinidad'] ?></p>
-           <br>
            <p> <strong> Tipo de amistades:</strong> </p>
            <p><?php echo $vecino['tipo_de_amistades'] ?></p>
-           <br>
            <p> <strong> Problemas policiales:</strong> </p>
            <p><?php echo $vecino['problemas_policiales'] ?></p>
-           <br>
            <p> <strong> Problemas económicos:</strong> </p>
            <p><?php echo $vecino['problemas_economicos'] ?></p>
-           <br>
            <p> <strong> Tiempo que lo conoce:</strong> </p>
            <p><?php echo $vecino['tiempo_que_conoce'] ?></p>
          </div>
@@ -143,7 +138,11 @@
      }
    } else {
      ?>
-      <p>No hay informacion sobre vecinos del postulante</p>
+     <div class="conceptoVecinal" style=" height: 10%;">
+       <h2><strong><em><u>Concepto Vecinal</u>:</em></strong></h2>
+       <div class="both">
+         <p>No hay informacion sobre vecinos del postulante</p>
+       </div>
      <?php
    }
    ?>

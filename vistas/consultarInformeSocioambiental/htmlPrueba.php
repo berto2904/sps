@@ -29,7 +29,7 @@
           <p>Fecha y hora de entrevista: <strong><?php echo $datosDeEntrevista['entrevista_fechaHora']?>hs</strong> </p>
         </div>
         <br>
-        <div id="informeLecturaRapida" class="informeLecturaRapida bordererSolid both" style="height: 600px;">
+        <div id="informeLecturaRapida" class="informeLecturaRapida bordererSolid both" style="height: 650px;">
           <?php
             include ('estructuraSocioambiental/lecturaRapida.php');
            ?>
@@ -47,6 +47,7 @@
             include ('estructuraSocioambiental/informacionFamiliares.php');
           ?>
         </div>
+        <br>
         <div id="informacionEducacion" style="height: 600px;">
          <?php
             include ('estructuraSocioambiental/informacionEducacion.php');
@@ -64,13 +65,16 @@
             include ('estructuraSocioambiental/informacionHobbies.php');
            ?>
         </div>
-        <div id="informacionSocioambiental"style="height: 600px;">
+        <div id="informacionSocioambiental">
           <?php
             include ('estructuraSocioambiental/informacionSocioambiental.php');
           ?>
         </div>
+        <br>
         <div id="informacionEconomica">
-
+          <?php
+          include ('estructuraSocioambiental/informacionEconomica.php');
+          ?>
         </div>
         <div id="informacionReferenciasLaborales">
 

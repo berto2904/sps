@@ -38,6 +38,7 @@ p{
 } */
 .servicios ul{
   border-style: dashed;
+  padding: 2% 8%;
 }
 .both{
   clear: both;
@@ -56,6 +57,7 @@ p{
 .borderer{
   border-style: dotted;
   margin: 0% 1%;
+  padding: 1% 2%;
 }
 .bordererSolid{
   border-style: solid;
