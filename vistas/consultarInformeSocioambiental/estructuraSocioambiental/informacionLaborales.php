@@ -1,7 +1,7 @@
 <div class="titulo">
 </div>
 <h2><strong><em><u>Antecedentes Laborales</u></em></strong></h2>
-<div class="datosFamiliares margin0 both"style="height: 45%; ">
+<div class="datosFamiliares margin0 both">
   <?php
   // print_r($datosFamiliares['Familiares']);
   // die();
@@ -48,4 +48,21 @@
 
     </tbody>
   </table>
+</div>
+<br>
+<div style="height: 20%;" >
+<p><strong><u>Observaciones:</u></strong></p>
+  <div class="convivencia both margin0">
+  <?php
+    if (isset($referenciasLaborales['observacion_ref_laboral'])) {
+      ?>
+      <p><?php echo $referenciasLaborales['observacion_ref_laboral'] ?></p>
+      <?php
+    } else {
+      ?>
+      <p>Sin comentarios</p>
+      <?php
+    }
+   ?>
+  </div>
 </div>
