@@ -76,8 +76,11 @@
           include ('estructuraSocioambiental/informacionEconomica.php');
           ?>
         </div>
+        <br>
         <div id="informacionReferenciasLaborales">
-
+          <?php
+            include ('estructuraSocioambiental/informacionLaborales.php');
+          ?>
         </div>
       </div>
     </div>
