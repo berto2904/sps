@@ -55,6 +55,8 @@ function rellenarFormularioPostulante(postulanteInfo){
   $('#datosFamiliares').children().remove();
   $('#entidadesBancarias').children().remove();
   $('#tarjetasEntidades').children().remove();
+  $(".activarIdioma").trigger( "click" );
+  $(".activarIdioma").trigger( "click" );
 
     $.each(postulanteInfo.Postulante, function(id, item) {
       $.each(item, function (id2,item2){
@@ -84,6 +86,7 @@ function rellenarFormularioPostulante(postulanteInfo){
       });
     });
     $.each(postulanteInfo.Postulante.EstudiosIdiomas.Idiomas, function(indice, estudios) {
+      $("[name='idioma["+estudios.id_idioma_tipo+"][0]']").prop('checked','none')
       if ($("#id_idioma_"+estudios.id_idioma_tipo+"_1_"+estudios.id_lee).exists()) {
         $("#id_idioma_"+estudios.id_idioma_tipo+"_1_"+estudios.id_lee).prop('checked', true);
       }
