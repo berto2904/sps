@@ -91,5 +91,12 @@
     return $info;
     }
 
+    public static function eliminarPostulanteByIdEntrevista($idEntrevista){
+      $cq = new connQuery();
+      $sql = "CALL SPeliminarEntrevista(?)";
+
+      $cq->ejecutarConsultaById($idEntrevista,$sql);
+    }
+
   }
 ?>

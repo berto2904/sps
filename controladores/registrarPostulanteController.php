@@ -93,6 +93,7 @@ $tCredDeb = $_POST["tCredDeb"]; utf8_decode_deep($tCredDeb);
 
 // Referencia laborales
 $refLaborales = $_POST["referenciasLaborales"]; utf8_decode_deep($refLaborales);
+
 $observacionesRefLaborales = $_POST["observacionesReferenciasLaborales"]; utf8_decode_deep($observacionesRefLaborales);
 
 try {
@@ -161,7 +162,9 @@ function crearObservacionesRefLaborales($observacionesRefLaborales,$idPostulante
 }
 function crearReferenciasLaborales($id_postulante, $refLaborales){
   foreach ($refLaborales as $indice => $refLaboral) {
-    if ($refLaboral["empresa"] != "" || $refLaboral["domicilio"] != "" || $refLaboral["desde"] != "" || $refLaboral["hasta"]) {
+    if ($refLaboral["empresa"] != "" || $refLaboral["domicilio"] != "" || $refLaboral["desde"] != "" || $refLaboral["hasta"] != "") {
+      $refLaboral["desde"] = $refLaboral["desde"] != "" ? $refLaboral["desde"] : Null;
+      $refLaboral["hasta"] = $refLaboral["hasta"] != "" ? $refLaboral["hasta"] : Null;
       $referenciaLaboral = new ReferenciaLaboral ($id_postulante, $refLaboral["empresa"], $refLaboral["domicilio"], $refLaboral["desde"], $refLaboral["hasta"]);
       $referenciaLaboral->registrarReferenciaLaboral();
     }
@@ -173,8 +176,6 @@ function crearMovilidadPropia($movilidadPropia){
     $movilidadPropia["tipo"] == "" ? $movilidadPropia["tipo"] = Null : $movilidadPropia["tipo"];
     $movPropia = new MovilidadPropia($movilidadPropia["tipo"], $movilidadPropia["marca"], $movilidadPropia["modelo"], (int)$movilidadPropia["año"], $movilidadPropia["titular"], $movilidadPropia["patente"]);
     $idMovilidadPropia = $movPropia->registrarMovilidadPropia();
-    // print_r($idMovilidadPropia);
-    // die();
     return $idMovilidadPropia;
     }
   }

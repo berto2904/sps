@@ -21,6 +21,9 @@
     <tbody>
       <?php
         foreach ($referenciasLaborales['Empresas'] as $key => $empresa) {
+          if ($key == sizeof($referenciasLaborales['Empresas'])-1 && $empresa['hasta'] == Null) {
+            $empresa['hasta'] = "Actual";
+          }
       ?>
       <tr>
         <td><?php echo $empresa['empresa'] ?></td>

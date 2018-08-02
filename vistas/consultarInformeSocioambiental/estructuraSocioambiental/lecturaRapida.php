@@ -58,7 +58,11 @@
         <?php
           setlocale(LC_TIME, 'es_ES', 'esp_esp');
           $desde = strftime("%B %G", strtotime($empresa['desde']));
-          $hasta = strftime("%B %G", strtotime($empresa['hasta']));
+          if ($indice == sizeof($referenciasLaborales['Empresas'])-1 && $empresa['hasta'] == Null) {
+            $hasta = "Actual";
+          }else {
+            $hasta = strftime("%B %G", strtotime($empresa['hasta']));
+          }
          ?>
         <p><?php echo $desde ?>   -   <?php echo $hasta ?></p>
       </div>

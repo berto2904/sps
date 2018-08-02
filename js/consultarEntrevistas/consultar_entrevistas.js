@@ -6,11 +6,12 @@ var $table = $('#tablaEntrevistas');
 $(document).ready(function() {
   $table.bootstrapTable('hideColumn', 'id_entrevista');
 });
-
+var nombreApellido;
 $table.on('dbl-click-row.bs.table', function (e, row, $element) {
         $.confirm({
           title: function(){
                 var self = this;
+                nombreApellido = row.nombres+' '+row.apellido;
                 return $.ajax({
                     url: 'consultarPostulante/headerConsulta.php',
                     method: 'POST',
@@ -19,7 +20,7 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
                     if (parentTitle != null) {
                      parentTitle.innerHTML = response;
                      // $('.tituloWizard').html('<p>'+row.organizacion+'</p>');
-                     $('.tituloWizard').append('<p>'+row.nombres+' '+row.apellido+'</p>');
+                     $('.tituloWizard').append('<p>'+nombreApellido+'</p>');
                     }
                 }).fail(function(){
                    self.parentElement.innerHTML = "FAIL"
@@ -31,16 +32,27 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
         		columnClass: 'xlarge',
             containerFluid:false,
         		buttons:{
-              Eliminar: function(){
-        				$.alert('Proximamente!!');
-        			},
-              Editar: function(){
-                $.alert('Proximamente!!');
-        			},
-        			Cancelar: function(){
-                $('#scriptDomicilio').remove();
-                $('#scriptGmap').remove();
-        			},
+              Eliminar:{
+                icon: 'glyphicon glyphicon-heart',
+                btnClass: 'btn-danger',
+                action: function(){
+                  eliminarEntrevista(row.id_entrevista);
+                  return false;
+                }
+              },
+              Editar: {
+                btnClass: 'btn-warning',
+                action: function(){
+                  $.alert('Proximamente!!');
+          			}
+              },
+        			Cerrar: {
+                btnClass: 'btn-dark',
+                action: function(){
+                    $('#scriptDomicilio').remove();
+                    $('#scriptGmap').remove();
+                  }
+        			 }
         		},
         		onContentReady: function(){
         	        var self = this;
@@ -59,3 +71,40 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
         	});
 
     });
+
+    function eliminarEntrevista(idEntrevista){
+      $.confirm({
+        icon: 'glyphicon glyphicon-trash',
+        title: '¿Eliminar a '+nombreApellido+'?',
+        content: 'Está funcion se cancelara en 8 segundos si no es ejecutada',
+        autoClose: 'Cancelar|8000',
+        columnClass: 'medium',
+        theme:'material',
+        type:'red',
+        backgroundDismiss: false,
+        backgroundDismissAnimation: 'glow',
+        buttons: {
+            Eliminar: {
+                text: 'Aceptar',
+                btnClass: 'btn-success',
+                action: function () {
+                  $.ajax({
+                      url: '../controladores/eliminarEntrevistaController.php',
+                      method: 'POST',
+                      data:{
+                        id_entrevista:idEntrevista,
+                      },
+                      success: function(){
+                        window.location.href= base_url+'/sps/vistas/consultar_entrevistas.php'
+                      }
+                  });
+                }
+            },
+            Cancelar:{
+              btnClass: 'btn-dark',
+              action:function () {
+              }
+            }
+        }
+    });
+    }

@@ -2,8 +2,8 @@
   <h1>Información socio-ambiental</h1>
 </div>
 <h2><strong><em><u>Domicilio</u></em></strong></h2>
-<div class="domicilio both" style="height: 15em;">
-  <div class="googleMap dosColumnas margin0" style=" top: 3em; position: relative; ">
+<div class="domicilio both" style="height: 12em;">
+  <div class="googleMap dosColumnas margin0" style=" top: 7%; position: relative; ">
       <a href="https://www.google.com/maps/place/<?php echo $informacionSocioambiental['route']; ?> <?php echo $informacionSocioambiental['street_number']; ?>, <?php echo $informacionSocioambiental['locality']; ?> /@<?php echo $informacionSocioambiental['gmap']; ?>" target="_blank">
         <img width="240" height="232" src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $informacionSocioambiental['gmap']; ?>&zoom=17&size=400x400&markers=<?php echo $informacionSocioambiental['gmap']; ?>&key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U"/>
       </a>
@@ -38,7 +38,7 @@
    ?>
 </div>
 <br>
-<div class="referenciaUtil margin0 both">
+<div class="referenciaUtil margin0">
   <p><strong>Referencia útil (hospital, escuela, estación, avenida): </strong> </p>
   <?php
     if ($informacionSocioambiental['referencia_util'] != Null) {
@@ -53,7 +53,7 @@
    ?>
 </div>
 <br>
-<div class="viviendaServicios both" style="height: 300px;">
+<div class="viviendaServicios both" style="height:250px;">
   <h2><strong><em><u>Vivienda</u>:</em></strong></h2>
   <div class="vivienda dosColumnas">
     <p><strong>Tipo de vivienda:</strong> <?php echo $informacionSocioambiental['tipo_vivienda']?></p>
