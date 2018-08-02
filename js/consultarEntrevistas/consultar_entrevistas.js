@@ -42,8 +42,22 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
               },
               Editar: {
                 btnClass: 'btn-warning',
+                isHidden: false,
                 action: function(){
-                  $.alert('Proximamente!!');
+                  this.buttons.Consultar.show();
+                  this.buttons.Editar.hide();
+                  return false;
+          			}
+              },
+              Consultar: {
+                btnClass: 'btn-blue',
+                isHidden: true,
+                action: function(){
+                  var self = this;
+                  this.buttons.Consultar.hide();
+                  this.buttons.Editar.show();
+                  rellenarFormularioPostulante(postulanteInfo);
+                  return false;
           			}
               },
         			Cerrar: {
