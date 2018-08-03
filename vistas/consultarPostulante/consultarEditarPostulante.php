@@ -4,13 +4,13 @@ include ($server.'/sps/helper/sessionValidation.php');
 // include ($server.'/sps/controladores/consultarPostulante.php');
  $idEntrevista = $_POST["id_entrevista"];
  ?>
- <input type="hidden" id="idEntrevista" name="" value="<?= $idEntrevista?>">
 	<header>
     <div class="col-md-12 col-md-offset-0 text-left">
       <div class="row">
         <section>
 					<div class="wizard" style=" margin: 0!important;">
 						<form role="form" method="post" action="../controladores/registrarPostulanteController.php">
+              <input type="hidden" id="idEntrevista" name="id_entrevista" value="<?= $idEntrevista?>">
 							<div class="tab-content formularioPostulante">
 								<?php
                   include('consultarEditarPostulante/1_formuInfoEntre.php');

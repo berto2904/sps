@@ -66,7 +66,7 @@ $transportes = Transporte::consultarTransportes();
             </div>
             <div class="col-md-1">
               <label class="switch">
-                <input type="checkbox" class = "form-control"  id="transporte_<?php echo $transporte['id']?>_1" name="trasporte[<?php echo $transporte['id']?>][1]" value="<?php echo $transporte['id']?>">
+                <input type="checkbox" class = "form-control transporte"  id="transporte_<?php echo $transporte['id']?>_1" name="trasporte[<?php echo $transporte['id']?>][1]" value="<?php echo $transporte['id']?>">
                 <span class="slider round"></span>
               </label>
             </div>

@@ -1,4 +1,8 @@
 <?php
+$referer = (isset($_SERVER['HTTPS']) ? "https" : "http");
+$serverPort = (isset($_SERVER['SERVER_PORT']) ? ":".$_SERVER['SERVER_PORT'] :'');
+$server = $referer.'://'.$_SERVER['SERVER_NAME'].$serverPort;
+
 require ("../clases/Postulante.php");
 require ("../clases/Entrevista.php");
 require ("../clases/Familiar.php");
@@ -21,6 +25,7 @@ require ("../clases/ReferenciaLaboral.php");
 require ("../clases/ObservacionReferenciasLaborales.php");
 include ('../helper/utf8EncodeDecodeDeep.php');
 include ('../helper/sessionValidation.php');
+include ('../helper/request_no_curl.php');
 
 
  //Entrevista
@@ -150,7 +155,13 @@ try {
   return;
 }
 
-header("location: ../vistas/crear_postulante.php");
+
+if (isset($_POST["id_entrevista"])) {
+  postFunction($server.'/sps/controladores/eliminarEntrevistaController.php',array('id_entrevista' => $_POST["id_entrevista"]));
+  header("location: ../vistas/consultar_entrevistas.php");
+}else {
+  header("location: ../vistas/crear_postulante.php");
+}
 
 
 /*----------------------------------------------------FUNCIONES------------------------------------------------*/
