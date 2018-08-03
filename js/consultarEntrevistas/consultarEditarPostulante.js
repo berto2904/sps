@@ -166,6 +166,7 @@ function disablearCampos(){
   $('form select').attr('disabled', true);
   $('form textarea').attr('readonly', true);
   $('.activarIdioma').attr('disabled', true);
+  $('.transporte').attr('disabled', true);
   $('.containerRadio input[type = "radio"]').attr('disabled', true);
   $('.containerRadio input[type = "checkbox"]').attr('disabled', true);
   $('form button').attr('disabled', true);
@@ -178,6 +179,7 @@ function enablearCampos(){
   $('form select').attr('disabled', false);
   $('form textarea').attr('readonly', false);
   $('.activarIdioma').attr('disabled', false);
+  $('.transporte').attr('disabled', false);
   $('.containerRadio input[type = "radio"]').attr('disabled', false);
   $('.containerRadio input[type = "checkbox"]').attr('disabled', false);
   $('form button').attr('disabled', false);
