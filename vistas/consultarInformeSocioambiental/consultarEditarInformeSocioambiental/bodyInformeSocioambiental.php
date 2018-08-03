@@ -27,7 +27,7 @@
             ?>
          </div>
       </div>
-          <div class="btn-group col-md-6 col-md-offset-4">
+          <div class="btn-group col-md-7 col-md-offset-5">
            <a class="btn btn-sm btn-primary" href="../controladores/crearInformeSocioambientalPDF.php?entrevista=<?php echo $idEntrevista ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Imprimir </a>
           </div>
     </div>

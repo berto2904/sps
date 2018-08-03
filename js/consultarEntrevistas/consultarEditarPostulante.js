@@ -10,7 +10,17 @@ $(document).ready(function() {
   var scripts = document.getElementsByTagName("script");
 
 
+    $('.nav-tabs > li a[title]').tooltip({placement : 'bottom'});
 
+    //Wizard
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+        var $target = $(e.target);
+
+        if ($target.parent().hasClass('disabled')) {
+            return false;
+        }
+    });
     // $.each(scripts, function(id,item){
     // 	if(scripts[id].src.match("maps.googleapis") != null){
     //     flagGmap = true;
@@ -18,6 +28,7 @@ $(document).ready(function() {
     //
     // });
 
+    if ($('#scriptDomicilio').length == 0) {
       var s2 = document.createElement("script");
       s2.type = "text/javascript";
       s2.src="../js/domicilioGMap.js";
@@ -27,8 +38,11 @@ $(document).ready(function() {
       var s1= document.createElement("script");
       s1.type = "text/javascript";
       s1.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete";
+      // s1.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places";
       s1.id = "scriptGmap";
       $("head").append(s1);
+    }
+
       //
       // if (flagGmap == false) {
       //
@@ -47,6 +61,7 @@ var id = $('#idEntrevista').val();
         success: function(response) {
         	postulanteInfo = JSON.parse(response);
           rellenarFormularioPostulante(postulanteInfo);
+          disablearCampos();
         }
      });
 });
@@ -55,10 +70,8 @@ function rellenarFormularioPostulante(postulanteInfo){
   $('#datosFamiliares').children().remove();
   $('#entidadesBancarias').children().remove();
   $('#tarjetasEntidades').children().remove();
-  $(".activarIdioma").trigger( "click" );
-  $(".activarIdioma").trigger( "click" );
-
-    $.each(postulanteInfo.Postulante, function(id, item) {
+  inicializarIdiomas();
+      $.each(postulanteInfo.Postulante, function(id, item) {
       $.each(item, function (id2,item2){
         if(isNaN(id2)){
           if (id2 == 'entrevista_fechaHora') {
@@ -145,4 +158,29 @@ function rellenarFormularioPostulante(postulanteInfo){
         }
       });
     });
+}
+
+function disablearCampos(){
+  $('form input').attr('readonly', true);
+  $('form select').attr('readonly', true);
+  $('form select').attr('disabled', true);
+  $('form textarea').attr('readonly', true);
+  $('.activarIdioma').attr('disabled', true);
+  $('.containerRadio input[type = "radio"]').attr('disabled', true);
+  $('.containerRadio input[type = "checkbox"]').attr('disabled', true);
+  $('form button').attr('disabled', true);
+  $('form input[type="submit"]').attr('disabled', true);
+  $('#tabConfirmacion').addClass('disabled');
+}
+function enablearCampos(){
+  $('form input').attr('readonly', false);
+  $('form select').attr('readonly', false);
+  $('form select').attr('disabled', false);
+  $('form textarea').attr('readonly', false);
+  $('.activarIdioma').attr('disabled', false);
+  $('.containerRadio input[type = "radio"]').attr('disabled', false);
+  $('.containerRadio input[type = "checkbox"]').attr('disabled', false);
+  $('form button').attr('disabled', false);
+  $('form input[type="submit"]').attr('disabled', false);
+  $('#tabConfirmacion').removeClass('disabled');
 }

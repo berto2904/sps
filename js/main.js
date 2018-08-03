@@ -2,6 +2,19 @@ $(document).ready(function() {
 	$("#gtco-logo a").click(function(){
 		$(".contenidoPostulante").toggle();
 	});
+
+	$('.nav-tabs > li a[title]').tooltip();
+
+	//Wizard
+	$('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+			var $target = $(e.target);
+
+			if ($target.parent().hasClass('disabled')) {
+					return false;
+			}
+	});
+	
 });
 $.fn.exists = function () {
     return this.length !== 0;

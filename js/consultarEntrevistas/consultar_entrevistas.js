@@ -46,6 +46,7 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
                 action: function(){
                   this.buttons.Consultar.show();
                   this.buttons.Editar.hide();
+                  enablearCampos();
                   return false;
           			}
               },
@@ -57,6 +58,8 @@ $table.on('dbl-click-row.bs.table', function (e, row, $element) {
                   this.buttons.Consultar.hide();
                   this.buttons.Editar.show();
                   rellenarFormularioPostulante(postulanteInfo);
+                  recargarGmap(postulanteInfo.Postulante.InformacionSocioambiental.gmap);
+                  disablearCampos();
                   return false;
           			}
               },

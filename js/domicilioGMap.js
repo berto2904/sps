@@ -206,3 +206,13 @@ function initAutocomplete() {
         map.setCenter(markers[0].getPosition());
         map.setZoom(15);
       }
+
+      function recargarGmap(cordenadas){
+        markers = []
+        $('#gmap').val("");
+        $('#gmap').val(cordenadas);
+        $('#googleMapDireccion #autocomplete').remove();
+        $('#googleMapDireccion').append('<input id="autocomplete" class="controls" type="text" placeholder="Ingresar direccion">');
+        initAutocomplete();
+
+      }

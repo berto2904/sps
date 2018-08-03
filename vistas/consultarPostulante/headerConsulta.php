@@ -62,7 +62,7 @@
           </span>
         </a>
       </li>
-      <li role="presentation" class="">
+      <li role="presentation" class="disabled" id="tabConfirmacion">
         <a href="#formuConfirmacion" data-toggle="tab" aria-controls="" role="tab" title="Confirmacion">
           <span class="round-tab">
             <i class="glyphicon glyphicon-ok"></i>

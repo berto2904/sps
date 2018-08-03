@@ -44,6 +44,10 @@ function toggleIdiomas(){
     }
   });
 }
+function inicializarIdiomas(){
+  $(".activarIdioma").parent().parent().parent().find('input:radio').attr('checked', false);
+  $(".activarIdioma").prop('checked','');
+}
 /**/
 // $.ajax({
 //         url: "/bbtw1/agregarCombo",

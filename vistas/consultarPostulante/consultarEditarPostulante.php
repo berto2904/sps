@@ -33,5 +33,5 @@ include ($server.'/sps/helper/sessionValidation.php');
 </header>
 <script src="../js/crearPostulante.js" target="_top"></script>
 <script src="../js/consultarEntrevistas/consultarEditarPostulante.js"></script>
-<script src="../js/domicilioGMap.js"></script>
+<!-- <script src="../js/domicilioGMap.js"></script> -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMCtHlS2MH-UExgf-0lkQyoppD2nDKA0U&libraries=places&callback=initAutocomplete" async defer></script> -->
