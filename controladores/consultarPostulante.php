@@ -11,7 +11,6 @@ require ($server.'/sps/clases/Idioma.php');
 require ($server.'/sps/clases/ReferenciaLaboral.php');
 require ($server.'/sps/clases/TarjetaEntidad.php');
 require ($server.'/sps/clases/Transporte.php');
-
 require ($server.'/sps/clases/Conyuge.php');
 require ($server.'/sps/clases/Entrevista.php');
 require ($server.'/sps/clases/InformacionEconomica.php');

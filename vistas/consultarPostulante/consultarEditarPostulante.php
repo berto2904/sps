@@ -21,7 +21,7 @@ include ($server.'/sps/helper/sessionValidation.php');
                   include('consultarEditarPostulante/6_formuInfoSocioambiental.php');
                   include('consultarEditarPostulante/7_formuInfoEconomica.php');
                   include('consultarEditarPostulante/8_formuInfoReferenciasLaborales.php');
-                  include('../registracionPostulante/formuConfirmacion.php');
+                  include('consultarEditarPostulante/9_formuConfirmacion.php');
                  ?>
 								<div class="clearfix"></div>
 							</div>
