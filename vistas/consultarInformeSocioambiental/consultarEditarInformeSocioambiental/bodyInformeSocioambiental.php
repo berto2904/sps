@@ -12,11 +12,6 @@
 
 
   $fileContent = curl_get_contents($fileUrl);
-
-  $postulante = Postulante::consultarPostulanteByIdEntrevista($idEntrevista)[0][0];
-  $familiares = Familiar::consultarPadresByIdEntrevista($idEntrevista);
-  $informeConf = InformeConfidencial::consultarInformeConfidencialByIdPostulante($postulante['id_postulante']);
-  $existeInforme = InformeConfidencial::existeInformeConfidencial($postulante['id_postulante']);
 ?>
   <!-- <h3>Administracion de Informes Laborales</h3> -->
     <div class="formuInfoConfidencial row ">

@@ -1,22 +1,19 @@
 <?php
-$serverDocument = ($_SERVER['DOCUMENT_ROOT']);
-// include ($serverDocument.'/sps/helper/sessionValidation.php');
-
-$referer = (isset($_SERVER['HTTPS']) ? "https" : "http");
-$serverPort = (isset($_SERVER['SERVER_PORT']) ? ":".$_SERVER['SERVER_PORT'] :'');
-$server = $referer.'://'.$_SERVER['SERVER_NAME'].$serverPort;
-
-include ($serverDocument.'/sps/helper/request_no_curl.php');
+$server = ($_SERVER['DOCUMENT_ROOT']);
+require ($server.'/sps/clases/Postulante.php');
+require ($server.'/sps/clases/Familiar.php');
+require ($server.'/sps/clases/InformeConfidencial.php');
 
 $idEntrevista = $_GET['entrevista'];
-// $entrevista = json_decode(postFunction($server.'/sps/controladores/consultarPostulante.php',array('id_entrevista' => $idEntrevista)),true);
-$entrevista = json_decode(postFunction2($server.'/sps/controladores/consultarPostulante.php','id_entrevista='.$idEntrevista),true);
-$datosDeEntrevista = $entrevista['Postulante']['DatosDeEntrevistas'];
-$datosPersonales = $entrevista['Postulante']['DatosPersonales'];
-$datosFamiliares = $entrevista['Postulante']['DatosFamiliares'];
-$estudiosIdiomas = $entrevista['Postulante']['EstudiosIdiomas'];
-$hobbiesYPasatiempos = $entrevista['Postulante']['HobbiesYPasatiempos'];
-$informacionSocioambiental = $entrevista['Postulante']['InformacionSocioambiental'];
-$informacionEconomica = $entrevista['Postulante']['InformacionEconomica'];
-$referenciasLaborales = $entrevista['Postulante']['ReferenciasLaborales'];
+$postulante = Postulante::consultarPostulanteByIdEntrevista($idEntrevista)[0][0] ? Postulante::consultarPostulanteByIdEntrevista($idEntrevista)[0][0] : '-';
+$familiares = Familiar::consultarPadresByIdEntrevista($idEntrevista) ? Familiar::consultarPadresByIdEntrevista($idEntrevista) : '-';
+$informeConf = InformeConfidencial::consultarInformeConfidencialByIdPostulante($postulante['id_postulante']) ? InformeConfidencial::consultarInformeConfidencialByIdPostulante($postulante['id_postulante']) : '-';
+
+$apellido = $postulante['postulante_apellido'] ? $postulante['postulante_apellido'] : '-';
+$nombres = $postulante['postulante_nombres'] ? $postulante['postulante_nombres'] : '-';
+$nacionalidad = $postulante['postulante_nacionalidad'] ? $postulante['postulante_nacionalidad'] : '-';
+$dni = $postulante['postulante_dni'] ? $postulante['postulante_dni'] : '-';
+$padre = isset($familiares[0]['familiar_apellido_nombre']) ? $familiares[0]['familiar_apellido_nombre'] : '-';
+$madre = isset($familiares[1]['familiar_apellido_nombre']) ? $familiares[1]['familiar_apellido_nombre'] : '-';
+$observacion = $informeConf['respuesta'] ? $informeConf['respuesta'] : '-';
 ?>

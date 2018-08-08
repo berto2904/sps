@@ -18,6 +18,16 @@ p{
   height: auto;
   margin: 0px;
   }
+.headerConfidencial {
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  top: -2em;
+  right: 0px;
+  height: 2em;
+  margin: 0px;
+  text-align: center;
+  }
 
 .margin0 *{
   margin: 0px;
@@ -63,6 +73,9 @@ p{
   border-style: solid;
   margin: 0%;
 }
+.bordererSolidGris{
+  border: 1px solid;
+}
 
 .titulo{
   text-align: center;
@@ -77,6 +90,23 @@ p{
 .domicilio{
   height: 13em!important;
 }
+.infoPostulanteConficencial{
+  padding: 1em 1em 0em 1em;
+}
+.observacionConfidencial{
+  height: 25em;
+  margin: 0em 1em 1em 1em;
+  padding: 1%;
+ }
+ .observacionConfidencial p{
+   margin:0px;
+ }
+ .detalleConfidencial{
+   text-align: center;
+   height: 10em;
+   margin: 0em 1em 1em 1em;
+   padding: 1%;
+  }
 /* -------------------------------------------- */
 
 /*

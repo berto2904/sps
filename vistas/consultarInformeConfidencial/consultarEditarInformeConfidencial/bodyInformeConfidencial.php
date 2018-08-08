@@ -53,7 +53,7 @@
           </div>
         <?php }else{ ?>
           <div class="btn-group col-md-8 col-md-offset-4">
-            <button type="button" class="btn btn-sm btn-primary" onclick="imprimirInformeConfidencial(<?php echo $postulante['id_postulante'] ?>)"><i class="glyphicon glyphicon-print"></i> Imprimir </button>
+            <a class="btn btn-sm btn-primary" href="../controladores/crearInformeConfidencialPDF.php?entrevista=<?php echo $idEntrevista ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Imprimir </a>
             <button type="button" class="btn btn-sm btn-warning" onclick="crearInformeConfidencial(<?php echo $postulante['id_postulante'] ?>)"><i class="glyphicon glyphicon-edit"></i> Editar </button>
             <button type="button" class="btn btn-sm btn-danger"  onclick="eliminarInformeConfidencial(<?php echo $postulante['id_postulante'] ?>)"><i class="glyphicon glyphicon-trash"></i> Eliminar </button>
           </div>
