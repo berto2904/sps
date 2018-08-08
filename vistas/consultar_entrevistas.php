@@ -41,7 +41,7 @@ include ('headersFooters/headerEnd.php');
                        data-page-list="[5,8,10,20]">
                   <thead>
                     <tr>
-                      <th data-field="id_entrevista" data-visible="false">#</th>
+                      <th data-field="id_entrevista" data-visible="true">Informe socioambiental</th>
                       <th data-field="fechaHoraEntrevista">Fecha y Hora</th>
                       <th data-field="organizacion">Organizacion</th>
                       <th data-field="puesto">Puesto</th>
@@ -49,16 +49,16 @@ include ('headersFooters/headerEnd.php');
                       <th data-field="apellido">Apellido</th>
                       <th data-field="dni">DNI</th>
                       <th data-field="sexo" data-visible="false">Sexo</th>
-                      <th data-field="lugarNacimiento" data-visible="false">Lugar de Nacimiento</th>
                       <th data-field="nacionalidad" data-visible="false">Nacionalidad</th>
                       <th data-field="estadoCivil" data-visible="false">Estado Civil</th>
-                      <th data-field="informeSocioambiental" data-visible="false">Informe Socio-Ambiental</th>
                       <th data-field="fNacPostulante" data-visible="false">Fecha de Nacimiento</th>
-                      <th data-field="licenciaCategoria" data-visible="false">Categoria licencia</th>
-                      <th data-field="licenciaConductor" data-visible="false">Licencia de conducir</th>
-                      <th data-field="expedidaLicConducir" data-visible="false">Expedida Por(Lic. Conducir)</th>
-                      <th data-field="idPostulante" data-visible="false">idPostulante</th>
                       <th data-field="infoRelevante" data-visible="false">Informacion Relevante</th>
+                      <!-- <th data-field="lugarNacimiento" data-visible="false">Lugar de Nacimiento</th> -->
+                      <!-- <th data-field="informeSocioambiental" data-visible="false">Informe Socio-Ambiental</th> -->
+                      <!-- <th data-field="licenciaCategoria" data-visible="false">Categoria licencia</th> -->
+                      <!-- <th data-field="licenciaConductor" data-visible="false">Licencia de conducir</th> -->
+                      <!-- <th data-field="expedidaLicConducir" data-visible="false">Expedida Por(Lic. Conducir)</th> -->
+                      <!-- <th data-field="idPostulante" data-visible="false">idPostulante</th> -->
                     </tr>
                   </thead>
                 </table>
