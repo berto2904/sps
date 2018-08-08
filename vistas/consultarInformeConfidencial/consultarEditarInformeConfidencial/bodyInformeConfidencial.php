@@ -3,11 +3,16 @@
   require ($server.'/sps/clases/Postulante.php');
   require ($server.'/sps/clases/Familiar.php');
   require ($server.'/sps/clases/InformeConfidencial.php');
-
+  include ($server. "/sps/helper/utf8EncodeDecodeDeep.php");
+  
   $postulante = Postulante::consultarPostulanteByIdEntrevista($idEntrevista)[0][0];
   $familiares = Familiar::consultarPadresByIdEntrevista($idEntrevista);
   $informeConf = InformeConfidencial::consultarInformeConfidencialByIdPostulante($postulante['id_postulante']);
   $existeInforme = InformeConfidencial::existeInformeConfidencial($postulante['id_postulante']);
+  utf8_encode_deep($postulante);
+  utf8_encode_deep($familiares);
+  utf8_encode_deep($informeConf);
+  utf8_encode_deep($existeInforme);
 ?>
   <!-- <h3>Administracion de Informes Laborales</h3> -->
     <div class="formuInfoConfidencial row ">
