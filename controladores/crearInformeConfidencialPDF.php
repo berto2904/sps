@@ -42,5 +42,5 @@
 
   // $mipdf->load_html(utf8_decode($html1));
   $mipdf->render();
-  $mipdf->stream("Pre laboral - ".$datosPersonales['postulante_nombres']." ".$datosPersonales['postulante_apellido']." - "."DNI ".$datosPersonales['postulante_dni'].".pdf",array('Attachment'=>false));
+  $mipdf->stream("Confidencial - ".$datosPersonales['postulante_nombres']." ".$datosPersonales['postulante_apellido']." - "."DNI ".$datosPersonales['postulante_dni'].".pdf",array('Attachment'=>false));
  ?>

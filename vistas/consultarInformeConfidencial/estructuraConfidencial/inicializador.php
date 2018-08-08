@@ -11,7 +11,7 @@ $familiares = Familiar::consultarPadresByIdEntrevista($idEntrevista) ? Familiar:
 $informeConf = InformeConfidencial::consultarInformeConfidencialByIdPostulante($postulante['id_postulante']) ? InformeConfidencial::consultarInformeConfidencialByIdPostulante($postulante['id_postulante']) : '-';
 utf8_encode_deep($postulante);
 utf8_encode_deep($familiares);
-utf8_encode_deep($informeConf);
+// utf8_encode_deep($informeConf);
 
 $apellido = $postulante['postulante_apellido'] ? $postulante['postulante_apellido'] : '-';
 $nombres = $postulante['postulante_nombres'] ? $postulante['postulante_nombres'] : '-';
