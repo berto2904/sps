@@ -1,6 +1,6 @@
 <?php
 $server = ($_SERVER['DOCUMENT_ROOT']);
-include ($server.'/sps/helper/sessionValidation.php');
+// include ($server.'/sps/helper/sessionValidation.php');
 include ($server.'/sps/helper/consultaJsonHelper.php');
 require ($server.'/sps/clases/ConceptoVecinal.php');
 require ($server.'/sps/clases/CuentaBancaria.php');

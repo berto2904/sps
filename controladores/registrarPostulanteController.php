@@ -37,7 +37,7 @@ $id_usuario = (int)$_SESSION["usuario"];
 $organizacion = ($_POST["inputOrganizacion"] != "" ? $_POST["inputOrganizacion"] : Null);  utf8_decode_deep($organizacion);
 $puesto = ($_POST["inputPuesto"] != "" ? $_POST["inputPuesto"] : Null);  utf8_decode_deep($puesto);
 $fechaEntrevista = ($_POST["inputFechaEntrevista"] != "" ? $_POST["inputFechaEntrevista"] : Null); utf8_decode_deep($fechaEntrevista);
-$informacionRelevante = Null;  utf8_decode_deep($informacionRelevante);
+$informacionRelevante = ($_POST["infoRelevante"] != "" ? $_POST["infoRelevante"] : Null);;  utf8_decode_deep($informacionRelevante);
 //Postulante
 $apellido = ($_POST["inputApellido"] != "" ? $_POST["inputApellido"] : Null);  utf8_decode_deep($apellido);
 $nombres = ($_POST["inputNombres"] != "" ? $_POST["inputNombres"] : Null); utf8_decode_deep($nombres);

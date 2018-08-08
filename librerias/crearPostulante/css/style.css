@@ -391,7 +391,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #gtco-counter,
 .gtco-bg {
   background-size: cover;
-  background-position: top center;
+  background-position:center;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -662,6 +662,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 form label {
   font-weight: normal !important;
+  margin-top: 8px;
 }
 
 #gtco-header .display-tc,

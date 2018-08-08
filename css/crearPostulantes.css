@@ -302,7 +302,7 @@ span.round-tab:hover {
 .empresaDescripcion {
   display: flex;
   justify-content: space-between;
-  height: 20%;
+  height: 27px;
 }
 
 .descripcionFidedigna {
