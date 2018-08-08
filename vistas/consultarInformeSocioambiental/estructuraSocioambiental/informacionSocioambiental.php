@@ -53,7 +53,7 @@
    ?>
 </div>
 <br>
-<div class="viviendaServicios both" style="height:250px;">
+<div class="viviendaServicios both" style="height:300px;">
   <h2><strong><em><u>Vivienda</u>:</em></strong></h2>
   <div class="vivienda dosColumnas">
     <p><strong>Tipo de vivienda:</strong> <?php echo $informacionSocioambiental['tipo_vivienda']?></p>

@@ -57,10 +57,17 @@
       <div class="dosColumnas">
         <?php
           setlocale(LC_TIME, 'es_ES', 'esp_esp');
-          $desde = strftime("%B %G", strtotime($empresa['desde']));
+          if ($empresa['desde'] == Null) {
+            $desde = "(Sin fecha: desde)";
+          }else {
+            $desde = strftime("%B %G", strtotime($empresa['desde']));
+          }
           if ($indice == sizeof($referenciasLaborales['Empresas'])-1 && $empresa['hasta'] == Null) {
             $hasta = "Actual";
-          }else {
+          }else if ($empresa['hasta'] == Null) {
+            $hasta = "(Sin fecha: hasta)";
+          }
+          else {
             $hasta = strftime("%B %G", strtotime($empresa['hasta']));
           }
          ?>

@@ -9,7 +9,7 @@
   include("../librerias/domPdf/autoload.inc.php");
 
   $idEntrevista = $_GET['entrevista'];
-  $fileUrl = $server."/sps/vistas/consultarInformeSocioambiental/htmlPrueba.php?entrevista=".$idEntrevista;
+  $fileUrl = $server."/sps/vistas/consultarInformeSocioambiental/htmlInformeSocioambiental.php?entrevista=".$idEntrevista;
   $fileContent = curl_get_contents($fileUrl);
 
   // print_r($fileContent);
@@ -17,15 +17,8 @@
   // print_r(postFunction($referer.'://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/sps/controladores/consultarPostulante.php',array('id_entrevista' => $idEntrevista)));
   // $entrevista = json_decode(postFunction($server.'/sps/controladores/consultarPostulante.php',array('id_entrevista' => $idEntrevista)),true);
   $entrevista = json_decode(postFunction2($server.'/sps/controladores/consultarPostulante.php','id_entrevista='.$idEntrevista),true);
-  
-  $datosDeEntrevista = $entrevista['Postulante']['DatosDeEntrevistas'];
+
   $datosPersonales = $entrevista['Postulante']['DatosPersonales'];
-  $datosFamiliares = $entrevista['Postulante']['DatosFamiliares'];
-  $estudiosIdiomas = $entrevista['Postulante']['EstudiosIdiomas'];
-  $hobbiesYPasatiempos = $entrevista['Postulante']['HobbiesYPasatiempos'];
-  $informacionSocioambiental = $entrevista['Postulante']['InformacionSocioambiental'];
-  $informacionEconomica = $entrevista['Postulante']['InformacionEconomica'];
-  $referenciasLaborales = $entrevista['Postulante']['ReferenciasLaborales'];
 ?>
 
 <?php
