@@ -95,5 +95,5 @@
 </div>
 <div class="infoRelevante both margin0">
   <p><strong><u>Otra informacion relevante:</u></strong></p>
-  <p>refLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLaboralrefLdsdasdsadsadsadd</p>
+  <p><?php echo $datosDeEntrevista['informacion_relevante']?></p>
 </div>
