@@ -28,6 +28,9 @@ include ('../helper/sessionValidation.php');
 include ('../helper/request_no_curl.php');
 
 
+if (isset($_POST["id_entrevista"])) {
+  postFunction($server.'/sps/controladores/eliminarEntrevistaController.php',array('id_entrevista' => $_POST["id_entrevista"]));
+}
  //Entrevista
 $id_usuario = (int)$_SESSION["usuario"];
 
@@ -157,7 +160,6 @@ try {
 
 
 if (isset($_POST["id_entrevista"])) {
-  postFunction($server.'/sps/controladores/eliminarEntrevistaController.php',array('id_entrevista' => $_POST["id_entrevista"]));
   header("location: ../vistas/consultar_entrevistas.php");
 }else {
   header("location: ../vistas/crear_postulante.php");
