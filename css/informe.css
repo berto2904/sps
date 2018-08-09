@@ -28,6 +28,16 @@ p{
   margin: 0px;
   text-align: center;
   }
+.footerInfoLaboral {
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  top: 60em;
+  right: 0px;
+  height: 2em;
+  margin: 0px;
+  text-align: center;
+ }
 
 .margin0 *{
   margin: 0px;
@@ -97,16 +107,27 @@ p{
   height: 25em;
   margin: 0em 1em 1em 1em;
   padding: 1%;
- }
- .observacionConfidencial p{
-   margin:0px;
- }
- .detalleConfidencial{
-   text-align: center;
-   height: 10em;
-   margin: 0em 1em 1em 1em;
-   padding: 1%;
-  }
+}
+.observacionConfidencial p{
+  margin:0px;
+}
+.detalleConfidencial{
+  text-align: center;
+  height: 10em;
+  margin: 0em 1em 1em 1em;
+  padding: 1%;
+}
+.infoLaboral{
+  padding: 1em;
+}
+.tresColumnas{
+  float: left;
+  width: 30%;
+}
+.borderTop{
+  border-top: solid black;
+  margin: : 0% 2%;
+}
 /* -------------------------------------------- */
 
 /*

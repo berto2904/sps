@@ -57,5 +57,15 @@
       $cq->ejecutarConsultaById($idReferenciaLaboral,$sql);
     }
 
+    public static function consultarReferenciaPreguntaRespuestaByIdReferenciaLaboral($idReferenciaLaboral){
+      $cq = new connQuery();
+      $sql = "SELECT p.pregunta pregunta, ip.respuesta respuesta
+      from informe_laboral_pregunta ip
+      join pregunta p on p.id_pregunta = ip.id_pregunta_laboral
+      where ip.id_informe_laboral = (select id_informe_laboral from informe_laboral where id_referencias_laborales = ?);";
+
+      return $cq->getFilasById($idReferenciaLaboral,$sql);
+    }
+
   }
 ?>
