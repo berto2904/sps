@@ -23,7 +23,7 @@
           // print_r($informeLaboralPreguntas);
           // die();
           ?>
-         <h2><strong>Empresa: </strong><?php echo $referenciaLaboral['empresa']?></h2>
+         <p><strong>Empresa: </strong><?php echo $referenciaLaboral['empresa']?></p>
          <br>
          <br>
          <div class="both">
@@ -43,13 +43,11 @@
            <div class="dosColumnas">
              <p><strong>Ultimo puesto ocupado:  </strong><?php echo $informeLaboral['ultimo_puesto_ocupado']?></p>
              <br>
-             <br>
            </div>
          </div>
          <div class="both">
            <p><strong>Causas de Egreso:  </strong><?php echo $informeLaboral['causa_de_egreso']?></p>
          </div>
-         <br>
          <br>
          <div class="both">
            <div class="dosColumnas ladoIzquierdo">

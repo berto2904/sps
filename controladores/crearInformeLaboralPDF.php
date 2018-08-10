@@ -4,9 +4,11 @@
   $serverPort = (isset($_SERVER['SERVER_PORT']) ? ":".$_SERVER['SERVER_PORT'] :'');
   $server = $referer.'://'.$_SERVER['SERVER_NAME'].$serverPort;
 
+  require ($serverDocument. "/sps/clases/ReferenciaLaboral.php");
   include ($serverDocument.'/sps/helper/sessionValidation.php');
   include ($serverDocument.'/sps/helper/request_no_curl.php');
   include("../librerias/domPdf/autoload.inc.php");
+
   $idRefLaboral = $_GET['idRefLaboral'];
   $idEntrevista = $_GET['entrevista'];
   $fileUrl = $server."/sps/vistas/consultarAntecedentesLaborales/htmlInformeLaboral.php?idRefLaboral=".$idRefLaboral;
@@ -15,6 +17,7 @@
   $fileContent = curl_get_contents($fileUrl);
 
   // TODO: Obtener informacion laboral para el pdf
+  $referenciaLaboral = ReferenciaLaboral::consultarReferenciaLaboralByIdReferenciaLaboral($idRefLaboral);
   $entrevista = json_decode(postFunction2($server.'/sps/controladores/consultarPostulante.php','id_entrevista='.$idRefLaboral),true);
 
   $datosPersonales = $entrevista['Postulante']['DatosPersonales'];
@@ -41,5 +44,5 @@
 
   // $mipdf->load_html(utf8_decode($html1));
   $mipdf->render();
-  $mipdf->stream("Laboral - ".$datosPersonales['postulante_nombres']." ".$datosPersonales['postulante_apellido']." - "."DNI ".$datosPersonales['postulante_dni'].".pdf",array('Attachment'=>false));
+  $mipdf->stream("Informe Laboral - ".$referenciaLaboral['empresa']." - ".$datosPersonales['postulante_nombres']." ".$datosPersonales['postulante_apellido']." - "."DNI ".$datosPersonales['postulante_dni'].".pdf",array('Attachment'=>false));
  ?>

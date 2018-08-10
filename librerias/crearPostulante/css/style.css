@@ -262,7 +262,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #gtco-header {
-  background: #fdd035;
+  background: #000000;
 }
 @media screen and (max-width: 768px) {
   #gtco-header.gtco-cover {
@@ -1489,7 +1489,7 @@ form label {
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: url(../images/loader.gif) center no-repeat #fff;
+  background: url(../images/loader.gif) center no-repeat #00000029;
 }
 
 .js .animate-box {
