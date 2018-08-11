@@ -28,9 +28,8 @@ class Usuario{
 
 	public static function  ingresarUsuarioUser ($usuarioUser,$usuarioPass){
 		$cq = new connQuery();
-		$sql = "select * from usuario where nombre_usuario = ? and contrasenia = ? ";
+		$sql = "select * from usuario where nombre_usuario = ? and contrasenia = ?";
 		$ps = $cq->prepare($sql);
-
 		mysqli_stmt_bind_param($ps,
 		"ss",
 		$usuarioUser,
@@ -38,7 +37,6 @@ class Usuario{
 
 		mysqli_stmt_execute($ps);
 		$consultaIsTrue = mysqli_stmt_fetch($ps);
-
 		return $consultaIsTrue;
 	}
 	function persistirse(){

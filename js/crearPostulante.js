@@ -27,9 +27,20 @@ $(document).ready(function() {
   toggleIdiomas();
   $(".activarIdioma").trigger( "click" );
 
+  $( "form" ).submit(function() {
+    loader();
+  });
+
+  // $('#inputSubmit').click(function(){
+  //   $('.gtco-loader').css('display','');
+  // });
 });
 
 /*-------------------------------------Funciones------------------------------------------------*/
+
+function loader(){
+  $('.gtco-loader').css('display','');
+}
 
 function toggleIdiomas(){
   $(".activarIdioma").click(function() {

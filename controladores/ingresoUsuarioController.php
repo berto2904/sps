@@ -4,7 +4,11 @@ require_once ('../clases/UsuarioClass.php');
 
 $connQuery = new ConnQuery();
 $usuarioIngreso = $_POST["user"];
-$passIngreso = $_POST["pass"];
+// $passIngreso = $_POST["pass"];
+$passIngreso = sha1($_POST["pass"],false);
+// var_dump($passIngreso);
+// die();
+
 
 $resultadoConUserName = Usuario::ingresarUsuarioUser($usuarioIngreso,$passIngreso);
 $idUsuario = null;
