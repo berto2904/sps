@@ -6,22 +6,22 @@
           <tr>
             <th data-field="stargazers_count" data-sortable="true" rowspan="2">Nivel</th>
             <th rowspan="2">Establecimiento</th>
-            <th colspan="2">Fecha</th>
+            <!-- <th colspan="2">Fecha</th> -->
             <th rowspan="2">Situacion</th>
             <th rowspan="2">Titulo Obtenido</th>
           </tr>
-          <tr>
+          <!-- <tr>
             <th>Desde (Año)</th>
             <th>Hasta (Año)</th>
-          </tr>
+          </tr> -->
         </thead>
         <tbody>
           <tr>
             <td><label for="">Primario</label></td>
             <input type="hidden" name="infoEstudios[]" value="1">
             <td><input type="text" id="estudio_establecimiento_1" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
-            <td><input type="number" id="estudio_desde_1" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
-            <td><input type="number" id="estudio_hasta_1" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
+            <!-- <td><input type="number" id="estudio_desde_1" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td> -->
+            <!-- <td><input type="number" id="estudio_hasta_1" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td> -->
             <td><input type="text" id="estudio_situacion_1" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
             <td><input type="text" id="estudio_titulo_obtenido_1" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
           </tr>
@@ -29,8 +29,8 @@
             <td><label for="">Secundario</label></td>
             <input type="hidden" name="infoEstudios[]" value="2">
             <td><input type="text" id="estudio_establecimiento_2" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
-            <td><input type="number" id="estudio_desde_2" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
-            <td><input type="number" id="estudio_hasta_2" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
+            <!-- <td><input type="number" id="estudio_desde_2" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td> -->
+            <!-- <td><input type="number" id="estudio_hasta_2" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td> -->
             <td><input type="text" id="estudio_situacion_2" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
             <td><input type="text" id="estudio_titulo_obtenido_2" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
           </tr>
@@ -38,8 +38,8 @@
             <td><label for="">Terciario</label></td>
             <input type="hidden" name="infoEstudios[]" value="3">
             <td><input type="text" id="estudio_establecimiento_3" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
-            <td><input type="number" id="estudio_desde_3" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
-            <td><input type="number" id="estudio_hasta_3" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
+            <!-- <td><input type="number" id="estudio_desde_3" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td> -->
+            <!-- <td><input type="number" id="estudio_hasta_3" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td> -->
             <td><input type="text" id="estudio_situacion_3" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
             <td><input type="text" id="estudio_titulo_obtenido_3" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
           </tr>
@@ -47,8 +47,8 @@
             <td><label for="">Universitario</label></td>
             <input type="hidden" name="infoEstudios[]" value="4">
             <td><input type="text" id="estudio_establecimiento_4" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
-            <td><input type="number" id="estudio_desde_4" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
-            <td><input type="number" id="estudio_hasta_4" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
+            <!-- <td><input type="number" id="estudio_desde_4" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td> -->
+            <!-- <td><input type="number" id="estudio_hasta_4" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td> -->
             <td><input type="text" id="estudio_situacion_4" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
             <td><input type="text" id="estudio_titulo_obtenido_4" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
           </tr>
@@ -56,8 +56,8 @@
             <td><label for="">Otros</label></td>
             <input type="hidden" name="infoEstudios[]" value="5">
             <td><input type="text" id="estudio_establecimiento_5" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
-            <td><input type="number" id="estudio_desde_5" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
-            <td><input type="number" id="estudio_hasta_5" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td>
+            <!-- <td><input type="number" id="estudio_desde_5" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td> -->
+            <!-- <td><input type="number" id="estudio_hasta_5" class="form-control desdeHasta"  name="infoEstudios[]" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}"></td> -->
             <td><input type="text" id="estudio_situacion_5" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
             <td><input type="text" id="estudio_titulo_obtenido_5" class="form-control"  maxlength="70" name="infoEstudios[]"></td>
           </tr>

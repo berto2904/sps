@@ -69,7 +69,8 @@ $profesion_conyuge  = ($_POST["inputProfesionConyuge"] != "" ? $_POST["inputProf
 $observacionConvivencia  = ($_POST["inputObservacionesConvivencia"] != "" ? $_POST["inputObservacionesConvivencia"] : Null); utf8_decode_deep($observacionConvivencia);
 
   //Educacion
-$estudios = array_chunk($_POST["infoEstudios"], 6);  utf8_decode_deep($estudios);
+$estudios = array_chunk($_POST["infoEstudios"], 4);  utf8_decode_deep($estudios);
+
   //Idiomas
 $idiomas=(isset($_POST["idioma"])?$_POST["idioma"] : Null);  utf8_decode_deep($idiomas);
   //Hobby Pasatiempos
@@ -108,7 +109,7 @@ try {
   if(is_float(count($_POST["infoFamiliar"])/4)){
     throw new Exception('Error en el formulario infoFamiliar');
   }
-  if(is_float(count($_POST["infoEstudios"])/6)){
+  if(is_float(count($_POST["infoEstudios"])/4)){
     throw new Exception('Error en el formulario infoEstudios');
   }
   if (isset($idiomas)) {
@@ -327,15 +328,13 @@ function crearTransporte($id_domicilio,$transportes){
 
   function crearEstudios($estudios,$idPostulante){
     foreach ($estudios as $es => $estudio) {
-      if ($estudio[1] != "" || $estudio[2] != "" || $estudio[3] != "" || $estudio[4] != "" || $estudio[5] != "") {
+      if ($estudio[1] != "" || $estudio[2] != "" || $estudio[3] != "") {
         $id_nivel_estudio = (int)$estudio[0];
         $organizacion = $estudio[1];
-        $desde = (int)$estudio[2];
-        $hasta = (int)$estudio[3];
-        $situacion = $estudio[4];
-        $titulo = $estudio[5];
+        $situacion = $estudio[2];
+        $titulo = $estudio[3];
 
-        $estudio = new Estudio($idPostulante, $id_nivel_estudio, $organizacion, $titulo, $desde, $hasta, $situacion);
+        $estudio = new Estudio($idPostulante, $id_nivel_estudio, $organizacion, $titulo, Null, Null, $situacion);
         $estudio->registrarEstudio();
 
 
