@@ -6,6 +6,7 @@
 
 <div class="titulo">
 </div>
+<br>
 <h2><strong><em><u>Educacion</u></em></strong></h2>
 <div class="datosFamiliares margin0 both"style="height: 27%; ">
   <table class="informe">

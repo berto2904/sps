@@ -1,8 +1,9 @@
 <?php
   if ($informacionSocioambiental['ConceptosVecinales'][0]['id_concepto_vecinal'] != Null) {
  ?>
-<div class="conceptoVecinal" style=" height: 40%;">
+<div class="conceptoVecinal margin0" style=" height: 40%;">
   <h2><strong><em><u>Concepto Vecinal</u>:</em></strong></h2>
+  <br>
   <div class="both">
   <?php
      foreach ($informacionSocioambiental['ConceptosVecinales'] as $key => $vecino) {

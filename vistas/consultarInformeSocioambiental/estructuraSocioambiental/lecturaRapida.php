@@ -4,6 +4,7 @@
 <div class="domicilio both">
   <div class="infoDomicilio dosColumnas margin0 ladoIzquierdo" style="">
     <p><strong><u>Domicilio:</u></strong> </p>
+    <br>
     <p><strong>Calle: </strong><?php echo $informacionSocioambiental['route']; ?></p>
     <p><strong>Numero: </strong> <?php echo $informacionSocioambiental['street_number']; ?></p>
     <p><strong>Localidad: </strong> <?php echo $informacionSocioambiental['locality']; ?></p>
@@ -26,17 +27,17 @@
   $key = array_search(4, array_column($estudiosIdiomas['Estudios'], 'id_nivel_estudio'));
   if (empty(!$key)) {?>
     <p><strong><u>Estudios:</u></strong></p>
+    <br>
     <p>Titulo: <strong><?php echo $estudiosIdiomas['Estudios'][$key]['estudio_titulo_obtenido']; ?></strong> </p>
     <p>Organizacion: <strong><?php echo $estudiosIdiomas['Estudios'][$key]['estudio_establecimiento']; ?></strong> </p>
-    <p>Año: <strong><?php echo $estudiosIdiomas['Estudios'][$key]['estudio_hasta']!==0 ? $estudiosIdiomas['Estudios'][$key]['estudio_hasta'] : "(Hasta la actualidad)"; ?></strong> </p>
     <?php
 
   }else {
     ?>
     <p><strong><u>Estudios:</u></strong></p>
+    <br>
     <p>Titulo: <strong><?php echo $estudiosIdiomas['Estudios'][sizeof($estudiosIdiomas['Estudios'])-1]['estudio_titulo_obtenido']; ?></strong> </p>
     <p>Organizacion: <strong><?php echo $estudiosIdiomas['Estudios'][sizeof($estudiosIdiomas['Estudios'])-1]['estudio_establecimiento']; ?></strong> </p>
-    <p>Año: <strong><?php echo $estudiosIdiomas['Estudios'][sizeof($estudiosIdiomas['Estudios'])-1]['estudio_hasta']!==0 ? $estudiosIdiomas['Estudios'][$key]['estudio_hasta'] : "(Actual)"; ?></strong> </p>
     <?php
   }
   ?>
@@ -45,7 +46,9 @@
 
  ?>
 <div class="referenciasLaborales both margin0">
+  <br>
   <p><strong><u>Referencias Laborales:</u></strong></p>
+  <br>
   <?php
   foreach ($referenciasLaborales['Empresas'] as $indice => $empresa) {
     if ($empresa['empresa']!= Null) {
@@ -89,7 +92,9 @@
   }
    ?>
 </div>
+<br>
 <div class="infoRelevante both margin0">
   <p><strong><u>Otra informacion relevante:</u></strong></p>
+  <br>
   <p><?php echo $datosDeEntrevista['informacion_relevante']?></p>
 </div>

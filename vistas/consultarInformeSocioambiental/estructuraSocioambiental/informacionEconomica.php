@@ -1,6 +1,3 @@
-<div class="titulo">
-  <!-- <h1>Informacion Personal</h1> -->
-</div>
 <h2><strong><em><u>Informacion Económica</u></em></strong></h2>
 <div class="movilidadPropia margin0 both">
   <p><strong><u>Movilidad Propia</u></strong> </p>

@@ -46,7 +46,7 @@
         </select>
 
         <label for="inputDni">DNI</label>
-        <input type="number" class="form-control" id="conyuge_dni" name="inputDniConyuge" placeholder="DNI">
+        <input type="number" class="form-control" id="conyuge_dni" name="inputDniConyuge" placeholder="DNI" min="1" max="999999999">
 
         <label for="inputNacionalidad">Nacionalidad</label>
         <input type="text" class="form-control" id="conyuge_nacionalidad" name="inputNacionalidadConyuge" placeholder="Nacionalidad" maxlength="70">

@@ -57,8 +57,9 @@ if (isset($datosFamiliares['id_conyuge'])) {
     <p>Lugar Nacimiento: <strong><?php echo $datosFamiliares['conyuge_lugar_nacimiento'] ?></strong> </p>
     <p>Nacionalidad: <strong><?php echo $datosFamiliares['conyuge_nacionalidad'] ?></strong> </p>
     <p>Profesion: <strong><?php echo $datosFamiliares['conyuge_profesion'] ?></strong> </p>
-    <p>DNI: <strong><?php echo $datosFamiliares['conyuge_dni'] ?></strong> </p>
+    <p>DNI: <strong><?php echo str_replace(",",".",number_format($datosFamiliares['conyuge_dni'])) ?></strong> </p>
     <p>Sexo: <strong><?php echo $datosFamiliares['conyuge_sexo'] ?></strong> </p>
+
   </div>
 <?php
 }

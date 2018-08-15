@@ -18,81 +18,81 @@
     </div>
     <div class="content">
       <div id="infoPreLaboral" class="infoPreLaboral">
-        <div class="titulo">
-          <h1>Informe pre Laboral</h1>
-        </div>
-        <h4><strong><u>Organizacion:</u> <?php echo $datosDeEntrevista['organizacion']?></strong></h4>
-        <div id="datosDelEntrevistado" class="datosDelEntrevistado margin0 both">
-          <p><strong><u>Datos del Entrevistado:</u></strong> </p>
+        <div class="pagina" id="pagina_1">
+          <div class="titulo">
+            <h1>Informe pre Laboral</h1>
+          </div>
+          <h4><strong><u>Organizacion:</u> <?php echo $datosDeEntrevista['organizacion']?></strong></h4>
+          <div id="datosDelEntrevistado" class="datosDelEntrevistado margin0 both">
+            <p><strong><u>Datos del Entrevistado:</u></strong> </p>
+            <br>
+            <p>Apellido: <strong><?php echo $datosPersonales['postulante_apellido']  ?></strong> </p>
+            <p>Nombres: <strong><?php echo $datosPersonales['postulante_nombres'] ?></strong> </p>
+            <p>Puesto: <strong><?php echo $datosDeEntrevista['puesto'] ?></strong> </p>
+            <p>Fecha y hora de entrevista: <strong><?php echo $datosDeEntrevista['entrevista_fechaHora']?>hs</strong> </p>
+          </div>
           <br>
-          <p>Apellido: <strong><?php echo $datosPersonales['postulante_apellido']  ?></strong> </p>
-          <p>Nombres: <strong><?php echo $datosPersonales['postulante_nombres'] ?></strong> </p>
-          <p>Puesto: <strong><?php echo $datosDeEntrevista['puesto'] ?></strong> </p>
-          <p>Fecha y hora de entrevista: <strong><?php echo $datosDeEntrevista['entrevista_fechaHora']?>hs</strong> </p>
-        </div>
-        <br>
-        <div id="informeLecturaRapida" class="informeLecturaRapida bordererSolid both" style="height: 650px;">
-          <?php
+          <div id="informeLecturaRapida" class="informeLecturaRapida bordererSolid both" style="height: 650px;">
+            <?php
             include ('estructuraSocioambiental/lecturaRapida.php');
-           ?>
+            ?>
+          </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <div id="informacionPersonal">
-          <?php
+        <div class="pagina" id="pagina_2">
+          <div id="informacionPersonal">
+            <?php
             include ('estructuraSocioambiental/informacionDatosPersonales.php');
-           ?>
-        </div>
-        <div id="informacionFamiliares" style="height: 600px; ">
-          <?php
+            ?>
+          </div>
+          <div id="informacionFamiliares" style="height: 600px; ">
+            <?php
             include ('estructuraSocioambiental/informacionFamiliares.php');
-          ?>
+            ?>
+          </div>
         </div>
-        <br>
-        <div id="informacionEducacion" style="height: 600px;">
-         <?php
+        <div class="pagina" id="pagina_3">
+          <div id="informacionEducacion" style="height: 600px;">
+            <?php
             include ('estructuraSocioambiental/informacionEducacion.php');
-          ?>
-          <br>
-          <br>
-          <?php
+            ?>
+            <br>
+            <?php
             include ('estructuraSocioambiental/informacionIdiomas.php');
-          ?>
-        </div>
-        <br>
-        <br>
-        <div id="informacionHobbies" style="height: 250px;">
-          <?php
+            ?>
+          </div>
+          <br>
+          <br>
+          <div id="informacionHobbies" style="height: 250px;">
+            <?php
             include ('estructuraSocioambiental/informacionHobbies.php');
-           ?>
+            ?>
+          </div>
         </div>
-        <div id="informacionSocioambiental">
-          <?php
+        <div class="pagina" id="pagina_4">
+          <div id="informacionSocioambiental">
+            <?php
             include ('estructuraSocioambiental/informacionSocioambiental.php');
-          ?>
+            ?>
+          </div>
         </div>
-        <br>
-        <div id="informacionEconomica" style="height: 380px;">
-          <?php
-          include ('estructuraSocioambiental/informacionEconomica.php');
-          ?>
+        <div class="pagina" id="pagina_5">
+          <div id="informacionEconomica" class="">
+            <?php
+            include ('estructuraSocioambiental/informacionEconomica.php');
+            ?>
+          </div>
+          <div id="informacionVecinal" style="height: 450px;">
+            <?php
+            include ('estructuraSocioambiental/informacionVecinal.php');
+            ?>
+          </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div id="informacionVecinal" style="height: 450px;">
-          <?php
-          include ('estructuraSocioambiental/informacionVecinal.php');
-          ?>
-        </div>
-        <br>
-        <br>
-        <div id="informacionReferenciasLaborales" style="height: 300px;">
-          <?php
+        <div class="pagina" id="pagina_6">
+          <div id="informacionReferenciasLaborales" style="height: 300px;">
+            <?php
             include ('estructuraSocioambiental/informacionLaborales.php');
-          ?>
+            ?>
+          </div>
         </div>
       </div>
     </div>

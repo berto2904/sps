@@ -57,7 +57,7 @@
         <div class="row">
           <div class="col-md-6">
             <label for="inputDni">DNI</label>
-            <input type="number" required class="form-control" id="inputDni" name="inputDni" placeholder="DNI">
+            <input type="number" required class="form-control" id="inputDni" name="inputDni" placeholder="DNI" min="1" max="999999999">
           </div>
           <div class="col-md-6">
             <label for="inputNacionalidad">Nacionalidad</label>
