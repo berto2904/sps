@@ -38,9 +38,9 @@
         <div>
       </div>
     </div>
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
       <h3>Observaciones</h3>
       <textarea id="observacion_ref_laboral" name="observacionesReferenciasLaborales" class="form-control" rows="4" cols="80" maxlength="3000"></textarea>
-    </div>
+    </div> -->
   </div>
 </div>
