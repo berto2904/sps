@@ -42,7 +42,7 @@
         </a>
       </li>
       <li role="presentation" class="">
-        <a href="#formuInfoSocioambiental" data-toggle="tab" aria-controls="" role="tab" title="Informacion Socioambiental">
+        <a href="#formuInfoSocioambiental" id="infoSocioambientalId" data-toggle="tab" aria-controls="" role="tab" title="Informacion Socioambiental">
           <span class="round-tab">
             <i class="glyphicon glyphicon-home"></i>
           </span>

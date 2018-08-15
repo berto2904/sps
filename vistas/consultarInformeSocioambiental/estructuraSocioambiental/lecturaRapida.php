@@ -88,17 +88,6 @@
   }
   }
    ?>
-  <div class="refLaboral observacion" style="margin-top:1em;">
-    <?php if ($referenciasLaborales['observacion_ref_laboral'] != Null) {
-      ?>
-        <p><strong>Observacion: </strong> <?php echo $referenciasLaborales['observacion_ref_laboral'] ?></p>
-      <?php
-    }else {
-      ?>
-        <p><strong>Observacion: </strong> Sin comentarios </p>
-      <?php
-    } ?>
-  </div>
 </div>
 <div class="infoRelevante both margin0">
   <p><strong><u>Otra informacion relevante:</u></strong></p>

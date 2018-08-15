@@ -17,9 +17,17 @@ $(document).ready(function() {
   $(window).keydown(function(event){
     if(event.keyCode == 13) {
       event.preventDefault();
+      // if (this.document.activeElement.type = "textarea") {
+      //   var s = this.document.activeElement.value;
+      //   $(this.document.activeElement).val(s+"<br>");
+      // }
       return false;
     }
   });
+
+  $('#infoSocioambientalId').click(function(){
+   recargarGmap(postulanteInfo.Postulante.InformacionSocioambiental.gmap);
+  })
 
 });
 

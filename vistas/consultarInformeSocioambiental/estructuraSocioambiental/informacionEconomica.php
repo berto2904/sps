@@ -42,5 +42,6 @@
    <p>Otras propiedades: <strong><?php echo $informacionEconomica['otras_propiedades']?></strong></p>
    <p>Seguros de vida: <strong><?php echo $informacionEconomica['seguro_de_vida']?></strong></p>
    <p>Prendas: <strong><?php echo $informacionEconomica['prendas']?></strong></p>
+   <br>
    <p>Observaciones: <strong><?php echo $informacionEconomica['cre_deb_observaciones']?></strong></p>
 </div>

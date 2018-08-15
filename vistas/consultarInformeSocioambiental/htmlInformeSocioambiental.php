@@ -71,11 +71,21 @@
           ?>
         </div>
         <br>
-        <div id="informacionEconomica" style="height: 430px;">
+        <div id="informacionEconomica" style="height: 380px;">
           <?php
           include ('estructuraSocioambiental/informacionEconomica.php');
           ?>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="informacionVecinal" style="height: 450px;">
+          <?php
+          include ('estructuraSocioambiental/informacionVecinal.php');
+          ?>
+        </div>
+        <br>
         <br>
         <div id="informacionReferenciasLaborales" style="height: 300px;">
           <?php
