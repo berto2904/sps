@@ -68,9 +68,9 @@
         <label for="inputEstadoCivil">Estado Civil</label>
         <select class="form-control" name="inputEstadoCivil" placeholder="Estado Civil">
           <option value="">Estado Civil</option>
-          <option value=1>Soltero</option>
-          <option value=3>Casado</option>
-          <option value=5>Concubino</option>
+          <option value=1>Soltero/a</option>
+          <option value=3>Casado/a</option>
+          <option value=5>Concubino/a</option>
         </select>
       </div>
     </div>
