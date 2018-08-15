@@ -5,14 +5,16 @@
    <head>
       <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
       <meta charset="utf-8">
-      <title>SPS Informe Laboral</title>
+      <title>RH Global</title>
       <link rel="stylesheet" href="../css/informe.css"/>
       <link rel="stylesheet" href="../../css/informe.css"/>
+    	<link rel="icon" type="image/png" href="../librerias/Login/images/icons/rh.ico"/>
    </head>
    <body>
      <div class="header margin0">
-       <h2>Grupo SPS</h2>
-       <p>Soluciones Integrales en RRHH</p>
+       <!-- <h2>Grupo SPS</h2>
+       <p>Soluciones Integrales en RRHH</p> -->
+       <i class="zmdi zmdi-landscap"> <img src="../resources/images/rhGlobal.png" alt="" style="width: 25%; margin:5px 0px 0px 0px;"> </i>
      </div>
      <h1>Informe Laboral</h1>
      <div id="cuerpo" class="both infoLaboral">

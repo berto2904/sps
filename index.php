@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>SPS</title>
+	<title>RH Global</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="librerias/Login/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="librerias/Login/images/icons/rh.ico"/>
 	<link rel="stylesheet" type="text/css" href="librerias/Login/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="librerias/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="librerias/Login/fonts/iconic/css/material-design-iconic-font.min.css">
@@ -22,10 +22,10 @@
 		<div class="container-login100" style="background-image: url('librerias/Login/images/bg-03.jpg');">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" action="controladores/ingresoUsuarioController.php" method="post">
-					<span class="login100-form-logo">
+					<!-- <span class="login100-form-logo"> -->
 						<!-- <i class="zmdi zmdi-landscape"></i> -->
-						<i class="zmdi zmdi-landscap"> <img src="resources/images/sps.jpg" alt=""> </i>
-					</span>
+						<i class="zmdi zmdi-landscap"> <img src="resources/images/rhGlobal.png" alt="" style="width: 100%;"> </i>
+					<!-- </span> -->
 
 					<span class="login100-form-title p-b-34 p-t-27">
 						<!-- SPS -->

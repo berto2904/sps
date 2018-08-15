@@ -3,8 +3,8 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SPS Entrevistas</title>
-	<link rel="icon" type="image/png" href="../librerias/Login/images/icons/favicon.ico"/>
+	<title>RH Global</title>
+	<link rel="icon" type="image/png" href="../librerias/Login/images/icons/rh.ico"/>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 	<link rel="stylesheet" href="../librerias/crearPostulante/css/animate.css">
 	<link rel="stylesheet" href="../librerias/crearPostulante/css/icomoon.css">

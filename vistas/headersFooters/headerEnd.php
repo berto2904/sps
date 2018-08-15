@@ -29,7 +29,7 @@
 					<div class="col-sm-3 col-xs-6" style=" display: flex; flex-direction: row; justify-content: flex-end; ">
 						<div id="gtco-logo">
 							<a>
-								<img src="../resources/images/sps.jpg" alt="" style=" width: 3em;">
+								<img src="../resources/images/logoFinalFondoBlanco.png" alt="" style=" width: 8em;">
 							</a>
 						</div>
 						<div id="usuarioSesion" style="color: #b5ab89;display: flex;flex-direction: column;justify-content: flex-end;height: 3em;">
