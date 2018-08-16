@@ -20,7 +20,7 @@ $transportes = Transporte::consultarTransportes();
           </div>
           <div class="col-md-3">
             <label for="">Numero</label>
-            <input type="number" class="form-control" id="street_number" name="numero" placeholder="Numero" value="" min="1">
+            <input type="number" class="form-control" id="street_number" name="numero" placeholder="Numero" value="" min="0">
           </div>
         </div>
         <div class="row">
@@ -46,7 +46,7 @@ $transportes = Transporte::consultarTransportes();
           </div>
           <div class="col-md-3">
             <label for="">Piso</label>
-            <input type="number" class="form-control" id="piso" name="piso" placeholder="Piso" value="" style=" width: 5em;" min="1">
+            <input type="number" class="form-control" id="piso" name="piso" placeholder="Piso" value="" style=" width: 5em;" min="0">
           </div>
           <div class="col-md-3">
             <label for="">Departamento</label>
@@ -72,7 +72,7 @@ $transportes = Transporte::consultarTransportes();
             </div>
             <div class="col-md-10">
               <label>Distancia del domicilio: </label>
-              <input class="form-group" type="number" id="transporte_<?php echo $transporte['id']?>_2" name="trasporte[<?php echo $transporte['id']?>][2]" value="" style="width: 3em;" min="1">
+              <input class="form-group" type="number" id="transporte_<?php echo $transporte['id']?>_2" name="trasporte[<?php echo $transporte['id']?>][2]" value="" style="width: 3em;" min="0">
               <label>cuadra/s</label>
             </div>
           </div>
@@ -101,7 +101,7 @@ $transportes = Transporte::consultarTransportes();
           </div>
           <div class="col-md-3">
             <label for="tipo_vivienda">Ambientes</label>
-            <input id="vivienda_ambientes" class="form-control" type="number" name="vivienda[ambientes]" value="" min="1">
+            <input id="vivienda_ambientes" class="form-control" type="number" name="vivienda[ambientes]" value="" min="0">
           </div>
         </div>
         <div class="row">
@@ -147,7 +147,7 @@ $transportes = Transporte::consultarTransportes();
             <label for="">Importe de Alquiler</label>
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
-              <input  id="vivienda_importe_alquiler" class="form-control" type="number" name="vivienda[importe_alquiler]" value="" min="1">
+              <input  id="vivienda_importe_alquiler" class="form-control" type="number" name="vivienda[importe_alquiler]" value="" min="0">
             </div>
           </div>
         </div>

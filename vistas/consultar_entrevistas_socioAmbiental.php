@@ -45,13 +45,13 @@ include ('headersFooters/headerEnd.php');
                       <th data-field="nombres">Nombres</th>
                       <th data-field="apellido">Apellido</th>
                       <th data-field="dni">DNI</th>
+                      <th data-field="informeSocioambiental" data-visible="true">Informe Socio-Ambiental</th>
                       <th data-field="fNacPostulante" data-visible="false">Fecha de Nacimiento</th>
                       <th data-field="organizacion">Organizacion</th>
-                      <!-- <th data-field="fechaHoraEntrevista">Fecha y Hora</th> -->
                       <th data-field="puesto">Puesto</th>
                       <th data-field="sexo" data-visible="false">Sexo</th>
                       <th data-field="nacionalidad" data-visible="false">Nacionalidad</th>
-                      <th data-field="informeSocioambiental" data-visible="false">Informe Socio-Ambiental</th>
+                      <!-- <th data-field="fechaHoraEntrevista">Fecha y Hora</th> -->
                     </tr>
                   </thead>
                 </table>
