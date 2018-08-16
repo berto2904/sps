@@ -29,7 +29,7 @@ include ('../helper/request_no_curl.php');
 
 
 if (isset($_POST["id_entrevista"])) {
-  postFunction($server.'/sps/controladores/eliminarEntrevistaController.php',array('id_entrevista' => $_POST["id_entrevista"]));
+  postFunction2($server.'/sps/controladores/eliminarEntrevistaController.php','id_entrevista='.$_POST["id_entrevista"]);
 }
  //Entrevista
 $id_usuario = (int)$_SESSION["usuario"];
