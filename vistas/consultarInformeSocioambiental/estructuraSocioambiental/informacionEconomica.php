@@ -1,11 +1,10 @@
 <h2><strong><em><u>Informacion Económica</u></em></strong></h2>
 <?php
- if ($informacionSocioambiental['ConceptosVecinales'][0]['id_concepto_vecinal'] != Null){
+ if (($informacionSocioambiental['ConceptosVecinales'][0]['id_concepto_vecinal'] != Null) || (strlen($informacionEconomica['cre_deb_observaciones']) >= 60 )){
    ?>
    <div class="both">
      <div class="movilidadPropia margin0 dosColumnas">
-       <p><strong><u>Movilidad Propia</u></strong> </p>
-       <br>
+       <h4><strong><u>Movilidad Propia</u></strong> </h4>
        <p>Tipo: <strong><?php echo $informacionEconomica['vehiculo']?></strong> </p>
        <p>Marca: <strong><?php echo $informacionEconomica['marca']?></strong> </p>
        <p>Modelo: <strong><?php echo $informacionEconomica['modelo']?></strong> </p>
@@ -15,7 +14,6 @@
      </div>
      <div class="cuentasBancarias margin0 dosColumnas">
        <p><strong><u>Cuentas Bancarias</u></strong> </p>
-       <br>
        <?php
        foreach ($informacionEconomica['CuentasBancarias'] as $key => $cuentaBancaria) {
          ?>
@@ -30,8 +28,7 @@
    ?>
    <div class="both">
      <div class="movilidadPropia margin0">
-       <p><strong><u>Movilidad Propia</u></strong> </p>
-       <br>
+       <h4><strong><u>Movilidad Propia</u></strong> </h4>
        <p>Tipo: <strong><?php echo $informacionEconomica['vehiculo']?></strong> </p>
        <p>Marca: <strong><?php echo $informacionEconomica['marca']?></strong> </p>
        <p>Modelo: <strong><?php echo $informacionEconomica['modelo']?></strong> </p>
@@ -42,7 +39,6 @@
      <br>
      <div class="cuentasBancarias margin0 ">
        <p><strong><u>Cuentas Bancarias</u></strong> </p>
-       <br>
        <?php
        foreach ($informacionEconomica['CuentasBancarias'] as $key => $cuentaBancaria) {
          ?>
@@ -58,8 +54,7 @@
 
 <div class="tarjetasCredito margin0 both">
   <br>
-  <p><strong><u>Tarjetas de Crédito</u></strong> </p>
-  <br>
+  <h4><strong><u>Tarjetas de Crédito</u></strong> </h4>
   <?php
   foreach ($informacionEconomica['TarjetasEntidades'] as $key => $tarjetaEntidad) {
     ?>
@@ -82,4 +77,3 @@
    <br>
    <p>Observaciones: <strong><?php echo $informacionEconomica['cre_deb_observaciones']?></strong></p>
 </div>
-<br>

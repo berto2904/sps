@@ -1,5 +1,6 @@
 <div class="titulo">
 </div>
+<br>
 <h2><strong><em><u>Antecedentes Laborales</u></em></strong></h2>
 <div class="datosFamiliares margin0 both">
   <?php

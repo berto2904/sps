@@ -1,7 +1,5 @@
-<div class="titulo">
-</div>
-<h2><strong><em><u>Familiares</u></em></strong></h2>
-<div class="datosFamiliares margin0 both"style="height: 45%; ">
+<div class="datosFamiliares both">
+  <h2><strong><em><u>Familiares</u></em></strong></h2>
   <?php
   // print_r($datosFamiliares['Familiares']);
   // die();
