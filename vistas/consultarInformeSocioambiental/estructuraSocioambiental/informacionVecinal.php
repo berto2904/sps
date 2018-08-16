@@ -35,7 +35,7 @@
      ?>
      <div class="conceptoVecinal" style=" height: 10%;">
        <h2><strong><em><u>Concepto Vecinal</u>:</em></strong></h2>
-       <div class="both">
+       <div class="both margin0">
          <p>No hay informacion sobre vecinos del postulante</p>
        </div>
      <?php

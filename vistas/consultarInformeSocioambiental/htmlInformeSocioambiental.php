@@ -14,7 +14,10 @@
     <div class="header margin0">
       <!-- <h2>Grupo SPS</h2> -->
       <!-- <p>Soluciones Integrales en RRHH</p> -->
-      <i class="zmdi zmdi-landscap"> <img src="../resources/images/rhGlobal.png" alt="" style="width: 25%; margin:5px 0px 0px 0px;"> </i>
+       <i class="zmdi zmdi-landscap"> <img src="../resources/images/rhGlobal.png" alt="" style="width: 25%; margin:5px 0px 0px 0px;"> </i>
+       <div class="" style = "float:right; margin: 2% 0%;">
+         <p><strong> Socio-ambiental:</strong> #<?php echo $idEntrevista ?></p>
+       </div>
     </div>
     <div class="content">
       <div id="infoPreLaboral" class="infoPreLaboral">

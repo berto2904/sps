@@ -52,7 +52,6 @@
     </tbody>
   </table>
 </div>
-<br>
 <div style="height: 20%;" >
 <p><strong><u>Observaciones:</u></strong></p>
   <div class="convivencia both margin0">
