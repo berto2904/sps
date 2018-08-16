@@ -26,7 +26,7 @@
       </div>
       <div class="col-md-3">
           <label for="movilidadPropia[año]">Año</label>
-          <input type="number" class="form-control" id="" name="movilidadPropia[año]" placeholder="Año" maxlength="4" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}">
+          <input type="number" class="form-control" id="" name="movilidadPropia[año]" placeholder="Año" maxlength="4" onKeyUp="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" onmouseup="if(this.value>9999){this.value='';}else if(this.value < 0){this.value=''}" min="1">
       </div>
     </div>
     <br>
