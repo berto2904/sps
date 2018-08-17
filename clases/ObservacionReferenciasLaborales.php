@@ -14,7 +14,7 @@
 
     function registarObservacionInfoLaboral(){
       $cq = new connQuery();
-      $sql = "INSERT INTO observaciones_infoLaboral(observacion, id_postulante)
+      $sql = "INSERT INTO observaciones_infolaboral(observacion, id_postulante)
                   VALUES (?,?)";
 
       $ps = $cq->prepare($sql);
