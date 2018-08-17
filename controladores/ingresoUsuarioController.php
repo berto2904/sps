@@ -6,8 +6,8 @@ $connQuery = new ConnQuery();
 $usuarioIngreso = $_POST["user"];
 // $passIngreso = $_POST["pass"];
 $passIngreso = sha1($_POST["pass"],false);
-// var_dump($passIngreso);
-// die();
+var_dump($passIngreso);
+die();
 
 
 $resultadoConUserName = Usuario::ingresarUsuarioUser($usuarioIngreso,$passIngreso);
