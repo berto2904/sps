@@ -2,7 +2,7 @@
 class ConnQuery{
 
   // private $servidor ="localhost";
-  private $servidor ="server164.hostinger.com.ar/localhost:3306";
+  private $servidor ="mysql.hostinger.com.ar";
   // private $usuario = "root";
   private $usuario = "u672203769_admin";
   private $pass = "admin2904";
