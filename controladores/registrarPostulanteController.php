@@ -35,6 +35,8 @@ if (isset($_POST["id_entrevista"])) {
 $id_usuario = (int)$_SESSION["usuario"];
 
 $organizacion = ($_POST["inputOrganizacion"] != "" ? $_POST["inputOrganizacion"] : Null);  utf8_decode_deep($organizacion);
+var_dump($organizacion);
+die();
 $puesto = ($_POST["inputPuesto"] != "" ? $_POST["inputPuesto"] : Null);  utf8_decode_deep($puesto);
 $fechaEntrevista = ($_POST["inputFechaEntrevista"] != "" ? $_POST["inputFechaEntrevista"] : Null); utf8_decode_deep($fechaEntrevista);
 $informacionRelevante = ($_POST["infoRelevante"] != "" ? $_POST["infoRelevante"] : Null);;  utf8_decode_deep($informacionRelevante);
