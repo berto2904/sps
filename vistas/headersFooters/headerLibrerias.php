@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>RH Global</title>
 	<link rel="icon" type="image/png" href="../librerias/Login/images/icons/rh.ico"/>
@@ -19,3 +19,4 @@
 	<link rel="stylesheet" href="../librerias/bootstrap-table/docs/assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">
 	<script src="../librerias/crearPostulante/js/modernizr-2.6.2.min.js"></script>
+	<?php header('Content-Type: text/html; charset=UTF-8'); ?>
