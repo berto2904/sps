@@ -1,10 +1,13 @@
 <?php
 class ConnQuery{
 
-  private $servidor ="localhost";
-  private $usuario = "root";
+  // private $servidor ="localhost";
+  private $servidor =" localhost:3306";
+  // private $usuario = "root";
+  private $usuario = "u672203769_admin";
   private $pass = "admin2904";
-  private $bd="sps";
+  // private $bd="sps";
+  private $bd="u672203769_sps";
   private $conn;
 
   function __construct(){
