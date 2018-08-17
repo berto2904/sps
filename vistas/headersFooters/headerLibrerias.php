@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>RH Global</title>
 	<link rel="icon" type="image/png" href="../librerias/Login/images/icons/rh.ico"/>
