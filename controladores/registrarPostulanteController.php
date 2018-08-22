@@ -35,8 +35,8 @@ if (isset($_POST["id_entrevista"])) {
 $id_usuario = (int)$_SESSION["usuario"];
 
 $organizacion = ($_POST["inputOrganizacion"] != "" ? $_POST["inputOrganizacion"] : Null);
-// var_dump($organizacion);
-// die();
+var_dump($organizacion);
+die();
 $puesto = ($_POST["inputPuesto"] != "" ? $_POST["inputPuesto"] : Null);
 $fechaEntrevista = ($_POST["inputFechaEntrevista"] != "" ? $_POST["inputFechaEntrevista"] : Null);
 $informacionRelevante = ($_POST["infoRelevante"] != "" ? $_POST["infoRelevante"] : Null);;
