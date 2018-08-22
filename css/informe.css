@@ -169,6 +169,9 @@ table{
   width: 20%;
 }
 
+strong {
+  font-weight: bolder;
+}
 
 /* tr:nth-child(even){
 	background-color: #ddd;
