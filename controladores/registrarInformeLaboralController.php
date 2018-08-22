@@ -10,7 +10,7 @@ $id_usuario = (int)$_SESSION["usuario"];
 
 $refLaboral = $_POST['informeLaboral'];
 $idEntrevista = $_POST['id_entrevista'];
-utf8_decode_deep($refLaboral);
+// utf8_decode_deep($refLaboral);
 
 if (InformeLaboral::existeInformeLaboral($refLaboral['idRefLaboral'])) {
   actualizarInformeLaboral($refLaboral);

@@ -6,7 +6,7 @@ include ('../helper/sessionValidation.php');
 
 $informeConfidencial = $_POST['informeConfidencial'];
 $idEntrevista = $_POST['id_entrevista'];
-utf8_decode_deep($refLaboral);
+// utf8_decode_deep($refLaboral);
 
 if (InformeConfidencial::existeInformeConfidencial($informeConfidencial['idPostulante'])) {
   actualizarInformeConfidencial($informeConfidencial);
