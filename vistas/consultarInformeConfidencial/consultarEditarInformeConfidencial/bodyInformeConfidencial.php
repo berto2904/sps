@@ -9,8 +9,8 @@
   $familiares = Familiar::consultarPadresByIdEntrevista($idEntrevista);
   $informeConf = InformeConfidencial::consultarInformeConfidencialByIdPostulante($postulante['id_postulante']);
   $existeInforme = InformeConfidencial::existeInformeConfidencial($postulante['id_postulante']);
-  utf8_encode_deep($postulante);
-  utf8_encode_deep($familiares);
+  // utf8_encode_deep($postulante);
+  // utf8_encode_deep($familiares);
   // utf8_encode_deep($informeConf);
 ?>
   <!-- <h3>Administracion de Informes Laborales</h3> -->

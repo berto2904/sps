@@ -11,12 +11,9 @@
 
   $idRefLaboral = $_GET['idRefLaboral'];
   $idEntrevista = $_GET['entrevista'];
-  $fileUrl = $server."/sps/vistas/consultarAntecedentesLaborales/htmlInformeLaboral.php?idRefLaboral=".$idRefLaboral;
-  // print_r($idEntrevista);
-  // die();
+  $fileUrl = $server."/sps/vistas/consultarAntecedentesLaborales/htmlInformeLaboral.php?idRefLaboral=".$idRefLaboral."&idEntrevista=".$idEntrevista;
   $fileContent = curl_get_contents($fileUrl);
 
-  // TODO: Obtener informacion laboral para el pdf
   $referenciaLaboral = ReferenciaLaboral::consultarReferenciaLaboralByIdReferenciaLaboral($idRefLaboral);
   $entrevista = json_decode(postFunction2($server.'/sps/controladores/consultarPostulante.php','id_entrevista='.$idRefLaboral),true);
 
@@ -32,17 +29,8 @@
   $options->setIsRemoteEnabled(true);
   $options->set('chroot', 'path-to-test-html-files');
   $mipdf = new Dompdf($options);
-
-// test.html or test_single_line.html
-  // $mipdf->loadHtmlFile('../vistas/htmlPrueba.html');
-  // $mipdf->loadHtml($html1);
   $mipdf->loadHtml($fileContent);
-
   $mipdf->setPaper('A4', 'portait');
-
-
-
-  // $mipdf->load_html(utf8_decode($html1));
   $mipdf->render();
   $mipdf->stream("Informe Laboral - ".$referenciaLaboral['empresa']." - ".$datosPersonales['postulante_nombres']." ".$datosPersonales['postulante_apellido']." - "."DNI ".$datosPersonales['postulante_dni'].".pdf",array('Attachment'=>false));
  ?>
