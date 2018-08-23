@@ -61,8 +61,12 @@
            <div class="dosColumnas">
              <p><strong>Puntualidad:  </strong><?php echo $informeLaboral['puntualidad']?></p>
              <br>
-             <br>
            </div>
+         </div>
+         <div class="both">
+           <p><strong>Concepto general:  </strong><?php echo $informeLaboral['concepto_general']?></p>
+           <br>
+           <br>
          </div>
          <?php
           foreach ($informeLaboralPreguntas as $key => $preguntaRespuesta) {
