@@ -109,7 +109,9 @@ class Text extends AbstractFrameReflower
         }
 
         // split the text into words
-        $words = preg_split('/([\s-]+)/u', $text, -1, PREG_SPLIT_DELIM_CAPTURE);
+        // regex splits on everything that's a separator (^\S double negative), excluding nbsp (\xa0), plus dashes
+        //TODO: this misses narrow nbsp (http://www.fileformat.info/info/unicode/char/202f/index.htm)
+        $words = preg_split('/([^\S\xA0]+|-+)/u', $text, -1, PREG_SPLIT_DELIM_CAPTURE);
         $wc = count($words);
 
         // Determine the split point
@@ -467,9 +469,18 @@ class Text extends AbstractFrameReflower
             $style->border_right_width,
             $style->margin_right), $line_width);
         $min += $delta;
+        $min_word = $min;
         $max += $delta;
 
-        return $this->_min_max_cache = array($min, $max, "min" => $min, "max" => $max);
+        if ($style->word_wrap === 'break-word') {
+            // If it is allowed to break words, the min width is the widest character.
+            // But for performance reasons, we only check the first character.
+            $char = mb_substr($str, 0, 1);
+            $min_char = $this->getFontMetrics()->getTextWidth($char, $font, $size, $word_spacing, $char_spacing);
+            $min = $delta + $min_char;
+        }
+
+        return $this->_min_max_cache = array($min, $max, $min_word, "min" => $min, "max" => $max, 'min_word' => $min_word);
     }
 
     /**
