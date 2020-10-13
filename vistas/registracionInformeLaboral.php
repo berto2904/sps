@@ -36,31 +36,31 @@ utf8_encode_deep($informeLaboralPreguntas);
         </div>
         <div class="col-md-6">
           <label for="">Puesto al ingresar</label>
-          <input type="text" name="informeLaboral[puestoIngresar]" class="form-control" value="<?php echo $informeLaboral['puesto_al_ingresar'] ?>" maxlength="65">
+          <input type="text" name="informeLaboral[puestoIngresar]" class="form-control" value="<?php echo empty($informeLaboral['puesto_al_ingresar'])?"":$informeLaboral['puesto_al_ingresar']; ?>" maxlength="65">
           <label for="">Ultimo Puesto ocupado</label>
-          <input type="text" name="informeLaboral[puestoOcupado]" class="form-control" value="<?php echo $informeLaboral['ultimo_puesto_ocupado'] ?>" maxlength="65">
+          <input type="text" name="informeLaboral[puestoOcupado]" class="form-control" value="<?php echo empty($informeLaboral['ultimo_puesto_ocupado']) ? "" : $informeLaboral['ultimo_puesto_ocupado']; ?>" maxlength="65">
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <label for="">Causas de Egreso</label>
-          <input type="text" name="informeLaboral[causasEgreso]" class="form-control" value="<?php echo $informeLaboral['causa_de_egreso'] ?>" maxlength="140">
+          <input type="text" name="informeLaboral[causasEgreso]" class="form-control" value="<?php echo empty($informeLaboral['causa_de_egreso']) ? "" : $informeLaboral['causa_de_egreso'] ; ?>" maxlength="140">
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
           <label for="">Asistencia</label>
-          <input type="text" name="informeLaboral[asistencia]" class="form-control" value="<?php echo $informeLaboral['asistencia'] ?>" maxlength="65">
+          <input type="text" name="informeLaboral[asistencia]" class="form-control" value="<?php echo empty($informeLaboral['asistencia']) ? "" : $informeLaboral['asistencia'] ; ?>" maxlength="65">
         </div>
         <div class="col-md-6">
           <label for="">Puntualidad</label>
-          <input type="text" name="informeLaboral[puntualidad]" class="form-control" value="<?php echo $informeLaboral['puntualidad'] ?>" maxlength="65">
+          <input type="text" name="informeLaboral[puntualidad]" class="form-control" value="<?php echo empty($informeLaboral['puntualidad']) ? "" : $informeLaboral['puntualidad'] ; ?>" maxlength="65">
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <label for="">Concepto general</label>
-          <input type="text" name="informeLaboral[conceptoGeneral]" class="form-control" value="<?php echo $informeLaboral['concepto_general'] ?>" maxlength="140">
+          <input type="text" name="informeLaboral[conceptoGeneral]" class="form-control" value="<?php echo empty($informeLaboral['concepto_general']) ? "" : $informeLaboral['concepto_general'] ; ?>" maxlength="140">
         </div>
       </div>
       <div class="row">

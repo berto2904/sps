@@ -59,7 +59,7 @@ var id = $('#idEntrevista').val();
         	id_entrevista:id,
         },
         success: function(response) {
-        	postulanteInfo = JSON.parse(response);
+          postulanteInfo = JSON.parse(response);
           rellenarFormularioPostulante(postulanteInfo);
           disablearCampos();
         }

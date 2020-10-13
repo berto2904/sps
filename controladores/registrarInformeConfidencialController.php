@@ -22,17 +22,17 @@ header("location: ../vistas/consultarInformeConfidencial/consultaInformeConfiden
 /*----------------------------------------------------FUNCIONES------------------------------------------------*/
 function crearInformeConfidencial($informeConfidencial){
   $id_postulante = $informeConfidencial['idPostulante'];
-  $respuesta = $informeConfidencial['pregunta'][12];
-
-  $infoConfidencial = new InformeConfidencial($id_postulante, 12, $respuesta);
+  //FIXME La pregunta está harcodeada
+  $respuesta = $informeConfidencial['pregunta'][2];
+  $infoConfidencial = new InformeConfidencial($id_postulante, 2, $respuesta);
   $infoConfidencial->registrarInformeConfidencial();
 }
 
 function actualizarInformeConfidencial($informeConfidencial){
   $id_postulante = $informeConfidencial['idPostulante'];
-  $respuesta = $informeConfidencial['pregunta'][12];
-
-  $infoConfidencial = new InformeConfidencial($id_postulante, 12, $respuesta);
+  //FIXME La pregunta está harcodeada
+  $respuesta = $informeConfidencial['pregunta'][2];
+  $infoConfidencial = new InformeConfidencial($id_postulante, 2, $respuesta);
   $infoConfidencial->updateInformeConfidencial();
 }
 

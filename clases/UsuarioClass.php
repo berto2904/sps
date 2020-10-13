@@ -20,7 +20,6 @@ class Usuario{
 		$this->id_sexo = $id_sexo;
 		$this->apellido = $apellido;
 		//$this->ubicacion = $ubicacion;
-		$this->telefono = $telefono;
 		//$this->id_domicilio = $id_domicilio;
 		$this->ultimaConexion = $ultimaConexion;
 		$this->pass = $pass;
@@ -39,23 +38,23 @@ class Usuario{
 		$consultaIsTrue = mysqli_stmt_fetch($ps);
 		return $consultaIsTrue;
 	}
-	function persistirse(){
+	// function persistirse(){
 
-			if ($stmt = mysqli_prepare($this->$connQuery, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
-				mysqli_stmt_bind_param($stmt, "sissss",
-										$this->nombre,
-										$this->id_sexo,
-										$this->e_mail,
-										$this->pass,
-										$this->nombreUsuario,
-										$this->apellido);
+	// 		if ($stmt = mysqli_prepare($this->$connQuery, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
+	// 			mysqli_stmt_bind_param($stmt, "sissss",
+	// 									$this->nombre,
+	// 									$this->id_sexo,
+	// 									$this->e_mail,
+	// 									$this->pass,
+	// 									$this->nombreUsuario,
+	// 									$this->apellido);
 
 
-				mysqli_stmt_execute($stmt);
-				$persistido = mysqli_stmt_fetch($stmt);
-				return $persistido;
-			}
-		}
+	// 			mysqli_stmt_execute($stmt);
+	// 			$persistido = mysqli_stmt_fetch($stmt);
+	// 			return $persistido;
+	// 		}
+	// 	}
 			function persistirse2(){
 				$cq = new connQuery();
 				$sql = "insert into usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)";

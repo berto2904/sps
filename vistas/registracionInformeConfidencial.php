@@ -16,7 +16,8 @@ $infoConfidencial = InformeConfidencial::consultarInformeConfidencialByIdPostula
         ?>
         <div class="row">
           <div class="col-md-12">
-            <textarea class="form-control" name="informeConfidencial[pregunta][<?php echo $pregunta['idPregunta']?>]" rows="8" cols="80" maxlength="200"><?php echo $infoConfidencial['respuesta'] ?></textarea>
+          <!-- FIXME:  Arreglar pregunta informe confidencial -->
+            <textarea class="form-control" name="informeConfidencial[pregunta][<?php echo $pregunta['idPregunta']?>]" rows="8" cols="80" maxlength="200"><?php echo empty($infoConfidencial['respuesta']) ? "" : $infoConfidencial['respuesta'] ?></textarea>
           </div>
         </div>
       <?php } ?>
