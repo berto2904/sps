@@ -4,10 +4,10 @@
   $serverPort = (isset($_SERVER['SERVER_PORT']) ? ":".$_SERVER['SERVER_PORT'] :'');
   $server = $referer.'://'.$_SERVER['SERVER_NAME'].$serverPort;
 
-  require ($serverDocument. "/sps/clases/ReferenciaLaboral.php");
+  require ($serverDocument.'/sps/clases/ReferenciaLaboral.php');
   include ($serverDocument.'/sps/helper/sessionValidation.php');
   include ($serverDocument.'/sps/helper/request_no_curl.php');
-  include("../librerias/dompdf/autoload.inc.php");
+  include ($serverDocument.'/sps/librerias/dompdf/autoload.inc.php');
 
   $idRefLaboral = $_GET['idRefLaboral'];
   $idEntrevista = $_GET['entrevista'];
