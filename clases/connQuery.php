@@ -3,12 +3,12 @@ class ConnQuery{
 
   private $servidor ="localhost";
   // private $servidor ="mysql.hostinger.com.ar";
-  private $usuario = "root";
-  // private $usuario = "u672203769_admin";
-  private $pass = "";
-  // private $pass = "admin2904";
-  private $bd="sps";
-  // private $bd="u672203769_sps";
+  // private $usuario = "root";
+  private $usuario = "u678836941_admin";
+  // private $pass = "";
+  private $pass = "Admin2904";
+  // private $bd="sps";
+  private $bd="u678836941_sps";
   private $conn;
 
   function __construct(){
