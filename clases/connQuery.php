@@ -8,7 +8,7 @@ class ConnQuery{
 
   private $servidor ="mysql.hostinger.com.ar";	  
   private $usuario = "u678836941_root";	  
-  private $pass = "admin2904";	  
+  private $pass = "Admin2904";	  
   private $bd="u678836941_sps";
   private $conn;
 
