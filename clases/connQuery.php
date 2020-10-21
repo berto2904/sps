@@ -1,13 +1,14 @@
 <?php
 class ConnQuery{
 
-  private $servidor ="127.0.0.1:3306";
-  // private $servidor ="mysql.hostinger.com.ar";
+  // private $servidor ="localhost";
   // private $usuario = "root";
-  private $usuario = "u678836941_root";
   // private $pass = "";
-  private $pass = "Admin2904";
   // private $bd="sps";
+
+  private $servidor ="mysql.hostinger.com.ar";	  
+  private $usuario = "u678836941_root";	  
+  private $pass = "admin2904";	  
   private $bd="u678836941_sps";
   private $conn;
 
