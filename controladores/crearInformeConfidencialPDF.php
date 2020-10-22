@@ -6,7 +6,7 @@
 
   include ($serverDocument.'/sps/helper/sessionValidation.php');
   include ($serverDocument.'/sps/helper/request_no_curl.php');
-  include ($serverDocument.'/sps/librerias/dompdf/autoload.inc.php');
+  include ($serverDocument.'/sps/librerias/domPdf/autoload.inc.php');
 
 
   $idEntrevista = $_GET['entrevista'];
