@@ -11,6 +11,6 @@ Los **store procedure** que se encuentra en el archivo *mvb* se deberan generar 
 
 --- 
 
-La version de php productiva es la **7.3** se deberan seleccionar todas extensiones por las dudas
+La version de php productiva es la **7.2** se deberan seleccionar todas extensiones por las dudas
 
 ---
